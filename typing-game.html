@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Typing Sprint — Smart Learning Kids</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* small custom styles for animations & focus */
+    .card { transition: transform .18s ease, box-shadow .18s ease; }
+    .card:hover { transform: translateY(-6px); box-shadow: 0 18px 40px rgba(15,23,42,.12); }
+    .big-word { letter-spacing: .02em; }
+  </style>
+</head>
+<body class="bg-gray-50 text-slate-800 font-sans min-h-screen flex flex-col">
+
+  <!-- header -->
+  <header class="bg-white shadow sticky top-0 z-30">
+    <div class="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between">
+      <div>
+        <a href="/games.html" class="text-sm text-slate-600 hover:text-blue-600">← Back to Games</a>
+        <h1 class="text-2xl font-bold text-blue-600 mt-1">Typing Sprint</h1>
+      </div>
+      <div class="text-sm text-slate-500">Big text • Kid-friendly</div>
+    </div>
+  </header>
+
+  <!-- main -->
+  <main class="flex-1 max-w-4xl mx-auto p-6 w-full">
+    <section class="bg-white rounded-2xl p-8 card">
+      <div class="flex items-center justify-between mb-6">
+        <div>
+          <h2 class="text-3xl font-bold">Type the Word!</h2>
+          <p class="text-slate-600 mt-1">Type the word shown below and press <span class="font-semibold">Enter</span>.</p>
+        </div>
+        <div class="text-right">
+          <div id="timer" class="text-3xl font-extrabold text-blue-600">60</div>
+          <div class="text-xs text-slate-500">seconds left</div>
+        </div>
+      </div>
+
+      <div class="text-center mb-6">
+        <div id="wordBox" class="inline-block bg-blue-50 border border-blue-100 rounded-xl px-6 py-6">
+          <div id="currentWord" class="text-5xl md:text-6xl font-extrabold big-word text-slate-800">READY</div>
+        </div>
+      </div>
+
+      <div class="max-w-2xl mx-auto">
+        <input id="typeInput" autocomplete="off" autocapitalize="off" autocorrect="off"
+               class="w-full text-2xl md:text-3xl p-4 rounded-lg border focus:outline-none focus:ring-2 focus:ring-blue-300"
+               placeholder="Type here and press Enter..." />
+        <div class="flex items-center justify-between mt-4">
+          <div class="text-lg">Score: <span id="score" class="font-bold text-2xl">0</span></div>
+          <div class="flex gap-2">
+            <button id="startBtn" class="px-4 py-2 rounded-lg bg-blue-600 text-white font-semibold shadow hover:bg-blue-700 transition">Start</button>
+            <button id="resetBtn" class="px-4 py-2 rounded-lg border font-semibold hover:bg-slate-50">Reset</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-6 text-sm text-slate-500">
+        Tip: Use big, easy-to-read words for younger kids. You can change the `WORDS` list in the script.
+      </div>
+    </section>
+  </main>
+
+  <footer class="text-center py-6 text-sm text-slate-500">
+    Smart Learning Kids • Typing Sprint
+  </footer>
+
+  <script>
+    // Typing Sprint Game Script
+    (() => {
+      // WORD LIST — extend as needed
+      const WORDS = [
+        "apple","ball","cat","dog","fish","sun","moon","star","book","chair",
+        "table","tree","milk","rain","bird","house","school","pen","hat","shoe",
+        "happy","smile","green","blue","red","yellow","fast","slow","big","small"
+      ];
+
+      const START_TIME = 60; // seconds
+      let timeLeft = START_TIME;
+      let timerId = null;
+      let running = false;
+      let score = 0;
+
+      const el = {
+        timer: document.getElementById("timer"),
+        currentWord: document.getElementById("currentWord"),
+        typeInput: document.getElementById("typeInput"),
+        score: document.getElementById("score"),
+        startBtn: document.getElementById("startBtn"),
+        resetBtn: document.getElementById("resetBtn"),
+      };
+
+      function randomWord() {
+        return WORDS[Math.floor(Math.random() * WORDS.length)];
+      }
+
+      function setWord(w) {
+        el.currentWord.textContent = w;
+      }
+
+      function startGame() {
+        if (running) return;
+        running = true;
+        score = 0;
+        timeLeft = START_TIME;
+        el.score.textContent = score;
+        el.timer.textContent = timeLeft;
+        setWord(randomWord());
+        el.typeInput.value = "";
+        el.typeInput.focus();
+
+        timerId = setInterval(() => {
+          timeLeft--;
+          el.timer.textContent = timeLeft;
+          if (timeLeft <= 0) endGame();
+        }, 1000);
+      }
+
+      function endGame() {
+        running = false;
+        clearInterval(timerId);
+        setWord("TIME UP");
+        el.typeInput.blur();
+        alert("Time's up! Score: " + score);
+      }
+
+      function resetGame() {
+        running = false;
+        clearInterval(timerId);
+        score = 0;
+        timeLeft = START_TIME;
+        el.score.textContent = score;
+        el.timer.textContent = timeLeft;
+        setWord("READY");
+        el.typeInput.value = "";
+      }
+
+      // handle input: when Enter pressed, check
+      el.typeInput.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") {
+          const typed = el.typeInput.value.trim().toLowerCase();
+          const target = el.currentWord.textContent.trim().toLowerCase();
+          if (!running) {
+            // pressing enter starts game if not running
+            startGame();
+            return;
+          }
+          if (!typed) return;
+          if (typed === target) {
+            score++;
+            el.score.textContent = score;
+            // nice feedback
+            el.currentWord.classList.add("text-green-600");
+            setTimeout(() => el.currentWord.classList.remove("text-green-600"), 200);
+          } else {
+            // small negative feedback
+            el.currentWord.classList.add("text-red-600");
+            setTimeout(() => el.currentWord.classList.remove("text-red-600"), 200);
+          }
+          el.typeInput.value = "";
+          setWord(randomWord());
+        }
+      });
+
+      el.startBtn.addEventListener("click", startGame);
+      el.resetBtn.addEventListener("click", resetGame);
+
+      // initialize
+      resetGame();
+    })();
+  </script>
+</body>
+</html>
