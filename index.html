@@ -1,0 +1,185 @@
+import React from "react";
+
+// Smart Learning Kids - Home Page (single-file React component) // - Tailwind CSS utility classes used (no external CSS required) // - Default export is the page component // - Buttons, nav, hero, feature cards, resources, CTA, footer
+
+export default function HomePage() { return ( <div className="min-h-screen bg-gradient-to-b from-sky-50 via-white to-sky-100 text-slate-900 font-sans"> <header className="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-sm shadow-md z-40"> <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"> <div className="flex items-center justify-between h-16"> <div className="flex items-center space-x-4"> <div className="w-10 h-10 rounded-2xl bg-gradient-to-tr from-indigo-500 to-sky-400 flex items-center justify-center text-white font-bold">SL</div> <div className="hidden sm:block"> <h1 className="text-lg font-semibold">Smart Learning Kids</h1> <p className="text-xs text-slate-500">Coding, Computer Literacy & Games for Schools</p> </div> </div>
+
+<nav className="hidden md:flex items-center gap-6 text-sm">
+          <a href="#features" className="hover:underline">Features</a>
+          <a href="#games" className="hover:underline">Games</a>
+          <a href="#resources" className="hover:underline">Resources</a>
+          <a href="#about" className="hover:underline">About</a>
+        </nav>
+
+        <div className="flex items-center gap-3">
+          <a href="#download" className="hidden sm:inline-block px-4 py-2 border rounded-full text-sm bg-white">Download
+            Worksheets</a>
+          <a href="#start" className="inline-block px-4 py-2 rounded-full bg-indigo-600 text-white text-sm shadow-sm hover:bg-indigo-700">Start
+            Learning</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main className="pt-28">
+    <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+        <div className="space-y-6">
+          <h2 className="text-4xl sm:text-5xl font-extrabold leading-tight">
+            Fun, Progressive Computer Lessons & Games for Primary & Secondary Schools
+          </h2>
+          <p className="text-slate-600 max-w-xl">
+            Teach typing, mouse skills, unplugged coding, logic puzzles, and interactive quizzes — all
+            organised by term and class. Ready-to-print worksheets, web games, and teacher guides included.
+          </p>
+
+          <div className="flex flex-wrap gap-3">
+            <a href="#start" className="px-5 py-3 rounded-lg bg-indigo-600 text-white font-semibold shadow hover:bg-indigo-700">Browse
+              Lessons</a>
+            <a href="#games" className="px-5 py-3 rounded-lg border font-semibold">Try the Games</a>
+            <a href="#download" className="px-4 py-3 rounded-lg bg-white border font-medium">Download
+              Sample Pack</a>
+          </div>
+
+          <div className="mt-4 flex flex-wrap gap-3 items-center text-sm text-slate-600">
+            <div className="inline-flex items-center gap-2 bg-white/60 px-3 py-2 rounded-lg shadow-sm">
+              <span className="font-semibold">Progressive</span>
+              <span className="text-xs">P1 → SSS3</span>
+            </div>
+            <div className="inline-flex items-center gap-2 bg-white/60 px-3 py-2 rounded-lg shadow-sm">
+              <span className="font-semibold">Teacher-ready</span>
+              <span className="text-xs">Worksheets & Guides</span>
+            </div>
+            <div className="inline-flex items-center gap-2 bg-white/60 px-3 py-2 rounded-lg shadow-sm">
+              <span className="font-semibold">Offline-first</span>
+              <span className="text-xs">Printable PDFs</span>
+            </div>
+          </div>
+        </div>
+
+        <div className="relative">
+          <div className="rounded-2xl bg-gradient-to-br from-white to-sky-50 shadow-lg p-6">
+            <div className="grid grid-cols-2 gap-4">
+              <Card title="Typing Practice" desc="Timed exercises & name building" />
+              <Card title="Mouse Precision" desc="Click & drag targets" />
+              <Card title="Color Games" desc="Match, fill, and spot-the-difference" />
+              <Card title="Quizzes" desc="Multiple choice & instant feedback" />
+            </div>
+
+            <div className="mt-6 bg-indigo-50 border border-indigo-100 rounded-lg p-4">
+              <p className="text-sm">Sample lesson: <strong>Term 1 — P3</strong> • Typing: 5–10mins • Mouse game: 3 targets</p>
+              <div className="mt-3">
+                <a href="#start" className="inline-block px-4 py-2 rounded-md bg-indigo-600 text-white text-sm">Open
+                  Sample Lesson</a>
+              </div>
+            </div>
+          </div>
+
+          <div className="absolute -right-6 -bottom-10 hidden lg:block">
+            <svg width="220" height="220" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="g1" x1="0" x2="1" y1="0" y2="1">
+                  <stop offset="0" stopColor="#A78BFA" />
+                  <stop offset="1" stopColor="#60A5FA" />
+                </linearGradient>
+              </defs>
+              <circle cx="100" cy="100" r="100" fill="url(#g1)" opacity="0.85" />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="features" className="mt-16">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h3 className="text-2xl font-bold">What you'll find</h3>
+        <p className="text-slate-600 mt-2 max-w-2xl">Modules, games, teacher notes and ready PDFs organised by term and
+          class.</p>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-6">
+          <Feature icon="🎮" title="Interactive Games" desc="Mouse, keyboard & color games for younger pupils." />
+          <Feature icon="🧠" title="Logic Puzzles" desc="Unplugged coding and thinking games for problem solving." />
+          <Feature icon="📝" title="Worksheets" desc="Printable PDFs: practice, take-home notes, teacher guides." />
+          <Feature icon="📊" title="Progress Trackers" desc="Simple quizzes and scoring for quick assessment." />
+        </div>
+      </div>
+    </section>
+
+    <section id="games" className="mt-16">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between">
+          <h3 className="text-2xl font-bold">Try a quick game</h3>
+          <a href="#games" className="text-sm underline">Open games library</a>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
+          <GameCard title="Balloon Pop (Click)" summary="Pop only red balloons in 30s" level="P1-P3" />
+          <GameCard title="Typing Sprint" summary="Type the word shown quickly" level="P2-P4" />
+          <GameCard title="Color Match" summary="Match objects to colours" level="P1-P2" />
+        </div>
+      </div>
+    </section>
+
+    <section id="resources" className="mt-16 pb-16">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between">
+          <h3 className="text-2xl font-bold">Resources</h3>
+          <div className="flex items-center gap-3">
+            <a href="#download" className="text-sm px-4 py-2 border rounded">Download pack (PDF)</a>
+            <a href="#contact" className="text-sm px-4 py-2 bg-indigo-600 text-white rounded">Request a
+              Lesson Plan</a>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
+          <ResourceCard title="Term 1 — Primary" desc="Worksheets & lesson notes (printable)" />
+          <ResourceCard title="Term 2 — Primary" desc="Games + quizzes" />
+          <ResourceCard title="Secondary Starter Pack" desc="Unplugged coding & mini projects" />
+        </div>
+      </div>
+    </section>
+
+    <section id="about" className="mt-16 bg-white/60 py-10">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h3 className="text-2xl font-bold">About Smart Learning Kids</h3>
+        <p className="mt-3 max-w-3xl mx-auto text-slate-600">Created for teachers in low-resource schools — lessons are
+          unplugged-first, printer-friendly and scaffolded from Primary 1 up to Senior Secondary. The goal is to help
+          every child gain basic digital skills and logical thinking through playful learning.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer className="border-t bg-white/70 mt-16">
+    <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col md:flex-row justify-between gap-6">
+      <div>
+        <h4 className="font-bold">Smart Learning Kids</h4>
+        <p className="text-sm text-slate-600 max-w-xs">Teaching practical computer skills & coding to children across
+          Nigeria and beyond.</p>
+      </div>
+
+      <div className="flex gap-6 items-start">
+        <div>
+          <h5 className="font-semibold">Contact</h5>
+          <p className="text-sm text-slate-600">hello@smartlearningkids.org</p>
+        </div>
+        <div>
+          <h5 className="font-semibold">Follow</h5>
+          <p className="text-sm text-slate-600">Twitter • Facebook • Instagram</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+
+); }
+
+/* Reusable small components below (kept in same file for single-file delivery) */
+
+function Card({ title, desc }) { return ( <div className="p-4 rounded-xl bg-white border shadow-sm"> <h4 className="font-semibold">{title}</h4> <p className="text-sm text-slate-500 mt-1">{desc}</p> </div> ); }
+
+function Feature({ icon, title, desc }) { return ( <div className="p-4 rounded-xl bg-white border shadow-sm flex flex-col gap-3"> <div className="text-3xl">{icon}</div> <div> <h4 className="font-semibold">{title}</h4> <p className="text-sm text-slate-500 mt-1">{desc}</p> </div> </div> ); }
+
+function GameCard({ title, summary, level }) { return ( <div className="p-4 rounded-xl bg-white border shadow-sm hover:shadow-md transition"> <h4 className="font-semibold">{title}</h4> <p className="text-sm text-slate-500 mt-2">{summary}</p> <div className="mt-4 flex items-center justify-between"> <span className="text-xs text-slate-500">Level: {level}</span> <a href="#" className="text-sm px-3 py-1 rounded bg-indigo-50 border">Play</a> </div> </div> ); }
+
+function ResourceCard({ title, desc }) { return ( <div className="p-4 rounded-xl bg-white border shadow-sm"> <h4 className="font-semibold">{title}</h4> <p className="text-sm text-slate-500 mt-2">{desc}</p> <div className="mt-4"> <a href="#download" className="inline-block px-3 py-2 rounded bg-indigo-600 text-white text-sm">Download</a> </div> </div> ); }
+
