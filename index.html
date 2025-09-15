@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Learning Kids</title>
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#1d4ed8">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+  <!-- Navbar -->
+  <header class="sticky top-0 z-50 bg-white shadow-md">
+    <nav class="max-w-6xl mx-auto flex justify-between items-center p-4">
+      <h1 class="text-2xl font-bold text-blue-600">Smart Learning Kids</h1>
+      <div class="space-x-4 hidden md:flex">
+        <a href="index.html" class="hover:text-blue-600 transition">Home</a>
+        <a href="lessons.html" class="hover:text-blue-600 transition">Lessons</a>
+        <a href="games.html" class="hover:text-blue-600 transition">Games</a>
+        <a href="quizzes.html" class="hover:text-blue-600 transition">Quizzes</a>
+        <a href="worksheets.html" class="hover:text-blue-600 transition">Worksheets</a>
+        <a href="about.html" class="hover:text-blue-600 transition">About</a>
+        <a href="contact.html" class="hover:text-blue-600 transition">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="text-center py-16 px-6 bg-gradient-to-b from-blue-100 to-gray-50">
+    <h2 class="text-4xl md:text-5xl font-bold mb-6">Welcome to Fun Learning!</h2>
+    <p class="text-lg md:text-xl max-w-2xl mx-auto mb-8">
+      Explore lessons, play games, take quizzes, and learn with joy.
+    </p>
+    <a href="games.html" 
+       class="inline-block bg-blue-600 text-white px-6 py-3 rounded-xl shadow-lg text-lg font-semibold hover:bg-blue-700 transition transform hover:scale-105">
+      🎮 Try the Games
+    </a>
+  </section>
+
+  <!-- Features Cards -->
+  <section class="max-w-6xl mx-auto grid gap-6 md:grid-cols-2 lg:grid-cols-3 py-12 px-6">
+    <a href="lessons.html" 
+       class="bg-white rounded-2xl shadow-md p-6 text-center transition hover:shadow-xl hover:-translate-y-1">
+      <h3 class="text-2xl font-bold mb-2">📘 Lessons</h3>
+      <p class="text-lg">Step-by-step topics for Primary & Secondary classes.</p>
+    </a>
+    <a href="games.html" 
+       class="bg-white rounded-2xl shadow-md p-6 text-center transition hover:shadow-xl hover:-translate-y-1">
+      <h3 class="text-2xl font-bold mb-2">🎲 Games</h3>
+      <p class="text-lg">Fun typing, mouse, keyboard & color games.</p>
+    </a>
+    <a href="quizzes.html" 
+       class="bg-white rounded-2xl shadow-md p-6 text-center transition hover:shadow-xl hover:-translate-y-1">
+      <h3 class="text-2xl font-bold mb-2">📝 Quizzes</h3>
+      <p class="text-lg">Answer questions with simple radio options & instant feedback.</p>
+    </a>
+    <a href="worksheets.html" 
+       class="bg-white rounded-2xl shadow-md p-6 text-center transition hover:shadow-xl hover:-translate-y-1">
+      <h3 class="text-2xl font-bold mb-2">📂 Worksheets</h3>
+      <p class="text-lg">Download free worksheets for offline practice.</p>
+    </a>
+    <a href="about.html" 
+       class="bg-white rounded-2xl shadow-md p-6 text-center transition hover:shadow-xl hover:-translate-y-1">
+      <h3 class="text-2xl font-bold mb-2">ℹ️ About</h3>
+      <p class="text-lg">Learn about our mission to make kids’ learning fun.</p>
+    </a>
+    <a href="contact.html" 
+       class="bg-white rounded-2xl shadow-md p-6 text-center transition hover:shadow-xl hover:-translate-y-1">
+      <h3 class="text-2xl font-bold mb-2">📧 Contact</h3>
+      <p class="text-lg">Get in touch with us for support or suggestions.</p>
+    </a>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-white shadow-inner text-center py-6 mt-10">
+    <p class="text-lg">&copy; 2025 Smart Learning Kids. All rights reserved.</p>
+  </footer>
+
+  <!-- PWA registration -->
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("/service-worker.js")
+        .then(() => console.log("Service Worker Registered"));
+    }
+  </script>
+</body>
+</html>
