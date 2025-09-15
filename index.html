@@ -1,185 +1,149 @@
-import React from "react";
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smart Learning Kids</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-b from-sky-50 via-white to-sky-100 text-slate-900 font-sans">
+  <!-- Header -->
+  <header class="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-sm shadow-md z-40">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex items-center space-x-4">
+          <div class="w-10 h-10 rounded-2xl bg-gradient-to-tr from-indigo-500 to-sky-400 flex items-center justify-center text-white font-bold">SL</div>
+          <div class="hidden sm:block">
+            <h1 class="text-lg font-semibold">Smart Learning Kids</h1>
+            <p class="text-xs text-slate-500">Coding, Computer Literacy & Games for Schools</p>
+          </div>
+        </div><nav class="hidden md:flex items-center gap-6 text-sm">
+      <a href="#features" class="hover:underline">Features</a>
+      <a href="#games" class="hover:underline">Games</a>
+      <a href="#resources" class="hover:underline">Resources</a>
+      <a href="#about" class="hover:underline">About</a>
+    </nav>
 
-// Smart Learning Kids - Home Page (single-file React component) // - Tailwind CSS utility classes used (no external CSS required) // - Default export is the page component // - Buttons, nav, hero, feature cards, resources, CTA, footer
+    <div class="flex items-center gap-3">
+      <a href="#download" class="hidden sm:inline-block px-4 py-2 border rounded-full text-sm bg-white">Download Worksheets</a>
+      <a href="#start" class="inline-block px-4 py-2 rounded-full bg-indigo-600 text-white text-sm shadow-sm hover:bg-indigo-700">Start Learning</a>
+    </div>
+  </div>
+</div>
 
-export default function HomePage() { return ( <div className="min-h-screen bg-gradient-to-b from-sky-50 via-white to-sky-100 text-slate-900 font-sans"> <header className="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-sm shadow-md z-40"> <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"> <div className="flex items-center justify-between h-16"> <div className="flex items-center space-x-4"> <div className="w-10 h-10 rounded-2xl bg-gradient-to-tr from-indigo-500 to-sky-400 flex items-center justify-center text-white font-bold">SL</div> <div className="hidden sm:block"> <h1 className="text-lg font-semibold">Smart Learning Kids</h1> <p className="text-xs text-slate-500">Coding, Computer Literacy & Games for Schools</p> </div> </div>
+  </header>  <!-- Hero Section -->  <main class="pt-28">
+    <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+        <div class="space-y-6">
+          <h2 class="text-4xl sm:text-5xl font-extrabold leading-tight">
+            Fun, Progressive Computer Lessons & Games for Primary & Secondary Schools
+          </h2>
+          <p class="text-slate-600 max-w-xl">
+            Teach typing, mouse skills, unplugged coding, logic puzzles, and interactive quizzes — all organised by term and class. Ready-to-print worksheets, web games, and teacher guides included.
+          </p><div class="flex flex-wrap gap-3">
+        <a href="#start" class="px-5 py-3 rounded-lg bg-indigo-600 text-white font-semibold shadow hover:bg-indigo-700">Browse Lessons</a>
+        <a href="#games" class="px-5 py-3 rounded-lg border font-semibold">Try the Games</a>
+        <a href="#download" class="px-4 py-3 rounded-lg bg-white border font-medium">Download Sample Pack</a>
+      </div>
+    </div>
 
-<nav className="hidden md:flex items-center gap-6 text-sm">
-          <a href="#features" className="hover:underline">Features</a>
-          <a href="#games" className="hover:underline">Games</a>
-          <a href="#resources" className="hover:underline">Resources</a>
-          <a href="#about" className="hover:underline">About</a>
-        </nav>
-
-        <div className="flex items-center gap-3">
-          <a href="#download" className="hidden sm:inline-block px-4 py-2 border rounded-full text-sm bg-white">Download
-            Worksheets</a>
-          <a href="#start" className="inline-block px-4 py-2 rounded-full bg-indigo-600 text-white text-sm shadow-sm hover:bg-indigo-700">Start
-            Learning</a>
+    <div class="relative">
+      <div class="rounded-2xl bg-gradient-to-br from-white to-sky-50 shadow-lg p-6 grid grid-cols-2 gap-4">
+        <div class="p-4 rounded-xl bg-white border shadow-sm">
+          <h4 class="font-semibold">Typing Practice</h4>
+          <p class="text-sm text-slate-500">Timed exercises & name building</p>
+        </div>
+        <div class="p-4 rounded-xl bg-white border shadow-sm">
+          <h4 class="font-semibold">Mouse Precision</h4>
+          <p class="text-sm text-slate-500">Click & drag targets</p>
+        </div>
+        <div class="p-4 rounded-xl bg-white border shadow-sm">
+          <h4 class="font-semibold">Color Games</h4>
+          <p class="text-sm text-slate-500">Match and fill-in games</p>
+        </div>
+        <div class="p-4 rounded-xl bg-white border shadow-sm">
+          <h4 class="font-semibold">Quizzes</h4>
+          <p class="text-sm text-slate-500">Multiple choice feedback</p>
         </div>
       </div>
     </div>
-  </header>
+  </div>
+</section>
 
-  <main className="pt-28">
-    <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-        <div className="space-y-6">
-          <h2 className="text-4xl sm:text-5xl font-extrabold leading-tight">
-            Fun, Progressive Computer Lessons & Games for Primary & Secondary Schools
-          </h2>
-          <p className="text-slate-600 max-w-xl">
-            Teach typing, mouse skills, unplugged coding, logic puzzles, and interactive quizzes — all
-            organised by term and class. Ready-to-print worksheets, web games, and teacher guides included.
-          </p>
-
-          <div className="flex flex-wrap gap-3">
-            <a href="#start" className="px-5 py-3 rounded-lg bg-indigo-600 text-white font-semibold shadow hover:bg-indigo-700">Browse
-              Lessons</a>
-            <a href="#games" className="px-5 py-3 rounded-lg border font-semibold">Try the Games</a>
-            <a href="#download" className="px-4 py-3 rounded-lg bg-white border font-medium">Download
-              Sample Pack</a>
-          </div>
-
-          <div className="mt-4 flex flex-wrap gap-3 items-center text-sm text-slate-600">
-            <div className="inline-flex items-center gap-2 bg-white/60 px-3 py-2 rounded-lg shadow-sm">
-              <span className="font-semibold">Progressive</span>
-              <span className="text-xs">P1 → SSS3</span>
-            </div>
-            <div className="inline-flex items-center gap-2 bg-white/60 px-3 py-2 rounded-lg shadow-sm">
-              <span className="font-semibold">Teacher-ready</span>
-              <span className="text-xs">Worksheets & Guides</span>
-            </div>
-            <div className="inline-flex items-center gap-2 bg-white/60 px-3 py-2 rounded-lg shadow-sm">
-              <span className="font-semibold">Offline-first</span>
-              <span className="text-xs">Printable PDFs</span>
-            </div>
-          </div>
-        </div>
-
-        <div className="relative">
-          <div className="rounded-2xl bg-gradient-to-br from-white to-sky-50 shadow-lg p-6">
-            <div className="grid grid-cols-2 gap-4">
-              <Card title="Typing Practice" desc="Timed exercises & name building" />
-              <Card title="Mouse Precision" desc="Click & drag targets" />
-              <Card title="Color Games" desc="Match, fill, and spot-the-difference" />
-              <Card title="Quizzes" desc="Multiple choice & instant feedback" />
-            </div>
-
-            <div className="mt-6 bg-indigo-50 border border-indigo-100 rounded-lg p-4">
-              <p className="text-sm">Sample lesson: <strong>Term 1 — P3</strong> • Typing: 5–10mins • Mouse game: 3 targets</p>
-              <div className="mt-3">
-                <a href="#start" className="inline-block px-4 py-2 rounded-md bg-indigo-600 text-white text-sm">Open
-                  Sample Lesson</a>
-              </div>
-            </div>
-          </div>
-
-          <div className="absolute -right-6 -bottom-10 hidden lg:block">
-            <svg width="220" height="220" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <linearGradient id="g1" x1="0" x2="1" y1="0" y2="1">
-                  <stop offset="0" stopColor="#A78BFA" />
-                  <stop offset="1" stopColor="#60A5FA" />
-                </linearGradient>
-              </defs>
-              <circle cx="100" cy="100" r="100" fill="url(#g1)" opacity="0.85" />
-            </svg>
-          </div>
-        </div>
+<!-- Features -->
+<section id="features" class="mt-16">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h3 class="text-2xl font-bold">What you'll find</h3>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-6">
+      <div class="p-4 rounded-xl bg-white border shadow-sm">
+        <div class="text-3xl">🎮</div>
+        <h4 class="font-semibold">Interactive Games</h4>
+        <p class="text-sm text-slate-500">Mouse, keyboard & color games</p>
       </div>
-    </section>
-
-    <section id="features" className="mt-16">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h3 className="text-2xl font-bold">What you'll find</h3>
-        <p className="text-slate-600 mt-2 max-w-2xl">Modules, games, teacher notes and ready PDFs organised by term and
-          class.</p>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-6">
-          <Feature icon="🎮" title="Interactive Games" desc="Mouse, keyboard & color games for younger pupils." />
-          <Feature icon="🧠" title="Logic Puzzles" desc="Unplugged coding and thinking games for problem solving." />
-          <Feature icon="📝" title="Worksheets" desc="Printable PDFs: practice, take-home notes, teacher guides." />
-          <Feature icon="📊" title="Progress Trackers" desc="Simple quizzes and scoring for quick assessment." />
-        </div>
+      <div class="p-4 rounded-xl bg-white border shadow-sm">
+        <div class="text-3xl">🧠</div>
+        <h4 class="font-semibold">Logic Puzzles</h4>
+        <p class="text-sm text-slate-500">Unplugged coding and thinking</p>
       </div>
-    </section>
-
-    <section id="games" className="mt-16">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between">
-          <h3 className="text-2xl font-bold">Try a quick game</h3>
-          <a href="#games" className="text-sm underline">Open games library</a>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
-          <GameCard title="Balloon Pop (Click)" summary="Pop only red balloons in 30s" level="P1-P3" />
-          <GameCard title="Typing Sprint" summary="Type the word shown quickly" level="P2-P4" />
-          <GameCard title="Color Match" summary="Match objects to colours" level="P1-P2" />
-        </div>
+      <div class="p-4 rounded-xl bg-white border shadow-sm">
+        <div class="text-3xl">📝</div>
+        <h4 class="font-semibold">Worksheets</h4>
+        <p class="text-sm text-slate-500">Printable PDFs & guides</p>
       </div>
-    </section>
-
-    <section id="resources" className="mt-16 pb-16">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between">
-          <h3 className="text-2xl font-bold">Resources</h3>
-          <div className="flex items-center gap-3">
-            <a href="#download" className="text-sm px-4 py-2 border rounded">Download pack (PDF)</a>
-            <a href="#contact" className="text-sm px-4 py-2 bg-indigo-600 text-white rounded">Request a
-              Lesson Plan</a>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
-          <ResourceCard title="Term 1 — Primary" desc="Worksheets & lesson notes (printable)" />
-          <ResourceCard title="Term 2 — Primary" desc="Games + quizzes" />
-          <ResourceCard title="Secondary Starter Pack" desc="Unplugged coding & mini projects" />
-        </div>
+      <div class="p-4 rounded-xl bg-white border shadow-sm">
+        <div class="text-3xl">📊</div>
+        <h4 class="font-semibold">Progress Trackers</h4>
+        <p class="text-sm text-slate-500">Simple quizzes for assessment</p>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
 
-    <section id="about" className="mt-16 bg-white/60 py-10">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h3 className="text-2xl font-bold">About Smart Learning Kids</h3>
-        <p className="mt-3 max-w-3xl mx-auto text-slate-600">Created for teachers in low-resource schools — lessons are
-          unplugged-first, printer-friendly and scaffolded from Primary 1 up to Senior Secondary. The goal is to help
-          every child gain basic digital skills and logical thinking through playful learning.</p>
+<!-- Games -->
+<section id="games" class="mt-16">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h3 class="text-2xl font-bold">Try a quick game</h3>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
+      <div class="p-4 rounded-xl bg-white border shadow-sm">
+        <h4 class="font-semibold">Balloon Pop (Click)</h4>
+        <p class="text-sm text-slate-500">Pop only red balloons</p>
       </div>
-    </section>
-  </main>
+      <div class="p-4 rounded-xl bg-white border shadow-sm">
+        <h4 class="font-semibold">Typing Sprint</h4>
+        <p class="text-sm text-slate-500">Type the word quickly</p>
+      </div>
+      <div class="p-4 rounded-xl bg-white border shadow-sm">
+        <h4 class="font-semibold">Color Match</h4>
+        <p class="text-sm text-slate-500">Match objects to colors</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <footer className="border-t bg-white/70 mt-16">
-    <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col md:flex-row justify-between gap-6">
+<!-- About -->
+<section id="about" class="mt-16 bg-white/60 py-10">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <h3 class="text-2xl font-bold">About Smart Learning Kids</h3>
+    <p class="mt-3 max-w-3xl mx-auto text-slate-600">Lessons are unplugged-first, printer-friendly and scaffolded from Primary 1 up to Senior Secondary. The goal is to help every child gain digital skills and logical thinking through playful learning.</p>
+  </div>
+</section>
+
+  </main>  <!-- Footer -->  <footer class="border-t bg-white/70 mt-16">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col md:flex-row justify-between gap-6">
       <div>
-        <h4 className="font-bold">Smart Learning Kids</h4>
-        <p className="text-sm text-slate-600 max-w-xs">Teaching practical computer skills & coding to children across
-          Nigeria and beyond.</p>
+        <h4 class="font-bold">Smart Learning Kids</h4>
+        <p class="text-sm text-slate-600 max-w-xs">Teaching practical computer skills & coding to children across Nigeria and beyond.</p>
       </div>
-
-      <div className="flex gap-6 items-start">
+      <div class="flex gap-6 items-start">
         <div>
-          <h5 className="font-semibold">Contact</h5>
-          <p className="text-sm text-slate-600">hello@smartlearningkids.org</p>
+          <h5 class="font-semibold">Contact</h5>
+          <p class="text-sm text-slate-600">hello@smartlearningkids.org</p>
         </div>
         <div>
-          <h5 className="font-semibold">Follow</h5>
-          <p className="text-sm text-slate-600">Twitter • Facebook • Instagram</p>
+          <h5 class="font-semibold">Follow</h5>
+          <p class="text-sm text-slate-600">Twitter • Facebook • Instagram</p>
         </div>
       </div>
     </div>
   </footer>
-</div>
-
-); }
-
-/* Reusable small components below (kept in same file for single-file delivery) */
-
-function Card({ title, desc }) { return ( <div className="p-4 rounded-xl bg-white border shadow-sm"> <h4 className="font-semibold">{title}</h4> <p className="text-sm text-slate-500 mt-1">{desc}</p> </div> ); }
-
-function Feature({ icon, title, desc }) { return ( <div className="p-4 rounded-xl bg-white border shadow-sm flex flex-col gap-3"> <div className="text-3xl">{icon}</div> <div> <h4 className="font-semibold">{title}</h4> <p className="text-sm text-slate-500 mt-1">{desc}</p> </div> </div> ); }
-
-function GameCard({ title, summary, level }) { return ( <div className="p-4 rounded-xl bg-white border shadow-sm hover:shadow-md transition"> <h4 className="font-semibold">{title}</h4> <p className="text-sm text-slate-500 mt-2">{summary}</p> <div className="mt-4 flex items-center justify-between"> <span className="text-xs text-slate-500">Level: {level}</span> <a href="#" className="text-sm px-3 py-1 rounded bg-indigo-50 border">Play</a> </div> </div> ); }
-
-function ResourceCard({ title, desc }) { return ( <div className="p-4 rounded-xl bg-white border shadow-sm"> <h4 className="font-semibold">{title}</h4> <p className="text-sm text-slate-500 mt-2">{desc}</p> <div className="mt-4"> <a href="#download" className="inline-block px-3 py-2 rounded bg-indigo-600 text-white text-sm">Download</a> </div> </div> ); }
-
+</body>
+</html>
