@@ -54,13 +54,22 @@
 </header>
 
 <script>
-  // Mobile menu toggle
+  // Mobile menu toggle with auto-close
   document.addEventListener("DOMContentLoaded", () => {
     const btn = document.getElementById("menu-btn");
     const menu = document.getElementById("mobile-menu");
+    const links = menu.querySelectorAll("a"); // all links inside mobile menu
 
+    // Toggle menu on button click
     btn.addEventListener("click", () => {
       menu.classList.toggle("hidden");
+    });
+
+    // Close menu when any link is clicked
+    links.forEach(link => {
+      link.addEventListener("click", () => {
+        menu.classList.add("hidden");
+      });
     });
   });
 </script>
