@@ -10,7 +10,60 @@
 </head>
 <body class="bg-gray-50 text-gray-800 font-sans">
 
-  <!-- Navbar -->
+ <!-- Navbar -->
+<header class="sticky top-0 z-50 bg-white shadow-md">
+  <nav class="max-w-6xl mx-auto flex justify-between items-center p-4">
+    <!-- Logo -->
+    <h1 class="text-2xl font-bold text-blue-600">Smart Learning Kids</h1>
+
+    <!-- Desktop Menu -->
+    <div class="space-x-4 hidden md:flex">
+      <a href="index.html" class="hover:text-blue-600 transition">Home</a>
+      <a href="lessons.html" class="hover:text-blue-600 transition">Lessons</a>
+      <a href="games.html" class="hover:text-blue-600 transition">Games</a>
+      <a href="quizzes.html" class="hover:text-blue-600 transition">Quizzes</a>
+      <a href="worksheets.html" class="hover:text-blue-600 transition">Worksheets</a>
+      <a href="about.html" class="hover:text-blue-600 transition">About</a>
+      <a href="contact.html" class="hover:text-blue-600 transition">Contact</a>
+    </div>
+
+    <!-- Mobile Menu Button -->
+    <button id="menu-btn" class="md:hidden focus:outline-none">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-600" fill="none"
+           viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+  </nav>
+
+  <!-- Mobile Dropdown -->
+  <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
+    <a href="index.html" class="block px-4 py-2 hover:bg-gray-100">Home</a>
+    <a href="lessons.html" class="block px-4 py-2 hover:bg-gray-100">Lessons</a>
+    <a href="games.html" class="block px-4 py-2 hover:bg-gray-100">Games</a>
+    <a href="quizzes.html" class="block px-4 py-2 hover:bg-gray-100">Quizzes</a>
+    <a href="worksheets.html" class="block px-4 py-2 hover:bg-gray-100">Worksheets</a>
+    <a href="about.html" class="block px-4 py-2 hover:bg-gray-100">About</a>
+    <a href="contact.html" class="block px-4 py-2 hover:bg-gray-100">Contact</a>
+  </div>
+</header>
+
+<script>
+  // Mobile menu toggle
+  document.addEventListener("DOMContentLoaded", () => {
+    const btn = document.getElementById("menu-btn");
+    const menu = document.getElementById("mobile-menu");
+
+    btn.addEventListener("click", () => {
+      menu.classList.toggle("hidden");
+    });
+  });
+</script>
+  
+  
+  
+  <!-- Navbar --
   <header class="sticky top-0 z-50 bg-white shadow-md">
     <nav class="max-w-6xl mx-auto flex justify-between items-center p-4">
       <h1 class="text-2xl font-bold text-blue-600">Smart Learning Kids</h1>
