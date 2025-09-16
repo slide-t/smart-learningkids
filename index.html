@@ -61,7 +61,70 @@
   <main class="pt-28">
     <!-- Keep your hero and other sections as before -->
   </main>
+<!-- About Smart Learning Kids Section -->
+<section class="py-12 px-6 max-w-5xl mx-auto">
+  <h2 class="text-3xl md:text-4xl font-bold text-center mb-6">About Smart Learning Kids</h2>
+  <p class="text-lg md:text-xl text-gray-700 leading-relaxed text-center mb-8">
+    Smart Learning Kids is a modern learning platform designed for children in primary and secondary schools. 
+    It focuses on developing <span class="font-semibold">computer literacy</span>, 
+    <span class="font-semibold">keyboard and mouse skills</span>, 
+    <span class="font-semibold">understanding hardware and software</span>, 
+    <span class="font-semibold">safe internet use</span>, and a 
+    progressive introduction to <span class="font-semibold">coding and programming</span>.
+  </p>
+  <p class="text-lg md:text-xl text-gray-700 leading-relaxed text-center mb-10">
+    Students will engage in interactive lessons, fun games, and practical exercises. 
+    Navigation is simple: use the <span class="font-semibold">menu</span> to access your class lessons, 
+    explore topics step-by-step, and practice through activities. 
+    This course helps build the foundation for digital literacy, preparing children for the future.
+  </p>
 
+  <!-- Accordion -->
+  <div class="space-y-4">
+    <!-- Vision -->
+    <div class="border rounded-2xl shadow-md overflow-hidden">
+      <button class="w-full flex justify-between items-center px-6 py-4 bg-blue-50 hover:bg-blue-100 transition-all accordion-btn">
+        <span class="text-xl font-semibold">Our Vision</span>
+        <svg class="w-6 h-6 transition-transform transform accordion-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path>
+        </svg>
+      </button>
+      <div class="px-6 py-4 text-gray-600 hidden accordion-content">
+        To create a generation of children who are confident with technology, 
+        understand its role in daily life, and can use it to solve problems creatively.
+      </div>
+    </div>
+
+    <!-- Mission -->
+    <div class="border rounded-2xl shadow-md overflow-hidden">
+      <button class="w-full flex justify-between items-center px-6 py-4 bg-blue-50 hover:bg-blue-100 transition-all accordion-btn">
+        <span class="text-xl font-semibold">Our Mission</span>
+        <svg class="w-6 h-6 transition-transform transform accordion-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path>
+        </svg>
+      </button>
+      <div class="px-6 py-4 text-gray-600 hidden accordion-content">
+        To provide interactive, engaging, and accessible digital education for kids in schools and at home, 
+        equipping them with essential computer and coding skills.
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Accordion toggle
+  document.querySelectorAll(".accordion-btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const content = btn.nextElementSibling;
+      const icon = btn.querySelector(".accordion-icon");
+
+      content.classList.toggle("hidden");
+      icon.classList.toggle("rotate-180");
+    });
+  });
+</script>
+
+  
   <!-- Footer -->
   <footer class="border-t bg-white/70 mt-16">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col md:flex-row justify-between gap-6">
