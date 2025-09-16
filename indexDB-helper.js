@@ -55,16 +55,19 @@ export async function addStudent(student) {
 /**
  * Save lesson/game progress
  */
-export async function saveProgress(progress) {
-  const db = await openDB();
-  return new Promise((resolve, reject) => {
-    const tx = db.transaction("progress", "readwrite");
-    tx.objectStore("progress").add(progress);
-
-    tx.oncomplete = () => resolve(true);
-    tx.onerror = (e) => reject(e);
-  });
-}
+// Save progress with extra fields
+saveProgress({
+  studentId: 1,
+  fullName: "Amina Yusuf",
+  class: "Year 4",
+  subject: "Keyboard Skills",
+  session: "2025/26",
+  term: "First Term",
+  schoolName: "Sunshine Primary",
+  lessonId: "mouse-skills-101",
+  score: 85,
+  timestamp: Date.now()
+});
 
 /**
  * Get all students
