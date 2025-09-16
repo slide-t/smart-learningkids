@@ -48,7 +48,35 @@
   <a href="about.html" class="block">About</a>
 </div>
 </header>
+<div class="max-w-md mx-auto bg-white p-6 rounded-lg shadow mt-6">
+  <h3 class="text-lg font-bold mb-4">Save Student Progress</h3>
 
+  <label class="block text-sm font-medium">Subject</label>
+  <select id="subject" class="w-full border p-2 rounded mb-3">
+    <option value="Keyboard Skills">Keyboard Skills</option>
+    <option value="Mouse Skills">Mouse Skills</option>
+    <option value="Internet Basics">Internet Basics</option>
+    <option value="Coding Basics">Coding Basics</option>
+  </select>
+
+  <label class="block text-sm font-medium">Session</label>
+  <select id="session" class="w-full border p-2 rounded mb-3">
+    <option value="2025/26">2025/26</option>
+    <option value="2026/27">2026/27</option>
+    <option value="2027/28">2027/28</option>
+  </select>
+
+  <label class="block text-sm font-medium">Term</label>
+  <select id="term" class="w-full border p-2 rounded mb-3">
+    <option value="First Term">First Term</option>
+    <option value="Second Term">Second Term</option>
+    <option value="Third Term">Third Term</option>
+  </select>
+
+  <button id="saveBtn" class="px-4 py-2 bg-indigo-600 text-white rounded shadow">
+    Save Progress
+  </button>
+</div>
 <script>
   // Mobile menu toggle with auto-close
   document.addEventListener("DOMContentLoaded", () => {
