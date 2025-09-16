@@ -1,0 +1,36 @@
+{
+  "Year1": {
+    "first-term": [
+      { "id": "keyboard-mouse", "title": "Keyboard and Mouse Skills" },
+      { "id": "intro-computer", "title": "What is a Computer?" }
+    ],
+    "second-term": [
+      { "id": "hardware-software", "title": "Hardware and Software Basics" }
+    ],
+    "third-term": [
+      { "id": "internet-basics", "title": "Introduction to the Internet" }
+    ]
+  },
+  "Year2": {
+    "first-term": [
+      { "id": "typing-practice", "title": "Typing Practice with Games" }
+    ],
+    "second-term": [
+      { "id": "file-folders", "title": "Understanding Files and Folders" }
+    ],
+    "third-term": [
+      { "id": "safe-internet", "title": "Safe Use of the Internet" }
+    ]
+  },
+  "Year3": {
+    "first-term": [
+      { "id": "hand-posture", "title": "Proper Hand Posture in Typing" }
+    ],
+    "second-term": [
+      { "id": "right-click", "title": "Using Right-Click Options" }
+    ],
+    "third-term": [
+      { "id": "internet-search", "title": "Basic Internet Search Skills" }
+    ]
+  }
+}
