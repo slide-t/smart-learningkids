@@ -1,0 +1,18 @@
+/ (root)
+│── index.html
+│── classes.html          ← Accordion of Years → Terms → Topics
+│── lessons.html          ← Dynamic lesson page
+│── /data
+│    │── classes.json     ← All Years + Terms + Topics
+│    │── /year1
+│    │     ├── keyboard-skills.json
+│    │     ├── intro-computer.json
+│    │── /year2
+│    │     ├── typing-practice.json
+│    │── /year3
+│    │     ├── internet-basics.json
+│── /js
+│    │── accordion.js
+│    │── lessons-loader.js
+│── /css
+│    │── style.css
