@@ -54,26 +54,40 @@
 </header>
 
 <script>
-  // Mobile menu toggle with auto-close
   document.addEventListener("DOMContentLoaded", () => {
     const btn = document.getElementById("menu-btn");
     const menu = document.getElementById("mobile-menu");
-    const links = menu.querySelectorAll("a"); // all links inside mobile menu
+    const links = menu.querySelectorAll("a");
 
-    // Toggle menu on button click
+    // Toggle menu
     btn.addEventListener("click", () => {
-      menu.classList.toggle("hidden");
+      if (menu.classList.contains("hidden")) {
+        menu.classList.remove("hidden");
+        menu.classList.add("opacity-0", "-translate-y-4");
+        setTimeout(() => {
+          menu.classList.remove("opacity-0", "-translate-y-4");
+        }, 10); // allow animation
+      } else {
+        menu.classList.add("opacity-0", "-translate-y-4");
+        setTimeout(() => {
+          menu.classList.add("hidden");
+          menu.classList.remove("opacity-0", "-translate-y-4");
+        }, 300); // matches duration-300
+      }
     });
 
-    // Close menu when any link is clicked
+    // Close on link click
     links.forEach(link => {
       link.addEventListener("click", () => {
-        menu.classList.add("hidden");
+        menu.classList.add("opacity-0", "-translate-y-4");
+        setTimeout(() => {
+          menu.classList.add("hidden");
+          menu.classList.remove("opacity-0", "-translate-y-4");
+        }, 300);
       });
     });
   });
 </script>
-
 
   
   <!-- header --
