@@ -1,105 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Smart Learning Kids</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EduKids Africa - Student Records</title>
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Google Fonts (Optional) -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
-<body class="bg-gradient-to-b from-sky-50 via-white to-sky-100 text-slate-900 font-sans">
-  <!-- Header -->
-  <header class="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-sm shadow-md z-40">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-16">
-        <!-- Logo -->
-        <div class="flex items-center space-x-4">
-          <div class="w-10 h-10 rounded-2xl bg-gradient-to-tr from-indigo-500 to-sky-400 flex items-center justify-center text-white font-bold">
-            SLK
-          </div>
-          <div class="hidden sm:block">
-            <h1 class="text-lg font-semibold">Smart Learning Kids</h1>
-            <p class="text-xs text-slate-500">Coding, Computer Literacy & Games</p>
-          </div>
-        </div>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">EduKids Africa</div>
+    <ul class="menu">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Records</a></li>
+      <li><a href="#">Export</a></li>
+    </ul>
+  </nav>
 
-        <!-- Desktop Nav -->
-        <nav class="hidden md:flex items-center gap-6 text-sm">
-          <a href="index.html" class="hover:underline">Home</a>
-          <a href="lessons.html" class="hover:underline">Lessons</a>
-          <a href="games.html" class="hover:underline">Games</a>
-          <a href="worksheets.html" class="hover:underline">Worksheets</a>
-          <a href="about.html" class="hover:underline">About</a>
-        </nav>
+  <!-- Student Data Form -->
+  <section class="form-section">
+    <h2>Add Student Record</h2>
+    <form id="studentForm">
+      <label for="fullName">Full Name</label>
+      <input type="text" id="fullName" required>
 
-        <!-- Action Buttons -->
-        <div class="flex items-center gap-3">
-          <a href="worksheets.html" class="hidden sm:inline-block px-4 py-2 border rounded-full text-sm bg-white">Download Worksheets</a>
-          <a href="lessons.html" class="inline-block px-4 py-2 rounded-full bg-indigo-600 text-white text-sm shadow-sm hover:bg-indigo-700">Start Learning</a>
+      <label for="class">Class</label>
+      <select id="class" required>
+        <option value="">Select Class</option>
+        <option value="Year 1">Year 1</option>
+        <option value="Year 2">Year 2</option>
+        <option value="Year 3">Year 3</option>
+        <option value="Year 4">Year 4</option>
+        <option value="Year 5">Year 5</option>
+        <option value="Year 6">Year 6</option>
+      </select>
 
-          <!-- Mobile Menu Button -->
-          <button id="menu-btn" class="md:hidden p-2 rounded-lg border bg-white">
-            ☰
-          </button>
-        </div>
-      </div>
+      <label for="subject">Subject</label>
+      <select id="subject" required>
+        <option value="">Select Subject</option>
+        <option value="Mathematics">Mathematics</option>
+        <option value="English">English</option>
+        <option value="Basic Science">Basic Science</option>
+        <option value="Computer Studies">Computer Studies</option>
+      </select>
+
+      <label for="session">Session</label>
+      <select id="session" required>
+        <option value="2025/26">2025/26</option>
+        <option value="2026/27">2026/27</option>
+        <option value="2027/28">2027/28</option>
+      </select>
+
+      <label for="term">Term</label>
+      <select id="term" required>
+        <option value="First Term">First Term</option>
+        <option value="Second Term">Second Term</option>
+        <option value="Third Term">Third Term</option>
+      </select>
+
+      <label for="schoolName">School Name</label>
+      <input type="text" id="schoolName" required>
+
+      <button type="submit">Save Record</button>
+    </form>
+  </section>
+
+  <!-- Records Display -->
+  <section class="records-section">
+    <h2>Student Records</h2>
+    <table id="recordsTable">
+      <thead>
+        <tr>
+          <th>Full Name</th>
+          <th>Class</th>
+          <th>Subject</th>
+          <th>Session</th>
+          <th>Term</th>
+          <th>School</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Records will load here dynamically -->
+      </tbody>
+    </table>
+
+    <div class="export-buttons">
+      <button id="exportPdf">Export to PDF</button>
+      <button id="exportExcel">Export to Excel</button>
     </div>
+  </section>
 
-    <!-- Mobile Nav -->
-    <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
-      <nav class="flex flex-col space-y-2 p-4 text-sm">
-        <a href="index.html" class="hover:underline">Home</a>
-        <a href="lessons.html" class="hover:underline">Lessons</a>
-        <a href="games.html" class="hover:underline">Games</a>
-        <a href="worksheets.html" class="hover:underline">Worksheets</a>
-        <a href="about.html" class="hover:underline">About</a>
-      </nav>
-    </div>
-  </header>
-
-  <!-- Hero Section -->
-  <main class="pt-28">
-    <!-- (your hero and section content remain unchanged) -->
-  </main>
-
-  <!-- Footer -->
-  <footer class="border-t bg-white/70 mt-16">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col md:flex-row justify-between gap-6">
-      <div>
-        <h4 class="font-bold">Smart Learning Kids</h4>
-        <p class="text-sm text-slate-600 max-w-xs">
-          Teaching practical computer skills & coding to children across Nigeria and beyond.
-        </p>
-      </div>
-      <div class="flex gap-6 items-start">
-        <div>
-          <h5 class="font-semibold">Contact</h5>
-          <p class="text-sm text-slate-600">hello@smartlearningkids.org</p>
-        </div>
-        <div>
-          <h5 class="font-semibold">Follow</h5>
-          <p class="text-sm text-slate-600">Twitter • Facebook • Instagram</p>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  <!-- Script: Mobile Menu -->
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const btn = document.getElementById("menu-btn");
-      const menu = document.getElementById("mobile-menu");
-      const links = menu.querySelectorAll("a");
-
-      btn.addEventListener("click", () => {
-        menu.classList.toggle("hidden");
-      });
-
-      links.forEach(link => {
-        link.addEventListener("click", () => {
-          menu.classList.add("hidden");
-        });
-      });
-    });
-  </script>
+  <!-- Scripts -->
+  <script src="indexeddb-helper.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
