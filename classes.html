@@ -2,91 +2,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Classes - Smart Learning Kids</title>
-  <link rel="stylesheet" href="css/style.css">
-  <script defer src="js/accordion.js"></script>
-</head>
-<body>
-  <!-- Navigation -->
-  <header class="header">
-    <div class="logo">Smart Learning Kids</div>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="classes.html">Classes</a>
-      <a href="lessons.html">Lessons</a>
-      <a href="about.html">About</a>
-    </nav>
-  </header>
-
-  <main class="container">
-    <h1>Classes Categories</h1>
-    <p>Select a class, then expand to view topics by term.</p>
-
-    <!-- Accordion Container -->
-    <section id="accordion-container"></section>
-  </main>
-
-  <footer class="footer">
-    <p>&copy; 2025 Smart Learning Kids</p>
-  </footer>
-
-  <!-- Load accordion from JSON -->
-  <script>
-    document.addEventListener("DOMContentLoaded", async () => {
-      const container = document.getElementById("accordion-container");
-
-      try {
-        const res = await fetch("data/classes.json");
-        const data = await res.json();
-
-        data.classes.forEach((cls, index) => {
-          const classItem = document.createElement("div");
-          classItem.className = "accordion";
-
-          classItem.innerHTML = `
-            <button class="accordion-header">${cls.name}</button>
-            <div class="accordion-body hidden">
-              ${cls.terms.map(term => `
-                <div class="term">
-                  <h4>${term.termName}</h4>
-                  <ul>
-                    ${term.topics.map(topic => `
-                      <li>
-                        <a href="lessons.html?class=${cls.id}&topic=${topic.id}">
-                          ${topic.title}
-                        </a>
-                      </li>
-                    `).join("")}
-                  </ul>
-                </div>
-              `).join("")}
-            </div>
-          `;
-
-          container.appendChild(classItem);
-        });
-
-        // Initialize accordion
-        initAccordion();
-      } catch (error) {
-        container.innerHTML = "<p>Error loading classes data.</p>";
-      }
-    });
-  </script>
-</body>
-</html>
-
-
-
-
-
-
-<!--
-<!DOCTYPE html>
-<html lang="en">
-<head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Smart Learning Kids - Classes</title>
@@ -95,7 +10,7 @@
 </head>
 <body class="bg-sky-50 text-slate-900 font-sans">
 
-  <!-- Header --
+  <!-- Header -->
   <header class="bg-white shadow-md sticky top-0 z-40">
     <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
       <h1 class="text-xl font-bold text-sky-600">Smart Learning Kids</h1>
@@ -103,12 +18,12 @@
     </div>
   </header>
 
-  <!-- Classes Section --
+  <!-- Classes Section -->
   <main class="max-w-4xl mx-auto px-4 py-8">
     <h2 class="text-2xl font-bold text-center mb-6">📘 Explore Classes</h2>
 
     <div id="accordion-container" class="space-y-4">
-      <!-- Accordion content will load here dynamically --
+      <!-- Accordion content will load here dynamically -->
     </div>
   </main>
 
