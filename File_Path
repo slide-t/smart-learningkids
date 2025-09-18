@@ -16,3 +16,16 @@
 │    │── lessons-loader.js
 │── /css
 │    │── style.css
+
+
+
+games/
+ ├── keyboard.html
+ ├── keyboard.js
+ ├── keyboard.json
+ ├── mouse.html
+ ├── mouse.js
+ ├── mouse.json
+ └── assets/
+       ├── sounds/
+       ├── images/
