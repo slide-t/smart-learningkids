@@ -15,10 +15,12 @@ const PRECACHE_URLS = [
   '/manifest.json',
   '/service-worker.js', // include self so newest SW can be fetched
   '/styles.css',       // if you have a central stylesheet
-  '/games/typing-game.html',
-  '/games/mouse-game.html',
+  '/games/keyboard.html',
+  '/games/mouse.html',
+   '/games/keyboard.json',
+   '/games/mouse.html',
+   '/games/mouse.json',
   '/lessons.html',
-  '/games.html',
   '/quizzes.html',
   '/worksheets.html',
   '/about.html',
