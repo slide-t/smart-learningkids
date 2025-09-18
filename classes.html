@@ -1,32 +1,65 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Smart Learning Kids - Classes</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Smart Learning Kids – Classes</title>
   <link rel="stylesheet" href="css/style.css" />
 </head>
-<body class="bg-sky-50 text-slate-900 font-sans">
-
-  <!-- Header -->
-  <header class="bg-white shadow-md sticky top-0 z-40">
-    <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
-      <h1 class="text-xl font-bold text-sky-600">Smart Learning Kids</h1>
-      <a href="index.html" class="text-sm text-slate-700 hover:underline">🏠 Home</a>
-    </div>
+<body>
+  <header class="header">
+    <div class="logo">SLK</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="classes.html">Classes</a>
+    </nav>
   </header>
 
-  <!-- Classes Section -->
-  <main class="max-w-4xl mx-auto px-4 py-8">
-    <h2 class="text-2xl font-bold text-center mb-6">📘 Explore Classes</h2>
-
-    <div id="accordion-container" class="space-y-4">
-      <!-- Accordion content will load here dynamically -->
-    </div>
+  <main class="container">
+    <h2>Browse Classes (Year 1 – Year 12)</h2>
+    <div id="accordion"></div>
   </main>
 
+  <footer class="footer">
+    <p>&copy; 2025 Smart Learning Kids</p>
+  </footer>
+
   <script src="js/accordion.js"></script>
+  <script>
+    async function loadClasses() {
+      const res = await fetch("classes.json");
+      const data = await res.json();
+      const container = document.getElementById("accordion");
+
+      data.classes.forEach(cls => {
+        const acc = document.createElement("div");
+        acc.classList.add("accordion");
+
+        acc.innerHTML = `
+          <button class="accordion-header">${cls.name}</button>
+          <div class="accordion-body hidden">
+            ${cls.terms.map(term => `
+              <div class="term">
+                <h4>${term.title}</h4>
+                <ul>
+                  ${term.topics.map(topic => `
+                    <li>
+                      <a href="lessons.html?class=${cls.id}&term=${term.id}&topic=${encodeURIComponent(topic)}">
+                        ${topic}
+                      </a>
+                    </li>`).join("")}
+                </ul>
+              </div>
+            `).join("")}
+          </div>
+        `;
+        container.appendChild(acc);
+      });
+
+      initAccordion();
+    }
+
+    loadClasses();
+  </script>
 </body>
 </html>
