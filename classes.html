@@ -10,21 +10,21 @@
 
   <!-- Header -->
   <header class="bg-indigo-600 text-white shadow-md p-4 flex items-center justify-between">
-    <h1 class="text-2xl font-bold">Smart Learning Kids</h1>
-    <a href="index.html" class="text-sm bg-white text-indigo-600 px-3 py-1 rounded shadow hover:bg-gray-100 transition">
+    <h1 class="text-2xl md:text-3xl font-bold">Smart Learning Kids</h1>
+    <a href="index.html" class="text-sm md:text-base bg-white text-indigo-600 px-3 py-1 rounded shadow hover:bg-gray-100 transition">
       Home
     </a>
   </header>
 
   <!-- Page Title -->
   <section class="text-center py-8">
-    <h2 class="text-3xl font-extrabold text-indigo-700">Classes & Topics</h2>
-    <p class="mt-2 text-gray-600">Select your class and expand to see topics by term.</p>
+    <h2 class="text-3xl md:text-4xl font-extrabold text-indigo-700">Classes & Topics</h2>
+    <p class="mt-2 text-gray-600 text-lg">Expand your class to explore topics by term.</p>
   </section>
 
   <!-- Accordion Container -->
-  <main class="max-w-3xl mx-auto px-4 pb-12">
-    <div id="classes-container" class="space-y-4"></div>
+  <main class="max-w-4xl mx-auto px-4 pb-12">
+    <div id="classes-container" class="space-y-6"></div>
   </main>
 
   <!-- Script to Render Accordion -->
@@ -36,39 +36,42 @@
         const container = document.getElementById("classes-container");
 
         data.classes.forEach(cls => {
-          // Accordion Item
+          // Accordion Wrapper
           const wrapper = document.createElement("div");
-          wrapper.className = "bg-white shadow rounded-lg";
+          wrapper.className = "bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200";
 
+          // Header
           const header = document.createElement("button");
           header.className =
-            "w-full flex justify-between items-center px-4 py-3 text-lg font-semibold text-left text-indigo-700 hover:bg-indigo-50 transition";
+            "w-full flex justify-between items-center px-6 py-4 text-xl font-semibold text-left text-indigo-700 hover:bg-indigo-50 transition";
           header.textContent = cls.name;
 
           const icon = document.createElement("span");
           icon.textContent = "+";
+          icon.className = "text-2xl font-bold";
           header.appendChild(icon);
 
+          // Content
           const content = document.createElement("div");
           content.className = "max-h-0 overflow-hidden transition-all duration-500 ease-in-out";
 
           // Terms + Topics
           cls.terms.forEach(term => {
             const termDiv = document.createElement("div");
-            termDiv.className = "border-t px-4 py-2 bg-gray-50";
+            termDiv.className = "px-6 py-4 border-t border-gray-100 bg-gray-50";
 
             const termTitle = document.createElement("h4");
-            termTitle.className = "font-semibold text-gray-700";
+            termTitle.className = "font-semibold text-lg text-gray-800 mb-2";
             termTitle.textContent = term.name;
             termDiv.appendChild(termTitle);
 
             const ul = document.createElement("ul");
-            ul.className = "list-disc pl-6 text-gray-600 mt-1";
+            ul.className = "space-y-2 pl-5 text-gray-700 text-base";
             term.topics.forEach(topic => {
               const li = document.createElement("li");
               const a = document.createElement("a");
               a.href = `lessons.html?class=${encodeURIComponent(cls.id)}&topic=${encodeURIComponent(topic.id)}`;
-              a.className = "hover:text-indigo-600 transition";
+              a.className = "hover:text-indigo-600 underline transition";
               a.textContent = topic.title;
               li.appendChild(a);
               ul.appendChild(li);
