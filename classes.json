@@ -1,36 +1,72 @@
 {
-  "Year1": {
-    "first-term": [
-      { "id": "keyboard-mouse", "title": "Keyboard and Mouse Skills" },
-      { "id": "intro-computer", "title": "What is a Computer?" }
-    ],
-    "second-term": [
-      { "id": "hardware-software", "title": "Hardware and Software Basics" }
-    ],
-    "third-term": [
-      { "id": "internet-basics", "title": "Introduction to the Internet" }
-    ]
-  },
-  "Year2": {
-    "first-term": [
-      { "id": "typing-practice", "title": "Typing Practice with Games" }
-    ],
-    "second-term": [
-      { "id": "file-folders", "title": "Understanding Files and Folders" }
-    ],
-    "third-term": [
-      { "id": "safe-internet", "title": "Safe Use of the Internet" }
-    ]
-  },
-  "Year3": {
-    "first-term": [
-      { "id": "hand-posture", "title": "Proper Hand Posture in Typing" }
-    ],
-    "second-term": [
-      { "id": "right-click", "title": "Using Right-Click Options" }
-    ],
-    "third-term": [
-      { "id": "internet-search", "title": "Basic Internet Search Skills" }
-    ]
-  }
+  "classes": [
+    {
+      "id": "year1",
+      "name": "Year 1",
+      "terms": [
+        {
+          "id": "term1",
+          "title": "First Term",
+          "topics": ["Typing practice", "Mouse practice"]
+        },
+        {
+          "id": "term2",
+          "title": "Second Term",
+          "topics": ["Keyboard letters", "Mouse select & drag"]
+        },
+        {
+          "id": "term3",
+          "title": "Third Term",
+          "topics": ["Simple typing games", "Mouse coloring game"]
+        }
+      ]
+    },
+    {
+      "id": "year2",
+      "name": "Year 2",
+      "terms": [
+        {
+          "id": "term1",
+          "title": "First Term",
+          "topics": ["Typing words", "Mouse double-click practice"]
+        },
+        {
+          "id": "term2",
+          "title": "Second Term",
+          "topics": ["Typing sentences", "Mouse drag & drop"]
+        },
+        {
+          "id": "term3",
+          "title": "Third Term",
+          "topics": ["Typing games", "Mouse drawing"]
+        }
+      ]
+    },
+
+    // … repeat Year 3 – Year 6 similar (keyboard & mouse)
+
+    {
+      "id": "year7",
+      "name": "Year 7",
+      "terms": [
+        {
+          "id": "term1",
+          "title": "First Term",
+          "topics": ["Typing practice", "Mouse precision", "HTML basics"]
+        },
+        {
+          "id": "term2",
+          "title": "Second Term",
+          "topics": ["Keyboard practice", "CSS basics"]
+        },
+        {
+          "id": "term3",
+          "title": "Third Term",
+          "topics": ["JavaScript basics", "Mini project"]
+        }
+      ]
+    },
+
+    // … repeat Year 8 – Year 12
+  ]
 }
