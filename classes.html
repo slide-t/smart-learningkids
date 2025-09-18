@@ -2,12 +2,86 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smart Learning Kids - Classes</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans">
+  <!-- Header -->
+  <header class="bg-blue-600 text-white shadow-md">
+    <div class="max-w-6xl mx-auto flex justify-between items-center p-4">
+      <h1 class="text-2xl font-bold">Smart Learning Kids</h1>
+      <a href="index.html" class="text-sm hover:underline">🏠 Home</a>
+    </div>
+  </header>
+
+  <!-- Classes Container -->
+  <main class="max-w-4xl mx-auto mt-6 p-4">
+    <h2 class="text-2xl font-bold text-gray-800 mb-4">Choose Your Class</h2>
+    <div id="accordion" class="space-y-4"></div>
+  </main>
+
+  <!-- Script -->
+  <script>
+    async function loadClasses() {
+      const res = await fetch("classes.json");
+      const classes = await res.json();
+      const container = document.getElementById("accordion");
+
+      classes.forEach(cls => {
+        const wrapper = document.createElement("div");
+        wrapper.className = "bg-white shadow rounded-lg";
+
+        const header = document.createElement("button");
+        header.className =
+          "w-full flex justify-between items-center px-4 py-3 text-left font-semibold text-gray-700 hover:bg-blue-50";
+        header.textContent = cls.name;
+        header.onclick = () => {
+          const body = wrapper.querySelector(".accordion-body");
+          body.classList.toggle("hidden");
+        };
+
+        const body = document.createElement("div");
+        body.className = "accordion-body hidden px-4 pb-4 space-y-3";
+
+        cls.terms.forEach(term => {
+          const termDiv = document.createElement("div");
+          termDiv.innerHTML = \`
+            <h3 class="font-semibold text-gray-600 mb-1">\${term.title}</h3>
+            <ul class="space-y-1">\${term.topics
+              .map(
+                t =>
+                  \`<li><a href="\${t.url}" class="block px-3 py-2 rounded hover:bg-blue-100 text-blue-600">\${t.title}</a></li>\`
+              )
+              .join("")}</ul>
+          \`;
+          body.appendChild(termDiv);
+        });
+
+        wrapper.appendChild(header);
+        wrapper.appendChild(body);
+        container.appendChild(wrapper);
+      });
+    }
+    loadClasses();
+  </script>
+</body>
+</html>
+
+
+
+
+<!--
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Smart Learning Kids - Classes</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-50 text-gray-900 font-sans">
-  <!-- Header -->
+  <!-- Header --
   <header class="bg-blue-600 text-white shadow-md fixed top-0 left-0 w-full z-50">
     <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
       <h1 class="text-2xl font-bold">Smart Learning Kids</h1>
@@ -15,7 +89,7 @@
     </div>
   </header>
 
-  <!-- Content -->
+  <!-- Content --
   <main class="pt-24 max-w-4xl mx-auto px-4">
     <h2 class="text-3xl font-bold text-center mb-8">Select Your Class</h2>
 
