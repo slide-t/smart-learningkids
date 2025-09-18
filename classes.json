@@ -7,17 +7,17 @@
         {
           "id": "term1",
           "title": "First Term",
-          "topics": ["Typing practice", "Mouse practice"]
+          "topics": ["Typing (letters)", "Mouse single click"]
         },
         {
           "id": "term2",
           "title": "Second Term",
-          "topics": ["Keyboard letters", "Mouse select & drag"]
+          "topics": ["Typing words", "Mouse double click"]
         },
         {
           "id": "term3",
           "title": "Third Term",
-          "topics": ["Simple typing games", "Mouse coloring game"]
+          "topics": ["Typing simple sentences", "Mouse drag and drop"]
         }
       ]
     },
@@ -28,23 +28,43 @@
         {
           "id": "term1",
           "title": "First Term",
-          "topics": ["Typing words", "Mouse double-click practice"]
+          "topics": ["Keyboard rows practice", "Mouse select & highlight"]
         },
         {
           "id": "term2",
           "title": "Second Term",
-          "topics": ["Typing sentences", "Mouse drag & drop"]
+          "topics": ["Typing numbers", "Mouse drawing practice"]
         },
         {
           "id": "term3",
           "title": "Third Term",
-          "topics": ["Typing games", "Mouse drawing"]
+          "topics": ["Typing stories", "Mouse coloring game"]
+        }
+      ]
+    },
+    {
+      "id": "year3",
+      "name": "Year 3",
+      "terms": [
+        {
+          "id": "term1",
+          "title": "First Term",
+          "topics": ["Typing practice (speed)", "Mouse select + copy"]
+        },
+        {
+          "id": "term2",
+          "title": "Second Term",
+          "topics": ["Punctuation keys", "Mouse drag and match"]
+        },
+        {
+          "id": "term3",
+          "title": "Third Term",
+          "topics": ["Short typing games", "Mouse pattern tracing"]
         }
       ]
     },
 
-    // … repeat Year 3 – Year 6 similar (keyboard & mouse)
-
+    // --- Jump to Year 7 where coding begins ---
     {
       "id": "year7",
       "name": "Year 7",
@@ -52,21 +72,125 @@
         {
           "id": "term1",
           "title": "First Term",
-          "topics": ["Typing practice", "Mouse precision", "HTML basics"]
+          "topics": ["Keyboard practice", "Mouse precision", "HTML basics"]
         },
         {
           "id": "term2",
           "title": "Second Term",
-          "topics": ["Keyboard practice", "CSS basics"]
+          "topics": ["HTML forms", "CSS introduction"]
         },
         {
           "id": "term3",
           "title": "Third Term",
-          "topics": ["JavaScript basics", "Mini project"]
+          "topics": ["JavaScript basics", "Mini project 1"]
+        }
+      ]
+    },
+    {
+      "id": "year8",
+      "name": "Year 8",
+      "terms": [
+        {
+          "id": "term1",
+          "title": "First Term",
+          "topics": ["Advanced HTML", "CSS layouts (Flexbox/Grid)"]
+        },
+        {
+          "id": "term2",
+          "title": "Second Term",
+          "topics": ["JavaScript conditionals", "Loops in JS"]
+        },
+        {
+          "id": "term3",
+          "title": "Third Term",
+          "topics": ["Mini project 2", "CSS animations"]
+        }
+      ]
+    },
+    {
+      "id": "year9",
+      "name": "Year 9",
+      "terms": [
+        {
+          "id": "term1",
+          "title": "First Term",
+          "topics": ["JavaScript functions", "DOM basics"]
+        },
+        {
+          "id": "term2",
+          "title": "Second Term",
+          "topics": ["DOM events", "Intro to JSON"]
+        },
+        {
+          "id": "term3",
+          "title": "Third Term",
+          "topics": ["Mini project 3", "Web forms project"]
         }
       ]
     },
 
-    // … repeat Year 8 – Year 12
+    {
+      "id": "year10",
+      "name": "Year 10",
+      "terms": [
+        {
+          "id": "term1",
+          "title": "First Term",
+          "topics": ["JavaScript arrays", "Objects in JS"]
+        },
+        {
+          "id": "term2",
+          "title": "Second Term",
+          "topics": ["Functions & scope", "DOM manipulation"]
+        },
+        {
+          "id": "term3",
+          "title": "Third Term",
+          "topics": ["Mini project 4", "Data persistence with localStorage"]
+        }
+      ]
+    },
+    {
+      "id": "year11",
+      "name": "Year 11",
+      "terms": [
+        {
+          "id": "term1",
+          "title": "First Term",
+          "topics": ["Advanced JavaScript (ES6+)", "APIs intro"]
+        },
+        {
+          "id": "term2",
+          "title": "Second Term",
+          "topics": ["JSON fetch practice", "Building simple apps"]
+        },
+        {
+          "id": "term3",
+          "title": "Third Term",
+          "topics": ["Mini project 5", "Intro to frameworks"]
+        }
+      ]
+    },
+    {
+      "id": "year12",
+      "name": "Year 12",
+      "terms": [
+        {
+          "id": "term1",
+          "title": "First Term",
+          "topics": ["Final web project setup", "Version control (Git basics)"]
+        },
+        {
+          "id": "term2",
+          "title": "Second Term",
+          "topics": ["Team collaboration project", "Testing & debugging"]
+        },
+        {
+          "id": "term3",
+          "title": "Third Term",
+          "topics": ["Capstone project", "Presentation skills"]
+        }
+      ]
+    }
   ]
 }
