@@ -1,126 +1,114 @@
-[
-  {
-    "id": "year1",
-    "name": "Year 1",
-    "terms": [
-      {
-        "id": "first-term",
-        "title": "First Term",
-        "topics": [
-          { "title": "Keyboard Practice", "url": "games/keyboard.html?year=1" },
-          { "title": "Mouse Practice", "url": "games/mouse.html?year=1" }
-        ]
-      },
-      {
-        "id": "second-term",
-        "title": "Second Term",
-        "topics": [
-          { "title": "Keyboard Practice", "url": "games/keyboard.html?year=1" },
-          { "title": "Mouse Practice", "url": "games/mouse.html?year=1" }
-        ]
-      },
-      {
-        "id": "third-term",
-        "title": "Third Term",
-        "topics": [
-          { "title": "Keyboard Practice", "url": "games/keyboard.html?year=1" },
-          { "title": "Mouse Practice", "url": "games/mouse.html?year=1" }
-        ]
-      }
-    ]
-  },
-  {
-    "id": "year2",
-    "name": "Year 2",
-    "terms": [
-      {
-        "id": "first-term",
-        "title": "First Term",
-        "topics": [
-          { "title": "Keyboard Practice", "url": "games/keyboard.html?year=2" },
-          { "title": "Mouse Practice", "url": "games/mouse.html?year=2" }
-        ]
-      },
-      {
-        "id": "second-term",
-        "title": "Second Term",
-        "topics": [
-          { "title": "Keyboard Practice", "url": "games/keyboard.html?year=2" },
-          { "title": "Mouse Practice", "url": "games/mouse.html?year=2" }
-        ]
-      },
-      {
-        "id": "third-term",
-        "title": "Third Term",
-        "topics": [
-          { "title": "Keyboard Practice", "url": "games/keyboard.html?year=2" },
-          { "title": "Mouse Practice", "url": "games/mouse.html?year=2" }
-        ]
-      }
-    ]
-  },
-  {
-    "id": "year3",
-    "name": "Year 3",
-    "terms": [
-      {
-        "id": "first-term",
-        "title": "First Term",
-        "topics": [
-          { "title": "Keyboard Practice", "url": "games/keyboard.html?year=3" },
-          { "title": "Mouse Practice", "url": "games/mouse.html?year=3" }
-        ]
-      },
-      {
-        "id": "second-term",
-        "title": "Second Term",
-        "topics": [
-          { "title": "Keyboard Practice", "url": "games/keyboard.html?year=3" },
-          { "title": "Mouse Practice", "url": "games/mouse.html?year=3" }
-        ]
-      },
-      {
-        "id": "third-term",
-        "title": "Third Term",
-        "topics": [
-          { "title": "Keyboard Practice", "url": "games/keyboard.html?year=3" },
-          { "title": "Mouse Practice", "url": "games/mouse.html?year=3" }
-        ]
-      }
-    ]
-  },
-  {
-    "id": "year4",
-    "name": "Year 4",
-    "terms": [
-      {
-        "id": "first-term",
-        "title": "First Term",
-        "topics": [
-          { "title": "Keyboard Practice", "url": "games/keyboard.html?year=4" },
-          { "title": "Mouse Practice", "url": "games/mouse.html?year=4" },
-          { "title": "Intro to Coding", "url": "games/coding.html?year=4" }
-        ]
-      },
-      {
-        "id": "second-term",
-        "title": "Second Term",
-        "topics": [
-          { "title": "Keyboard Practice", "url": "games/keyboard.html?year=4" },
-          { "title": "Mouse Practice", "url": "games/mouse.html?year=4" },
-          { "title": "Intro to Coding", "url": "games/coding.html?year=4" }
-        ]
-      },
-      {
-        "id": "third-term",
-        "title": "Third Term",
-        "topics": [
-          { "title": "Keyboard Practice", "url": "games/keyboard.html?year=4" },
-          { "title": "Mouse Practice", "url": "games/mouse.html?year=4" },
-          { "title": "Intro to Coding", "url": "games/coding.html?year=4" }
-        ]
-      }
-    ]
-  }
-  // Repeat pattern up to Year 12 with coding advancing (HTML, CSS, JS, Projects)
-]
+{
+  "classes": [
+    {
+      "id": "year1",
+      "name": "Year 1",
+      "topics": [
+        { "title": "Keyboard Practice", "url": "games/keyboard.html?level=1" },
+        { "title": "Mouse Practice", "url": "games/mouse.html?level=1" }
+      ]
+    },
+    {
+      "id": "year2",
+      "name": "Year 2",
+      "topics": [
+        { "title": "Keyboard Practice", "url": "games/keyboard.html?level=2" },
+        { "title": "Mouse Practice", "url": "games/mouse.html?level=2" }
+      ]
+    },
+    {
+      "id": "year3",
+      "name": "Year 3",
+      "topics": [
+        { "title": "Keyboard Practice", "url": "games/keyboard.html?level=3" },
+        { "title": "Mouse Practice", "url": "games/mouse.html?level=3" }
+      ]
+    },
+    {
+      "id": "year4",
+      "name": "Year 4",
+      "topics": [
+        { "title": "Keyboard Practice", "url": "games/keyboard.html?level=4" },
+        { "title": "Mouse Practice", "url": "games/mouse.html?level=4" }
+      ]
+    },
+    {
+      "id": "year5",
+      "name": "Year 5",
+      "topics": [
+        { "title": "Keyboard Practice", "url": "games/keyboard.html?level=5" },
+        { "title": "Mouse Practice", "url": "games/mouse.html?level=5" }
+      ]
+    },
+    {
+      "id": "year6",
+      "name": "Year 6",
+      "topics": [
+        { "title": "Keyboard Practice", "url": "games/keyboard.html?level=6" },
+        { "title": "Mouse Practice", "url": "games/mouse.html?level=6" }
+      ]
+    },
+    {
+      "id": "year7",
+      "name": "Year 7",
+      "topics": [
+        { "title": "Keyboard Practice", "url": "games/keyboard.html?level=7" },
+        { "title": "Mouse Practice", "url": "games/mouse.html?level=7" },
+        { "title": "HTML Practice Board", "url": "games/html.html?level=7" }
+      ]
+    },
+    {
+      "id": "year8",
+      "name": "Year 8",
+      "topics": [
+        { "title": "Keyboard Practice", "url": "games/keyboard.html?level=8" },
+        { "title": "Mouse Practice", "url": "games/mouse.html?level=8" },
+        { "title": "HTML Practice Board", "url": "games/html.html?level=8" },
+        { "title": "CSS Practice Board", "url": "games/css.html?level=8" }
+      ]
+    },
+    {
+      "id": "year9",
+      "name": "Year 9",
+      "topics": [
+        { "title": "Keyboard Practice", "url": "games/keyboard.html?level=9" },
+        { "title": "Mouse Practice", "url": "games/mouse.html?level=9" },
+        { "title": "HTML Practice Board", "url": "games/html.html?level=9" },
+        { "title": "CSS Practice Board", "url": "games/css.html?level=9" }
+      ]
+    },
+    {
+      "id": "year10",
+      "name": "Year 10",
+      "topics": [
+        { "title": "Keyboard Practice", "url": "games/keyboard.html?level=10" },
+        { "title": "Mouse Practice", "url": "games/mouse.html?level=10" },
+        { "title": "HTML Practice Board", "url": "games/html.html?level=10" },
+        { "title": "CSS Practice Board", "url": "games/css.html?level=10" },
+        { "title": "JavaScript Practice Board", "url": "games/javascript.html?level=10" }
+      ]
+    },
+    {
+      "id": "year11",
+      "name": "Year 11",
+      "topics": [
+        { "title": "Keyboard Practice", "url": "games/keyboard.html?level=11" },
+        { "title": "Mouse Practice", "url": "games/mouse.html?level=11" },
+        { "title": "HTML Practice Board", "url": "games/html.html?level=11" },
+        { "title": "CSS Practice Board", "url": "games/css.html?level=11" },
+        { "title": "JavaScript Practice Board", "url": "games/javascript.html?level=11" }
+      ]
+    },
+    {
+      "id": "year12",
+      "name": "Year 12",
+      "topics": [
+        { "title": "Keyboard Practice", "url": "games/keyboard.html?level=12" },
+        { "title": "Mouse Practice", "url": "games/mouse.html?level=12" },
+        { "title": "HTML Practice Board", "url": "games/html.html?level=12" },
+        { "title": "CSS Practice Board", "url": "games/css.html?level=12" },
+        { "title": "JavaScript Practice Board", "url": "games/javascript.html?level=12" }
+      ]
+    }
+  ]
+}
