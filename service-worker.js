@@ -20,6 +20,8 @@ const PRECACHE_URLS = [
    '/games/keyboard.json',
    '/games/mouse.html',
    '/games/mouse.json',
+   '/games/mouse.js',
+   '/games/keyboard.js',
   '/lessons.html',
   '/quizzes.html',
   '/worksheets.html',
