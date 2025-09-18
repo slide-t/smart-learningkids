@@ -2,110 +2,78 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Classes - Smart Learning Kids</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Smart Learning Kids - Classes</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-50 text-gray-800 font-sans">
-
+<body class="bg-gray-50 text-gray-900 font-sans">
   <!-- Header -->
-  <header class="bg-indigo-600 text-white shadow-md p-4 flex items-center justify-between">
-    <h1 class="text-2xl md:text-3xl font-bold">Smart Learning Kids</h1>
-    <a href="index.html" class="text-sm md:text-base bg-white text-indigo-600 px-3 py-1 rounded shadow hover:bg-gray-100 transition">
-      Home
-    </a>
+  <header class="bg-blue-600 text-white shadow-md fixed top-0 left-0 w-full z-50">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+      <h1 class="text-2xl font-bold">Smart Learning Kids</h1>
+      <a href="index.html" class="bg-white text-blue-600 px-4 py-2 rounded-lg font-medium shadow hover:bg-blue-100 transition">Home</a>
+    </div>
   </header>
 
-  <!-- Page Title -->
-  <section class="text-center py-8">
-    <h2 class="text-3xl md:text-4xl font-extrabold text-indigo-700">Classes & Topics</h2>
-    <p class="mt-2 text-gray-600 text-lg">Expand your class to explore topics by term.</p>
-  </section>
+  <!-- Content -->
+  <main class="pt-24 max-w-4xl mx-auto px-4">
+    <h2 class="text-3xl font-bold text-center mb-8">Select Your Class</h2>
 
-  <!-- Accordion Container -->
-  <main class="max-w-4xl mx-auto px-4 pb-12">
-    <div id="classes-container" class="space-y-6"></div>
+    <div id="accordion" class="space-y-4"></div>
   </main>
 
-  <!-- Script to Render Accordion -->
   <script>
-    async function loadClasses() {
-      try {
-        const res = await fetch("classes.json");
-        const data = await res.json();
-        const container = document.getElementById("classes-container");
+    // Fetch classes.json
+    fetch("data/classes.json")
+      .then(res => res.json())
+      .then(data => {
+        const container = document.getElementById("accordion");
 
-        data.classes.forEach(cls => {
-          // Accordion Wrapper
-          const wrapper = document.createElement("div");
-          wrapper.className = "bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200";
+        data.classes.forEach((cls, index) => {
+          const card = document.createElement("div");
+          card.className = "bg-white rounded-xl shadow-md overflow-hidden";
 
-          // Header
+          // Accordion Header
           const header = document.createElement("button");
-          header.className =
-            "w-full flex justify-between items-center px-6 py-4 text-xl font-semibold text-left text-indigo-700 hover:bg-indigo-50 transition";
-          header.textContent = cls.name;
+          header.className = "w-full flex justify-between items-center px-6 py-4 text-lg font-semibold bg-blue-100 hover:bg-blue-200 transition";
+          header.innerHTML = `
+            <span>${cls.name}</span>
+            <span class="transform transition-transform duration-300">+</span>
+          `;
+          card.appendChild(header);
 
-          const icon = document.createElement("span");
-          icon.textContent = "+";
-          icon.className = "text-2xl font-bold";
-          header.appendChild(icon);
+          // Accordion Body
+          const body = document.createElement("div");
+          body.className = "max-h-0 overflow-hidden transition-all duration-500 ease-in-out bg-gray-50";
+          body.innerHTML = `
+            <ul class="space-y-3 p-4">
+              ${cls.topics.map(topic =>
+                `<li>
+                  <a href="lessons.html?class=${encodeURIComponent(cls.name)}&topic=${encodeURIComponent(topic)}"
+                     class="block px-4 py-3 bg-white rounded-lg shadow hover:shadow-md hover:bg-blue-50 text-base">
+                    ${topic}
+                  </a>
+                </li>`
+              ).join("")}
+            </ul>
+          `;
+          card.appendChild(body);
 
-          // Content
-          const content = document.createElement("div");
-          content.className = "max-h-0 overflow-hidden transition-all duration-500 ease-in-out";
-
-          // Terms + Topics
-          cls.terms.forEach(term => {
-            const termDiv = document.createElement("div");
-            termDiv.className = "px-6 py-4 border-t border-gray-100 bg-gray-50";
-
-            const termTitle = document.createElement("h4");
-            termTitle.className = "font-semibold text-lg text-gray-800 mb-2";
-            termTitle.textContent = term.name;
-            termDiv.appendChild(termTitle);
-
-            const ul = document.createElement("ul");
-            ul.className = "space-y-2 pl-5 text-gray-700 text-base";
-            term.topics.forEach(topic => {
-              const li = document.createElement("li");
-              const a = document.createElement("a");
-              a.href = `lessons.html?class=${encodeURIComponent(cls.id)}&topic=${encodeURIComponent(topic.id)}`;
-              a.className = "hover:text-indigo-600 underline transition";
-              a.textContent = topic.title;
-              li.appendChild(a);
-              ul.appendChild(li);
-            });
-            termDiv.appendChild(ul);
-
-            content.appendChild(termDiv);
-          });
-
-          // Accordion Toggle
+          // Toggle Accordion
           header.addEventListener("click", () => {
-            const isOpen = content.style.maxHeight && content.style.maxHeight !== "0px";
-            document.querySelectorAll("#classes-container div > div").forEach(c => {
-              c.style.maxHeight = "0px";
-            });
-            document.querySelectorAll("#classes-container button span").forEach(i => {
-              i.textContent = "+";
-            });
+            const isOpen = body.style.maxHeight && body.style.maxHeight !== "0px";
+            document.querySelectorAll("#accordion div > div").forEach(el => el.style.maxHeight = null);
+            document.querySelectorAll("#accordion button span:last-child").forEach(icon => icon.style.transform = "rotate(0deg)");
+            
             if (!isOpen) {
-              content.style.maxHeight = content.scrollHeight + "px";
-              icon.textContent = "−";
+              body.style.maxHeight = body.scrollHeight + "px";
+              header.querySelector("span:last-child").style.transform = "rotate(45deg)";
             }
           });
 
-          wrapper.appendChild(header);
-          wrapper.appendChild(content);
-          container.appendChild(wrapper);
+          container.appendChild(card);
         });
-      } catch (err) {
-        console.error("Error loading classes:", err);
-      }
-    }
-
-    loadClasses();
+      });
   </script>
 </body>
 </html>
