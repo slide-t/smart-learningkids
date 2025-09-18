@@ -1,132 +1,95 @@
-/* ===== General Reset ===== */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: Arial, sans-serif;
-  background: #f5f5f5;
-  color: #333;
-  line-height: 1.6;
-}
-
-a {
-  color: #0066cc;
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-/* ===== Header Navigation ===== */
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: #001219;
-  color: #fff;
-  padding: 1rem;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-
-.header .logo {
-  font-size: 1.2rem;
-  font-weight: bold;
-}
-
-.header nav a {
-  margin: 0 0.5rem;
-  color: #fff;
-  font-size: 0.95rem;
-}
-
-/* ===== Container ===== */
-.container {
-  max-width: 900px;
-  margin: 2rem auto;
-  padding: 1rem;
-}
-
-/* ===== Accordion ===== */
-.accordion {
-  margin-bottom: 1rem;
+/* Accordion Styles */
+.accordion-item {
   border: 1px solid #ddd;
-  border-radius: 6px;
+  border-radius: 8px;
+  margin-bottom: 12px;
   overflow: hidden;
-  background: #fff;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .accordion-header {
-  background: #0066cc;
-  color: #fff;
-  padding: 1rem;
   width: 100%;
-  text-align: left;
-  font-size: 1rem;
-  cursor: pointer;
+  padding: 12px;
+  font-size: 18px;
+  font-weight: bold;
+  background: #001219;
+  color: white;
   border: none;
-  outline: none;
+  cursor: pointer;
+  text-align: left;
   transition: background 0.3s ease;
 }
 
 .accordion-header:hover {
-  background: #004a99;
+  background: #003344;
+}
+
+.accordion-header.active {
+  background: #005f73;
 }
 
 .accordion-body {
-  background: #f9f9f9;
-  padding: 0 1rem;
+  max-height: 0;
   overflow: hidden;
-  max-height: 0;
+  background: #f9f9f9;
   transition: max-height 0.4s ease;
+  padding-left: 20px;
 }
 
-.accordion-body.hidden {
-  max-height: 0;
-  padding: 0 1rem;
+.accordion-body.open {
+  max-height: 500px; /* large enough for topics */
+  padding: 15px 20px;
 }
 
-.term {
-  margin: 1rem 0;
-}
-
-.term h4 {
-  font-size: 1rem;
-  margin-bottom: 0.5rem;
-  color: #333;
-}
-
-.term ul {
+.accordion-body ul {
   list-style: none;
+  padding: 0;
 }
 
-.term li {
-  padding: 0.3rem 0;
+.accordion-body li {
+  padding: 6px 0;
+  font-size: 16px;
 }
 
-.term li a {
-  display: block;
-  padding: 0.4rem;
+/* Practice Board */
+.practice-board {
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: #fff;
+  padding: 10px;
+}
+
+.tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.tab-btn {
+  padding: 6px 12px;
+  border: none;
+  background: #eee;
+  cursor: pointer;
   border-radius: 4px;
-  transition: background 0.3s ease;
+  font-weight: bold;
 }
 
-.term li a:hover {
-  background: #e3f2fd;
+.tab-btn.active {
+  background: #005f73;
+  color: white;
 }
 
-/* ===== Footer ===== */
-.footer {
-  text-align: center;
-  padding: 1rem;
-  background: #001219;
-  color: #fff;
-  margin-top: 2rem;
-  font-size: 0.9rem;
+.code-editor {
+  width: 100%;
+  height: 120px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-family: monospace;
+  padding: 8px;
+  margin-top: 6px;
+  resize: vertical;
+}
+
+.hidden {
+  display: none;
 }
