@@ -1,142 +1,74 @@
-
 {
-  "Year1": {
-    "stages": [
-      {
-        "title": "Home Row Keys",
-        "keys": ["a", "s", "d", "f", "j", "k", "l", ";"]
-      },
-      {
-        "title": "Left Hand Keys",
-        "keys": ["a", "s", "d", "f", "g"]
-      },
-      {
-        "title": "Right Hand Keys",
-        "keys": ["h", "j", "k", "l", ";"]
-      },
-      {
-        "title": "Three-Letter Words",
-        "words": ["dad", "sad", "lag", "ask"]
-      }
-    ]
-  },
-  "Year2": {
-    "stages": [
-      {
-        "title": "Top Row Keys",
-        "keys": ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p"]
-      },
-      {
-        "title": "Bottom Row Keys",
-        "keys": ["z", "x", "c", "v", "b", "n", "m"]
-      },
-      {
-        "title": "Short Words",
-        "words": ["cat", "dog", "run", "fun"]
-      }
-    ]
-  },
-  "Year3": {
-    "stages": [
-      {
-        "title": "Numbers Row",
-        "keys": ["1","2","3","4","5","6","7","8","9","0"]
-      },
-      {
-        "title": "Simple Sentences",
-        "words": ["I am a boy", "She is kind", "We run fast"]
-      }
-    ]
-  },
-  "Year4": {
-    "stages": [
-      {
-        "title": "Shift & Capital Letters",
-        "keys": ["A","S","D","F","J","K","L"]
-      },
-      {
-        "title": "Common Punctuation",
-        "keys": [".", ",", "?", "!"]
-      },
-      {
-        "title": "Typing Short Paragraphs",
-        "words": ["The sun is hot.", "We love coding.", "Typing is fun."]
-      }
-    ]
-  },
-  "Year5": {
-    "stages": [
-      {
-        "title": "Coding Keywords",
-        "words": ["if", "else", "for", "while", "print"]
-      },
-      {
-        "title": "Simple Code Snippets",
-        "words": ["print('Hello')", "for i in range(5):"]
-      }
-    ]
-  },
-  "Year6": {
-    "stages": [
-      {
-        "title": "Typing Practice with Speed",
-        "words": ["learning", "practice", "keyboard", "computer"]
-      },
-      {
-        "title": "Code Practice",
-        "words": ["let x = 10;", "console.log(x);"]
-      }
-    ]
-  },
-  "Year7": {
-    "stages": [
-      {
-        "title": "HTML Basics",
-        "words": ["<html>", "<head>", "<body>", "<h1>Hello</h1>"]
-      }
-    ]
-  },
-  "Year8": {
-    "stages": [
-      {
-        "title": "CSS Basics",
-        "words": ["body { }", "color: red;", "background: blue;"]
-      }
-    ]
-  },
-  "Year9": {
-    "stages": [
-      {
-        "title": "JavaScript Basics",
-        "words": ["function()", "let name = 'Ali';", "alert('Hi');"]
-      }
-    ]
-  },
-  "Year10": {
-    "stages": [
-      {
-        "title": "Typing Short Programs",
-        "words": ["function add(a,b){return a+b;}", "console.log('Done');"]
-      }
-    ]
-  },
-  "Year11": {
-    "stages": [
-      {
-        "title": "Advanced Code Practice",
-        "words": ["class Student { }", "document.querySelector('div');"]
-      }
-    ]
-  },
-  "Year12": {
-    "stages": [
-      {
-        "title": "Full Project Typing",
-        "words": [
-          "<!DOCTYPE html><html><head><title>SLK</title></head><body></body></html>",
-          "function gameLoop(){ requestAnimationFrame(gameLoop); }"
-        ]
-      }
-    ]
-  }
+  "levels": [
+    {
+      "id": "home-row",
+      "title": "Home Row Practice",
+      "description": "Practice typing the home row keys using the correct fingers.",
+      "tasks": [
+        { "keys": ["a", "s", "d", "f", "j", "k", "l", ";"], "type": "single" }
+      ],
+      "timeLimit": 420
+    },
+    {
+      "id": "left-hand",
+      "title": "Left Hand Keys",
+      "description": "Practice left hand keys in sequence.",
+      "tasks": [
+        { "keys": ["a", "s", "d", "f", "g"], "type": "single" }
+      ],
+      "timeLimit": 420
+    },
+    {
+      "id": "right-hand",
+      "title": "Right Hand Keys",
+      "description": "Practice right hand keys in sequence.",
+      "tasks": [
+        { "keys": ["h", "j", "k", "l", ";"], "type": "single" }
+      ],
+      "timeLimit": 420
+    },
+    {
+      "id": "words",
+      "title": "Typing Words",
+      "description": "Type short words correctly within the time limit.",
+      "tasks": [
+        { "words": ["cat", "dog", "sun", "book"] },
+        { "words": ["table", "chair", "glass", "mouse"] }
+      ],
+      "timeLimit": 420
+    },
+    {
+      "id": "sentences",
+      "title": "Typing Sentences",
+      "description": "Type simple sentences correctly.",
+      "tasks": [
+        { "sentences": ["The sun is hot.", "I like my school."] },
+        { "sentences": ["Typing helps us learn.", "We can write fast."] }
+      ],
+      "timeLimit": 420
+    },
+    {
+      "id": "paragraphs",
+      "title": "Short Paragraphs",
+      "description": "Type full paragraphs with accuracy and speed.",
+      "tasks": [
+        {
+          "paragraphs": [
+            "Typing is a very important skill. It helps us use the computer better.",
+            "With practice, we can type faster and make fewer mistakes."
+          ]
+        }
+      ],
+      "timeLimit": 420
+    },
+    {
+      "id": "coding-intro",
+      "title": "Intro to Coding",
+      "description": "Practice typing basic coding snippets correctly.",
+      "tasks": [
+        { "code": ["print('Hello World')", "let x = 10;", "if(x > 5){console.log(x);}"] }
+      ],
+      "timeLimit": 420
+    }
+  ]
 }
