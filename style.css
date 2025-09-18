@@ -1,0 +1,95 @@
+/* Accordion Styles */
+.accordion-item {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+
+.accordion-header {
+  width: 100%;
+  padding: 12px;
+  font-size: 18px;
+  font-weight: bold;
+  background: #001219;
+  color: white;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.3s ease;
+}
+
+.accordion-header:hover {
+  background: #003344;
+}
+
+.accordion-header.active {
+  background: #005f73;
+}
+
+.accordion-body {
+  max-height: 0;
+  overflow: hidden;
+  background: #f9f9f9;
+  transition: max-height 0.4s ease;
+  padding-left: 20px;
+}
+
+.accordion-body.open {
+  max-height: 500px; /* large enough for topics */
+  padding: 15px 20px;
+}
+
+.accordion-body ul {
+  list-style: none;
+  padding: 0;
+}
+
+.accordion-body li {
+  padding: 6px 0;
+  font-size: 16px;
+}
+
+/* Practice Board */
+.practice-board {
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: #fff;
+  padding: 10px;
+}
+
+.tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.tab-btn {
+  padding: 6px 12px;
+  border: none;
+  background: #eee;
+  cursor: pointer;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.tab-btn.active {
+  background: #005f73;
+  color: white;
+}
+
+.code-editor {
+  width: 100%;
+  height: 120px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-family: monospace;
+  padding: 8px;
+  margin-top: 6px;
+  resize: vertical;
+}
+
+.hidden {
+  display: none;
+}
