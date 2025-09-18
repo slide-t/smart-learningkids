@@ -1,52 +1,114 @@
 {
   "classes": [
     {
+      "id": "year1",
       "name": "Year 1",
-      "topics": ["Keyboard Practice", "Mouse Practice", "Hardware Basics", "Software Basics"]
+      "topics": [
+        { "title": "Keyboard Practice", "url": "games/keyboard.html?level=1" },
+        { "title": "Mouse Practice", "url": "games/mouse.html?level=1" }
+      ]
     },
     {
+      "id": "year2",
       "name": "Year 2",
-      "topics": ["Keyboard Practice", "Mouse Practice", "Hardware & Software Interaction", "Simple Internet Use"]
+      "topics": [
+        { "title": "Keyboard Practice", "url": "games/keyboard.html?level=2" },
+        { "title": "Mouse Practice", "url": "games/mouse.html?level=2" }
+      ]
     },
     {
+      "id": "year3",
       "name": "Year 3",
-      "topics": ["Keyboard Practice", "Mouse Practice", "Types of Hardware", "Types of Software"]
+      "topics": [
+        { "title": "Keyboard Practice", "url": "games/keyboard.html?level=3" },
+        { "title": "Mouse Practice", "url": "games/mouse.html?level=3" }
+      ]
     },
     {
+      "id": "year4",
       "name": "Year 4",
-      "topics": ["Keyboard & Mouse Skills", "Installing Software", "Internet Safety", "Intro to Coding"]
+      "topics": [
+        { "title": "Keyboard Practice", "url": "games/keyboard.html?level=4" },
+        { "title": "Mouse Practice", "url": "games/mouse.html?level=4" }
+      ]
     },
     {
+      "id": "year5",
       "name": "Year 5",
-      "topics": ["Typing Practice", "Hardware Installation", "Using Browsers", "Basic Coding (HTML)"]
+      "topics": [
+        { "title": "Keyboard Practice", "url": "games/keyboard.html?level=5" },
+        { "title": "Mouse Practice", "url": "games/mouse.html?level=5" }
+      ]
     },
     {
+      "id": "year6",
       "name": "Year 6",
-      "topics": ["Advanced Typing", "Networking Basics", "Internet Communication", "Basic Coding (CSS)"]
+      "topics": [
+        { "title": "Keyboard Practice", "url": "games/keyboard.html?level=6" },
+        { "title": "Mouse Practice", "url": "games/mouse.html?level=6" }
+      ]
     },
     {
+      "id": "year7",
       "name": "Year 7",
-      "topics": ["Keyboard Shortcuts", "System Maintenance", "Internet Research", "Coding with HTML & CSS"]
+      "topics": [
+        { "title": "Keyboard Practice", "url": "games/keyboard.html?level=7" },
+        { "title": "Mouse Practice", "url": "games/mouse.html?level=7" },
+        { "title": "HTML Practice Board", "url": "games/html.html?level=7" }
+      ]
     },
     {
+      "id": "year8",
       "name": "Year 8",
-      "topics": ["Mouse Precision", "Operating Systems", "Internet Tools", "JavaScript Basics"]
+      "topics": [
+        { "title": "Keyboard Practice", "url": "games/keyboard.html?level=8" },
+        { "title": "Mouse Practice", "url": "games/mouse.html?level=8" },
+        { "title": "HTML Practice Board", "url": "games/html.html?level=8" },
+        { "title": "CSS Practice Board", "url": "games/css.html?level=8" }
+      ]
     },
     {
+      "id": "year9",
       "name": "Year 9",
-      "topics": ["Word Processing", "Hardware Troubleshooting", "Search Engines", "Building Web Pages"]
+      "topics": [
+        { "title": "Keyboard Practice", "url": "games/keyboard.html?level=9" },
+        { "title": "Mouse Practice", "url": "games/mouse.html?level=9" },
+        { "title": "HTML Practice Board", "url": "games/html.html?level=9" },
+        { "title": "CSS Practice Board", "url": "games/css.html?level=9" }
+      ]
     },
     {
+      "id": "year10",
       "name": "Year 10",
-      "topics": ["Spreadsheets", "Software Installation", "Cybersecurity", "Intermediate HTML, CSS, JS"]
+      "topics": [
+        { "title": "Keyboard Practice", "url": "games/keyboard.html?level=10" },
+        { "title": "Mouse Practice", "url": "games/mouse.html?level=10" },
+        { "title": "HTML Practice Board", "url": "games/html.html?level=10" },
+        { "title": "CSS Practice Board", "url": "games/css.html?level=10" },
+        { "title": "JavaScript Practice Board", "url": "games/javascript.html?level=10" }
+      ]
     },
     {
+      "id": "year11",
       "name": "Year 11",
-      "topics": ["Database Basics", "Computer Networking", "Responsible Internet Use", "Web Development Projects"]
+      "topics": [
+        { "title": "Keyboard Practice", "url": "games/keyboard.html?level=11" },
+        { "title": "Mouse Practice", "url": "games/mouse.html?level=11" },
+        { "title": "HTML Practice Board", "url": "games/html.html?level=11" },
+        { "title": "CSS Practice Board", "url": "games/css.html?level=11" },
+        { "title": "JavaScript Practice Board", "url": "games/javascript.html?level=11" }
+      ]
     },
     {
+      "id": "year12",
       "name": "Year 12",
-      "topics": ["Advanced Computer Use", "System Design", "Programming Projects", "App Development"]
+      "topics": [
+        { "title": "Keyboard Practice", "url": "games/keyboard.html?level=12" },
+        { "title": "Mouse Practice", "url": "games/mouse.html?level=12" },
+        { "title": "HTML Practice Board", "url": "games/html.html?level=12" },
+        { "title": "CSS Practice Board", "url": "games/css.html?level=12" },
+        { "title": "JavaScript Practice Board", "url": "games/javascript.html?level=12" }
+      ]
     }
   ]
 }
