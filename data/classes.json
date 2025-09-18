@@ -1,37 +1,52 @@
-
 {
-  "Year1": {
-    "first-term": [
-      { "id": "keyboard-mouse", "title": "Keyboard and Mouse Skills" },
-      { "id": "intro-computer", "title": "What is a Computer?" }
-    ],
-    "second-term": [
-      { "id": "hardware-software", "title": "Hardware and Software Basics" }
-    ],
-    "third-term": [
-      { "id": "internet-basics", "title": "Introduction to the Internet" }
-    ]
-  },
-  "Year2": {
-    "first-term": [
-      { "id": "typing-practice", "title": "Typing Practice with Games" }
-    ],
-    "second-term": [
-      { "id": "file-folders", "title": "Understanding Files and Folders" }
-    ],
-    "third-term": [
-      { "id": "safe-internet", "title": "Safe Use of the Internet" }
-    ]
-  },
-  "Year3": {
-    "first-term": [
-      { "id": "hand-posture", "title": "Proper Hand Posture in Typing" }
-    ],
-    "second-term": [
-      { "id": "right-click", "title": "Using Right-Click Options" }
-    ],
-    "third-term": [
-      { "id": "internet-search", "title": "Basic Internet Search Skills" }
-    ]
-  }
+  "classes": [
+    {
+      "name": "Year 1",
+      "topics": ["Keyboard Practice", "Mouse Practice", "Hardware Basics", "Software Basics"]
+    },
+    {
+      "name": "Year 2",
+      "topics": ["Keyboard Practice", "Mouse Practice", "Hardware & Software Interaction", "Simple Internet Use"]
+    },
+    {
+      "name": "Year 3",
+      "topics": ["Keyboard Practice", "Mouse Practice", "Types of Hardware", "Types of Software"]
+    },
+    {
+      "name": "Year 4",
+      "topics": ["Keyboard & Mouse Skills", "Installing Software", "Internet Safety", "Intro to Coding"]
+    },
+    {
+      "name": "Year 5",
+      "topics": ["Typing Practice", "Hardware Installation", "Using Browsers", "Basic Coding (HTML)"]
+    },
+    {
+      "name": "Year 6",
+      "topics": ["Advanced Typing", "Networking Basics", "Internet Communication", "Basic Coding (CSS)"]
+    },
+    {
+      "name": "Year 7",
+      "topics": ["Keyboard Shortcuts", "System Maintenance", "Internet Research", "Coding with HTML & CSS"]
+    },
+    {
+      "name": "Year 8",
+      "topics": ["Mouse Precision", "Operating Systems", "Internet Tools", "JavaScript Basics"]
+    },
+    {
+      "name": "Year 9",
+      "topics": ["Word Processing", "Hardware Troubleshooting", "Search Engines", "Building Web Pages"]
+    },
+    {
+      "name": "Year 10",
+      "topics": ["Spreadsheets", "Software Installation", "Cybersecurity", "Intermediate HTML, CSS, JS"]
+    },
+    {
+      "name": "Year 11",
+      "topics": ["Database Basics", "Computer Networking", "Responsible Internet Use", "Web Development Projects"]
+    },
+    {
+      "name": "Year 12",
+      "topics": ["Advanced Computer Use", "System Design", "Programming Projects", "App Development"]
+    }
+  ]
 }
