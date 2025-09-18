@@ -1,1 +1,159 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Keyboard Practice Game</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #001219;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    #game-board {
+      width: 100%;
+      max-width: 900px;
+      height: 300px;
+      border: 2px solid #fff;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      position: relative;
+      overflow: hidden;
+      background: #003344;
+    }
+    #falling-item {
+      position: absolute;
+      top: -50px;
+      animation: fall 5s linear forwards;
+    }
+    @keyframes fall {
+      from { top: -50px; }
+      to { top: 250px; }
+    }
+    #score, #timer {
+      margin: 10px;
+      font-size: 1.2rem;
+    }
+    #message {
+      margin-top: 10px;
+      font-weight: bold;
+      font-size: 1.4rem;
+      color: #00ffcc;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Keyboard Practice Game</h2>
+  <div id="timer">Time Left: 7:00</div>
+  <div id="score">Score: 0</div>
+
+  <div id="game-board">
+    <div id="falling-item"></div>
+  </div>
+
+  <div id="message"></div>
+
+  <script src="indexedDB-helper.js"></script>
+  <script>
+    let currentLevel = 0;
+    let score = 0;
+    let timeLeft = 420; // 7 minutes
+    let timerInterval;
+    let fallingItem = document.getElementById("falling-item");
+    let message = document.getElementById("message");
+
+    // Detect external keyboard
+    let keyboardDetected = false;
+    window.addEventListener("keydown", () => {
+      keyboardDetected = true;
+    });
+    
+    async function loadLevels() {
+      const res = await fetch("games/keyboard.json");
+      return res.json();
+    }
+
+    function startTimer() {
+      timerInterval = setInterval(() => {
+        timeLeft--;
+        let minutes = Math.floor(timeLeft / 60);
+        let seconds = timeLeft % 60;
+        document.getElementById("timer").innerText = 
+          `Time Left: ${minutes}:${seconds < 10 ? "0"+seconds : seconds}`;
+
+        if (timeLeft <= 0) {
+          clearInterval(timerInterval);
+          endGame();
+        }
+      }, 1000);
+    }
+
+    function showItem(item) {
+      fallingItem.style.top = "-50px";
+      fallingItem.innerText = item;
+      fallingItem.style.animation = "fall 5s linear forwards";
+    }
+
+    function startGame(levels) {
+      if (!keyboardDetected) {
+        alert("Please connect an external keyboard to play this game.");
+        return;
+      }
+
+      let items = levels[currentLevel].tasks[0].keys || 
+                  levels[currentLevel].tasks[0].words || 
+                  levels[currentLevel].tasks[0].sentences || 
+                  levels[currentLevel].tasks[0].paragraphs || 
+                  levels[currentLevel].tasks[0].code;
+      
+      let index = 0;
+      showItem(items[index]);
+
+      window.addEventListener("keydown", (e) => {
+        let expected = items[index][0] || items[index]; // For letters/words
+        if (e.key.toLowerCase() === expected[0].toLowerCase()) {
+          score++;
+          document.getElementById("score").innerText = `Score: ${score}`;
+          message.innerText = "✅ Correct!";
+          index++;
+          if (index < items.length) {
+            showItem(items[index]);
+          } else {
+            message.innerText = "🎉 Level Complete!";
+            saveProgress();
+          }
+        } else {
+          message.innerText = "❌ Try again!";
+        }
+      });
+
+      startTimer();
+    }
+
+    function saveProgress() {
+      saveToDB("keyboardProgress", { level: currentLevel, score });
+    }
+
+    function endGame() {
+      message.innerText = "⏰ Time’s up! Final Score: " + score;
+      saveProgress();
+    }
+
+    // Load and start
+    loadLevels().then(data => {
+      startGame(data.levels);
+    });
+  </script>
+</body>
+</html>
