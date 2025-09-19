@@ -22,29 +22,25 @@
     <div id="accordion" class="space-y-4"></div>
   </main>
 
-
-
-
-
 <script>
 document.addEventListener("DOMContentLoaded", () => {
   const container = document.getElementById("classes-container");
 
   // Academic term unlock dates
   const termUnlockDates = {
-    "term2": new Date("2026-01-04"),
-    "term3": new Date("2026-04-20")
+    2: new Date("2026-01-04"), // 2nd term unlocks Jan 4, 2026
+    3: new Date("2026-04-20")  // 3rd term unlocks Apr 20, 2026
   };
 
   // Get today's date
   const today = new Date();
 
   // Fetch JSON file
-  fetch("classes.json")
+  fetch("data/classes.json")
     .then(response => response.json())
     .then(data => {
       data.classes.forEach(cls => {
-        // Create class block
+        // Class wrapper
         const classDiv = document.createElement("div");
         classDiv.classList.add("class-block");
 
@@ -52,46 +48,45 @@ document.addEventListener("DOMContentLoaded", () => {
         classTitle.textContent = cls.name;
         classDiv.appendChild(classTitle);
 
-        // Loop subjects
-        cls.subjects.forEach(subject => {
-          const subjectDiv = document.createElement("div");
-          subjectDiv.classList.add("subject-block");
+        // Loop terms
+        cls.terms.forEach(term => {
+          const termDiv = document.createElement("div");
+          termDiv.classList.add("term-block");
 
-          const subjectTitle = document.createElement("h3");
-          subjectTitle.textContent = subject.name;
-          subjectDiv.appendChild(subjectTitle);
+          const termTitle = document.createElement("h3");
+          termTitle.textContent = term.title;
+          termDiv.appendChild(termTitle);
 
-          // Loop terms
-          ["term1", "term2", "term3"].forEach((term, index) => {
-            const termDiv = document.createElement("div");
-            termDiv.classList.add("term-block");
+          // Unlock check
+          if (term.number === 1 || today >= termUnlockDates[term.number]) {
+            // Loop categories (keyboard, mouse, coding etc.)
+            term.categories.forEach(cat => {
+              const catDiv = document.createElement("div");
+              catDiv.classList.add("category-block");
 
-            const termTitle = document.createElement("h4");
-            termTitle.textContent = `Term ${index + 1}`;
-            termDiv.appendChild(termTitle);
+              const catTitle = document.createElement("h4");
+              catTitle.textContent = cat.name;
+              catDiv.appendChild(catTitle);
 
-            // Check unlock date
-            if (term === "term1" || today >= termUnlockDates[term]) {
-              // Show topics
               const topicsList = document.createElement("ul");
-              (subject[term] || []).forEach(topic => {
+              cat.topics.forEach(topic => {
                 const li = document.createElement("li");
                 li.textContent = topic;
                 topicsList.appendChild(li);
               });
-              termDiv.appendChild(topicsList);
-            } else {
-              // Locked
-              const lockedMsg = document.createElement("p");
-              lockedMsg.textContent = "Locked until " + termUnlockDates[term].toDateString();
-              termDiv.appendChild(lockedMsg);
-              termDiv.classList.add("locked");
-            }
+              catDiv.appendChild(topicsList);
 
-            subjectDiv.appendChild(termDiv);
-          });
+              termDiv.appendChild(catDiv);
+            });
+          } else {
+            // Locked message
+            const lockedMsg = document.createElement("p");
+            lockedMsg.textContent = `Locked until ${termUnlockDates[term.number].toDateString()}`;
+            termDiv.appendChild(lockedMsg);
+            termDiv.classList.add("locked");
+          }
 
-          classDiv.appendChild(subjectDiv);
+          classDiv.appendChild(termDiv);
         });
 
         container.appendChild(classDiv);
@@ -104,90 +99,5 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 </script>
 
-
-
-
-  <!--
-<script>
-  // Utility: check if a term is unlocked
-  function isUnlocked(termNumber) {
-    const today = new Date();
-
-    // Unlock schedule
-    const unlockDates = {
-      1: new Date("2025-01-01"),  // 1st Term always available
-      2: new Date("2026-01-04"),  // 2nd Term unlocks Jan 4, 2026
-      3: new Date("2026-04-20")   // 3rd Term unlocks Apr 20, 2026
-    };
-
-    return today >= unlockDates[termNumber];
-  }
-
-  fetch("data/classes.json")
-    .then(res => res.json())
-    .then(data => {
-      const container = document.getElementById("accordion");
-
-      data.classes.forEach(cls => {
-        const card = document.createElement("div");
-        card.className = "bg-white rounded-xl shadow-md overflow-hidden";
-
-        // Accordion Header
-        const header = document.createElement("button");
-        header.className = "w-full flex justify-between items-center px-6 py-4 text-lg font-semibold bg-blue-100 hover:bg-blue-200 transition";
-        header.innerHTML = `
-          <span>${cls.name}</span>
-          <span class="transform transition-transform duration-300">+</span>
-        `;
-        card.appendChild(header);
-
-        // Accordion Body
-        const body = document.createElement("div");
-        body.className = "max-h-0 overflow-hidden transition-all duration-500 ease-in-out bg-gray-50";
-
-        // Terms → Categories → Topics
-        body.innerHTML = cls.terms.map(term => `
-          <div class="mb-4">
-            <h3 class="text-lg font-semibold text-blue-700 px-4 py-2">${term.title}</h3>
-            ${term.categories.map(category => `
-              <div class="ml-4">
-                <h4 class="text-md font-semibold text-gray-700 px-3 py-1">${category.name}</h4>
-                <ul class="space-y-3 pl-6">
-                  ${category.topics.map(topic => {
-                    const unlocked = isUnlocked(term.number);
-                    return `
-                      <li>
-                        <a href="${unlocked ? `topics-details.html?class=${cls.id}&term=${term.number}&category=${category.id}&topic=${encodeURIComponent(topic)}` : '#'}"
-                           class="block px-4 py-3 rounded-lg shadow text-base transition
-                                  ${unlocked ? 'bg-white hover:shadow-md hover:bg-blue-50' : 'bg-gray-200 text-gray-500 cursor-not-allowed'}">
-                          ${topic}
-                        </a>
-                      </li>`;
-                  }).join("")}
-                </ul>
-              </div>
-            `).join("")}
-          </div>
-        `).join("");
-
-        card.appendChild(body);
-
-        // Toggle Accordion
-        header.addEventListener("click", () => {
-          const isOpen = body.style.maxHeight && body.style.maxHeight !== "0px";
-          document.querySelectorAll("#accordion div > div").forEach(el => el.style.maxHeight = null);
-          document.querySelectorAll("#accordion button span:last-child").forEach(icon => icon.style.transform = "rotate(0deg)");
-
-          if (!isOpen) {
-            body.style.maxHeight = body.scrollHeight + "px";
-            header.querySelector("span:last-child").style.transform = "rotate(45deg)";
-          }
-        });
-
-        container.appendChild(card);
-      });
-    });
-</script>
-  -->
 </body>
 </html>
