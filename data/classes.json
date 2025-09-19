@@ -14,6 +14,28 @@
               "topics": ["Keyboard Practice", "Mouse Practice"]
             }
           ]
+        },
+        {
+          "number": 2,
+          "title": "2nd Term",
+          "categories": [
+            {
+              "id": "ict",
+              "name": "ICT",
+              "topics": ["Keyboard Practice", "Mouse Practice"]
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "title": "3rd Term",
+          "categories": [
+            {
+              "id": "ict",
+              "name": "ICT",
+              "topics": ["Keyboard Practice", "Mouse Practice"]
+            }
+          ]
         }
       ]
     },
@@ -24,6 +46,28 @@
         {
           "number": 1,
           "title": "1st Term",
+          "categories": [
+            {
+              "id": "ict",
+              "name": "ICT",
+              "topics": ["Keyboard Practice", "Mouse Practice"]
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "title": "2nd Term",
+          "categories": [
+            {
+              "id": "ict",
+              "name": "ICT",
+              "topics": ["Keyboard Practice", "Mouse Practice"]
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "title": "3rd Term",
           "categories": [
             {
               "id": "ict",
@@ -48,6 +92,28 @@
               "topics": ["Keyboard Practice", "Mouse Practice"]
             }
           ]
+        },
+        {
+          "number": 2,
+          "title": "2nd Term",
+          "categories": [
+            {
+              "id": "ict",
+              "name": "ICT",
+              "topics": ["Keyboard Practice", "Mouse Practice"]
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "title": "3rd Term",
+          "categories": [
+            {
+              "id": "ict",
+              "name": "ICT",
+              "topics": ["Keyboard Practice", "Mouse Practice"]
+            }
+          ]
         }
       ]
     },
@@ -58,6 +124,28 @@
         {
           "number": 1,
           "title": "1st Term",
+          "categories": [
+            {
+              "id": "ict",
+              "name": "ICT",
+              "topics": ["Keyboard Practice", "Mouse Practice"]
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "title": "2nd Term",
+          "categories": [
+            {
+              "id": "ict",
+              "name": "ICT",
+              "topics": ["Keyboard Practice", "Mouse Practice"]
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "title": "3rd Term",
           "categories": [
             {
               "id": "ict",
@@ -82,6 +170,28 @@
               "topics": ["Keyboard Practice", "Mouse Practice"]
             }
           ]
+        },
+        {
+          "number": 2,
+          "title": "2nd Term",
+          "categories": [
+            {
+              "id": "ict",
+              "name": "ICT",
+              "topics": ["Keyboard Practice", "Mouse Practice"]
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "title": "3rd Term",
+          "categories": [
+            {
+              "id": "ict",
+              "name": "ICT",
+              "topics": ["Keyboard Practice", "Mouse Practice"]
+            }
+          ]
         }
       ]
     },
@@ -92,6 +202,28 @@
         {
           "number": 1,
           "title": "1st Term",
+          "categories": [
+            {
+              "id": "ict",
+              "name": "ICT",
+              "topics": ["Keyboard Practice", "Mouse Practice"]
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "title": "2nd Term",
+          "categories": [
+            {
+              "id": "ict",
+              "name": "ICT",
+              "topics": ["Keyboard Practice", "Mouse Practice"]
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "title": "3rd Term",
           "categories": [
             {
               "id": "ict",
@@ -116,6 +248,28 @@
               "topics": ["Keyboard Practice", "Mouse Practice"]
             }
           ]
+        },
+        {
+          "number": 2,
+          "title": "2nd Term",
+          "categories": [
+            {
+              "id": "ict",
+              "name": "ICT",
+              "topics": ["Keyboard Practice", "Mouse Practice"]
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "title": "3rd Term",
+          "categories": [
+            {
+              "id": "ict",
+              "name": "ICT",
+              "topics": ["Keyboard Practice", "Mouse Practice"]
+            }
+          ]
         }
       ]
     },
@@ -126,6 +280,28 @@
         {
           "number": 1,
           "title": "1st Term",
+          "categories": [
+            {
+              "id": "ict",
+              "name": "ICT",
+              "topics": ["Keyboard Practice", "Mouse Practice"]
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "title": "2nd Term",
+          "categories": [
+            {
+              "id": "ict",
+              "name": "ICT",
+              "topics": ["Keyboard Practice", "Mouse Practice"]
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "title": "3rd Term",
           "categories": [
             {
               "id": "ict",
@@ -150,6 +326,28 @@
               "topics": ["Keyboard Practice", "Mouse Practice"]
             }
           ]
+        },
+        {
+          "number": 2,
+          "title": "2nd Term",
+          "categories": [
+            {
+              "id": "ict",
+              "name": "ICT",
+              "topics": ["Keyboard Practice", "Mouse Practice"]
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "title": "3rd Term",
+          "categories": [
+            {
+              "id": "ict",
+              "name": "ICT",
+              "topics": ["Keyboard Practice", "Mouse Practice"]
+            }
+          ]
         }
       ]
     },
@@ -167,42 +365,30 @@
               "topics": ["Keyboard Practice", "Mouse Practice", "Coding Practice (HTML/CSS/JS)"]
             }
           ]
-        }
-      ]
-    },
-    {
-      "id": "year11",
-      "name": "Year 11",
-      "terms": [
+        },
         {
-          "number": 1,
-          "title": "1st Term",
+          "number": 2,
+          "title": "2nd Term",
           "categories": [
             {
               "id": "ict",
               "name": "ICT",
-              "topics": ["Keyboard Practice", "Mouse Practice", "Coding Practice (DOM & Projects)"]
+              "topics": ["Keyboard Practice", "Mouse Practice", "Coding Practice (HTML/CSS/JS)"]
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "title": "3rd Term",
+          "categories": [
+            {
+              "id": "ict",
+              "name": "ICT",
+              "topics": ["Keyboard Practice", "Mouse Practice", "Coding Practice (HTML/CSS/JS)"]
             }
           ]
         }
       ]
     },
     {
-      "id": "year12",
-      "name": "Year 12",
-      "terms": [
-        {
-          "number": 1,
-          "title": "1st Term",
-          "categories": [
-            {
-              "id": "ict",
-              "name": "ICT",
-              "topics": ["Keyboard Practice", "Mouse Practice", "Capstone Coding Projects"]
-            }
-          ]
-        }
-      ]
-    }
-  ]
-}
+      "id": "year
