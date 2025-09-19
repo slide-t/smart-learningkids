@@ -623,6 +623,56 @@
           ]
         }
       ]
+    },
+    {
+      "id": "year12",
+      "name": "Year 12",
+      "terms": [
+        {
+          "number": 1,
+          "title": "First Term",
+          "categories": [
+            {
+              "id": "coding",
+              "name": "Coding Practice",
+              "topics": [
+                "Building a full web page with HTML and CSS",
+                "Linking multiple pages together"
+              ]
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "title": "Second Term",
+          "categories": [
+            {
+              "id": "coding",
+              "name": "Coding Practice",
+              "topics": [
+                "DOM manipulation with forms and inputs",
+                "Creating dynamic elements with JavaScript"
+              ]
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "title": "Third Term",
+          "categories": [
+            {
+              "id": "coding",
+              "name": "Coding Practice",
+              "topics": [
+                "Mini project: Personal webpage",
+                "Applying HTML, CSS, and DOM JavaScript together"
+              ]
+            }
+          ]
+        }
+      ]
     }
   ]
+}
+
     
