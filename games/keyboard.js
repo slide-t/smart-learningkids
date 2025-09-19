@@ -8,6 +8,10 @@ const feedbackEl = document.getElementById("feedback");
 const fallingItemEl = document.getElementById("falling-item");
 const virtualKeyboard = document.getElementById("virtual-keyboard");
 
+// 🔊 Sounds
+const correctSound = new Audio("sounds/correct.mp3");
+const wrongSound = new Audio("sounds/wrong.mp3");
+
 let data = [];
 let currentWord = "";
 let currentIndex = 0;
@@ -23,6 +27,13 @@ const keys = [
   "U","V","W","X","Y","Z",
   "SPACE","ENTER"
 ];
+
+// 🚫 Prevent on-screen keyboard on mobile
+document.addEventListener("touchstart", function (e) {
+  if (e.target.tagName === "INPUT" || e.target.tagName === "TEXTAREA") {
+    e.preventDefault();
+  }
+}, { passive: false });
 
 // Load data
 async function loadData() {
@@ -76,25 +87,33 @@ function handleInput(input) {
 
   if (input === "SPACE") input = " ";
   if (input === "ENTER") {
-    // force skip to next word
     wrong++;
     feedbackEl.textContent = `⏭ Skipped: ${currentWord}`;
+    wrongSound.play();
     newWord();
     updateScore();
     return;
   }
 
   const expected = currentWord[currentIndex]?.toUpperCase();
+
   if (input.toUpperCase() === expected) {
     currentIndex++;
+
+    // Animate correct
+    fallingItemEl.classList.add("correct-flash");
+    setTimeout(() => fallingItemEl.classList.remove("correct-flash"), 300);
+
     if (currentIndex >= currentWord.length) {
       correct++;
       feedbackEl.textContent = `✅ Correct: ${currentWord}`;
+      correctSound.play();
       newWord();
     }
   } else {
     wrong++;
     feedbackEl.textContent = `❌ Wrong! Expected "${expected}"`;
+    wrongSound.play();
     fallingItemEl.classList.add("shake");
     setTimeout(() => fallingItemEl.classList.remove("shake"), 500);
   }
@@ -111,15 +130,18 @@ function updateScore() {
 
 // Virtual keyboard setup
 function setupVirtualKeyboard() {
-  // Only show on small screens
   if (window.innerWidth < 768) {
     virtualKeyboard.classList.remove("hidden");
     virtualKeyboard.innerHTML = "";
     keys.forEach(key => {
       const btn = document.createElement("button");
       btn.textContent = key === "SPACE" ? "⎵" : key;
-      btn.className = "px-2 py-2 bg-indigo-100 rounded shadow text-sm";
-      btn.addEventListener("click", () => handleInput(key));
+      btn.className = "px-2 py-2 bg-indigo-100 rounded shadow text-sm key-btn";
+      btn.addEventListener("click", () => {
+        btn.classList.add("active");
+        setTimeout(() => btn.classList.remove("active"), 200);
+        handleInput(key);
+      });
       virtualKeyboard.appendChild(btn);
     });
   }
