@@ -11,24 +11,48 @@
             {
               "id": "keyboard",
               "name": "Keyboard Practice",
-              "topics": ["Identify letters A–Z", "Typing simple words"]
+              "topics": [
+                "Identify letters A–Z",
+                "Typing simple words (cat, dog, sun)"
+              ]
             },
             {
               "id": "mouse",
               "name": "Mouse Practice",
-              "topics": ["Clicking", "Dragging shapes"]
+              "topics": [
+                "Clicking",
+                "Dragging shapes"
+              ]
             }
           ]
         },
         {
           "number": 2,
           "title": "Second Term",
-          "categories": [ ... ]
+          "categories": [
+            {
+              "id": "keyboard",
+              "name": "Keyboard Practice",
+              "topics": [
+                "Typing full sentences",
+                "Using Shift for capitals"
+              ]
+            }
+          ]
         },
         {
           "number": 3,
           "title": "Third Term",
-          "categories": [ ... ]
+          "categories": [
+            {
+              "id": "coding",
+              "name": "Coding Practice",
+              "topics": [
+                "Introduction to block coding",
+                "Moving a character"
+              ]
+            }
+          ]
         }
       ]
     }
