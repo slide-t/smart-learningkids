@@ -4,17 +4,19 @@
       "label": "Year 1 - Beginner",
       "timeLimit": 420,
       "stages": [
-        { "id": "home-row", "type": "key", "title": "Home Row Keys", "items": ["a","s","d","f","j","k","l",";"] },
-        { "id": "three-letter-words", "type": "word", "title": "3-Letter Words", "items": ["dad","mom","cat","dog","sun","run","bag","hat"] }
+        { "id": "letters-a-m", "type": "key", "title": "Letters A–M", "items": ["a","b","c","d","e","f","g","h","i","j","k","l","m"] },
+        { "id": "letters-n-z", "type": "key", "title": "Letters N–Z", "items": ["n","o","p","q","r","s","t","u","v","w","x","y","z"] },
+        { "id": "three-letter-words", "type": "word", "title": "3-Letter Words", "items": ["cat","dog","sun","bag","hat","run"] },
+        { "id": "emoji-click", "type": "game", "title": "Click the Emoji Letters", "items": ["😀","🐶","🐱","🌞"] }
       ]
     },
     "2": {
       "label": "Year 2 - Beginner+",
       "timeLimit": 420,
       "stages": [
-        { "id": "home-row-repeat", "type": "key", "title": "Home Row Review", "items": ["a","s","d","f","j","k","l",";"] },
-        { "id": "top-row", "type": "key", "title": "Top Row Keys", "items": ["q","w","e","r","t","y","u","i","o","p"] },
-        { "id": "short-words", "type": "word", "title": "Short Words", "items": ["cat","dog","book","ball","door","sun"] }
+        { "id": "home-row", "type": "key", "title": "Home Row Keys", "items": ["a","s","d","f","j","k","l",";"] },
+        { "id": "short-words", "type": "word", "title": "Short Words", "items": ["ball","book","door","fish","milk"] },
+        { "id": "drop-letters", "type": "game", "title": "Catch the Dropping Letters", "items": ["a","s","d","f","j","k"] }
       ]
     },
     "3": {
@@ -27,7 +29,7 @@
       ]
     },
     "4": {
-      "label": "Year 4 - Beginner coding prep",
+      "label": "Year 4 - Beginner Coding Prep",
       "timeLimit": 420,
       "stages": [
         { "id": "punctuation", "type": "key", "title": "Punctuation Keys", "items": [".",",","?","!"] },
@@ -36,7 +38,7 @@
       ]
     },
     "5": {
-      "label": "Year 5 - Intro coding text",
+      "label": "Year 5 - Intro Coding Text",
       "timeLimit": 420,
       "stages": [
         { "id": "short-paragraphs", "type": "paragraph", "title": "Short Paragraphs", "items": ["Practice every day to improve typing speed and accuracy."] },
@@ -44,7 +46,7 @@
       ]
     },
     "6": {
-      "label": "Year 6 - Coding basics",
+      "label": "Year 6 - Coding Basics",
       "timeLimit": 420,
       "stages": [
         { "id": "paragraphs-2", "type": "paragraph", "title": "Paragraph Practice", "items": ["With consistent practice, typing becomes natural and fast."] },
@@ -52,7 +54,7 @@
       ]
     },
     "7": {
-      "label": "Year 7 - HTML intro",
+      "label": "Year 7 - HTML Intro",
       "timeLimit": 420,
       "stages": [
         { "id": "html-tags", "type": "code", "title": "HTML Tags", "items": ["<html>","<head>","<body>","<h1>Hello</h1>"] },
@@ -60,7 +62,7 @@
       ]
     },
     "8": {
-      "label": "Year 8 - CSS & JS intro",
+      "label": "Year 8 - CSS & JS Intro",
       "timeLimit": 420,
       "stages": [
         { "id": "css-lines", "type": "code", "title": "CSS Lines", "items": ["body { }","color: red;","background: blue;"] },
@@ -68,31 +70,35 @@
       ]
     },
     "9": {
-      "label": "Year 9 - JS practice",
+      "label": "Year 9 - JS Practice",
       "timeLimit": 420,
       "stages": [
-        { "id": "js-functions", "type": "code", "title": "JS Functions", "items": ["function add(a,b){return a+b;}","console.log(add(1,2));"] }
+        { "id": "js-functions", "type": "code", "title": "JS Functions", "items": ["function add(a,b){return a+b;}","console.log(add(1,2));"] },
+        { "id": "loops", "type": "code", "title": "Loops Practice", "items": ["for(let i=0;i<5;i++){console.log(i);}","while(x<10){x++;}"] }
       ]
     },
     "10": {
       "label": "Year 10 - Projects",
       "timeLimit": 420,
       "stages": [
-        { "id": "long-code", "type": "code", "title": "Longer Code Snippets", "items": ["for(let i=0;i<5;i++){console.log(i);}","document.querySelector('div').innerText = 'Hi';"] }
+        { "id": "long-code", "type": "code", "title": "Longer Code Snippets", "items": ["document.querySelector('div').innerText = 'Hi';","for(let i=0;i<5;i++){console.log(i);}"] },
+        { "id": "mini-project", "type": "code", "title": "Mini Project", "items": ["<button onclick='alert(1)'>Click</button>","function greet(name){return 'Hi '+name;}"] }
       ]
     },
     "11": {
-      "label": "Year 11 - Advanced code",
+      "label": "Year 11 - Advanced Code",
       "timeLimit": 420,
       "stages": [
-        { "id": "advanced-js", "type": "code", "title": "Advanced JS Lines", "items": ["class Person { constructor(name){this.name=name;} }","fetch('/api').then(r=>r.json())"] }
+        { "id": "advanced-js", "type": "code", "title": "Advanced JS Lines", "items": ["class Person { constructor(name){this.name=name;} }","fetch('/api').then(r=>r.json())"] },
+        { "id": "dom-manipulation", "type": "code", "title": "DOM Manipulation", "items": ["document.body.style.background = 'red';","document.querySelector('#id').textContent = 'Updated';"] }
       ]
     },
     "12": {
-      "label": "Year 12 - Capstone typing",
+      "label": "Year 12 - Capstone Typing",
       "timeLimit": 420,
       "stages": [
-        { "id": "project-typing", "type": "code", "title": "Project Snippets", "items": ["<!DOCTYPE html><html><head><title>SLK</title></head><body></body></html>","function gameLoop(){ requestAnimationFrame(gameLoop); }"] }
+        { "id": "project-typing", "type": "code", "title": "Project Snippets", "items": ["<!DOCTYPE html><html><head><title>SLK</title></head><body></body></html>","function gameLoop(){ requestAnimationFrame(gameLoop); }"] },
+        { "id": "final-challenge", "type": "paragraph", "title": "Final Challenge", "items": ["Create a small project combining HTML, CSS, and JS. Type all the code without mistakes."] }
       ]
     }
   }
