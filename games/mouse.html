@@ -2,78 +2,100 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mouse Quiz</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>Mouse Game Board</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: #f3f3ff;
+      background: linear-gradient(135deg, #f3f3ff, #e6e6fa);
+      margin: 0;
+      height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
-      margin: 0;
+      overflow: hidden;
     }
-    .quiz-container {
-      background: white;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-      max-width: 600px;
+
+    .game-board {
       width: 100%;
-      text-align: center;
-    }
-    h1 {
-      color: #4b3f72;
-    }
-    h2 {
-      margin-bottom: 15px;
-    }
-    .options {
+      height: 100%;
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      box-sizing: border-box;
     }
-    .option-btn {
-      padding: 12px;
-      border: none;
-      border-radius: 8px;
-      background: #e0e0ff;
-      cursor: pointer;
-      font-size: 16px;
-      transition: background 0.3s;
+
+    h1 {
+      color: #4b3f72;
+      margin-bottom: 20px;
     }
-    .option-btn:hover {
-      background: #c7c7ff;
-    }
-    #feedback {
-      margin-top: 15px;
+
+    #question-container {
+      font-size: 22px;
       font-weight: bold;
-      font-size: 18px;
+      margin-bottom: 20px;
+      text-align: center;
     }
-    #next-btn {
+
+    .options {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 15px;
+      width: 100%;
+      max-width: 700px;
+    }
+
+    .option-btn {
+      padding: 15px;
+      border: none;
+      border-radius: 12px;
+      background: #dcdcff;
+      cursor: pointer;
+      font-size: 18px;
+      transition: background 0.3s, transform 0.2s;
+      user-select: none;
+    }
+
+    .option-btn:hover {
+      background: #b5b5ff;
+      transform: scale(1.05);
+    }
+
+    #feedback {
       margin-top: 20px;
-      padding: 12px 20px;
-      font-size: 16px;
+      font-size: 20px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    #next-btn {
+      margin-top: 25px;
+      padding: 14px 24px;
+      font-size: 18px;
       background: #4b3f72;
       color: white;
       border: none;
-      border-radius: 8px;
+      border-radius: 10px;
       cursor: pointer;
       transition: background 0.3s;
     }
+
     #next-btn:hover {
       background: #362d57;
     }
+
     .hidden {
       display: none;
     }
   </style>
 </head>
 <body>
-  <div class="quiz-container">
-    <h1>🖱️ Mouse Quiz</h1>
+  <div class="game-board">
+    <h1>🖱️ Mouse Practice</h1>
     <div id="question-container"></div>
+    <div class="options" id="options-container"></div>
     <div id="feedback"></div>
     <button id="next-btn" class="hidden">Next</button>
   </div>
