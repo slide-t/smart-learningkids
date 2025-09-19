@@ -1,0 +1,75 @@
+/* Make game fill the whole screen */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  font-family: Arial, sans-serif;
+  background: #f9f9fc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#game-container {
+  width: 100%;
+  max-width: 900px; /* prevent text from being too stretched */
+  padding: 20px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2rem;
+  color: #4b0082;
+}
+
+#question-container {
+  margin: 20px 0;
+  font-size: 1.5rem;
+}
+
+#keyboard-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+  gap: 10px;
+  width: 100%;
+}
+
+.key-btn {
+  padding: 20px;
+  font-size: 1.2rem;
+  border: 2px solid #4b0082;
+  border-radius: 8px;
+  background: #fff;
+  cursor: pointer;
+  transition: all 0.2s;
+  user-select: none;
+}
+
+.key-btn:hover {
+  background: #e6e6ff;
+}
+
+#feedback {
+  margin-top: 20px;
+  font-size: 1.2rem;
+  min-height: 30px;
+}
+
+#restart-btn {
+  margin-top: 20px;
+  padding: 12px 24px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 6px;
+  background: #4b0082;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#restart-btn:hover {
+  background: #360061;
+}
