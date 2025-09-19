@@ -3,53 +3,13 @@
     {
       "id": "year1",
       "name": "Year 1",
-      "terms": [
+      "subjects": [
         {
-          "number": 1,
-          "title": "First Term",
-          "categories": [
-            {
-              "id": "keyboard",
-              "name": "Keyboard Practice",
-              "topics": ["Identify letters A–Z", "Typing simple words (cat, dog, sun)"]
-            },
-            {
-              "id": "mouse",
-              "name": "Mouse Practice",
-              "topics": ["Single clicking", "Dragging shapes"]
-            }
-          ]
-        },
-        {
-          "number": 2,
-          "title": "Second Term",
-          "categories": [
-            {
-              "id": "keyboard",
-              "name": "Keyboard Practice",
-              "topics": ["Typing simple sentences", "Using Shift for capitals"]
-            },
-            {
-              "id": "mouse",
-              "name": "Mouse Practice",
-              "topics": ["Double-clicking", "Click and hold"]
-            }
-          ]
-        },
-        {
-          "number": 3,
-          "title": "Third Term",
-          "categories": [
-            {
-              "id": "keyboard",
-              "name": "Keyboard Practice",
-              "topics": ["Typing short paragraphs", "Spacing between words"]
-            },
-            {
-              "id": "mouse",
-              "name": "Mouse Practice",
-              "topics": ["Point and select", "Basic drawing with mouse"]
-            }
+          "id": "ict",
+          "name": "ICT",
+          "topics": [
+            { "id": "keyboard", "title": "Keyboard Practice", "detailsPage": "games/keyboard.html" },
+            { "id": "mouse", "title": "Mouse Practice", "detailsPage": "games/mouse.html" }
           ]
         }
       ]
@@ -57,53 +17,13 @@
     {
       "id": "year2",
       "name": "Year 2",
-      "terms": [
+      "subjects": [
         {
-          "number": 1,
-          "title": "First Term",
-          "categories": [
-            {
-              "id": "keyboard",
-              "name": "Keyboard Practice",
-              "topics": ["Typing numbers 0–9", "Typing punctuation (! ? .)"]
-            },
-            {
-              "id": "mouse",
-              "name": "Mouse Practice",
-              "topics": ["Click and drag objects", "Drawing shapes with mouse"]
-            }
-          ]
-        },
-        {
-          "number": 2,
-          "title": "Second Term",
-          "categories": [
-            {
-              "id": "keyboard",
-              "name": "Keyboard Practice",
-              "topics": ["Typing longer sentences", "Using Backspace and Enter"]
-            },
-            {
-              "id": "mouse",
-              "name": "Mouse Practice",
-              "topics": ["Scrolling with mouse", "Dragging into boxes"]
-            }
-          ]
-        },
-        {
-          "number": 3,
-          "title": "Third Term",
-          "categories": [
-            {
-              "id": "keyboard",
-              "name": "Keyboard Practice",
-              "topics": ["Typing short stories", "Typing with both hands"]
-            },
-            {
-              "id": "mouse",
-              "name": "Mouse Practice",
-              "topics": ["Simple games with mouse", "Highlight and select text"]
-            }
+          "id": "ict",
+          "name": "ICT",
+          "topics": [
+            { "id": "keyboard", "title": "Keyboard Practice", "detailsPage": "games/keyboard.html" },
+            { "id": "mouse", "title": "Mouse Practice", "detailsPage": "games/mouse.html" }
           ]
         }
       ]
@@ -111,53 +31,13 @@
     {
       "id": "year3",
       "name": "Year 3",
-      "terms": [
+      "subjects": [
         {
-          "number": 1,
-          "title": "First Term",
-          "categories": [
-            {
-              "id": "keyboard",
-              "name": "Keyboard Practice",
-              "topics": ["Typing speed drills", "Using Tab and Caps Lock"]
-            },
-            {
-              "id": "mouse",
-              "name": "Mouse Practice",
-              "topics": ["Right-click basics", "Dragging multiple objects"]
-            }
-          ]
-        },
-        {
-          "number": 2,
-          "title": "Second Term",
-          "categories": [
-            {
-              "id": "keyboard",
-              "name": "Keyboard Practice",
-              "topics": ["Typing questions & answers", "Correcting typos"]
-            },
-            {
-              "id": "mouse",
-              "name": "Mouse Practice",
-              "topics": ["Selecting text", "Opening context menu"]
-            }
-          ]
-        },
-        {
-          "number": 3,
-          "title": "Third Term",
-          "categories": [
-            {
-              "id": "keyboard",
-              "name": "Keyboard Practice",
-              "topics": ["Typing practice stories", "Typing with rhythm"]
-            },
-            {
-              "id": "mouse",
-              "name": "Mouse Practice",
-              "topics": ["Simple drag-drop games", "Drawing digital art"]
-            }
+          "id": "ict",
+          "name": "ICT",
+          "topics": [
+            { "id": "keyboard", "title": "Keyboard Practice", "detailsPage": "games/keyboard.html" },
+            { "id": "mouse", "title": "Mouse Practice", "detailsPage": "games/mouse.html" }
           ]
         }
       ]
@@ -165,53 +45,13 @@
     {
       "id": "year4",
       "name": "Year 4",
-      "terms": [
+      "subjects": [
         {
-          "number": 1,
-          "title": "First Term",
-          "categories": [
-            {
-              "id": "keyboard",
-              "name": "Keyboard Practice",
-              "topics": ["Typing paragraphs with speed", "Typing dialogue text"]
-            },
-            {
-              "id": "mouse",
-              "name": "Mouse Practice",
-              "topics": ["Precise clicking", "Simple puzzle games"]
-            }
-          ]
-        },
-        {
-          "number": 2,
-          "title": "Second Term",
-          "categories": [
-            {
-              "id": "keyboard",
-              "name": "Keyboard Practice",
-              "topics": ["Typing short essays", "Typing with proper posture"]
-            },
-            {
-              "id": "mouse",
-              "name": "Mouse Practice",
-              "topics": ["Selecting multiple files", "Click & drag in games"]
-            }
-          ]
-        },
-        {
-          "number": 3,
-          "title": "Third Term",
-          "categories": [
-            {
-              "id": "keyboard",
-              "name": "Keyboard Practice",
-              "topics": ["Speed typing drills", "Typing timed passages"]
-            },
-            {
-              "id": "mouse",
-              "name": "Mouse Practice",
-              "topics": ["Mouse accuracy games", "Using paint tools"]
-            }
+          "id": "ict",
+          "name": "ICT",
+          "topics": [
+            { "id": "keyboard", "title": "Keyboard Practice", "detailsPage": "games/keyboard.html" },
+            { "id": "mouse", "title": "Mouse Practice", "detailsPage": "games/mouse.html" }
           ]
         }
       ]
@@ -219,53 +59,13 @@
     {
       "id": "year5",
       "name": "Year 5",
-      "terms": [
+      "subjects": [
         {
-          "number": 1,
-          "title": "First Term",
-          "categories": [
-            {
-              "id": "keyboard",
-              "name": "Keyboard Practice",
-              "topics": ["Typing longer essays", "Using quotation marks & commas"]
-            },
-            {
-              "id": "mouse",
-              "name": "Mouse Practice",
-              "topics": ["Drag-drop math puzzles", "Using mouse in drawing tools"]
-            }
-          ]
-        },
-        {
-          "number": 2,
-          "title": "Second Term",
-          "categories": [
-            {
-              "id": "keyboard",
-              "name": "Keyboard Practice",
-              "topics": ["Typing paragraphs with speed", "Typing with accuracy"]
-            },
-            {
-              "id": "mouse",
-              "name": "Mouse Practice",
-              "topics": ["Mouse strategy games", "Using right-click menu"]
-            }
-          ]
-        },
-        {
-          "number": 3,
-          "title": "Third Term",
-          "categories": [
-            {
-              "id": "keyboard",
-              "name": "Keyboard Practice",
-              "topics": ["Typing longer stories", "Typing under time limits"]
-            },
-            {
-              "id": "mouse",
-              "name": "Mouse Practice",
-              "topics": ["Precision painting", "Interactive games"]
-            }
+          "id": "ict",
+          "name": "ICT",
+          "topics": [
+            { "id": "keyboard", "title": "Keyboard Practice", "detailsPage": "games/keyboard.html" },
+            { "id": "mouse", "title": "Mouse Practice", "detailsPage": "games/mouse.html" }
           ]
         }
       ]
@@ -273,53 +73,13 @@
     {
       "id": "year6",
       "name": "Year 6",
-      "terms": [
+      "subjects": [
         {
-          "number": 1,
-          "title": "First Term",
-          "categories": [
-            {
-              "id": "keyboard",
-              "name": "Keyboard Practice",
-              "topics": ["Touch typing basics", "Typing with 10 fingers"]
-            },
-            {
-              "id": "mouse",
-              "name": "Mouse Practice",
-              "topics": ["Fast drag-drop activities", "Mouse games with timers"]
-            }
-          ]
-        },
-        {
-          "number": 2,
-          "title": "Second Term",
-          "categories": [
-            {
-              "id": "keyboard",
-              "name": "Keyboard Practice",
-              "topics": ["Typing without looking", "Speed typing drills"]
-            },
-            {
-              "id": "mouse",
-              "name": "Mouse Practice",
-              "topics": ["Maze navigation with mouse", "Fast clicking challenges"]
-            }
-          ]
-        },
-        {
-          "number": 3,
-          "title": "Third Term",
-          "categories": [
-            {
-              "id": "keyboard",
-              "name": "Keyboard Practice",
-              "topics": ["Typing exam passages", "Improving WPM scores"]
-            },
-            {
-              "id": "mouse",
-              "name": "Mouse Practice",
-              "topics": ["Fast-paced mouse games", "Using mouse in presentations"]
-            }
+          "id": "ict",
+          "name": "ICT",
+          "topics": [
+            { "id": "keyboard", "title": "Keyboard Practice", "detailsPage": "games/keyboard.html" },
+            { "id": "mouse", "title": "Mouse Practice", "detailsPage": "games/mouse.html" }
           ]
         }
       ]
@@ -327,53 +87,13 @@
     {
       "id": "year7",
       "name": "Year 7",
-      "terms": [
+      "subjects": [
         {
-          "number": 1,
-          "title": "First Term",
-          "categories": [
-            {
-              "id": "keyboard",
-              "name": "Keyboard Practice",
-              "topics": ["Advanced touch typing", "Typing research notes"]
-            },
-            {
-              "id": "mouse",
-              "name": "Mouse Practice",
-              "topics": ["Precise UI interaction", "Highlight and format text"]
-            }
-          ]
-        },
-        {
-          "number": 2,
-          "title": "Second Term",
-          "categories": [
-            {
-              "id": "keyboard",
-              "name": "Keyboard Practice",
-              "topics": ["Typing academic essays", "Typing from dictation"]
-            },
-            {
-              "id": "mouse",
-              "name": "Mouse Practice",
-              "topics": ["Mouse-based spreadsheet tasks", "Right-click shortcuts"]
-            }
-          ]
-        },
-        {
-          "number": 3,
-          "title": "Third Term",
-          "categories": [
-            {
-              "id": "keyboard",
-              "name": "Keyboard Practice",
-              "topics": ["Typing reports", "Typing timed stories"]
-            },
-            {
-              "id": "mouse",
-              "name": "Mouse Practice",
-              "topics": ["Interactive drag-drop apps", "Mouse shortcuts in apps"]
-            }
+          "id": "ict",
+          "name": "ICT",
+          "topics": [
+            { "id": "keyboard", "title": "Keyboard Practice", "detailsPage": "games/keyboard.html" },
+            { "id": "mouse", "title": "Mouse Practice", "detailsPage": "games/mouse.html" }
           ]
         }
       ]
@@ -381,53 +101,13 @@
     {
       "id": "year8",
       "name": "Year 8",
-      "terms": [
+      "subjects": [
         {
-          "number": 1,
-          "title": "First Term",
-          "categories": [
-            {
-              "id": "keyboard",
-              "name": "Keyboard Practice",
-              "topics": ["Typing longer research essays", "Speed drills at 40 WPM"]
-            },
-            {
-              "id": "mouse",
-              "name": "Mouse Practice",
-              "topics": ["Graphic design basics", "Mouse games for precision"]
-            }
-          ]
-        },
-        {
-          "number": 2,
-          "title": "Second Term",
-          "categories": [
-            {
-              "id": "keyboard",
-              "name": "Keyboard Practice",
-              "topics": ["Typing presentations", "Typing project work"]
-            },
-            {
-              "id": "mouse",
-              "name": "Mouse Practice",
-              "topics": ["Drag-drop coding blocks", "Mouse use in spreadsheets"]
-            }
-          ]
-        },
-        {
-          "number": 3,
-          "title": "Third Term",
-          "categories": [
-            {
-              "id": "keyboard",
-              "name": "Keyboard Practice",
-              "topics": ["Typing practice exams", "Speed typing at 50 WPM"]
-            },
-            {
-              "id": "mouse",
-              "name": "Mouse Practice",
-              "topics": ["Mouse shortcuts in design tools", "Online interactive tasks"]
-            }
+          "id": "ict",
+          "name": "ICT",
+          "topics": [
+            { "id": "keyboard", "title": "Keyboard Practice", "detailsPage": "games/keyboard.html" },
+            { "id": "mouse", "title": "Mouse Practice", "detailsPage": "games/mouse.html" }
           ]
         }
       ]
@@ -435,53 +115,13 @@
     {
       "id": "year9",
       "name": "Year 9",
-      "terms": [
+      "subjects": [
         {
-          "number": 1,
-          "title": "First Term",
-          "categories": [
-            {
-              "id": "keyboard",
-              "name": "Keyboard Practice",
-              "topics": ["Typing essays at 60 WPM", "Typing for accuracy"]
-            },
-            {
-              "id": "mouse",
-              "name": "Mouse Practice",
-              "topics": ["Mouse in advanced apps", "UI navigation precision"]
-            }
-          ]
-        },
-        {
-          "number": 2,
-          "title": "Second Term",
-          "categories": [
-            {
-              "id": "keyboard",
-              "name": "Keyboard Practice",
-              "topics": ["Typing advanced projects", "Typing from source materials"]
-            },
-            {
-              "id": "mouse",
-              "name": "Mouse Practice",
-              "topics": ["Mouse shortcuts in coding IDEs", "Mouse gestures"]
-            }
-          ]
-        },
-        {
-          "number": 3,
-          "title": "Third Term",
-          "categories": [
-            {
-              "id": "keyboard",
-              "name": "Keyboard Practice",
-              "topics": ["Typing project reports", "Typing for timed exams"]
-            },
-            {
-              "id": "mouse",
-              "name": "Mouse Practice",
-              "topics": ["Precision design tasks", "Advanced interactive games"]
-            }
+          "id": "ict",
+          "name": "ICT",
+          "topics": [
+            { "id": "keyboard", "title": "Keyboard Practice", "detailsPage": "games/keyboard.html" },
+            { "id": "mouse", "title": "Mouse Practice", "detailsPage": "games/mouse.html" }
           ]
         }
       ]
@@ -489,68 +129,14 @@
     {
       "id": "year10",
       "name": "Year 10",
-      "terms": [
+      "subjects": [
         {
-          "number": 1,
-          "title": "First Term",
-          "categories": [
-            {
-              "id": "keyboard",
-              "name": "Keyboard Practice",
-              "topics": ["Typing code snippets", "Typing at 70 WPM"]
-            },
-            {
-              "id": "mouse",
-              "name": "Mouse Practice",
-              "topics": ["Mouse in coding editors", "Right-click & shortcuts in IDE"]
-            },
-            {
-              "id": "coding",
-              "name": "Coding Practice",
-              "topics": ["Introduction to HTML", "Creating simple web pages"]
-            }
-          ]
-        },
-        {
-          "number": 2,
-          "title": "Second Term",
-          "categories": [
-            {
-              "id": "keyboard",
-              "name": "Keyboard Practice",
-              "topics": ["Typing with accuracy at speed", "Typing large code blocks"]
-            },
-            {
-              "id": "mouse",
-              "name": "Mouse Practice",
-              "topics": ["Mouse navigation in dev tools", "Mouse shortcuts in browsers"]
-            },
-            {
-              "id": "coding",
-              "name": "Coding Practice",
-              "topics": ["Introduction to CSS", "Styling text and backgrounds"]
-            }
-          ]
-        },
-        {
-          "number": 3,
-          "title": "Third Term",
-          "categories": [
-            {
-              "id": "keyboard",
-              "name": "Keyboard Practice",
-              "topics": ["Speed typing at 80 WPM", "Typing complex code"]
-            },
-            {
-              "id": "mouse",
-              "name": "Mouse Practice",
-              "topics": ["Mouse use in web debugging", "UI adjustments with mouse"]
-            },
-            {
-              "id": "coding",
-              "name": "Coding Practice",
-              "topics": ["HTML Lists & Links", "Basic page layouts"]
-            }
+          "id": "ict",
+          "name": "ICT",
+          "topics": [
+            { "id": "keyboard", "title": "Keyboard Practice", "detailsPage": "games/keyboard.html" },
+            { "id": "mouse", "title": "Mouse Practice", "detailsPage": "games/mouse.html" },
+            { "id": "coding", "title": "Coding Practice (HTML/CSS/JS)", "detailsPage": "games/coding.html" }
           ]
         }
       ]
@@ -558,68 +144,14 @@
     {
       "id": "year11",
       "name": "Year 11",
-      "terms": [
+      "subjects": [
         {
-          "number": 1,
-          "title": "First Term",
-          "categories": [
-            {
-              "id": "keyboard",
-              "name": "Keyboard Practice",
-              "topics": ["Typing programming syntax", "Typing technical documents"]
-            },
-            {
-              "id": "mouse",
-              "name": "Mouse Practice",
-              "topics": ["Mouse in design & coding", "Drag-drop in IDE"]
-            },
-            {
-              "id": "coding",
-              "name": "Coding Practice",
-              "topics": ["HTML Forms", "CSS Styling for forms"]
-            }
-          ]
-        },
-        {
-          "number": 2,
-          "title": "Second Term",
-          "categories": [
-            {
-              "id": "keyboard",
-              "name": "Keyboard Practice",
-              "topics": ["Speed coding typing drills", "Typing with shortcuts"]
-            },
-            {
-              "id": "mouse",
-              "name": "Mouse Practice",
-              "topics": ["Mouse in presentations", "Mouse UI testing"]
-            },
-            {
-              "id": "coding",
-              "name": "Coding Practice",
-              "topics": ["CSS Box Model", "Styling layouts"]
-            }
-          ]
-        },
-        {
-          "number": 3,
-          "title": "Third Term",
-          "categories": [
-            {
-              "id": "keyboard",
-              "name": "Keyboard Practice",
-              "topics": ["Typing for coding exams", "Typing algorithm solutions"]
-            },
-            {
-              "id": "mouse",
-              "name": "Mouse Practice",
-              "topics": ["Mouse shortcuts in coding tools", "Advanced drag-drop"]
-            },
-            {
-              "id": "coding",
-              "name": "Coding Practice",
-              "topics": ["Introduction to DOM", "Manipulating text content"]
-            }
+          "id": "ict",
+          "name": "ICT",
+          "topics": [
+            { "id": "keyboard", "title": "Keyboard Practice", "detailsPage": "games/keyboard.html" },
+            { "id": "mouse", "title": "Mouse Practice", "detailsPage": "games/mouse.html" },
+            { "id": "coding", "title": "Coding Practice (DOM & Projects)", "detailsPage": "games/coding.html" }
           ]
         }
       ]
@@ -627,52 +159,17 @@
     {
       "id": "year12",
       "name": "Year 12",
-      "terms": [
+      "subjects": [
         {
-          "number": 1,
-          "title": "First Term",
-          "categories": [
-            {
-              "id": "coding",
-              "name": "Coding Practice",
-              "topics": [
-                "Building a full web page with HTML and CSS",
-                "Linking multiple pages together"
-              ]
-            }
-          ]
-        },
-        {
-          "number": 2,
-          "title": "Second Term",
-          "categories": [
-            {
-              "id": "coding",
-              "name": "Coding Practice",
-              "topics": [
-                "DOM manipulation with forms and inputs",
-                "Creating dynamic elements with JavaScript"
-              ]
-            }
-          ]
-        },
-        {
-          "number": 3,
-          "title": "Third Term",
-          "categories": [
-            {
-              "id": "coding",
-              "name": "Coding Practice",
-              "topics": [
-                "Mini project: Personal webpage",
-                "Applying HTML, CSS, and DOM JavaScript together"
-              ]
-            }
+          "id": "ict",
+          "name": "ICT",
+          "topics": [
+            { "id": "keyboard", "title": "Keyboard Practice", "detailsPage": "games/keyboard.html" },
+            { "id": "mouse", "title": "Mouse Practice", "detailsPage": "games/mouse.html" },
+            { "id": "coding", "title": "Capstone Coding Projects", "detailsPage": "games/coding.html" }
           ]
         }
       ]
     }
   ]
 }
-
-    
