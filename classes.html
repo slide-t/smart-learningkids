@@ -9,81 +9,6 @@
 </head>
 <body class="bg-gray-50 text-gray-900 font-sans">
   <!-- Header -->
-  <header class="bg-purple-600 text-white shadow">
-    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-      <h1 class="text-2xl font-bold">Smart Learning Kids</h1>
-      <nav>
-        <a href="index.html" class="px-3 hover:underline">Home</a>
-        <a href="classes.html" class="px-3 hover:underline font-semibold">Classes</a>
-      </nav>
-    </div>
-  </header>
-
-  <!-- Main -->
-  <main class="container mx-auto px-4 py-8">
-    <h2 class="text-3xl font-bold mb-6 text-center">Our Classes</h2>
-    <div id="classes-container" class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"></div>
-  </main>
-
-  <!-- Footer -->
-  <footer class="bg-gray-800 text-white text-center py-4">
-    <p>&copy; 2025 Smart Learning Kids. All rights reserved.</p>
-  </footer>
-
-  <script>
-    // Fetch classes data from data/classes.json
-    fetch('data/classes.json')
-      .then(response => response.json())
-      .then(classes => {
-        const container = document.getElementById('classes-container');
-        classes.forEach(cls => {
-          const card = document.createElement('div');
-          card.className = "bg-white rounded-2xl shadow p-6 hover:shadow-lg transition";
-
-          card.innerHTML = `
-            <h3 class="text-xl font-bold text-purple-700 mb-3">${cls.name}</h3>
-            <ul class="space-y-2">
-              ${cls.subjects.map(subj => `
-                <li>
-                  <a href="subjects.html?class=${cls.id}&subject=${subj.id}" 
-                     class="text-purple-600 hover:underline">
-                    ${subj.name}
-                  </a>
-                </li>
-              `).join('')}
-            </ul>
-          `;
-          container.appendChild(card);
-        });
-      })
-      .catch(error => console.error('Error loading classes:', error));
-  </script>
-</body>
-</html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!--
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Smart Learning Kids - Classes</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-gray-50 text-gray-900 font-sans">
-  <!-- Header --
   <header class="bg-blue-600 text-white shadow-md fixed top-0 left-0 w-full z-50">
     <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
       <h1 class="text-2xl font-bold">Smart Learning Kids</h1>
@@ -91,12 +16,132 @@
     </div>
   </header>
 
-  <!-- Content --
+  <!-- Content -->
   <main class="pt-24 max-w-4xl mx-auto px-4">
     <h2 class="text-3xl font-bold text-center mb-8">Select Your Class</h2>
     <div id="accordion" class="space-y-4"></div>
   </main>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const container = document.getElementById("accordion");
 
+  // Academic term unlock dates
+  const termUnlockDates = {
+    2: new Date("2026-01-04"), // 2nd term unlocks Jan 4, 2026
+    3: new Date("2026-04-20")  // 3rd term unlocks Apr 20, 2026
+  };
+
+  const today = new Date();
+
+  // Fetch JSON file from correct path
+  fetch('/data/classes.json')   // ✅ absolute path from root
+    .then(response => {
+      if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
+      return response.json();
+    })
+    .then(data => {
+      console.log("✅ Loaded JSON:", data); // Debug log
+      data.classes.forEach(cls => {
+        // Card for each class
+        const card = document.createElement("div");
+        card.className = "bg-white rounded-xl shadow-md overflow-hidden";
+
+        // Header
+        const header = document.createElement("button");
+        header.className =
+          "w-full flex justify-between items-center px-6 py-4 text-lg font-semibold bg-blue-100 hover:bg-blue-200 transition";
+        header.innerHTML = `
+          <span>${cls.name}</span>
+          <span class="transform transition-transform duration-300">+</span>
+        `;
+        card.appendChild(header);
+
+        // Body
+        const body = document.createElement("div");
+        body.className =
+          "max-h-0 overflow-hidden transition-all duration-500 ease-in-out bg-gray-50";
+
+        // Terms
+        body.innerHTML = cls.terms
+          .map(term => {
+            const unlocked =
+              term.number === 1 || today >= termUnlockDates[term.number];
+
+            return `
+              <div class="mb-4">
+                <h3 class="text-lg font-semibold text-blue-700 px-4 py-2">
+                  ${term.title}
+                </h3>
+                ${term.categories
+                  .map(cat => `
+                    <div class="ml-4">
+                      <h4 class="text-md font-semibold text-gray-700 px-3 py-1">
+                        ${cat.name}
+                      </h4>
+                      <ul class="space-y-3 pl-6">
+                        ${cat.topics
+                          .map(topic => {
+                            if (unlocked) {
+                              return `
+                                <li>
+                                  <a href="topics-details.html?class=${cls.id}&term=${term.number}&category=${cat.id}&topic=${encodeURIComponent(
+                                    topic
+                                  )}"
+                                    class="block px-4 py-2 rounded-lg shadow text-base transition bg-white hover:shadow-md hover:bg-blue-50">
+                                    ${topic}
+                                  </a>
+                                </li>`;
+                            } else {
+                              return `
+                                <li>
+                                  <span class="block px-4 py-2 rounded-lg shadow text-base bg-gray-200 text-gray-500 cursor-not-allowed">
+                                    ${topic} (Locked)
+                                  </span>
+                                </li>`;
+                            }
+                          })
+                          .join("")}
+                      </ul>
+                    </div>
+                  `)
+                  .join("")}
+              </div>
+            `;
+          })
+          .join("");
+
+        card.appendChild(body);
+
+        // Toggle accordion
+        header.addEventListener("click", () => {
+          const isOpen = body.style.maxHeight && body.style.maxHeight !== "0px";
+          document
+            .querySelectorAll("#accordion div > div")
+            .forEach(el => (el.style.maxHeight = null));
+          document
+            .querySelectorAll("#accordion button span:last-child")
+            .forEach(icon => (icon.style.transform = "rotate(0deg)"));
+
+          if (!isOpen) {
+            body.style.maxHeight = body.scrollHeight + "px";
+            header.querySelector("span:last-child").style.transform =
+              "rotate(45deg)";
+          }
+        });
+
+        container.appendChild(card);
+      });
+    })
+    .catch(err => {
+      console.error("❌ Error loading JSON:", err);
+      container.textContent = "⚠️ Failed to load class data.";
+    });
+});
+</script>
+
+
+
+  <!--
 <script>
 document.addEventListener("DOMContentLoaded", () => {
   const container = document.getElementById("accordion");
@@ -214,5 +259,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 </script>
+  -->
 </body>
 </html>
