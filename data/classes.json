@@ -1,149 +1,85 @@
 {
-  "id": "classes",
-  "name": "SmartKids Leaning Kids",
-  "years": [
+  "classes": [
     {
-      "id": "year1",
       "name": "Year 1",
-      "topics": [
-        { "id": "keyboard", "title": "Keyboard Practice", "link": "games/keyboard.html" },
-        { "id": "mouse", "title": "Mouse Skills", "link": "games/mouse.html" },
-        { "id": "parts_computer", "title": "Parts of a Computer", "link": "notes/parts_computer.html" },
-        { "id": "typing_letters", "title": "Typing Letters", "link": "games/typing_letters.html" },
-        { "id": "colors_shapes", "title": "Colors and Shapes", "link": "games/colors_shapes.html" },
-        { "id": "computer_rules", "title": "Computer Rules", "link": "notes/computer_rules.html" }
+      "terms": [
+        {
+          "number": 1,
+          "title": "First Term",
+          "topics": [
+            { "title": "Keyboard Practice", "url": "games/keyboard.html?class=1&term=1", "type": "game" },
+            { "title": "Mouse Practice", "url": "games/mouse.html?class=1&term=1", "type": "game" },
+            { "title": "What is a Computer?", "url": "notes/year1/what-is-computer.html", "type": "note" },
+            { "title": "Parts of a Computer", "url": "notes/year1/parts-of-computer.html", "type": "note" },
+            { "title": "Powering On and Off", "url": "notes/year1/power-on-off.html", "type": "note" },
+            { "title": "Mouse Single Click Practice", "url": "games/mouse-single-click.html?class=1&term=1", "type": "game" }
+          ]
+        },
+        {
+          "number": 2,
+          "title": "Second Term",
+          "topics": [
+            { "title": "Keyboard Practice", "url": "games/keyboard.html?class=1&term=2", "type": "game" },
+            { "title": "Mouse Practice", "url": "games/mouse.html?class=1&term=2", "type": "game" },
+            { "title": "Using Enter, Space, Backspace", "url": "notes/year1/keys-intro.html", "type": "note" },
+            { "title": "Mouse Double Click Practice", "url": "games/mouse-double-click.html?class=1&term=2", "type": "game" },
+            { "title": "Drawing with Paint", "url": "notes/year1/paint-intro.html", "type": "note" },
+            { "title": "Typing Your Name", "url": "games/keyboard-type-name.html", "type": "game" }
+          ]
+        },
+        {
+          "number": 3,
+          "title": "Third Term",
+          "topics": [
+            { "title": "Keyboard Practice", "url": "games/keyboard.html?class=1&term=3", "type": "game" },
+            { "title": "Mouse Practice", "url": "games/mouse.html?class=1&term=3", "type": "game" },
+            { "title": "Simple Text Editing", "url": "notes/year1/text-editing.html", "type": "note" },
+            { "title": "Right Click Basics", "url": "games/mouse-right-click.html?class=1&term=3", "type": "game" },
+            { "title": "Saving a File", "url": "notes/year1/save-file.html", "type": "note" },
+            { "title": "Typing Simple Words", "url": "games/keyboard-words.html", "type": "game" }
+          ]
+        }
       ]
     },
     {
-      "id": "year2",
       "name": "Year 2",
-      "topics": [
-        { "id": "keyboard", "title": "Keyboard Practice", "link": "games/keyboard.html" },
-        { "id": "mouse", "title": "Mouse Skills", "link": "games/mouse.html" },
-        { "id": "typing_words", "title": "Typing Simple Words", "link": "games/typing_words.html" },
-        { "id": "basic_paint", "title": "Drawing with Paint", "link": "games/basic_paint.html" },
-        { "id": "computer_care", "title": "Caring for a Computer", "link": "notes/computer_care.html" },
-        { "id": "math_game", "title": "Math Fun Game", "link": "games/math_fun.html" }
-      ]
-    },
-    {
-      "id": "year3",
-      "name": "Year 3",
-      "topics": [
-        { "id": "keyboard", "title": "Keyboard Practice", "link": "games/keyboard.html" },
-        { "id": "mouse", "title": "Mouse Skills", "link": "games/mouse.html" },
-        { "id": "typing_sentences", "title": "Typing Sentences", "link": "games/typing_sentences.html" },
-        { "id": "file_folders", "title": "Files and Folders", "link": "notes/files_folders.html" },
-        { "id": "internet_basics", "title": "Introduction to Internet", "link": "notes/internet_basics.html" },
-        { "id": "puzzle_game", "title": "Logic Puzzle Game", "link": "games/puzzle_game.html" }
-      ]
-    },
-    {
-      "id": "year4",
-      "name": "Year 4",
-      "topics": [
-        { "id": "keyboard", "title": "Keyboard Practice", "link": "games/keyboard.html" },
-        { "id": "mouse", "title": "Mouse Skills", "link": "games/mouse.html" },
-        { "id": "touch_typing", "title": "Touch Typing Basics", "link": "games/touch_typing.html" },
-        { "id": "software_hardware", "title": "Software vs Hardware", "link": "notes/software_hardware.html" },
-        { "id": "math_quiz", "title": "Math Quiz Game", "link": "games/math_quiz.html" },
-        { "id": "safety_rules", "title": "Internet Safety Rules", "link": "notes/internet_safety.html" }
-      ]
-    },
-    {
-      "id": "year5",
-      "name": "Year 5",
-      "topics": [
-        { "id": "keyboard", "title": "Keyboard Practice", "link": "games/keyboard.html" },
-        { "id": "mouse", "title": "Mouse Skills", "link": "games/mouse.html" },
-        { "id": "typing_speed", "title": "Typing Speed Game", "link": "games/typing_speed.html" },
-        { "id": "word_processing", "title": "Word Processing Basics", "link": "notes/word_processing.html" },
-        { "id": "spreadsheet_intro", "title": "Introduction to Spreadsheets", "link": "notes/spreadsheet_intro.html" },
-        { "id": "coding_unplugged", "title": "Unplugged Coding", "link": "notes/coding_unplugged.html" }
-      ]
-    },
-    {
-      "id": "year6",
-      "name": "Year 6",
-      "topics": [
-        { "id": "keyboard", "title": "Keyboard Practice", "link": "games/keyboard.html" },
-        { "id": "mouse", "title": "Mouse Skills", "link": "games/mouse.html" },
-        { "id": "typing_paragraphs", "title": "Typing Paragraphs", "link": "games/typing_paragraphs.html" },
-        { "id": "presentation_intro", "title": "Introduction to Presentation Software", "link": "notes/presentation_intro.html" },
-        { "id": "email_basics", "title": "Email Basics", "link": "notes/email_basics.html" },
-        { "id": "logic_game", "title": "Logic Adventure Game", "link": "games/logic_adventure.html" }
-      ]
-    },
-    {
-      "id": "year7",
-      "name": "Year 7 (JSS 1)",
-      "topics": [
-        { "id": "keyboard", "title": "Keyboard Practice", "link": "games/keyboard.html" },
-        { "id": "mouse", "title": "Mouse Skills", "link": "games/mouse.html" },
-        { "id": "touch_typing_speed", "title": "Touch Typing Speed", "link": "games/touch_typing_speed.html" },
-        { "id": "intro_coding", "title": "Introduction to Coding", "link": "notes/intro_coding.html" },
-        { "id": "presentation_skills", "title": "Presentation Skills", "link": "notes/presentation_skills.html" },
-        { "id": "quiz_game", "title": "Quiz Challenge", "link": "games/quiz_challenge.html" }
-      ]
-    },
-    {
-      "id": "year8",
-      "name": "Year 8 (JSS 2)",
-      "topics": [
-        { "id": "keyboard", "title": "Keyboard Practice", "link": "games/keyboard.html" },
-        { "id": "mouse", "title": "Mouse Skills", "link": "games/mouse.html" },
-        { "id": "coding_blocks", "title": "Block Coding Game", "link": "games/coding_blocks.html" },
-        { "id": "spreadsheets", "title": "Working with Spreadsheets", "link": "notes/spreadsheets.html" },
-        { "id": "internet_tools", "title": "Using Internet Tools", "link": "notes/internet_tools.html" },
-        { "id": "science_game", "title": "Science Adventure Game", "link": "games/science_game.html" }
-      ]
-    },
-    {
-      "id": "year9",
-      "name": "Year 9 (JSS 3)",
-      "topics": [
-        { "id": "keyboard", "title": "Keyboard Practice", "link": "games/keyboard.html" },
-        { "id": "mouse", "title": "Mouse Skills", "link": "games/mouse.html" },
-        { "id": "text_editing", "title": "Editing Documents", "link": "notes/text_editing.html" },
-        { "id": "databases", "title": "Introduction to Databases", "link": "notes/databases.html" },
-        { "id": "web_basics", "title": "Basics of the Web", "link": "notes/web_basics.html" },
-        { "id": "math_adventure", "title": "Math Adventure Game", "link": "games/math_adventure.html" }
-      ]
-    },
-    {
-      "id": "year10",
-      "name": "Year 10 (SSS 1)",
-      "topics": [
-        { "id": "keyboard", "title": "Keyboard Practice", "link": "games/keyboard.html" },
-        { "id": "mouse", "title": "Mouse Skills", "link": "games/mouse.html" },
-        { "id": "html_basics", "title": "HTML Basics", "link": "notes/html_basics.html" },
-        { "id": "css_intro", "title": "Introduction to CSS", "link": "notes/css_intro.html" },
-        { "id": "algorithms", "title": "Simple Algorithms", "link": "notes/algorithms.html" },
-        { "id": "typing_test", "title": "Typing Speed Test", "link": "games/typing_test.html" }
-      ]
-    },
-    {
-      "id": "year11",
-      "name": "Year 11 (SSS 2)",
-      "topics": [
-        { "id": "keyboard", "title": "Keyboard Practice", "link": "games/keyboard.html" },
-        { "id": "mouse", "title": "Mouse Skills", "link": "games/mouse.html" },
-        { "id": "javascript_intro", "title": "JavaScript Introduction", "link": "notes/javascript_intro.html" },
-        { "id": "data_structures", "title": "Data Structures Basics", "link": "notes/data_structures.html" },
-        { "id": "web_design", "title": "Web Design Principles", "link": "notes/web_design.html" },
-        { "id": "coding_game", "title": "Coding Challenge Game", "link": "games/coding_challenge.html" }
-      ]
-    },
-    {
-      "id": "year12",
-      "name": "Year 12 (SSS 3)",
-      "topics": [
-        { "id": "keyboard", "title": "Keyboard Practice", "link": "games/keyboard.html" },
-        { "id": "mouse", "title": "Mouse Skills", "link": "games/mouse.html" },
-        { "id": "python_intro", "title": "Python Basics", "link": "notes/python_intro.html" },
-        { "id": "databases_sql", "title": "Databases & SQL", "link": "notes/databases_sql.html" },
-        { "id": "app_dev", "title": "App Development Basics", "link": "notes/app_dev.html" },
-        { "id": "final_quiz", "title": "Graduation Quiz Game", "link": "games/final_quiz.html" }
+      "terms": [
+        {
+          "number": 1,
+          "title": "First Term",
+          "topics": [
+            { "title": "Keyboard Practice", "url": "games/keyboard.html?class=2&term=1", "type": "game" },
+            { "title": "Mouse Practice", "url": "games/mouse.html?class=2&term=1", "type": "game" },
+            { "title": "Introduction to Software and Hardware", "url": "notes/year2/software-hardware.html", "type": "note" },
+            { "title": "Mouse Drag Practice", "url": "games/mouse-drag.html?class=2&term=1", "type": "game" },
+            { "title": "File and Folder Basics", "url": "notes/year2/files-folders.html", "type": "note" },
+            { "title": "Typing Short Words", "url": "games/keyboard-short-words.html", "type": "game" }
+          ]
+        },
+        {
+          "number": 2,
+          "title": "Second Term",
+          "topics": [
+            { "title": "Keyboard Practice", "url": "games/keyboard.html?class=2&term=2", "type": "game" },
+            { "title": "Mouse Practice", "url": "games/mouse.html?class=2&term=2", "type": "game" },
+            { "title": "Introduction to Paint Tools", "url": "notes/year2/paint-tools.html", "type": "note" },
+            { "title": "Mouse Target Clicking", "url": "games/mouse-target.html?class=2&term=2", "type": "game" },
+            { "title": "Keyboard Numbers Row", "url": "games/keyboard-numbers.html", "type": "game" },
+            { "title": "Text Formatting Basics", "url": "notes/year2/text-formatting.html", "type": "note" }
+          ]
+        },
+        {
+          "number": 3,
+          "title": "Third Term",
+          "topics": [
+            { "title": "Keyboard Practice", "url": "games/keyboard.html?class=2&term=3", "type": "game" },
+            { "title": "Mouse Practice", "url": "games/mouse.html?class=2&term=3", "type": "game" },
+            { "title": "Keyboard Home Row Mastery", "url": "games/keyboard-home-row.html", "type": "game" },
+            { "title": "Mouse Right-Click Menu", "url": "games/mouse-context.html?class=2&term=3", "type": "game" },
+            { "title": "Typing Sentences", "url": "games/keyboard-sentences.html", "type": "game" },
+            { "title": "Save and Open Documents", "url": "notes/year2/save-open.html", "type": "note" }
+          ]
+        }
       ]
     }
   ]
