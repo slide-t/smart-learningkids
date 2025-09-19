@@ -1,113 +1,193 @@
 {
   "classes": [
     {
-      "id": "year1",
       "name": "Year 1",
-      "topics": [
-        { "title": "Keyboard Practice", "url": "games/keyboard.html?level=1" },
-        { "title": "Mouse Practice", "url": "games/mouse.html?level=1" }
+      "terms": [
+        {
+          "title": "Term 1",
+          "topics": [
+            {
+              "title": "What is a Computer?",
+              "url": "lessons.html?class=Year 1&topic=What is a Computer?"
+            },
+            {
+              "title": "Powering On/Off Safely",
+              "url": "lessons.html?class=Year 1&topic=Powering On/Off Safely"
+            },
+            {
+              "title": "Mouse Basics Game",
+              "url": "games/mouse.html?level=1"
+            }
+          ]
+        },
+        {
+          "title": "Term 2",
+          "topics": [
+            {
+              "title": "Hand Posture",
+              "url": "lessons.html?class=Year 1&topic=Hand Posture"
+            },
+            {
+              "title": "Keyboard Basics Game",
+              "url": "games/keyboard.html?level=1"
+            }
+          ]
+        }
       ]
     },
     {
-      "id": "year2",
       "name": "Year 2",
-      "topics": [
-        { "title": "Keyboard Practice", "url": "games/keyboard.html?level=2" },
-        { "title": "Mouse Practice", "url": "games/mouse.html?level=2" }
+      "terms": [
+        {
+          "title": "Term 1",
+          "topics": [
+            {
+              "title": "Simple Typing Practice",
+              "url": "games/keyboard.html?level=2"
+            },
+            {
+              "title": "Mouse Precision Game",
+              "url": "games/mouse.html?level=2"
+            }
+          ]
+        },
+        {
+          "title": "Term 2",
+          "topics": [
+            {
+              "title": "Understanding OS",
+              "url": "lessons.html?class=Year 2&topic=Understanding OS"
+            },
+            {
+              "title": "Simple File Paths",
+              "url": "lessons.html?class=Year 2&topic=Simple File Paths"
+            }
+          ]
+        }
       ]
     },
     {
-      "id": "year3",
       "name": "Year 3",
-      "topics": [
-        { "title": "Keyboard Practice", "url": "games/keyboard.html?level=3" },
-        { "title": "Mouse Practice", "url": "games/mouse.html?level=3" }
+      "terms": [
+        {
+          "title": "Term 1",
+          "topics": [
+            {
+              "title": "Typing Words Game",
+              "url": "games/keyboard.html?level=3"
+            },
+            {
+              "title": "Mouse Drag & Drop",
+              "url": "games/mouse.html?level=3"
+            }
+          ]
+        },
+        {
+          "title": "Term 2",
+          "topics": [
+            {
+              "title": "Software vs Hardware",
+              "url": "lessons.html?class=Year 3&topic=Software vs Hardware"
+            },
+            {
+              "title": "Troubleshooting Basics",
+              "url": "lessons.html?class=Year 3&topic=Troubleshooting Basics"
+            }
+          ]
+        }
       ]
     },
     {
-      "id": "year4",
       "name": "Year 4",
-      "topics": [
-        { "title": "Keyboard Practice", "url": "games/keyboard.html?level=4" },
-        { "title": "Mouse Practice", "url": "games/mouse.html?level=4" }
+      "terms": [
+        {
+          "title": "Term 1",
+          "topics": [
+            {
+              "title": "Typing Sentences Game",
+              "url": "games/keyboard.html?level=4"
+            },
+            {
+              "title": "Advanced Mouse Game",
+              "url": "games/mouse.html?level=4"
+            }
+          ]
+        },
+        {
+          "title": "Term 2",
+          "topics": [
+            {
+              "title": "Internet Basics",
+              "url": "lessons.html?class=Year 4&topic=Internet Basics"
+            },
+            {
+              "title": "Saving Files",
+              "url": "lessons.html?class=Year 4&topic=Saving Files"
+            }
+          ]
+        }
       ]
     },
     {
-      "id": "year5",
       "name": "Year 5",
-      "topics": [
-        { "title": "Keyboard Practice", "url": "games/keyboard.html?level=5" },
-        { "title": "Mouse Practice", "url": "games/mouse.html?level=5" }
+      "terms": [
+        {
+          "title": "Term 1",
+          "topics": [
+            {
+              "title": "Typing Paragraphs Game",
+              "url": "games/keyboard.html?level=5"
+            },
+            {
+              "title": "Mouse Speed Game",
+              "url": "games/mouse.html?level=5"
+            }
+          ]
+        },
+        {
+          "title": "Term 2",
+          "topics": [
+            {
+              "title": "Introduction to Coding Concepts",
+              "url": "lessons.html?class=Year 5&topic=Introduction to Coding Concepts"
+            },
+            {
+              "title": "Unplugged Coding Activities",
+              "url": "lessons.html?class=Year 5&topic=Unplugged Coding Activities"
+            }
+          ]
+        }
       ]
     },
     {
-      "id": "year6",
       "name": "Year 6",
-      "topics": [
-        { "title": "Keyboard Practice", "url": "games/keyboard.html?level=6" },
-        { "title": "Mouse Practice", "url": "games/mouse.html?level=6" }
-      ]
-    },
-    {
-      "id": "year7",
-      "name": "Year 7",
-      "topics": [
-        { "title": "Keyboard Practice", "url": "games/keyboard.html?level=7" },
-        { "title": "Mouse Practice", "url": "games/mouse.html?level=7" },
-        { "title": "HTML Practice Board", "url": "games/html.html?level=7" }
-      ]
-    },
-    {
-      "id": "year8",
-      "name": "Year 8",
-      "topics": [
-        { "title": "Keyboard Practice", "url": "games/keyboard.html?level=8" },
-        { "title": "Mouse Practice", "url": "games/mouse.html?level=8" },
-        { "title": "HTML Practice Board", "url": "games/html.html?level=8" },
-        { "title": "CSS Practice Board", "url": "games/css.html?level=8" }
-      ]
-    },
-    {
-      "id": "year9",
-      "name": "Year 9",
-      "topics": [
-        { "title": "Keyboard Practice", "url": "games/keyboard.html?level=9" },
-        { "title": "Mouse Practice", "url": "games/mouse.html?level=9" },
-        { "title": "HTML Practice Board", "url": "games/html.html?level=9" },
-        { "title": "CSS Practice Board", "url": "games/css.html?level=9" }
-      ]
-    },
-    {
-      "id": "year10",
-      "name": "Year 10",
-      "topics": [
-        { "title": "Keyboard Practice", "url": "games/keyboard.html?level=10" },
-        { "title": "Mouse Practice", "url": "games/mouse.html?level=10" },
-        { "title": "HTML Practice Board", "url": "games/html.html?level=10" },
-        { "title": "CSS Practice Board", "url": "games/css.html?level=10" },
-        { "title": "JavaScript Practice Board", "url": "games/javascript.html?level=10" }
-      ]
-    },
-    {
-      "id": "year11",
-      "name": "Year 11",
-      "topics": [
-        { "title": "Keyboard Practice", "url": "games/keyboard.html?level=11" },
-        { "title": "Mouse Practice", "url": "games/mouse.html?level=11" },
-        { "title": "HTML Practice Board", "url": "games/html.html?level=11" },
-        { "title": "CSS Practice Board", "url": "games/css.html?level=11" },
-        { "title": "JavaScript Practice Board", "url": "games/javascript.html?level=11" }
-      ]
-    },
-    {
-      "id": "year12",
-      "name": "Year 12",
-      "topics": [
-        { "title": "Keyboard Practice", "url": "games/keyboard.html?level=12" },
-        { "title": "Mouse Practice", "url": "games/mouse.html?level=12" },
-        { "title": "HTML Practice Board", "url": "games/html.html?level=12" },
-        { "title": "CSS Practice Board", "url": "games/css.html?level=12" },
-        { "title": "JavaScript Practice Board", "url": "games/javascript.html?level=12" }
+      "terms": [
+        {
+          "title": "Term 1",
+          "topics": [
+            {
+              "title": "Typing for Coding Game",
+              "url": "games/keyboard.html?level=6"
+            },
+            {
+              "title": "Advanced Mouse Precision",
+              "url": "games/mouse.html?level=6"
+            }
+          ]
+        },
+        {
+          "title": "Term 2",
+          "topics": [
+            {
+              "title": "Writing Simple Algorithms",
+              "url": "lessons.html?class=Year 6&topic=Writing Simple Algorithms"
+            },
+            {
+              "title": "Basic Web Development",
+              "url": "lessons.html?class=Year 6&topic=Basic Web Development"
+            }
+          ]
+        }
       ]
     }
   ]
