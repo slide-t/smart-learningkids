@@ -12,6 +12,7 @@ const RUNTIME = `slkids-runtime-${CACHE_VERSION}`;
 const PRECACHE_URLS = [
   '/',                 // index.html
   '/index.html',
+   '/classes.html',
   '/manifest.json',
   '/service-worker.js', // include self so newest SW can be fetched
   '/styles.css',       // if you have a central stylesheet
