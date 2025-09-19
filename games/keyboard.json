@@ -4,100 +4,89 @@
       "label": "Year 1 - Beginner",
       "timeLimit": 420,
       "stages": [
-        { "id": "home-row", "type": "key", "title": "Home Row Keys", "items": ["a","s","d","f","j","k","l",";"] },
-        { "id": "letter-keys", "type": "key", "title": "Single Letters", "items": ["q","w","e","r","t","y","u","i","o","p","z","x","c","v","b","n","m"] },
-        { "id": "emoji-keys", "type": "emoji", "title": "Hit the Emoji Keys", "items": ["😀","😂","😍","😎","👍","👏"] },
-        { "id": "two-letter-words", "type": "word", "title": "2-Letter Words", "items": ["at","in","on","up","go","it","me","us"] },
-        { "id": "three-letter-words", "type": "word", "title": "3-Letter Words", "items": ["dad","mom","cat","dog","sun","run","bag","hat"] }
+        { "id": "letters", "type": "key", "title": "Letters A–Z", "items": ["a","s","d","f","j","k","l",";","q","w","e","r","t","y","u","i","o","p","z","x","c","v","b","n","m"] },
+        { "id": "two-letter-words", "type": "word", "title": "2-Letter Words", "items": ["am","an","at","it","in","on","up","go"] }
       ]
     },
     "2": {
       "label": "Year 2 - Beginner+",
       "timeLimit": 420,
       "stages": [
-        { "id": "home-row-repeat", "type": "key", "title": "Home Row Review", "items": ["a","s","d","f","j","k","l",";"] },
-        { "id": "top-row", "type": "key", "title": "Top Row Keys", "items": ["q","w","e","r","t","y","u","i","o","p"] },
-        { "id": "short-words", "type": "word", "title": "Short Words", "items": ["cat","dog","book","ball","door","sun"] },
-        { "id": "missing-letter", "type": "fill", "title": "Fill Missing Letter", "items": ["c_t","d_g","s_n","b_ll","h_t"] }
+        { "id": "home-row", "type": "key", "title": "Home Row Review", "items": ["a","s","d","f","j","k","l",";"] },
+        { "id": "three-letter-words", "type": "word", "title": "3-Letter Words", "items": ["cat","dog","sun","bag","hat","man","pen","run"] }
       ]
     },
     "3": {
       "label": "Year 3 - Early",
       "timeLimit": 420,
       "stages": [
-        { "id": "bottom-row", "type": "key", "title": "Bottom Row Keys", "items": ["z","x","c","v","b","n","m"] },
-        { "id": "words-4", "type": "word", "title": "4-Letter Words", "items": ["play","read","jump","park","fast"] },
-        { "id": "words-5", "type": "word", "title": "5-Letter Words", "items": ["apple","chair","table","happy","green"] },
-        { "id": "sentences-simple", "type": "sentence", "title": "Short Sentences", "items": ["I like to run.","This is fun.","We read books."] }
+        { "id": "short-words", "type": "word", "title": "Short Words", "items": ["book","ball","door","fish","hand"] },
+        { "id": "simple-sentences", "type": "sentence", "title": "Simple Sentences", "items": ["I am a boy.","The sun is hot.","We can run."] }
       ]
     },
     "4": {
-      "label": "Year 4 - Beginner coding prep",
+      "label": "Year 4 - Punctuation & Sentences",
       "timeLimit": 420,
       "stages": [
         { "id": "punctuation", "type": "key", "title": "Punctuation Keys", "items": [".",",","?","!"] },
-        { "id": "sentences", "type": "sentence", "title": "Sentences", "items": ["The sun is hot.", "We love to learn.", "Type with both hands."] },
-        { "id": "paragraphs-short", "type": "paragraph", "title": "Short Paragraphs", "items": ["Typing helps us communicate clearly and quickly. With practice we get better."] }
+        { "id": "sentences", "type": "sentence", "title": "Sentences", "items": ["The dog is big.", "We love to learn.", "Type with both hands."] }
       ]
     },
     "5": {
-      "label": "Year 5 - Intro coding text",
+      "label": "Year 5 - Paragraph Practice",
       "timeLimit": 420,
       "stages": [
-        { "id": "short-paragraphs", "type": "paragraph", "title": "Short Paragraphs", "items": ["Practice every day to improve typing speed and accuracy."] },
-        { "id": "code-snippets-1", "type": "code", "title": "Simple Code Snippets", "items": ["print('Hello')","let x = 10;","console.log('Hi');"] }
+        { "id": "short-paragraphs", "type": "paragraph", "title": "Short Paragraphs", "items": ["Typing helps us share ideas. Practice every day to improve speed and accuracy."] }
       ]
     },
     "6": {
-      "label": "Year 6 - Coding basics",
+      "label": "Year 6 - Extended Typing",
       "timeLimit": 420,
       "stages": [
-        { "id": "paragraphs-2", "type": "paragraph", "title": "Paragraph Practice", "items": ["With consistent practice, typing becomes natural and fast."] },
-        { "id": "code-snippets-2", "type": "code", "title": "Code Snippets", "items": ["function hello(){return 'Hi';}","if(a>5){console.log(a);}"] }
+        { "id": "paragraphs", "type": "paragraph", "title": "Paragraphs", "items": ["With consistent practice, typing becomes faster and easier. Students gain confidence as they master the keyboard."] }
       ]
     },
     "7": {
-      "label": "Year 7 - HTML intro",
+      "label": "Year 7 - HTML Intro",
       "timeLimit": 420,
       "stages": [
-        { "id": "html-tags", "type": "code", "title": "HTML Tags", "items": ["<html>","<head>","<body>","<h1>Hello</h1>"] },
-        { "id": "short-html-line", "type": "code", "title": "Short HTML Lines", "items": ["<p>This is a paragraph.</p>"] }
+        { "id": "html-tags", "type": "code", "title": "HTML Tags", "items": ["<html>","<head>","<body>","<h1>Hello</h1>","<p>This is a paragraph.</p>"] }
       ]
     },
     "8": {
-      "label": "Year 8 - CSS & JS intro",
+      "label": "Year 8 - CSS & JS Intro",
       "timeLimit": 420,
       "stages": [
         { "id": "css-lines", "type": "code", "title": "CSS Lines", "items": ["body { }","color: red;","background: blue;"] },
-        { "id": "js-basic", "type": "code", "title": "JS Basic", "items": ["let name = 'Ali';","alert('Hi');"] }
+        { "id": "js-lines", "type": "code", "title": "JS Basics", "items": ["let name = 'Ali';","alert('Hi');"] }
       ]
     },
     "9": {
-      "label": "Year 9 - JS practice",
+      "label": "Year 9 - JS Functions",
       "timeLimit": 420,
       "stages": [
-        { "id": "js-functions", "type": "code", "title": "JS Functions", "items": ["function add(a,b){return a+b;}","console.log(add(1,2));"] }
+        { "id": "js-functions", "type": "code", "title": "Functions", "items": ["function add(a,b){ return a+b; }","console.log(add(1,2));"] }
       ]
     },
     "10": {
-      "label": "Year 10 - Projects",
+      "label": "Year 10 - DOM Projects",
       "timeLimit": 420,
       "stages": [
-        { "id": "long-code", "type": "code", "title": "Longer Code Snippets", "items": ["for(let i=0;i<5;i++){console.log(i);}","document.querySelector('div').innerText = 'Hi';"] }
+        { "id": "dom-snippets", "type": "code", "title": "DOM Snippets", "items": ["document.querySelector('div').innerText = 'Hi';","for(let i=0;i<5;i++){ console.log(i); }"] }
       ]
     },
     "11": {
-      "label": "Year 11 - Advanced code",
+      "label": "Year 11 - Advanced JS",
       "timeLimit": 420,
       "stages": [
-        { "id": "advanced-js", "type": "code", "title": "Advanced JS Lines", "items": ["class Person { constructor(name){this.name=name;} }","fetch('/api').then(r=>r.json())"] }
+        { "id": "advanced-js", "type": "code", "title": "Advanced Lines", "items": ["class Person { constructor(name){this.name=name;} }","fetch('/api').then(r=>r.json())"] }
       ]
     },
     "12": {
-      "label": "Year 12 - Capstone typing",
+      "label": "Year 12 - Capstone Practice",
       "timeLimit": 420,
       "stages": [
-        { "id": "project-typing", "type": "code", "title": "Project Snippets", "items": ["<!DOCTYPE html><html><head><title>SLK</title></head><body></body></html>","function gameLoop(){ requestAnimationFrame(gameLoop); }"] }
+        { "id": "capstone", "type": "code", "title": "Project Snippets", "items": ["<!DOCTYPE html><html><head><title>SLK</title></head><body></body></html>","function gameLoop(){ requestAnimationFrame(gameLoop); }"] }
       ]
     }
   }
