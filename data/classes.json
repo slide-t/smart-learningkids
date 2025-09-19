@@ -1,24 +1,208 @@
-[
-  {
-    "id": "year1",
-    "name": "Year 1",
-    "subjects": [
-      {
-        "id": "ict",
-        "name": "ICT",
-        "topics": [
-          {
-            "id": "keyboard",
-            "title": "Keyboard Practice",
-            "detailsPage": "games/keyboard.html"
-          },
-          {
-            "id": "mouse",
-            "title": "Mouse Practice",
-            "detailsPage": "games/mouse.html"
-          }
-        ]
-      }
-    ]
-  }
-]
+{
+  "classes": [
+    {
+      "id": "year1",
+      "name": "Year 1",
+      "terms": [
+        {
+          "number": 1,
+          "title": "1st Term",
+          "categories": [
+            {
+              "id": "ict",
+              "name": "ICT",
+              "topics": ["Keyboard Practice", "Mouse Practice"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "year2",
+      "name": "Year 2",
+      "terms": [
+        {
+          "number": 1,
+          "title": "1st Term",
+          "categories": [
+            {
+              "id": "ict",
+              "name": "ICT",
+              "topics": ["Keyboard Practice", "Mouse Practice"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "year3",
+      "name": "Year 3",
+      "terms": [
+        {
+          "number": 1,
+          "title": "1st Term",
+          "categories": [
+            {
+              "id": "ict",
+              "name": "ICT",
+              "topics": ["Keyboard Practice", "Mouse Practice"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "year4",
+      "name": "Year 4",
+      "terms": [
+        {
+          "number": 1,
+          "title": "1st Term",
+          "categories": [
+            {
+              "id": "ict",
+              "name": "ICT",
+              "topics": ["Keyboard Practice", "Mouse Practice"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "year5",
+      "name": "Year 5",
+      "terms": [
+        {
+          "number": 1,
+          "title": "1st Term",
+          "categories": [
+            {
+              "id": "ict",
+              "name": "ICT",
+              "topics": ["Keyboard Practice", "Mouse Practice"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "year6",
+      "name": "Year 6",
+      "terms": [
+        {
+          "number": 1,
+          "title": "1st Term",
+          "categories": [
+            {
+              "id": "ict",
+              "name": "ICT",
+              "topics": ["Keyboard Practice", "Mouse Practice"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "year7",
+      "name": "Year 7",
+      "terms": [
+        {
+          "number": 1,
+          "title": "1st Term",
+          "categories": [
+            {
+              "id": "ict",
+              "name": "ICT",
+              "topics": ["Keyboard Practice", "Mouse Practice"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "year8",
+      "name": "Year 8",
+      "terms": [
+        {
+          "number": 1,
+          "title": "1st Term",
+          "categories": [
+            {
+              "id": "ict",
+              "name": "ICT",
+              "topics": ["Keyboard Practice", "Mouse Practice"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "year9",
+      "name": "Year 9",
+      "terms": [
+        {
+          "number": 1,
+          "title": "1st Term",
+          "categories": [
+            {
+              "id": "ict",
+              "name": "ICT",
+              "topics": ["Keyboard Practice", "Mouse Practice"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "year10",
+      "name": "Year 10",
+      "terms": [
+        {
+          "number": 1,
+          "title": "1st Term",
+          "categories": [
+            {
+              "id": "ict",
+              "name": "ICT",
+              "topics": ["Keyboard Practice", "Mouse Practice", "Coding Practice (HTML/CSS/JS)"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "year11",
+      "name": "Year 11",
+      "terms": [
+        {
+          "number": 1,
+          "title": "1st Term",
+          "categories": [
+            {
+              "id": "ict",
+              "name": "ICT",
+              "topics": ["Keyboard Practice", "Mouse Practice", "Coding Practice (DOM & Projects)"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "year12",
+      "name": "Year 12",
+      "terms": [
+        {
+          "number": 1,
+          "title": "1st Term",
+          "categories": [
+            {
+              "id": "ict",
+              "name": "ICT",
+              "topics": ["Keyboard Practice", "Mouse Practice", "Capstone Coding Projects"]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
