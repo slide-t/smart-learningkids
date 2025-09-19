@@ -24,7 +24,7 @@
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
-  const container = document.getElementById("classes-container");
+  const container = document.getElementById("accordion");
 
   // Academic term unlock dates
   const termUnlockDates = {
@@ -32,7 +32,6 @@ document.addEventListener("DOMContentLoaded", () => {
     3: new Date("2026-04-20")  // 3rd term unlocks Apr 20, 2026
   };
 
-  // Get today's date
   const today = new Date();
 
   // Fetch JSON file
@@ -40,61 +39,91 @@ document.addEventListener("DOMContentLoaded", () => {
     .then(response => response.json())
     .then(data => {
       data.classes.forEach(cls => {
-        // Class wrapper
-        const classDiv = document.createElement("div");
-        classDiv.classList.add("class-block");
+        // Card for each class
+        const card = document.createElement("div");
+        card.className = "bg-white rounded-xl shadow-md overflow-hidden";
 
-        const classTitle = document.createElement("h2");
-        classTitle.textContent = cls.name;
-        classDiv.appendChild(classTitle);
+        // Header
+        const header = document.createElement("button");
+        header.className =
+          "w-full flex justify-between items-center px-6 py-4 text-lg font-semibold bg-blue-100 hover:bg-blue-200 transition";
+        header.innerHTML = `
+          <span>${cls.name}</span>
+          <span class="transform transition-transform duration-300">+</span>
+        `;
+        card.appendChild(header);
 
-        // Loop terms
-        cls.terms.forEach(term => {
-          const termDiv = document.createElement("div");
-          termDiv.classList.add("term-block");
+        // Body
+        const body = document.createElement("div");
+        body.className =
+          "max-h-0 overflow-hidden transition-all duration-500 ease-in-out bg-gray-50";
 
-          const termTitle = document.createElement("h3");
-          termTitle.textContent = term.title;
-          termDiv.appendChild(termTitle);
+        // Terms
+        body.innerHTML = cls.terms
+          .map(term => {
+            const unlocked =
+              term.number === 1 || today >= termUnlockDates[term.number];
 
-          // Unlock check
-          if (term.number === 1 || today >= termUnlockDates[term.number]) {
-            // Loop categories (keyboard, mouse, coding etc.)
-            term.categories.forEach(cat => {
-              const catDiv = document.createElement("div");
-              catDiv.classList.add("category-block");
+            return `
+              <div class="mb-4">
+                <h3 class="text-lg font-semibold text-blue-700 px-4 py-2">
+                  ${term.title}
+                </h3>
+                ${
+                  unlocked
+                    ? term.categories
+                        .map(cat => `
+                          <div class="ml-4">
+                            <h4 class="text-md font-semibold text-gray-700 px-3 py-1">
+                              ${cat.name}
+                            </h4>
+                            <ul class="space-y-3 pl-6">
+                              ${cat.topics
+                                .map(
+                                  topic => `
+                                <li class="px-4 py-2 bg-white rounded-lg shadow hover:shadow-md hover:bg-blue-50 transition">
+                                  ${topic}
+                                </li>`
+                                )
+                                .join("")}
+                            </ul>
+                          </div>
+                        `)
+                        .join("")
+                    : `<p class="px-4 py-2 text-gray-500 italic">
+                        Locked until ${termUnlockDates[term.number].toDateString()}
+                      </p>`
+                }
+              </div>
+            `;
+          })
+          .join("");
 
-              const catTitle = document.createElement("h4");
-              catTitle.textContent = cat.name;
-              catDiv.appendChild(catTitle);
+        card.appendChild(body);
 
-              const topicsList = document.createElement("ul");
-              cat.topics.forEach(topic => {
-                const li = document.createElement("li");
-                li.textContent = topic;
-                topicsList.appendChild(li);
-              });
-              catDiv.appendChild(topicsList);
+        // Toggle accordion
+        header.addEventListener("click", () => {
+          const isOpen = body.style.maxHeight && body.style.maxHeight !== "0px";
+          document
+            .querySelectorAll("#accordion div > div")
+            .forEach(el => (el.style.maxHeight = null));
+          document
+            .querySelectorAll("#accordion button span:last-child")
+            .forEach(icon => (icon.style.transform = "rotate(0deg)"));
 
-              termDiv.appendChild(catDiv);
-            });
-          } else {
-            // Locked message
-            const lockedMsg = document.createElement("p");
-            lockedMsg.textContent = `Locked until ${termUnlockDates[term.number].toDateString()}`;
-            termDiv.appendChild(lockedMsg);
-            termDiv.classList.add("locked");
+          if (!isOpen) {
+            body.style.maxHeight = body.scrollHeight + "px";
+            header.querySelector("span:last-child").style.transform =
+              "rotate(45deg)";
           }
-
-          classDiv.appendChild(termDiv);
         });
 
-        container.appendChild(classDiv);
+        container.appendChild(card);
       });
     })
     .catch(err => {
       console.error("Error loading JSON:", err);
-      container.textContent = "Failed to load class data.";
+      container.textContent = "⚠️ Failed to load class data.";
     });
 });
 </script>
