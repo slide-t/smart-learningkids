@@ -167,5 +167,70 @@
       });
     });
   </script>
+
+<!-- Refresh update button (hidden by default) -->
+<button id="update-app" style="
+  display:none;
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  padding:10px 16px;
+  background:#6a5acd;
+  color:#fff;
+  border:none;
+  border-radius:8px;
+  font-size:14px;
+  cursor:pointer;
+  box-shadow:0 4px 6px rgba(0,0,0,0.2);
+  z-index:1000;
+">
+  🔄 Refresh to update
+</button>
+
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker
+        .register('/service-worker.js')
+        .then((registration) => {
+          console.log('[SW] Registered:', registration);
+
+          // Show update button if a new SW is waiting
+          function showUpdateButton(worker) {
+            const btn = document.getElementById('update-app');
+            btn.style.display = 'block';
+            btn.addEventListener('click', () => {
+              worker.postMessage({ type: 'SKIP_WAITING' });
+            });
+          }
+
+          if (registration.waiting) {
+            showUpdateButton(registration.waiting);
+          }
+
+          registration.addEventListener('updatefound', () => {
+            const newWorker = registration.installing;
+            if (newWorker) {
+              newWorker.addEventListener('statechange', () => {
+                if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                  showUpdateButton(newWorker);
+                }
+              });
+            }
+          });
+
+          // Reload page when SW activates
+          navigator.serviceWorker.addEventListener('controllerchange', () => {
+            window.location.reload();
+          });
+        })
+        .catch((error) => {
+          console.error('[SW] Registration failed:', error);
+        });
+    });
+  }
+</script>
+
+  
 </body>
 </html>
