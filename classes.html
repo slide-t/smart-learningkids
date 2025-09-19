@@ -23,7 +23,20 @@
   </main>
 
 <script>
-  // Load JSON data
+  // Utility: check if a term is unlocked
+  function isUnlocked(termNumber) {
+    const today = new Date();
+
+    // Unlock schedule
+    const unlockDates = {
+      1: new Date("2025-01-01"),  // 1st Term always available
+      2: new Date("2026-01-04"),  // 2nd Term unlocks Jan 4, 2026
+      3: new Date("2026-04-20")   // 3rd Term unlocks Apr 20, 2026
+    };
+
+    return today >= unlockDates[termNumber];
+  }
+
   fetch("data/classes.json")
     .then(res => res.json())
     .then(data => {
@@ -46,20 +59,28 @@
         const body = document.createElement("div");
         body.className = "max-h-0 overflow-hidden transition-all duration-500 ease-in-out bg-gray-50";
 
-        // Subjects + Topics
-        body.innerHTML = cls.subjects.map(subject => `
+        // Terms → Categories → Topics
+        body.innerHTML = cls.terms.map(term => `
           <div class="mb-4">
-            <h3 class="text-lg font-semibold text-blue-700 px-4 py-2">${subject.name}</h3>
-            <ul class="space-y-3 pl-6">
-              ${subject.topics.map(topic => `
-                <li>
-                  <a href="topics-details.html?class=${cls.id}&subject=${subject.id}&topic=${encodeURIComponent(topic)}"
-                     class="block px-4 py-3 rounded-lg shadow text-base transition bg-white hover:shadow-md hover:bg-blue-50">
-                    ${topic}
-                  </a>
-                </li>
-              `).join("")}
-            </ul>
+            <h3 class="text-lg font-semibold text-blue-700 px-4 py-2">${term.title}</h3>
+            ${term.categories.map(category => `
+              <div class="ml-4">
+                <h4 class="text-md font-semibold text-gray-700 px-3 py-1">${category.name}</h4>
+                <ul class="space-y-3 pl-6">
+                  ${category.topics.map(topic => {
+                    const unlocked = isUnlocked(term.number);
+                    return `
+                      <li>
+                        <a href="${unlocked ? `topics-details.html?class=${cls.id}&term=${term.number}&category=${category.id}&topic=${encodeURIComponent(topic)}` : '#'}"
+                           class="block px-4 py-3 rounded-lg shadow text-base transition
+                                  ${unlocked ? 'bg-white hover:shadow-md hover:bg-blue-50' : 'bg-gray-200 text-gray-500 cursor-not-allowed'}">
+                          ${topic}
+                        </a>
+                      </li>`;
+                  }).join("")}
+                </ul>
+              </div>
+            `).join("")}
           </div>
         `).join("");
 
@@ -81,144 +102,5 @@
       });
     });
 </script>
-
-
-
-  <!--
-<script>
-  // Load JSON data
-  fetch("data/classes.json")
-    .then(res => res.json())
-    .then(data => {
-      const container = document.getElementById("accordion");
-
-      data.classes.forEach(cls => {
-        const card = document.createElement("div");
-        card.className = "bg-white rounded-xl shadow-md overflow-hidden";
-
-        // Accordion Header
-        const header = document.createElement("button");
-        header.className = "w-full flex justify-between items-center px-6 py-4 text-lg font-semibold bg-blue-100 hover:bg-blue-200 transition";
-        header.innerHTML = `
-          <span>${cls.name}</span>
-          <span class="transform transition-transform duration-300">+</span>
-        `;
-        card.appendChild(header);
-
-        // Accordion Body
-        const body = document.createElement("div");
-        body.className = "max-h-0 overflow-hidden transition-all duration-500 ease-in-out bg-gray-50";
-
-        // Subjects + Topics
-        body.innerHTML = cls.subjects.map(subject => `
-          <div class="mb-4">
-            <h3 class="text-lg font-semibold text-blue-700 px-4 py-2">${subject.name}</h3>
-            <ul class="space-y-3 pl-6">
-              ${subject.topics.map(topic => `
-                <li>
-                  <a href="topics-details.html?class=${cls.id}&subject=${subject.id}&topic=${encodeURIComponent(topic)}"
-                     class="block px-4 py-3 rounded-lg shadow text-base transition bg-white hover:shadow-md hover:bg-blue-50">
-                    ${topic}
-                  </a>
-                </li>
-              `).join("")}
-            </ul>
-          </div>
-        `).join("");
-
-        card.appendChild(body);
-
-        // Toggle Accordion
-        header.addEventListener("click", () => {
-          const isOpen = body.style.maxHeight && body.style.maxHeight !== "0px";
-          document.querySelectorAll("#accordion div > div").forEach(el => el.style.maxHeight = null);
-          document.querySelectorAll("#accordion button span:last-child").forEach(icon => icon.style.transform = "rotate(0deg)");
-
-          if (!isOpen) {
-            body.style.maxHeight = body.scrollHeight + "px";
-            header.querySelector("span:last-child").style.transform = "rotate(45deg)";
-          }
-        });
-
-        container.appendChild(card);
-      });
-    });
-</script>
-
-
-
-  <!--
-  <script>
-    // Utility: check if a term is unlocked
-    function isUnlocked(termNumber) {
-      const month = new Date().getMonth() + 1; // Jan=1
-      if (termNumber === 1) return true;           // Always unlocked
-      if (termNumber === 2) return month >= 1;     // Unlock in January
-      if (termNumber === 3) return month >= 4;     // Unlock in April
-      return false;
-    }
-
-    // Load JSON data
-    fetch("data/classes.json")
-      .then(res => res.json())
-      .then(data => {
-        const container = document.getElementById("accordion");
-
-        data.classes.forEach(cls => {
-          const card = document.createElement("div");
-          card.className = "bg-white rounded-xl shadow-md overflow-hidden";
-
-          // Accordion Header
-          const header = document.createElement("button");
-          header.className = "w-full flex justify-between items-center px-6 py-4 text-lg font-semibold bg-blue-100 hover:bg-blue-200 transition";
-          header.innerHTML = `
-            <span>${cls.name}</span>
-            <span class="transform transition-transform duration-300">+</span>
-          `;
-          card.appendChild(header);
-
-          // Accordion Body
-          const body = document.createElement("div");
-          body.className = "max-h-0 overflow-hidden transition-all duration-500 ease-in-out bg-gray-50";
-
-          // Terms
-          body.innerHTML = cls.terms.map(term => `
-            <div class="mb-4">
-              <h3 class="text-lg font-semibold text-blue-700 px-4 py-2">${term.title}</h3>
-              <ul class="space-y-3 pl-6">
-                ${term.topics.map(topic => {
-                  const unlocked = isUnlocked(term.number);
-                  return `
-                    <li>
-                      <a href="${unlocked ? topic.url : '#'}"
-                         class="block px-4 py-3 rounded-lg shadow text-base transition
-                                ${unlocked ? 'bg-white hover:shadow-md hover:bg-blue-50' : 'bg-gray-200 text-gray-500 cursor-not-allowed'}">
-                        ${topic.title}
-                      </a>
-                    </li>`;
-                }).join("")}
-              </ul>
-            </div>
-          `).join("");
-
-          card.appendChild(body);
-
-          // Toggle Accordion
-          header.addEventListener("click", () => {
-            const isOpen = body.style.maxHeight && body.style.maxHeight !== "0px";
-            document.querySelectorAll("#accordion div > div").forEach(el => el.style.maxHeight = null);
-            document.querySelectorAll("#accordion button span:last-child").forEach(icon => icon.style.transform = "rotate(0deg)");
-
-            if (!isOpen) {
-              body.style.maxHeight = body.scrollHeight + "px";
-              header.querySelector("span:last-child").style.transform = "rotate(45deg)";
-            }
-          });
-
-          container.appendChild(card);
-        });
-      });
-  </script>
-  -->
 </body>
 </html>
