@@ -1,1 +1,341 @@
 
+{
+  "classes": [
+    {
+      "id": "year1",
+      "name": "Year 1",
+      "terms": [
+        {
+          "number": 1,
+          "title": "First Term",
+          "stages": [
+            { "title": "Clicking Shapes", "items": ["Circle", "Square", "Triangle"] },
+            { "title": "Click the Smiley", "items": ["🙂", "😊", "😀"] }
+          ]
+        },
+        {
+          "number": 2,
+          "title": "Second Term",
+          "stages": [
+            { "title": "Click Animals", "items": ["🐶", "🐱", "🐭"] },
+            { "title": "Click Colors", "items": ["Red", "Blue", "Green"] }
+          ]
+        },
+        {
+          "number": 3,
+          "title": "Third Term",
+          "stages": [
+            { "title": "Catch the Falling Emoji", "items": ["⭐", "🍎", "💧"] }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "year2",
+      "name": "Year 2",
+      "terms": [
+        {
+          "number": 1,
+          "title": "First Term",
+          "stages": [
+            { "title": "Click Letters", "items": ["A", "B", "C", "D"] },
+            { "title": "Click Numbers", "items": ["1", "2", "3", "4"] }
+          ]
+        },
+        {
+          "number": 2,
+          "title": "Second Term",
+          "stages": [
+            { "title": "Click Fruits", "items": ["🍌", "🍎", "🍊", "🍇"] }
+          ]
+        },
+        {
+          "number": 3,
+          "title": "Third Term",
+          "stages": [
+            { "title": "Click Animals", "items": ["🐸", "🐰", "🐢", "🐟"] }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "year3",
+      "name": "Year 3",
+      "terms": [
+        {
+          "number": 1,
+          "title": "First Term",
+          "stages": [
+            { "title": "Click Objects", "items": ["🚗", "🚲", "✈️", "⚽"] }
+          ]
+        },
+        {
+          "number": 2,
+          "title": "Second Term",
+          "stages": [
+            { "title": "Click Shapes", "items": ["⭐", "❤️", "⬛", "⬜"] }
+          ]
+        },
+        {
+          "number": 3,
+          "title": "Third Term",
+          "stages": [
+            { "title": "Click Emojis", "items": ["😂", "🥰", "😎", "😴"] }
+          ]
+        }
+      ]
+    },
+
+    {
+      "id": "year4",
+      "name": "Year 4",
+      "terms": [
+        {
+          "number": 1,
+          "title": "First Term",
+          "stages": [
+            { "title": "Click the Odd One Out", "items": ["🍎", "🍌", "🐶", "🍇"] }
+          ]
+        },
+        {
+          "number": 2,
+          "title": "Second Term",
+          "stages": [
+            { "title": "Double Click Objects", "items": ["📘", "📗", "📕"] }
+          ]
+        },
+        {
+          "number": 3,
+          "title": "Third Term",
+          "stages": [
+            { "title": "Click in Order", "items": ["1", "2", "3", "4", "5"] }
+          ]
+        }
+      ]
+    },
+
+    {
+      "id": "year5",
+      "name": "Year 5",
+      "terms": [
+        {
+          "number": 1,
+          "title": "First Term",
+          "stages": [
+            { "title": "Drag Shapes", "items": ["🔵", "🟩", "🔺"] }
+          ]
+        },
+        {
+          "number": 2,
+          "title": "Second Term",
+          "stages": [
+            { "title": "Drag Fruits", "items": ["🍎", "🍊", "🍇"] }
+          ]
+        },
+        {
+          "number": 3,
+          "title": "Third Term",
+          "stages": [
+            { "title": "Drag Animals", "items": ["🐶", "🐱", "🐸"] }
+          ]
+        }
+      ]
+    },
+
+    {
+      "id": "year6",
+      "name": "Year 6",
+      "terms": [
+        {
+          "number": 1,
+          "title": "First Term",
+          "stages": [
+            { "title": "Click Moving Objects", "items": ["🚗", "🚲", "✈️"] }
+          ]
+        },
+        {
+          "number": 2,
+          "title": "Second Term",
+          "stages": [
+            { "title": "Drag Numbers into Order", "items": ["3", "1", "4", "2"] }
+          ]
+        },
+        {
+          "number": 3,
+          "title": "Third Term",
+          "stages": [
+            { "title": "Click Correct Emoji", "items": ["🙂", "😢", "😡", "😂"] }
+          ]
+        }
+      ]
+    },
+
+    {
+      "id": "year7",
+      "name": "Year 7",
+      "terms": [
+        {
+          "number": 1,
+          "title": "First Term",
+          "stages": [
+            { "title": "Click Matching Pairs", "items": ["🍎", "🍎", "🐶", "🐶"] }
+          ]
+        },
+        {
+          "number": 2,
+          "title": "Second Term",
+          "stages": [
+            { "title": "Drag to Target", "items": ["A", "B", "C", "D"] }
+          ]
+        },
+        {
+          "number": 3,
+          "title": "Third Term",
+          "stages": [
+            { "title": "Click Hidden Item", "items": ["🌟", "🍀", "🌙", "🔥"] }
+          ]
+        }
+      ]
+    },
+
+    {
+      "id": "year8",
+      "name": "Year 8",
+      "terms": [
+        {
+          "number": 1,
+          "title": "First Term",
+          "stages": [
+            { "title": "Click in Sequence", "items": ["🐱", "🐶", "🐭", "🐹"] }
+          ]
+        },
+        {
+          "number": 2,
+          "title": "Second Term",
+          "stages": [
+            { "title": "Drag to Categories", "items": ["🍎", "🐶", "⚽", "✈️"] }
+          ]
+        },
+        {
+          "number": 3,
+          "title": "Third Term",
+          "stages": [
+            { "title": "Click Only Fruits", "items": ["🍌", "🍇", "🍎", "🐱"] }
+          ]
+        }
+      ]
+    },
+
+    {
+      "id": "year9",
+      "name": "Year 9",
+      "terms": [
+        {
+          "number": 1,
+          "title": "First Term",
+          "stages": [
+            { "title": "Click Moving Letters", "items": ["A", "B", "C", "D"] }
+          ]
+        },
+        {
+          "number": 2,
+          "title": "Second Term",
+          "stages": [
+            { "title": "Right Click Objects", "items": ["⚽", "🎲", "🎯"] }
+          ]
+        },
+        {
+          "number": 3,
+          "title": "Third Term",
+          "stages": [
+            { "title": "Click Hidden Emoji", "items": ["🦄", "🐉", "🐢", "🐸"] }
+          ]
+        }
+      ]
+    },
+
+    {
+      "id": "year10",
+      "name": "Year 10",
+      "terms": [
+        {
+          "number": 1,
+          "title": "First Term",
+          "stages": [
+            { "title": "Drag and Drop Coding Icons", "items": ["<div>", "<p>", "<h1>"] }
+          ]
+        },
+        {
+          "number": 2,
+          "title": "Second Term",
+          "stages": [
+            { "title": "Click DOM Elements", "items": ["Button", "Input", "Image"] }
+          ]
+        },
+        {
+          "number": 3,
+          "title": "Third Term",
+          "stages": [
+            { "title": "Arrange HTML Tags", "items": ["<html>", "<head>", "<body>"] }
+          ]
+        }
+      ]
+    },
+
+    {
+      "id": "year11",
+      "name": "Year 11",
+      "terms": [
+        {
+          "number": 1,
+          "title": "First Term",
+          "stages": [
+            { "title": "Click CSS Properties", "items": ["color", "font-size", "margin"] }
+          ]
+        },
+        {
+          "number": 2,
+          "title": "Second Term",
+          "stages": [
+            { "title": "Match HTML + CSS", "items": ["<h1>", "font-size", "<p>", "color"] }
+          ]
+        },
+        {
+          "number": 3,
+          "title": "Third Term",
+          "stages": [
+            { "title": "Click DOM Events", "items": ["click", "hover", "keydown"] }
+          ]
+        }
+      ]
+    },
+
+    {
+      "id": "year12",
+      "name": "Year 12",
+      "terms": [
+        {
+          "number": 1,
+          "title": "First Term",
+          "stages": [
+            { "title": "Click JavaScript Keywords", "items": ["let", "const", "function"] }
+          ]
+        },
+        {
+          "number": 2,
+          "title": "Second Term",
+          "stages": [
+            { "title": "Click DOM Methods", "items": ["getElementById", "querySelector", "appendChild"] }
+          ]
+        },
+        {
+          "number": 3,
+          "title": "Third Term",
+          "stages": [
+            { "title": "Click CSS Layouts", "items": ["flex", "grid", "block"] }
+          ]
+        }
+      ]
+    }
+  ]
+}
