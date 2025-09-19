@@ -4,33 +4,36 @@
       "name": "Year 1",
       "terms": [
         {
-          "title": "Term 1",
+          "title": "First Term",
           "topics": [
-            {
-              "title": "What is a Computer?",
-              "url": "lessons.html?class=Year 1&topic=What is a Computer?"
-            },
-            {
-              "title": "Powering On/Off Safely",
-              "url": "lessons.html?class=Year 1&topic=Powering On/Off Safely"
-            },
-            {
-              "title": "Mouse Basics Game",
-              "url": "games/mouse.html?level=1"
-            }
+            { "title": "Keyboard Practice", "url": "games/keyboard.html", "type": "game" },
+            { "title": "Mouse Practice", "url": "games/mouse.html", "type": "game" },
+            { "title": "What is a Computer?", "url": "notes/year1/computer.html", "type": "note" },
+            { "title": "Parts of a Computer", "url": "notes/year1/parts.html", "type": "note" },
+            { "title": "Turning On/Off a Computer", "url": "notes/year1/power.html", "type": "note" },
+            { "title": "Using the Mouse and Keyboard Together", "url": "notes/year1/using.html", "type": "note" }
           ]
         },
         {
-          "title": "Term 2",
+          "title": "Second Term",
           "topics": [
-            {
-              "title": "Hand Posture",
-              "url": "lessons.html?class=Year 1&topic=Hand Posture"
-            },
-            {
-              "title": "Keyboard Basics Game",
-              "url": "games/keyboard.html?level=1"
-            }
+            { "title": "Keyboard Practice", "url": "games/keyboard.html", "type": "game" },
+            { "title": "Mouse Practice", "url": "games/mouse.html", "type": "game" },
+            { "title": "Software vs Hardware", "url": "notes/year1/software-hardware.html", "type": "note" },
+            { "title": "Examples of Hardware", "url": "notes/year1/hardware.html", "type": "note" },
+            { "title": "Examples of Software", "url": "notes/year1/software.html", "type": "note" },
+            { "title": "Input and Output Devices", "url": "notes/year1/input-output.html", "type": "note" }
+          ]
+        },
+        {
+          "title": "Third Term",
+          "topics": [
+            { "title": "Keyboard Practice", "url": "games/keyboard.html", "type": "game" },
+            { "title": "Mouse Practice", "url": "games/mouse.html", "type": "game" },
+            { "title": "Uses of Computers", "url": "notes/year1/uses.html", "type": "note" },
+            { "title": "Places We Find Computers", "url": "notes/year1/places.html", "type": "note" },
+            { "title": "Computer Safety", "url": "notes/year1/safety.html", "type": "note" },
+            { "title": "Revision and Practice", "url": "notes/year1/revision.html", "type": "note" }
           ]
         }
       ]
@@ -39,29 +42,36 @@
       "name": "Year 2",
       "terms": [
         {
-          "title": "Term 1",
+          "title": "First Term",
           "topics": [
-            {
-              "title": "Simple Typing Practice",
-              "url": "games/keyboard.html?level=2"
-            },
-            {
-              "title": "Mouse Precision Game",
-              "url": "games/mouse.html?level=2"
-            }
+            { "title": "Keyboard Practice", "url": "games/keyboard.html", "type": "game" },
+            { "title": "Mouse Practice", "url": "games/mouse.html", "type": "game" },
+            { "title": "Introduction to Typing", "url": "notes/year2/typing.html", "type": "note" },
+            { "title": "Mouse Precision", "url": "notes/year2/mouse-precision.html", "type": "note" },
+            { "title": "Storage Devices", "url": "notes/year2/storage.html", "type": "note" },
+            { "title": "Practical Activities", "url": "notes/year2/practice.html", "type": "note" }
           ]
         },
         {
-          "title": "Term 2",
+          "title": "Second Term",
           "topics": [
-            {
-              "title": "Understanding OS",
-              "url": "lessons.html?class=Year 2&topic=Understanding OS"
-            },
-            {
-              "title": "Simple File Paths",
-              "url": "lessons.html?class=Year 2&topic=Simple File Paths"
-            }
+            { "title": "Keyboard Practice", "url": "games/keyboard.html", "type": "game" },
+            { "title": "Mouse Practice", "url": "games/mouse.html", "type": "game" },
+            { "title": "Right Click and Options", "url": "notes/year2/right-click.html", "type": "note" },
+            { "title": "Dragging and Dropping", "url": "notes/year2/drag-drop.html", "type": "note" },
+            { "title": "Introduction to Internet", "url": "notes/year2/internet-intro.html", "type": "note" },
+            { "title": "Computer Lab Rules", "url": "notes/year2/lab-rules.html", "type": "note" }
+          ]
+        },
+        {
+          "title": "Third Term",
+          "topics": [
+            { "title": "Keyboard Practice", "url": "games/keyboard.html", "type": "game" },
+            { "title": "Mouse Practice", "url": "games/mouse.html", "type": "game" },
+            { "title": "Text Formatting", "url": "notes/year2/text-formatting.html", "type": "note" },
+            { "title": "Open and Close Applications", "url": "notes/year2/open-close.html", "type": "note" },
+            { "title": "Revision Activities", "url": "notes/year2/revision.html", "type": "note" },
+            { "title": "Mini Test", "url": "notes/year2/test.html", "type": "note" }
           ]
         }
       ]
@@ -70,122 +80,14 @@
       "name": "Year 3",
       "terms": [
         {
-          "title": "Term 1",
+          "title": "First Term",
           "topics": [
-            {
-              "title": "Typing Words Game",
-              "url": "games/keyboard.html?level=3"
-            },
-            {
-              "title": "Mouse Drag & Drop",
-              "url": "games/mouse.html?level=3"
-            }
-          ]
-        },
-        {
-          "title": "Term 2",
-          "topics": [
-            {
-              "title": "Software vs Hardware",
-              "url": "lessons.html?class=Year 3&topic=Software vs Hardware"
-            },
-            {
-              "title": "Troubleshooting Basics",
-              "url": "lessons.html?class=Year 3&topic=Troubleshooting Basics"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "name": "Year 4",
-      "terms": [
-        {
-          "title": "Term 1",
-          "topics": [
-            {
-              "title": "Typing Sentences Game",
-              "url": "games/keyboard.html?level=4"
-            },
-            {
-              "title": "Advanced Mouse Game",
-              "url": "games/mouse.html?level=4"
-            }
-          ]
-        },
-        {
-          "title": "Term 2",
-          "topics": [
-            {
-              "title": "Internet Basics",
-              "url": "lessons.html?class=Year 4&topic=Internet Basics"
-            },
-            {
-              "title": "Saving Files",
-              "url": "lessons.html?class=Year 4&topic=Saving Files"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "name": "Year 5",
-      "terms": [
-        {
-          "title": "Term 1",
-          "topics": [
-            {
-              "title": "Typing Paragraphs Game",
-              "url": "games/keyboard.html?level=5"
-            },
-            {
-              "title": "Mouse Speed Game",
-              "url": "games/mouse.html?level=5"
-            }
-          ]
-        },
-        {
-          "title": "Term 2",
-          "topics": [
-            {
-              "title": "Introduction to Coding Concepts",
-              "url": "lessons.html?class=Year 5&topic=Introduction to Coding Concepts"
-            },
-            {
-              "title": "Unplugged Coding Activities",
-              "url": "lessons.html?class=Year 5&topic=Unplugged Coding Activities"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "name": "Year 6",
-      "terms": [
-        {
-          "title": "Term 1",
-          "topics": [
-            {
-              "title": "Typing for Coding Game",
-              "url": "games/keyboard.html?level=6"
-            },
-            {
-              "title": "Advanced Mouse Precision",
-              "url": "games/mouse.html?level=6"
-            }
-          ]
-        },
-        {
-          "title": "Term 2",
-          "topics": [
-            {
-              "title": "Writing Simple Algorithms",
-              "url": "lessons.html?class=Year 6&topic=Writing Simple Algorithms"
-            },
-            {
-              "title": "Basic Web Development",
-              "url": "lessons.html?class=Year 6&topic=Basic Web Development"
-            }
+            { "title": "Keyboard Practice", "url": "games/keyboard.html", "type": "game" },
+            { "title": "Mouse Practice", "url": "games/mouse.html", "type": "game" },
+            { "title": "Touch Typing Basics", "url": "notes/year3/touch-typing.html", "type": "note" },
+            { "title": "Mouse Selection", "url": "notes/year3/mouse-selection.html", "type": "note" },
+            { "title": "Operating System Basics", "url": "notes/year3/os-basics.html", "type": "note" },
+            { "title": "Practical Test", "url": "notes/year3/practical.html", "type": "note" }
           ]
         }
       ]
