@@ -7,7 +7,6 @@
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-50 text-gray-900 font-sans">
-
   <!-- Header -->
   <header class="bg-blue-600 text-white shadow-md fixed top-0 left-0 w-full z-50">
     <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
@@ -19,30 +18,34 @@
   <!-- Content -->
   <main class="pt-24 max-w-4xl mx-auto px-4">
     <h2 class="text-3xl font-bold text-center mb-8">Select Your Class</h2>
+
     <div id="accordion" class="space-y-4"></div>
   </main>
-
 <script>
 document.addEventListener("DOMContentLoaded", () => {
   const container = document.getElementById("accordion");
 
-  // Use relative path for local files
-  fetch('data/classes.json')
-    .then(response => {
-      if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
-      return response.json();
-    })
-    .then(data => {
-      console.log("✅ Loaded JSON:", data);
+  // Academic term unlock dates
+  const termUnlockDates = {
+    2: new Date("2026-01-04"), // 2nd term unlocks Jan 4, 2026
+    3: new Date("2026-04-20")  // 3rd term unlocks Apr 20, 2026
+  };
 
+  const today = new Date();
+
+  // Fetch JSON file
+  fetch("data/classes.json")
+    .then(response => response.json())
+    .then(data => {
       data.classes.forEach(cls => {
-        // Card container
+        // Card for each class
         const card = document.createElement("div");
         card.className = "bg-white rounded-xl shadow-md overflow-hidden";
 
         // Header
         const header = document.createElement("button");
-        header.className = "w-full flex justify-between items-center px-6 py-4 text-lg font-semibold bg-blue-100 hover:bg-blue-200 transition";
+        header.className =
+          "w-full flex justify-between items-center px-6 py-4 text-lg font-semibold bg-blue-100 hover:bg-blue-200 transition";
         header.innerHTML = `
           <span>${cls.name}</span>
           <span class="transform transition-transform duration-300">+</span>
@@ -51,38 +54,76 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Body
         const body = document.createElement("div");
-        body.className = "max-h-0 overflow-hidden transition-all duration-500 ease-in-out bg-gray-50";
+        body.className =
+          "max-h-0 overflow-hidden transition-all duration-500 ease-in-out bg-gray-50";
 
-        // Subjects → Topics
-        body.innerHTML = cls.subjects
-          .map(subj => `
-            <div class="mb-4">
-              <h3 class="text-lg font-semibold text-blue-700 px-4 py-2">${subj.name}</h3>
-              <ul class="space-y-3 pl-6">
-                ${subj.topics
-                  .map(topic => `
-                    <li>
-                      <a href="${topic.detailsPage}"
-                         class="block px-4 py-2 rounded-lg shadow text-base transition bg-white hover:shadow-md hover:bg-blue-50">
-                        ${topic.title}
-                      </a>
-                    </li>
-                  `).join('')}
-              </ul>
-            </div>
-          `).join('');
+        // Terms
+        body.innerHTML = cls.terms
+          .map(term => {
+            const unlocked =
+              term.number === 1 || today >= termUnlockDates[term.number];
+
+            return `
+              <div class="mb-4">
+                <h3 class="text-lg font-semibold text-blue-700 px-4 py-2">
+                  ${term.title}
+                </h3>
+                ${term.categories
+                  .map(cat => `
+                    <div class="ml-4">
+                      <h4 class="text-md font-semibold text-gray-700 px-3 py-1">
+                        ${cat.name}
+                      </h4>
+                      <ul class="space-y-3 pl-6">
+                        ${cat.topics
+                          .map(topic => {
+                            if (unlocked) {
+                              // Normal clickable link
+                              return `
+                                <li>
+                                  <a href="topics-details.html?class=${cls.id}&term=${term.number}&category=${cat.id}&topic=${encodeURIComponent(
+                                    topic
+                                  )}"
+                                    class="block px-4 py-2 rounded-lg shadow text-base transition bg-white hover:shadow-md hover:bg-blue-50">
+                                    ${topic}
+                                  </a>
+                                </li>`;
+                            } else {
+                              // Visible but disabled (grayed out, no link)
+                              return `
+                                <li>
+                                  <span class="block px-4 py-2 rounded-lg shadow text-base bg-gray-200 text-gray-500 cursor-not-allowed">
+                                    ${topic} (Locked)
+                                  </span>
+                                </li>`;
+                            }
+                          })
+                          .join("")}
+                      </ul>
+                    </div>
+                  `)
+                  .join("")}
+              </div>
+            `;
+          })
+          .join("");
 
         card.appendChild(body);
 
         // Toggle accordion
         header.addEventListener("click", () => {
           const isOpen = body.style.maxHeight && body.style.maxHeight !== "0px";
-          document.querySelectorAll("#accordion div > div").forEach(el => el.style.maxHeight = null);
-          document.querySelectorAll("#accordion button span:last-child").forEach(icon => icon.style.transform = "rotate(0deg)");
+          document
+            .querySelectorAll("#accordion div > div")
+            .forEach(el => (el.style.maxHeight = null));
+          document
+            .querySelectorAll("#accordion button span:last-child")
+            .forEach(icon => (icon.style.transform = "rotate(0deg)"));
 
           if (!isOpen) {
             body.style.maxHeight = body.scrollHeight + "px";
-            header.querySelector("span:last-child").style.transform = "rotate(45deg)";
+            header.querySelector("span:last-child").style.transform =
+              "rotate(45deg)";
           }
         });
 
@@ -90,10 +131,186 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     })
     .catch(err => {
-      console.error("❌ Failed to load JSON:", err);
+      console.error("Error loading JSON:", err);
       container.textContent = "⚠️ Failed to load class data.";
     });
 });
+</script>
+
+
+
+  <!--
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const container = document.getElementById("accordion");
+
+  // Academic term unlock dates
+  const termUnlockDates = {
+    2: new Date("2026-01-04"), // 2nd term unlocks Jan 4, 2026
+    3: new Date("2026-04-20")  // 3rd term unlocks Apr 20, 2026
+  };
+
+  const today = new Date();
+
+  // Fetch JSON file
+  fetch("data/classes.json")
+    .then(response => response.json())
+    .then(data => {
+      data.classes.forEach(cls => {
+        // Card for each class
+        const card = document.createElement("div");
+        card.className = "bg-white rounded-xl shadow-md overflow-hidden";
+
+        // Header
+        const header = document.createElement("button");
+        header.className =
+          "w-full flex justify-between items-center px-6 py-4 text-lg font-semibold bg-blue-100 hover:bg-blue-200 transition";
+        header.innerHTML = `
+          <span>${cls.name}</span>
+          <span class="transform transition-transform duration-300">+</span>
+        `;
+        card.appendChild(header);
+
+        // Body
+        const body = document.createElement("div");
+        body.className =
+          "max-h-0 overflow-hidden transition-all duration-500 ease-in-out bg-gray-50";
+
+        // Terms
+        body.innerHTML = cls.terms
+          .map(term => {
+            const unlocked =
+              term.number === 1 || today >= termUnlockDates[term.number];
+
+            return `
+              <div class="mb-4">
+                <h3 class="text-lg font-semibold text-blue-700 px-4 py-2">
+                  ${term.title}
+                </h3>
+                ${
+                  unlocked
+                    ? term.categories
+                        .map(cat => `
+                          <div class="ml-4">
+                            <h4 class="text-md font-semibold text-gray-700 px-3 py-1">
+                              ${cat.name}
+                            </h4>
+                            <ul class="space-y-3 pl-6">
+                              ${cat.topics
+                                .map(
+                                  topic => `
+                                <li>
+                                  <a href="topics-details.html?class=${cls.id}&term=${term.number}&category=${cat.id}&topic=${encodeURIComponent(
+                                    topic
+                                  )}"
+                                     class="block px-4 py-2 rounded-lg shadow text-base transition bg-white hover:shadow-md hover:bg-blue-50">
+                                    ${topic}
+                                  </a>
+                                </li>`
+                                )
+                                .join("")}
+                            </ul>
+                          </div>
+                        `)
+                        .join("")
+                    : `<p class="px-4 py-2 text-gray-500 italic">
+                        Locked until ${termUnlockDates[term.number].toDateString()}
+                      </p>`
+                }
+              </div>
+            `;
+          })
+          .join("");
+
+        card.appendChild(body);
+
+        // Toggle accordion
+        header.addEventListener("click", () => {
+          const isOpen = body.style.maxHeight && body.style.maxHeight !== "0px";
+          document
+            .querySelectorAll("#accordion div > div")
+            .forEach(el => (el.style.maxHeight = null));
+          document
+            .querySelectorAll("#accordion button span:last-child")
+            .forEach(icon => (icon.style.transform = "rotate(0deg)"));
+
+          if (!isOpen) {
+            body.style.maxHeight = body.scrollHeight + "px";
+            header.querySelector("span:last-child").style.transform =
+              "rotate(45deg)";
+          }
+        });
+
+        container.appendChild(card);
+      });
+    })
+    .catch(err => {
+      console.error("Error loading JSON:", err);
+      container.textContent = "⚠️ Failed to load class data.";
+    });
+});
+</script>
+<!-- Refresh update button (hidden by default) -->
+<button id="update-app" style="
+  display:none;
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  padding:10px 16px;
+  background:#6a5acd;
+  color:#fff;
+  border:none;
+  border-radius:8px;
+  font-size:14px;
+  cursor:pointer;
+  box-shadow:0 4px 6px rgba(0,0,0,0.2);
+  z-index:1000;
+">
+  🔄 Refresh to update
+</button>
+
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker
+        .register('/service-worker.js')
+        .then((registration) => {
+          console.log('[SW] Registered:', registration);
+
+          // Show update button if a new SW is waiting
+          function showUpdateButton(worker) {
+            const btn = document.getElementById('update-app');
+            btn.style.display = 'block';
+            btn.addEventListener('click', () => {
+              worker.postMessage({ type: 'SKIP_WAITING' });
+            });
+          }
+
+          if (registration.waiting) {
+            showUpdateButton(registration.waiting);
+          }
+
+          registration.addEventListener('updatefound', () => {
+            const newWorker = registration.installing;
+            if (newWorker) {
+              newWorker.addEventListener('statechange', () => {
+                if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                  showUpdateButton(newWorker);
+                }
+              });
+            }
+          });
+
+          // Reload page when SW activates
+          navigator.serviceWorker.addEventListener('controllerchange', () => {
+            window.location.reload();
+          });
+        })
+        .catch((error) => {
+          console.error('[SW] Registration failed:', error);
+        });
+    });
+  }
 </script>
 
 </body>
