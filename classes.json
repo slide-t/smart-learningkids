@@ -1,0 +1,257 @@
+{
+  "school": "Smart Learning Kids",
+  "years": [
+    {
+      "id": "year1",
+      "name": "Year 1",
+      "terms": [
+        {
+          "id": "term1",
+          "name": "Term 1",
+          "topics": [
+            { "id": "keyboard-basics", "title": "Keyboard Basics", "url": "games/keyboard.html" },
+            { "id": "mouse-alphabets", "title": "Mouse Game: Click Alphabets", "url": "games/mouse.html" },
+            { "id": "what-is-computer", "title": "What is a Computer?", "url": "notes/year1/computer-intro.html" },
+            { "id": "parts-of-computer", "title": "Parts of a Computer", "url": "notes/year1/computer-parts.html" },
+            { "id": "number-fun", "title": "Number Fun (Counting Game)", "url": "games/numbers.html" },
+            { "id": "health-habits", "title": "Healthy Living Habits", "url": "notes/year1/health.html" }
+          ]
+        },
+        {
+          "id": "term2",
+          "name": "Term 2",
+          "topics": [
+            { "id": "keyboard-words", "title": "Typing Words", "url": "games/keyboard.html" },
+            { "id": "mouse-rightclick", "title": "Mouse Game: Right-Click Practice", "url": "games/mouse.html" },
+            { "id": "shapes-game", "title": "Identify Shapes", "url": "games/shapes.html" },
+            { "id": "local-values", "title": "Our Local Values", "url": "notes/year1/values.html" },
+            { "id": "colors-fun", "title": "Colors and Drawing", "url": "games/colors.html" },
+            { "id": "basic-safety", "title": "Safety Rules", "url": "notes/year1/safety.html" }
+          ]
+        },
+        {
+          "id": "term3",
+          "name": "Term 3",
+          "topics": [
+            { "id": "keyboard-sentences", "title": "Typing Sentences", "url": "games/keyboard.html" },
+            { "id": "mouse-click-drag", "title": "Mouse Game: Click & Drag", "url": "games/mouse.html" },
+            { "id": "our-environment", "title": "Our Environment", "url": "notes/year1/environment.html" },
+            { "id": "animals-game", "title": "Animals and Sounds", "url": "games/animals.html" },
+            { "id": "story-reading", "title": "Simple Story Reading", "url": "notes/year1/story.html" },
+            { "id": "civic-habits", "title": "Good Civic Habits", "url": "notes/year1/civic.html" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "year2",
+      "name": "Year 2",
+      "terms": [
+        {
+          "id": "term1",
+          "name": "Term 1",
+          "topics": [
+            { "id": "keyboard-practice", "title": "Keyboard Practice", "url": "games/keyboard.html" },
+            { "id": "mouse-alphabets2", "title": "Mouse Game: Click Alphabets", "url": "games/mouse.html" },
+            { "id": "living-things", "title": "Living & Non-Living Things", "url": "notes/year2/living.html" },
+            { "id": "addition-game", "title": "Addition Game", "url": "games/addition.html" },
+            { "id": "family-values", "title": "Family & Friends", "url": "notes/year2/family.html" },
+            { "id": "music-fun", "title": "Music & Rhymes", "url": "games/music.html" }
+          ]
+        },
+        {
+          "id": "term2",
+          "name": "Term 2",
+          "topics": [
+            { "id": "keyboard-short-words", "title": "Typing Short Words", "url": "games/keyboard.html" },
+            { "id": "mouse-rightclick2", "title": "Mouse Game: Right-Click Practice", "url": "games/mouse.html" },
+            { "id": "subtraction-game", "title": "Subtraction Game", "url": "games/subtraction.html" },
+            { "id": "basic-science", "title": "Basic Science Notes", "url": "notes/year2/science.html" },
+            { "id": "traffic-rules", "title": "Traffic & Safety", "url": "notes/year2/traffic.html" },
+            { "id": "drawing-fun", "title": "Drawing with Mouse", "url": "games/drawing.html" }
+          ]
+        },
+        {
+          "id": "term3",
+          "name": "Term 3",
+          "topics": [
+            { "id": "keyboard-sentences2", "title": "Typing Sentences", "url": "games/keyboard.html" },
+            { "id": "mouse-shapes", "title": "Mouse Game: Click Shapes", "url": "games/mouse.html" },
+            { "id": "multiplication-game", "title": "Multiplication Game", "url": "games/multiplication.html" },
+            { "id": "local-culture", "title": "Our Local Culture", "url": "notes/year2/culture.html" },
+            { "id": "story-writing", "title": "Story Writing Practice", "url": "notes/year2/story.html" },
+            { "id": "plants-game", "title": "Identify Plants", "url": "games/plants.html" }
+          ]
+        }
+      ]
+    },
+
+{
+      "id": "year3",
+      "name": "Year 3",
+      "terms": [
+        {
+          "id": "term1",
+          "name": "Term 1",
+          "topics": [
+            { "id": "keyboard-practice3", "title": "Keyboard Practice", "url": "games/keyboard.html" },
+            { "id": "mouse-alphabets3", "title": "Mouse Game: Click Alphabets", "url": "games/mouse.html" },
+            { "id": "fractions-game", "title": "Fractions Game", "url": "games/fractions.html" },
+            { "id": "our-soil", "title": "Soil and Agriculture", "url": "notes/year3/soil.html" },
+            { "id": "regional-values", "title": "Regional Values", "url": "notes/year3/values.html" },
+            { "id": "storytelling", "title": "Storytelling Practice", "url": "notes/year3/storytelling.html" }
+          ]
+        },
+        {
+          "id": "term2",
+          "name": "Term 2",
+          "topics": [
+            { "id": "keyboard-words3", "title": "Typing Words", "url": "games/keyboard.html" },
+            { "id": "mouse-rightclick3", "title": "Mouse Game: Right-Click Practice", "url": "games/mouse.html" },
+            { "id": "division-game", "title": "Division Game", "url": "games/division.html" },
+            { "id": "simple-machines", "title": "Simple Machines", "url": "notes/year3/machines.html" },
+            { "id": "culture-festival", "title": "Our Festivals", "url": "notes/year3/festival.html" },
+            { "id": "drawing-shapes", "title": "Drawing Shapes", "url": "games/drawing.html" }
+          ]
+        },
+        {
+          "id": "term3",
+          "name": "Term 3",
+          "topics": [
+            { "id": "keyboard-sentences3", "title": "Typing Sentences", "url": "games/keyboard.html" },
+            { "id": "mouse-click-drag3", "title": "Mouse Game: Click & Drag", "url": "games/mouse.html" },
+            { "id": "measurement-game", "title": "Measurement Game", "url": "games/measurement.html" },
+            { "id": "our-weather", "title": "Weather and Seasons", "url": "notes/year3/weather.html" },
+            { "id": "community-rules", "title": "Community Rules", "url": "notes/year3/community.html" },
+            { "id": "reading-comprehension", "title": "Reading Comprehension", "url": "notes/year3/reading.html" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "year4",
+      "name": "Year 4",
+      "terms": [
+        {
+          "id": "term1",
+          "name": "Term 1",
+          "topics": [
+            { "id": "keyboard-paragraphs", "title": "Typing Paragraphs", "url": "games/keyboard.html" },
+            { "id": "mouse-practice4", "title": "Mouse Game: Click Letters", "url": "games/mouse.html" },
+            { "id": "decimals-game", "title": "Decimals Game", "url": "games/decimals.html" },
+            { "id": "plants-notes", "title": "Plants and Growth", "url": "notes/year4/plants.html" },
+            { "id": "civic-values", "title": "National Values", "url": "notes/year4/values.html" },
+            { "id": "short-composition", "title": "Writing a Short Composition", "url": "notes/year4/composition.html" }
+          ]
+        },
+        {
+          "id": "term2",
+          "name": "Term 2",
+          "topics": [
+            { "id": "keyboard-stories", "title": "Typing Short Stories", "url": "games/keyboard.html" },
+            { "id": "mouse-rightclick4", "title": "Mouse Game: Right-Click Practice", "url": "games/mouse.html" },
+            { "id": "geometry-game", "title": "Geometry Shapes Game", "url": "games/geometry.html" },
+            { "id": "human-body", "title": "The Human Body", "url": "notes/year4/body.html" },
+            { "id": "cultural-values", "title": "Cultural Heritage", "url": "notes/year4/culture.html" },
+            { "id": "letter-writing", "title": "Letter Writing", "url": "notes/year4/letter.html" }
+          ]
+        },
+        {
+          "id": "term3",
+          "name": "Term 3",
+          "topics": [
+            { "id": "keyboard-speed", "title": "Keyboard Speed Game", "url": "games/keyboard.html" },
+            { "id": "mouse-click-drag4", "title": "Mouse Game: Drag and Drop", "url": "games/mouse.html" },
+            { "id": "word-problems", "title": "Word Problems Game", "url": "games/wordproblems.html" },
+            { "id": "energy-notes", "title": "Energy and Light", "url": "notes/year4/energy.html" },
+            { "id": "civic-responsibility", "title": "Civic Responsibilities", "url": "notes/year4/civic.html" },
+            { "id": "poetry-intro", "title": "Introduction to Poetry", "url": "notes/year4/poetry.html" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "year5",
+      "name": "Year 5",
+      "terms": [
+        {
+          "id": "term1",
+          "name": "Term 1",
+          "topics": [
+            { "id": "keyboard-essays", "title": "Typing Essays", "url": "games/keyboard.html" },
+            { "id": "mouse-practice5", "title": "Mouse Game: Quick Click", "url": "games/mouse.html" },
+            { "id": "fractions-decimals", "title": "Fractions & Decimals Game", "url": "games/fractions_decimals.html" },
+            { "id": "ecosystem-notes", "title": "Ecosystem and Environment", "url": "notes/year5/ecosystem.html" },
+            { "id": "regional-history", "title": "Regional History", "url": "notes/year5/history.html" },
+            { "id": "composition-notes", "title": "Composition Writing", "url": "notes/year5/composition.html" }
+          ]
+        },
+        {
+          "id": "term2",
+          "name": "Term 2",
+          "topics": [
+            { "id": "keyboard-speed5", "title": "Typing Speed Challenge", "url": "games/keyboard.html" },
+            { "id": "mouse-rightclick5", "title": "Mouse Game: Right-Click Challenge", "url": "games/mouse.html" },
+            { "id": "percentages-game", "title": "Percentages Game", "url": "games/percentages.html" },
+            { "id": "electricity-notes", "title": "Electricity & Magnetism", "url": "notes/year5/electricity.html" },
+            { "id": "government-values", "title": "Government & Leadership", "url": "notes/year5/government.html" },
+            { "id": "narrative-writing", "title": "Narrative Writing", "url": "notes/year5/narrative.html" }
+          ]
+        },
+        {
+          "id": "term3",
+          "name": "Term 3",
+          "topics": [
+            { "id": "keyboard-coding", "title": "Typing Code Samples", "url": "games/keyboard.html" },
+            { "id": "mouse-dragdrop5", "title": "Mouse Game: Drag & Drop Shapes", "url": "games/mouse.html" },
+            { "id": "algebra-game", "title": "Algebra Game", "url": "games/algebra.html" },
+            { "id": "climate-change", "title": "Climate Change", "url": "notes/year5/climate.html" },
+            { "id": "civic-duties", "title": "Civic Duties", "url": "notes/year5/civic.html" },
+            { "id": "literature-stories", "title": "African Folktales", "url": "notes/year5/folktales.html" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "year6",
+      "name": "Year 6",
+      "terms": [
+        {
+          "id": "term1",
+          "name": "Term 1",
+          "topics": [
+            { "id": "keyboard-essays6", "title": "Typing Long Essays", "url": "games/keyboard.html" },
+            { "id": "mouse-practice6", "title": "Mouse Game: Quick Click Challenge", "url": "games/mouse.html" },
+            { "id": "ratio-proportion", "title": "Ratios & Proportions Game", "url": "games/ratios.html" },
+            { "id": "human-digestive", "title": "The Digestive System", "url": "notes/year6/digestive.html" },
+            { "id": "citizenship-values", "title": "Citizenship & Values", "url": "notes/year6/citizenship.html" },
+            { "id": "expository-writing", "title": "Expository Writing", "url": "notes/year6/expository.html" }
+          ]
+        },
+        {
+          "id": "term2",
+          "name": "Term 2",
+          "topics": [
+            { "id": "keyboard-speed6", "title": "Typing Speed with Accuracy", "url": "games/keyboard.html" },
+            { "id": "mouse-rightclick6", "title": "Mouse Game: Right-Click Challenge", "url": "games/mouse.html" },
+            { "id": "integers-game", "title": "Integers Game", "url": "games/integers.html" },
+            { "id": "circulatory-system", "title": "The Circulatory System", "url": "notes/year6/circulatory.html" },
+            { "id": "democracy-values", "title": "Democracy & Rights", "url": "notes/year6/democracy.html" },
+            { "id": "letter-formal", "title": "Formal Letter Writing", "url": "notes/year6/formalletter.html" }
+          ]
+        },
+        {
+          "id": "term3",
+          "name": "Term 3",
+          "topics": [
+            { "id": "keyboard-coding6", "title": "Typing Coding Exercises", "url": "games/keyboard.html" },
+            { "id": "mouse-dragdrop6", "title": "Mouse Game: Drag & Drop Challenge", "url": "games/mouse.html" },
+            { "id": "geometry-advanced", "title": "Advanced Geometry Game", "url": "games/geometry_advanced.html" },
+            { "id": "reproduction", "title": "Reproduction in Plants & Animals", "url": "notes/year6/reproduction.html" },
+            { "id": "economic-values", "title": "Basic Economics", "url": "notes/year6/economics.html" },
+            { "id": "literature-fables", "title": "Fables & Short Plays", "url": "notes/year6/fables.html" }
+          ]
+        }
+      ]
+    }
+    
