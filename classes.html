@@ -85,6 +85,69 @@
 
 
   <!--
+<script>
+  // Load JSON data
+  fetch("data/classes.json")
+    .then(res => res.json())
+    .then(data => {
+      const container = document.getElementById("accordion");
+
+      data.classes.forEach(cls => {
+        const card = document.createElement("div");
+        card.className = "bg-white rounded-xl shadow-md overflow-hidden";
+
+        // Accordion Header
+        const header = document.createElement("button");
+        header.className = "w-full flex justify-between items-center px-6 py-4 text-lg font-semibold bg-blue-100 hover:bg-blue-200 transition";
+        header.innerHTML = `
+          <span>${cls.name}</span>
+          <span class="transform transition-transform duration-300">+</span>
+        `;
+        card.appendChild(header);
+
+        // Accordion Body
+        const body = document.createElement("div");
+        body.className = "max-h-0 overflow-hidden transition-all duration-500 ease-in-out bg-gray-50";
+
+        // Subjects + Topics
+        body.innerHTML = cls.subjects.map(subject => `
+          <div class="mb-4">
+            <h3 class="text-lg font-semibold text-blue-700 px-4 py-2">${subject.name}</h3>
+            <ul class="space-y-3 pl-6">
+              ${subject.topics.map(topic => `
+                <li>
+                  <a href="topics-details.html?class=${cls.id}&subject=${subject.id}&topic=${encodeURIComponent(topic)}"
+                     class="block px-4 py-3 rounded-lg shadow text-base transition bg-white hover:shadow-md hover:bg-blue-50">
+                    ${topic}
+                  </a>
+                </li>
+              `).join("")}
+            </ul>
+          </div>
+        `).join("");
+
+        card.appendChild(body);
+
+        // Toggle Accordion
+        header.addEventListener("click", () => {
+          const isOpen = body.style.maxHeight && body.style.maxHeight !== "0px";
+          document.querySelectorAll("#accordion div > div").forEach(el => el.style.maxHeight = null);
+          document.querySelectorAll("#accordion button span:last-child").forEach(icon => icon.style.transform = "rotate(0deg)");
+
+          if (!isOpen) {
+            body.style.maxHeight = body.scrollHeight + "px";
+            header.querySelector("span:last-child").style.transform = "rotate(45deg)";
+          }
+        });
+
+        container.appendChild(card);
+      });
+    });
+</script>
+
+
+
+  <!--
   <script>
     // Utility: check if a term is unlocked
     function isUnlocked(termNumber) {
