@@ -1,74 +1,99 @@
 {
-  "levels": [
-    {
-      "id": "home-row",
-      "title": "Home Row Practice",
-      "description": "Practice typing the home row keys using the correct fingers.",
-      "tasks": [
-        { "keys": ["a", "s", "d", "f", "j", "k", "l", ";"], "type": "single" }
-      ],
-      "timeLimit": 420
+  "levels": {
+    "1": {
+      "label": "Year 1 - Beginner",
+      "timeLimit": 420,
+      "stages": [
+        { "id": "home-row", "type": "key", "title": "Home Row Keys", "items": ["a","s","d","f","j","k","l",";"] },
+        { "id": "three-letter-words", "type": "word", "title": "3-Letter Words", "items": ["dad","mom","cat","dog","sun","run","bag","hat"] }
+      ]
     },
-    {
-      "id": "left-hand",
-      "title": "Left Hand Keys",
-      "description": "Practice left hand keys in sequence.",
-      "tasks": [
-        { "keys": ["a", "s", "d", "f", "g"], "type": "single" }
-      ],
-      "timeLimit": 420
+    "2": {
+      "label": "Year 2 - Beginner+",
+      "timeLimit": 420,
+      "stages": [
+        { "id": "home-row-repeat", "type": "key", "title": "Home Row Review", "items": ["a","s","d","f","j","k","l",";"] },
+        { "id": "top-row", "type": "key", "title": "Top Row Keys", "items": ["q","w","e","r","t","y","u","i","o","p"] },
+        { "id": "short-words", "type": "word", "title": "Short Words", "items": ["cat","dog","book","ball","door","sun"] }
+      ]
     },
-    {
-      "id": "right-hand",
-      "title": "Right Hand Keys",
-      "description": "Practice right hand keys in sequence.",
-      "tasks": [
-        { "keys": ["h", "j", "k", "l", ";"], "type": "single" }
-      ],
-      "timeLimit": 420
+    "3": {
+      "label": "Year 3 - Early",
+      "timeLimit": 420,
+      "stages": [
+        { "id": "bottom-row", "type": "key", "title": "Bottom Row Keys", "items": ["z","x","c","v","b","n","m"] },
+        { "id": "words-4", "type": "word", "title": "4-Letter Words", "items": ["play","read","jump","park","fast"] },
+        { "id": "sentences-simple", "type": "sentence", "title": "Short Sentences", "items": ["I like to run.","This is fun.","We read books."] }
+      ]
     },
-    {
-      "id": "words",
-      "title": "Typing Words",
-      "description": "Type short words correctly within the time limit.",
-      "tasks": [
-        { "words": ["cat", "dog", "sun", "book"] },
-        { "words": ["table", "chair", "glass", "mouse"] }
-      ],
-      "timeLimit": 420
+    "4": {
+      "label": "Year 4 - Beginner coding prep",
+      "timeLimit": 420,
+      "stages": [
+        { "id": "punctuation", "type": "key", "title": "Punctuation Keys", "items": [".",",","?","!"] },
+        { "id": "sentences", "type": "sentence", "title": "Sentences", "items": ["The sun is hot.", "We love to learn.", "Type with both hands."] },
+        { "id": "paragraphs-short", "type": "paragraph", "title": "Short Paragraphs", "items": ["Typing helps us communicate clearly and quickly. With practice we get better."] }
+      ]
     },
-    {
-      "id": "sentences",
-      "title": "Typing Sentences",
-      "description": "Type simple sentences correctly.",
-      "tasks": [
-        { "sentences": ["The sun is hot.", "I like my school."] },
-        { "sentences": ["Typing helps us learn.", "We can write fast."] }
-      ],
-      "timeLimit": 420
+    "5": {
+      "label": "Year 5 - Intro coding text",
+      "timeLimit": 420,
+      "stages": [
+        { "id": "short-paragraphs", "type": "paragraph", "title": "Short Paragraphs", "items": ["Practice every day to improve typing speed and accuracy."] },
+        { "id": "code-snippets-1", "type": "code", "title": "Simple Code Snippets", "items": ["print('Hello')","let x = 10;","console.log('Hi');"] }
+      ]
     },
-    {
-      "id": "paragraphs",
-      "title": "Short Paragraphs",
-      "description": "Type full paragraphs with accuracy and speed.",
-      "tasks": [
-        {
-          "paragraphs": [
-            "Typing is a very important skill. It helps us use the computer better.",
-            "With practice, we can type faster and make fewer mistakes."
-          ]
-        }
-      ],
-      "timeLimit": 420
+    "6": {
+      "label": "Year 6 - Coding basics",
+      "timeLimit": 420,
+      "stages": [
+        { "id": "paragraphs-2", "type": "paragraph", "title": "Paragraph Practice", "items": ["With consistent practice, typing becomes natural and fast."] },
+        { "id": "code-snippets-2", "type": "code", "title": "Code Snippets", "items": ["function hello(){return 'Hi';}","if(a>5){console.log(a);}"] }
+      ]
     },
-    {
-      "id": "coding-intro",
-      "title": "Intro to Coding",
-      "description": "Practice typing basic coding snippets correctly.",
-      "tasks": [
-        { "code": ["print('Hello World')", "let x = 10;", "if(x > 5){console.log(x);}"] }
-      ],
-      "timeLimit": 420
+    "7": {
+      "label": "Year 7 - HTML intro",
+      "timeLimit": 420,
+      "stages": [
+        { "id": "html-tags", "type": "code", "title": "HTML Tags", "items": ["<html>","<head>","<body>","<h1>Hello</h1>"] },
+        { "id": "short-html-line", "type": "code", "title": "Short HTML Lines", "items": ["<p>This is a paragraph.</p>"] }
+      ]
+    },
+    "8": {
+      "label": "Year 8 - CSS & JS intro",
+      "timeLimit": 420,
+      "stages": [
+        { "id": "css-lines", "type": "code", "title": "CSS Lines", "items": ["body { }","color: red;","background: blue;"] },
+        { "id": "js-basic", "type": "code", "title": "JS Basic", "items": ["let name = 'Ali';","alert('Hi');"] }
+      ]
+    },
+    "9": {
+      "label": "Year 9 - JS practice",
+      "timeLimit": 420,
+      "stages": [
+        { "id": "js-functions", "type": "code", "title": "JS Functions", "items": ["function add(a,b){return a+b;}","console.log(add(1,2));"] }
+      ]
+    },
+    "10": {
+      "label": "Year 10 - Projects",
+      "timeLimit": 420,
+      "stages": [
+        { "id": "long-code", "type": "code", "title": "Longer Code Snippets", "items": ["for(let i=0;i<5;i++){console.log(i);}","document.querySelector('div').innerText = 'Hi';"] }
+      ]
+    },
+    "11": {
+      "label": "Year 11 - Advanced code",
+      "timeLimit": 420,
+      "stages": [
+        { "id": "advanced-js", "type": "code", "title": "Advanced JS Lines", "items": ["class Person { constructor(name){this.name=name;} }","fetch('/api').then(r=>r.json())"] }
+      ]
+    },
+    "12": {
+      "label": "Year 12 - Capstone typing",
+      "timeLimit": 420,
+      "stages": [
+        { "id": "project-typing", "type": "code", "title": "Project Snippets", "items": ["<!DOCTYPE html><html><head><title>SLK</title></head><body></body></html>","function gameLoop(){ requestAnimationFrame(gameLoop); }"] }
+      ]
     }
-  ]
+  }
 }
