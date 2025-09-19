@@ -3,23 +3,39 @@
     {
       "id": "year1",
       "name": "Year 1",
-      "subjects": [
+      "categories": [
         {
-          "id": "english",
-          "name": "English Language",
+          "id": "keyboard",
+          "name": "Keyboard Practice",
           "topics": [
-            "Introduction to Alphabets",
-            "Simple Words and Rhymes",
-            "Basic Reading Skills"
+            "Identify letters A–Z on keyboard",
+            "Typing simple words (cat, dog, sun)",
+            "Using Spacebar and Enter"
           ]
         },
         {
-          "id": "mathematics",
-          "name": "Mathematics",
+          "id": "mouse",
+          "name": "Mouse Practice",
           "topics": [
-            "Counting 1 to 100",
-            "Addition and Subtraction",
-            "Shapes and Patterns"
+            "Clicking and double-clicking",
+            "Dragging shapes",
+            "Pointing to icons"
+          ]
+        },
+        {
+          "id": "skills",
+          "name": "Skills Development",
+          "topics": [
+            "Matching letters with keys",
+            "Simple puzzles using mouse"
+          ]
+        },
+        {
+          "id": "coding",
+          "name": "Coding Practice",
+          "topics": [
+            "Introduction to block coding",
+            "Moving a character forward"
           ]
         }
       ]
@@ -27,14 +43,37 @@
     {
       "id": "year2",
       "name": "Year 2",
-      "subjects": [
+      "categories": [
         {
-          "id": "science",
-          "name": "Basic Science",
+          "id": "keyboard",
+          "name": "Keyboard Practice",
           "topics": [
-            "Living and Non-living Things",
-            "Our Environment",
-            "Parts of a Plant"
+            "Typing full sentences",
+            "Using Shift for capital letters"
+          ]
+        },
+        {
+          "id": "mouse",
+          "name": "Mouse Practice",
+          "topics": [
+            "Right-click and context menu",
+            "Drawing with the mouse"
+          ]
+        },
+        {
+          "id": "skills",
+          "name": "Skills Development",
+          "topics": [
+            "Typing games with speed",
+            "Word building exercises"
+          ]
+        },
+        {
+          "id": "coding",
+          "name": "Coding Practice",
+          "topics": [
+            "Loops with block coding",
+            "Making a sprite jump"
           ]
         }
       ]
