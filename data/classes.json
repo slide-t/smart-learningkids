@@ -1,86 +1,90 @@
 {
-  "classes": [
+  "school": "Smart Learning Kids",
+  "years": [
     {
+      "id": "year1",
       "name": "Year 1",
       "terms": [
         {
-          "number": 1,
-          "title": "First Term",
+          "id": "term1",
+          "name": "Term 1",
           "topics": [
-            { "title": "Keyboard Practice", "url": "games/keyboard.html?class=1&term=1", "type": "game" },
-            { "title": "Mouse Practice", "url": "games/mouse.html?class=1&term=1", "type": "game" },
-            { "title": "What is a Computer?", "url": "notes/year1/what-is-computer.html", "type": "note" },
-            { "title": "Parts of a Computer", "url": "notes/year1/parts-of-computer.html", "type": "note" },
-            { "title": "Powering On and Off", "url": "notes/year1/power-on-off.html", "type": "note" },
-            { "title": "Mouse Single Click Practice", "url": "games/mouse-single-click.html?class=1&term=1", "type": "game" }
+            { "id": "keyboard-basics", "title": "Keyboard Basics", "url": "games/keyboard.html" },
+            { "id": "mouse-alphabets", "title": "Mouse Game: Click Alphabets", "url": "games/mouse.html" },
+            { "id": "what-is-computer", "title": "What is a Computer?", "url": "notes/year1/computer-intro.html" },
+            { "id": "parts-of-computer", "title": "Parts of a Computer", "url": "notes/year1/computer-parts.html" },
+            { "id": "number-fun", "title": "Number Fun (Counting Game)", "url": "games/numbers.html" },
+            { "id": "health-habits", "title": "Healthy Living Habits", "url": "notes/year1/health.html" }
           ]
         },
         {
-          "number": 2,
-          "title": "Second Term",
+          "id": "term2",
+          "name": "Term 2",
           "topics": [
-            { "title": "Keyboard Practice", "url": "games/keyboard.html?class=1&term=2", "type": "game" },
-            { "title": "Mouse Practice", "url": "games/mouse.html?class=1&term=2", "type": "game" },
-            { "title": "Using Enter, Space, Backspace", "url": "notes/year1/keys-intro.html", "type": "note" },
-            { "title": "Mouse Double Click Practice", "url": "games/mouse-double-click.html?class=1&term=2", "type": "game" },
-            { "title": "Drawing with Paint", "url": "notes/year1/paint-intro.html", "type": "note" },
-            { "title": "Typing Your Name", "url": "games/keyboard-type-name.html", "type": "game" }
+            { "id": "keyboard-words", "title": "Typing Words", "url": "games/keyboard.html" },
+            { "id": "mouse-rightclick", "title": "Mouse Game: Right-Click Practice", "url": "games/mouse.html" },
+            { "id": "shapes-game", "title": "Identify Shapes", "url": "games/shapes.html" },
+            { "id": "local-values", "title": "Our Local Values", "url": "notes/year1/values.html" },
+            { "id": "colors-fun", "title": "Colors and Drawing", "url": "games/colors.html" },
+            { "id": "basic-safety", "title": "Safety Rules", "url": "notes/year1/safety.html" }
           ]
         },
         {
-          "number": 3,
-          "title": "Third Term",
+          "id": "term3",
+          "name": "Term 3",
           "topics": [
-            { "title": "Keyboard Practice", "url": "games/keyboard.html?class=1&term=3", "type": "game" },
-            { "title": "Mouse Practice", "url": "games/mouse.html?class=1&term=3", "type": "game" },
-            { "title": "Simple Text Editing", "url": "notes/year1/text-editing.html", "type": "note" },
-            { "title": "Right Click Basics", "url": "games/mouse-right-click.html?class=1&term=3", "type": "game" },
-            { "title": "Saving a File", "url": "notes/year1/save-file.html", "type": "note" },
-            { "title": "Typing Simple Words", "url": "games/keyboard-words.html", "type": "game" }
+            { "id": "keyboard-sentences", "title": "Typing Sentences", "url": "games/keyboard.html" },
+            { "id": "mouse-click-drag", "title": "Mouse Game: Click & Drag", "url": "games/mouse.html" },
+            { "id": "our-environment", "title": "Our Environment", "url": "notes/year1/environment.html" },
+            { "id": "animals-game", "title": "Animals and Sounds", "url": "games/animals.html" },
+            { "id": "story-reading", "title": "Simple Story Reading", "url": "notes/year1/story.html" },
+            { "id": "civic-habits", "title": "Good Civic Habits", "url": "notes/year1/civic.html" }
           ]
         }
       ]
     },
     {
+      "id": "year2",
       "name": "Year 2",
       "terms": [
         {
-          "number": 1,
-          "title": "First Term",
+          "id": "term1",
+          "name": "Term 1",
           "topics": [
-            { "title": "Keyboard Practice", "url": "games/keyboard.html?class=2&term=1", "type": "game" },
-            { "title": "Mouse Practice", "url": "games/mouse.html?class=2&term=1", "type": "game" },
-            { "title": "Introduction to Software and Hardware", "url": "notes/year2/software-hardware.html", "type": "note" },
-            { "title": "Mouse Drag Practice", "url": "games/mouse-drag.html?class=2&term=1", "type": "game" },
-            { "title": "File and Folder Basics", "url": "notes/year2/files-folders.html", "type": "note" },
-            { "title": "Typing Short Words", "url": "games/keyboard-short-words.html", "type": "game" }
+            { "id": "keyboard-practice", "title": "Keyboard Practice", "url": "games/keyboard.html" },
+            { "id": "mouse-alphabets2", "title": "Mouse Game: Click Alphabets", "url": "games/mouse.html" },
+            { "id": "living-things", "title": "Living & Non-Living Things", "url": "notes/year2/living.html" },
+            { "id": "addition-game", "title": "Addition Game", "url": "games/addition.html" },
+            { "id": "family-values", "title": "Family & Friends", "url": "notes/year2/family.html" },
+            { "id": "music-fun", "title": "Music & Rhymes", "url": "games/music.html" }
           ]
         },
         {
-          "number": 2,
-          "title": "Second Term",
+          "id": "term2",
+          "name": "Term 2",
           "topics": [
-            { "title": "Keyboard Practice", "url": "games/keyboard.html?class=2&term=2", "type": "game" },
-            { "title": "Mouse Practice", "url": "games/mouse.html?class=2&term=2", "type": "game" },
-            { "title": "Introduction to Paint Tools", "url": "notes/year2/paint-tools.html", "type": "note" },
-            { "title": "Mouse Target Clicking", "url": "games/mouse-target.html?class=2&term=2", "type": "game" },
-            { "title": "Keyboard Numbers Row", "url": "games/keyboard-numbers.html", "type": "game" },
-            { "title": "Text Formatting Basics", "url": "notes/year2/text-formatting.html", "type": "note" }
+            { "id": "keyboard-short-words", "title": "Typing Short Words", "url": "games/keyboard.html" },
+            { "id": "mouse-rightclick2", "title": "Mouse Game: Right-Click Practice", "url": "games/mouse.html" },
+            { "id": "subtraction-game", "title": "Subtraction Game", "url": "games/subtraction.html" },
+            { "id": "basic-science", "title": "Basic Science Notes", "url": "notes/year2/science.html" },
+            { "id": "traffic-rules", "title": "Traffic & Safety", "url": "notes/year2/traffic.html" },
+            { "id": "drawing-fun", "title": "Drawing with Mouse", "url": "games/drawing.html" }
           ]
         },
         {
-          "number": 3,
-          "title": "Third Term",
+          "id": "term3",
+          "name": "Term 3",
           "topics": [
-            { "title": "Keyboard Practice", "url": "games/keyboard.html?class=2&term=3", "type": "game" },
-            { "title": "Mouse Practice", "url": "games/mouse.html?class=2&term=3", "type": "game" },
-            { "title": "Keyboard Home Row Mastery", "url": "games/keyboard-home-row.html", "type": "game" },
-            { "title": "Mouse Right-Click Menu", "url": "games/mouse-context.html?class=2&term=3", "type": "game" },
-            { "title": "Typing Sentences", "url": "games/keyboard-sentences.html", "type": "game" },
-            { "title": "Save and Open Documents", "url": "notes/year2/save-open.html", "type": "note" }
+            { "id": "keyboard-sentences2", "title": "Typing Sentences", "url": "games/keyboard.html" },
+            { "id": "mouse-shapes", "title": "Mouse Game: Click Shapes", "url": "games/mouse.html" },
+            { "id": "multiplication-game", "title": "Multiplication Game", "url": "games/multiplication.html" },
+            { "id": "local-culture", "title": "Our Local Culture", "url": "notes/year2/culture.html" },
+            { "id": "story-writing", "title": "Story Writing Practice", "url": "notes/year2/story.html" },
+            { "id": "plants-game", "title": "Identify Plants", "url": "games/plants.html" }
           ]
         }
       ]
     }
+    // Continue Year 3 – Year 12 in same format…
   ]
 }
