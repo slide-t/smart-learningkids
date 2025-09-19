@@ -3,78 +3,32 @@
     {
       "id": "year1",
       "name": "Year 1",
-      "categories": [
+      "terms": [
         {
-          "id": "keyboard",
-          "name": "Keyboard Practice",
-          "topics": [
-            "Identify letters A–Z on keyboard",
-            "Typing simple words (cat, dog, sun)",
-            "Using Spacebar and Enter"
+          "number": 1,
+          "title": "First Term",
+          "categories": [
+            {
+              "id": "keyboard",
+              "name": "Keyboard Practice",
+              "topics": ["Identify letters A–Z", "Typing simple words"]
+            },
+            {
+              "id": "mouse",
+              "name": "Mouse Practice",
+              "topics": ["Clicking", "Dragging shapes"]
+            }
           ]
         },
         {
-          "id": "mouse",
-          "name": "Mouse Practice",
-          "topics": [
-            "Clicking and double-clicking",
-            "Dragging shapes",
-            "Pointing to icons"
-          ]
+          "number": 2,
+          "title": "Second Term",
+          "categories": [ ... ]
         },
         {
-          "id": "skills",
-          "name": "Skills Development",
-          "topics": [
-            "Matching letters with keys",
-            "Simple puzzles using mouse"
-          ]
-        },
-        {
-          "id": "coding",
-          "name": "Coding Practice",
-          "topics": [
-            "Introduction to block coding",
-            "Moving a character forward"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "year2",
-      "name": "Year 2",
-      "categories": [
-        {
-          "id": "keyboard",
-          "name": "Keyboard Practice",
-          "topics": [
-            "Typing full sentences",
-            "Using Shift for capital letters"
-          ]
-        },
-        {
-          "id": "mouse",
-          "name": "Mouse Practice",
-          "topics": [
-            "Right-click and context menu",
-            "Drawing with the mouse"
-          ]
-        },
-        {
-          "id": "skills",
-          "name": "Skills Development",
-          "topics": [
-            "Typing games with speed",
-            "Word building exercises"
-          ]
-        },
-        {
-          "id": "coding",
-          "name": "Coding Practice",
-          "topics": [
-            "Loops with block coding",
-            "Making a sprite jump"
-          ]
+          "number": 3,
+          "title": "Third Term",
+          "categories": [ ... ]
         }
       ]
     }
