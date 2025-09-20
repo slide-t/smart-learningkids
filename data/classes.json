@@ -1,0 +1,140 @@
+[
+  {
+    "id": "year1",
+    "name": "Year 1",
+    "subjects": [
+      {
+        "id": "ict",
+        "name": "ICT",
+        "terms": [
+          {
+            "id": "term1",
+            "name": "Term 1",
+            "topics": [
+              {
+                "id": "what_is_computer",
+                "title": "What is a Computer?",
+                "type": "lesson",
+                "link": "lessons/lessons.html?id=what_is_computer"
+              },
+              {
+                "id": "power_on_off",
+                "title": "Powering On/Off Safely",
+                "type": "lesson",
+                "link": "lessons/lessons.html?id=power_on_off"
+              },
+              {
+                "id": "mouse_pointing",
+                "title": "Mouse — Pointing & Single Click",
+                "type": "practice",
+                "link": "games/mouse.html"
+              },
+              {
+                "id": "mouse_dragdrop",
+                "title": "Mouse — Drag, Drop & Scroll",
+                "type": "practice",
+                "link": "games/mouse.html"
+              },
+              {
+                "id": "keyboard_letters_numbers",
+                "title": "Keyboard — Letters & Numbers Recognition",
+                "type": "practice",
+                "link": "games/keyboard.html"
+              },
+              {
+                "id": "unplugged_sequencing",
+                "title": "Unplugged Sequencing (Intro to Algorithms)",
+                "type": "lesson",
+                "link": "lessons/lessons.html?id=unplugged_sequencing"
+              }
+            ]
+          },
+          {
+            "id": "term2",
+            "name": "Term 2",
+            "topics": [
+              {
+                "id": "hand_posture",
+                "title": "Proper Hand Posture & Two-Finger Typing",
+                "type": "lesson",
+                "link": "lessons/lessons.html?id=hand_posture"
+              },
+              {
+                "id": "enter_space_backspace",
+                "title": "Using Enter, Space, Backspace",
+                "type": "practice",
+                "link": "games/keyboard.html"
+              },
+              {
+                "id": "mouse_rightclick",
+                "title": "Right Click — Simple Choices",
+                "type": "practice",
+                "link": "games/mouse.html"
+              },
+              {
+                "id": "open_close_program",
+                "title": "Open/Close a Simple Program",
+                "type": "lesson",
+                "link": "lessons/lessons.html?id=open_close_program"
+              },
+              {
+                "id": "file_basics",
+                "title": "File Basics — Open an Image from Folder",
+                "type": "lesson",
+                "link": "lessons/lessons.html?id=file_basics"
+              },
+              {
+                "id": "unplugged_loops",
+                "title": "Unplugged Pattern/Loop Game",
+                "type": "lesson",
+                "link": "lessons/lessons.html?id=unplugged_loops"
+              }
+            ]
+          },
+          {
+            "id": "term3",
+            "name": "Term 3",
+            "topics": [
+              {
+                "id": "typing_games",
+                "title": "Typing Practice with Simple Games",
+                "type": "practice",
+                "link": "games/keyboard.html"
+              },
+              {
+                "id": "mouse_precision",
+                "title": "Mouse Precision Practice",
+                "type": "practice",
+                "link": "games/mouse.html"
+              },
+              {
+                "id": "software_vs_hardware",
+                "title": "Software vs Hardware (Story)",
+                "type": "lesson",
+                "link": "lessons/lessons.html?id=software_vs_hardware"
+              },
+              {
+                "id": "basic_troublechecking",
+                "title": "Basic Trouble-Checking",
+                "type": "lesson",
+                "link": "lessons/lessons.html?id=basic_troublechecking"
+              },
+              {
+                "id": "intro_html",
+                "title": "Very Simple HTML Idea — What is a Web Page?",
+                "type": "lesson",
+                "link": "lessons/lessons.html?id=intro_html"
+              },
+              {
+                "id": "hello_page",
+                "title": "Create a Teacher-Guided 'Hello' Page",
+                "type": "lesson",
+                "link": "lessons/lessons.html?id=hello_page"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]
