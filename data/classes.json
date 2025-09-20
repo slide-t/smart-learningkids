@@ -15,14 +15,6 @@
                 { "id": "keyboard", "title": "Keyboard Practice", "link": "games/keyboard.html" },
                 { "id": "mouse", "title": "Mouse Practice", "link": "games/mouse.html" }
               ]
-            },
-            {
-              "id": "maths",
-              "name": "Mathematics",
-              "topics": [
-                { "id": "numbers", "title": "Numbers & Counting" },
-                { "id": "shapes", "title": "Basic Shapes" }
-              ]
             }
           ]
         },
