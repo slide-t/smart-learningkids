@@ -10,16 +10,27 @@
   <div id="game-container">
     <header>
       <h1>Keyboard Game</h1>
-      <p>Match the letters with the keys!</p>
+      <p>Type the falling letters correctly before time runs out!</p>
     </header>
 
+    <!-- Scoreboard -->
+    <section id="scoreboard">
+      <div>⏱ Time: <span id="timer">07:00</span></div>
+      <div>✅ Correct: <span id="correct">0</span></div>
+      <div>❌ Wrong: <span id="wrong">0</span></div>
+      <div>🎯 Accuracy: <span id="accuracy">0%</span></div>
+    </section>
+
+    <!-- Game area -->
     <main>
-      <div id="question-container"></div>
-      <div id="keyboard-container"></div>
+      <div id="falling-item"></div>
       <div id="feedback"></div>
+      <div id="virtual-keyboard" class="hidden"></div>
     </main>
 
+    <!-- Controls -->
     <footer>
+      <button id="start-btn">Start</button>
       <button id="restart-btn">Restart</button>
     </footer>
   </div>
