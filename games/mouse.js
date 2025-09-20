@@ -1,5 +1,3 @@
-
-// mouse.js
 document.addEventListener("DOMContentLoaded", () => {
   const questionContainer = document.getElementById("question-container");
   const feedback = document.getElementById("feedback");
@@ -8,29 +6,56 @@ document.addEventListener("DOMContentLoaded", () => {
   let questions = [];
   let currentQuestionIndex = 0;
 
-  // Load questions from mouse.json
-  fetch("mouse.json")
-    .then((response) => response.json())
+  // Load classes.json and extract mouse topics
+  fetch("data/classes.json")
+    .then((res) => res.json())
     .then((data) => {
-      questions = data;
+      const classes = Array.isArray(data) ? data : data.classes;
+
+      classes.forEach((cls) => {
+        cls.terms?.forEach((term) => {
+          term.categories?.forEach((cat) => {
+            if (cat.id === "mouse") {
+              cat.topics?.forEach((topic) => {
+                questions.push({
+                  question: topic.title,
+                  options: ["Practice", "Review", "Skip", "Check"], // Placeholder options; can be customized
+                  answer: "Practice", // Default correct answer placeholder
+                  link: topic.link,
+                });
+              });
+            }
+          });
+        });
+      });
+
+      if (questions.length === 0) {
+        questionContainer.innerHTML =
+          "<h2>No mouse topics found in classes.json</h2>";
+        return;
+      }
+
       showQuestion();
     })
-    .catch((error) => {
-      console.error("Error loading questions:", error);
+    .catch((err) => {
+      console.error("Error loading classes.json:", err);
+      questionContainer.innerHTML =
+        "<h2>Error loading mouse topics. Check console.</h2>";
     });
 
   function showQuestion() {
     feedback.textContent = "";
     nextButton.classList.add("hidden");
 
-    const question = questions[currentQuestionIndex];
+    const q = questions[currentQuestionIndex];
+
     questionContainer.innerHTML = `
-      <h2>${question.question}</h2>
+      <h2>${q.question}</h2>
       <div class="options">
-        ${question.options
+        ${q.options
           .map(
-            (option, index) =>
-              `<button class="option-btn" data-index="${index}">${option}</button>`
+            (opt, idx) =>
+              `<button class="option-btn" data-index="${idx}">${opt}</button>`
           )
           .join("")}
       </div>
@@ -44,17 +69,16 @@ document.addEventListener("DOMContentLoaded", () => {
   function selectAnswer(e) {
     const selectedBtn = e.target;
     const selectedIndex = selectedBtn.dataset.index;
-    const question = questions[currentQuestionIndex];
+    const q = questions[currentQuestionIndex];
 
-    if (question.options[selectedIndex] === question.answer) {
+    if (q.options[selectedIndex] === q.answer) {
       feedback.textContent = "✅ Correct!";
       feedback.style.color = "green";
     } else {
-      feedback.textContent = `❌ Wrong! The correct answer is: ${question.answer}`;
+      feedback.textContent = `❌ Wrong! The correct answer is: ${q.answer}`;
       feedback.style.color = "red";
     }
 
-    // Disable all buttons after selection
     document.querySelectorAll(".option-btn").forEach((btn) => {
       btn.disabled = true;
     });
@@ -67,7 +91,8 @@ document.addEventListener("DOMContentLoaded", () => {
     if (currentQuestionIndex < questions.length) {
       showQuestion();
     } else {
-      questionContainer.innerHTML = `<h2>🎉 Well done! You completed all the Mouse questions.</h2>`;
+      questionContainer.innerHTML =
+        "<h2>🎉 Well done! You completed all the Mouse questions.</h2>";
       nextButton.classList.add("hidden");
     }
   });
