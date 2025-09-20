@@ -6,16 +6,28 @@
   <title>Keyboard Game</title>
   <link rel="stylesheet" href="keyboard.css" />
 </head>
-<body>
-  <div id="game-container">
-    <header>
-  <h1>Keyboard Game</h1>
-  <p>Match the letters with the keys!</p>
-  <button id="start-btn">Start</button> <!-- ✅ Added -->
-</header>
+<body class="bg-gray-100">
+
+  <!-- 🔹 Global Header -->
+  <header class="bg-blue-600 text-white shadow-md fixed top-0 left-0 w-full z-50">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+      <h1 class="text-2xl font-bold">Smart Learning Kids</h1>
+      <a href="index.html" class="bg-white text-blue-600 px-4 py-2 rounded-lg font-medium shadow hover:bg-blue-100 transition">Home</a>
+    </div>
+  </header>
+
+  <!-- 🔹 Start Screen -->
+  <div id="start-screen" class="flex items-center justify-center h-screen">
+    <button id="start-btn" class="w-3/4 max-w-md bg-blue-600 text-white text-2xl font-bold py-6 rounded-lg shadow-lg hover:bg-blue-700 transition">
+      Start Game
+    </button>
+  </div>
+
+  <!-- 🔹 Game Container (hidden until start) -->
+  <div id="game-container" class="hidden pt-24 max-w-3xl mx-auto px-4">
 
     <!-- Scoreboard -->
-    <section id="scoreboard">
+    <section id="scoreboard" class="grid grid-cols-2 sm:grid-cols-4 gap-4 text-lg font-medium mb-6">
       <div>⏱ Time: <span id="timer">07:00</span></div>
       <div>✅ Correct: <span id="correct">0</span></div>
       <div>❌ Wrong: <span id="wrong">0</span></div>
@@ -23,16 +35,18 @@
     </section>
 
     <!-- Game area -->
-    <main>
-      <div id="falling-item"></div>
-      <div id="feedback"></div>
+    <main class="text-center">
+      <div id="falling-item" class="text-4xl font-bold mb-4"></div>
+      <div id="feedback" class="mb-6 text-lg"></div>
       <div id="virtual-keyboard" class="hidden"></div>
     </main>
 
     <!-- Controls -->
-    <footer>
-  <button id="restart-btn" style="display:none;">Restart</button>
-</footer>
+    <footer class="text-center mt-6">
+      <button id="restart-btn" class="bg-red-600 text-white px-6 py-2 rounded-lg shadow hover:bg-red-700 transition hidden">
+        Restart
+      </button>
+    </footer>
   </div>
 
   <script src="keyboard.js"></script>
