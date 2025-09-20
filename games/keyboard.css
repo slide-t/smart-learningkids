@@ -1,5 +1,5 @@
 /* Make game fill the whole screen */
-html, body {
+/*html, body {
   margin: 0;
   padding: 0;
   height: 100%;
@@ -13,7 +13,7 @@ html, body {
 
 #game-container {
   width: 100%;
-  max-width: 900px; /* prevent text from being too stretched */
+  max-width: 900px; /* prevent text from being too stretched *
   padding: 20px;
   box-sizing: border-box;
   text-align: center;
@@ -58,7 +58,7 @@ header h1 {
   min-height: 30px;
 }
 
-/* 🎮 Start button */
+/* 🎮 Start button *
 #start-btn {
   margin-top: 30px;
   padding: 14px 32px;
@@ -94,7 +94,7 @@ header h1 {
   background: #360061;
 }
 
-/* Animate falling word when correct */
+/* Animate falling word when correct *
 .correct-flash {
   animation: flash 0.3s ease;
 }
@@ -103,8 +103,8 @@ header h1 {
   100% { color: black; transform: scale(1); }
 }
 
-/* Animate key buttons */
+/* Animate key buttons 
 .key-btn.active {
   transform: scale(1.1);
   background: #d1c4e9;
-}
+}*/
