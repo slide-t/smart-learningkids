@@ -1,68 +1,121 @@
-[
-  {
-    "id": "year1",
-    "name": "Year 1",
-    "subjects": [
-      {
-        "id": "ict",
-        "name": "ICT",
-        "topics": [
-          { "id": "what-is-computer", "title": "What is a computer?", "detailsPage": "lessons/lessons.html?id=what-is-computer" },
-          { "id": "powering-on-off", "title": "Powering on/off safely", "detailsPage": "lessons/lessons.html?id=powering-on-off" },
-          { "id": "mouse-point-click", "title": "Mouse — pointing and single click", "practicePage": "games/mouse.html?id=mouse-point-click" },
-          { "id": "mouse-drag-drop", "title": "Mouse — drag, drop & scroll", "practicePage": "games/mouse.html?id=mouse-drag-drop" },
-          { "id": "keyboard-letters-numbers", "title": "Keyboard — letters and numbers (recognition)", "practicePage": "games/keyboard.html?id=keyboard-letters-numbers" },
-          { "id": "unplugged-sequencing", "title": "Unplugged sequencing (intro to algorithms)", "detailsPage": "lessons/lessons.html?id=unplugged-sequencing" }
-        ]
-      }
-    ]
-  },
-  {
-    "id": "year2",
-    "name": "Year 2",
-    "subjects": [
-      {
-        "id": "ict",
-        "name": "ICT",
-        "topics": [
-          { "id": "home-row-intro", "title": "Home-row intro", "practicePage": "games/keyboard.html?id=home-row-intro" },
-          { "id": "mouse-double-click", "title": "Mouse: double-click and open folders", "practicePage": "games/mouse.html?id=mouse-double-click" },
-          { "id": "copy-paste-basics", "title": "Copy & paste basics", "detailsPage": "lessons/lessons.html?id=copy-paste-basics" },
-          { "id": "naming-saving-files", "title": "Naming & saving files", "detailsPage": "lessons/lessons.html?id=naming-saving-files" },
-          { "id": "unplugged-conditionals", "title": "Unplugged conditional activity (if/then)", "detailsPage": "lessons/lessons.html?id=unplugged-conditionals" },
-          { "id": "internet-safety-rules", "title": "Simple internet safety rules", "detailsPage": "lessons/lessons.html?id=internet-safety-rules" }
-        ]
-      }
-    ]
-  },
-  {
-    "id": "year4",
-    "name": "Year 4",
-    "subjects": [
-      {
-        "id": "ict",
-        "name": "ICT",
-        "topics": [
-          { "id": "typing-accuracy", "title": "Typing accuracy & build toward touch-typing fluency", "detailsPage": "lessons/lessons.html?id=typing-accuracy" },
-          { "id": "mouse-fine-control", "title": "Mouse: fine control, drag for drawing, multi-select", "practicePage": "games/mouse.html?id=mouse-fine-control" },
-          { "id": "hardware-software-chain", "title": "How hardware & software interact", "detailsPage": "lessons/lessons.html?id=hardware-software-chain" }
-        ]
-      }
-    ]
-  },
-  {
-    "id": "year5",
-    "name": "Year 5",
-    "subjects": [
-      {
-        "id": "ict",
-        "name": "ICT",
-        "topics": [
-          { "id": "typing-fluency", "title": "Typing: fluency, punctuation, short typing test record", "practicePage": "games/keyboard.html?id=typing-fluency" },
-          { "id": "mouse-mastery", "title": "Mouse mastery: drag, drop, resize, right-click menus, scroll wheels", "practicePage": "games/mouse.html?id=mouse-mastery" },
-          { "id": "hardware-identify", "title": "Hardware: identify CPU/monitor/keyboard/mouse", "detailsPage": "lessons/lessons.html?id=hardware-identify" }
-        ]
-      }
-    ]
-  }
-]
+{
+  "classes": [
+    {
+      "id": "year1",
+      "name": "Year 1",
+      "terms": [
+        {
+          "number": 1,
+          "title": "Term 1",
+          "categories": [
+            {
+              "id": "mouse",
+              "name": "Mouse Skills",
+              "topics": [
+                { "title": "Pointing", "link": "games/mouse-pointing.html" },
+                { "title": "Single Click", "link": "games/mouse-click.html" },
+                { "title": "Double Click", "link": "games/mouse-double.html" },
+                { "title": "Drag & Drop", "link": "games/mouse-drag.html" }
+              ]
+            },
+            {
+              "id": "keyboard",
+              "name": "Keyboard Skills",
+              "topics": [
+                { "title": "Home Row Practice", "link": "games/keyboard.html" },
+                { "title": "Type Two-Letter Words", "link": "games/keyboard.html" },
+                { "title": "Type Three-Letter Words", "link": "games/keyboard.html" }
+              ]
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "title": "Term 2",
+          "categories": [
+            {
+              "id": "keyboard",
+              "name": "Keyboard Skills",
+              "topics": [
+                { "title": "Type Simple Words", "link": "games/keyboard.html" },
+                { "title": "Type Sentences", "link": "games/keyboard.html" }
+              ]
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "title": "Term 3",
+          "categories": [
+            {
+              "id": "keyboard",
+              "name": "Keyboard Skills",
+              "topics": [
+                { "title": "Type Short Paragraphs", "link": "games/keyboard.html" }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "year2",
+      "name": "Year 2",
+      "terms": [
+        {
+          "number": 1,
+          "title": "Term 1",
+          "categories": [
+            {
+              "id": "mouse",
+              "name": "Mouse Skills",
+              "topics": [
+                { "title": "Pointing", "link": "games/mouse-pointing.html" },
+                { "title": "Single Click", "link": "games/mouse-click.html" },
+                { "title": "Double Click", "link": "games/mouse-double.html" },
+                { "title": "Drag & Drop", "link": "games/mouse-drag.html" }
+              ]
+            },
+            {
+              "id": "keyboard",
+              "name": "Keyboard Skills",
+              "topics": [
+                { "title": "Home Row Review", "link": "games/keyboard.html" },
+                { "title": "Type Words from Home Keys", "link": "games/keyboard.html" },
+                { "title": "Type Short Sentences", "link": "games/keyboard.html" }
+              ]
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "title": "Term 2",
+          "categories": [
+            {
+              "id": "keyboard",
+              "name": "Keyboard Skills",
+              "topics": [
+                { "title": "Type Sentences", "link": "games/keyboard.html" },
+                { "title": "Type Longer Sentences", "link": "games/keyboard.html" }
+              ]
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "title": "Term 3",
+          "categories": [
+            {
+              "id": "keyboard",
+              "name": "Keyboard Skills",
+              "topics": [
+                { "title": "Type Short Paragraphs", "link": "games/keyboard.html" },
+                { "title": "Type Longer Paragraphs", "link": "games/keyboard.html" }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
