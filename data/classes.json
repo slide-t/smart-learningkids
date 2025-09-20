@@ -5,75 +5,25 @@
     "terms": [
       {
         "number": 1,
-        "title": "Term 1",
+        "title": "First Term",
         "categories": [
           {
             "id": "mouse",
             "name": "Mouse Skills",
             "topics": [
-              { "title": "Pointing", "link": "games/mouse.html?topic=pointing" },
-              { "title": "Single Click", "link": "games/mouse.html?topic=single_click" },
-              { "title": "Drag, Drop & Scroll", "link": "games/mouse.html?topic=drag_drop_scroll" }
+              { "title": "Pointing", "link": "games/mouse/pointing.html" },
+              { "title": "Single Click", "link": "games/mouse/single-click.html" },
+              { "title": "Double Click", "link": "games/mouse/double-click.html" },
+              { "title": "Drag and Drop", "link": "games/mouse/drag-drop.html" }
             ]
           },
           {
             "id": "keyboard",
             "name": "Keyboard Skills",
             "topics": [
-              { "title": "Letters & Numbers (Recognition)", "link": "games/keyboard.html?topic=letters_numbers" },
-              { "title": "Find the Letter Game", "link": "games/keyboard.html?topic=find_letter" }
-            ]
-          }
-        ]
-      },
-      {
-        "number": 2,
-        "title": "Term 2",
-        "categories": [
-          {
-            "id": "mouse",
-            "name": "Mouse Skills",
-            "topics": [
-              { "title": "Right-click (context choices)", "link": "games/mouse.html?topic=right_click" },
-              { "title": "Open/Close Simple Program (paint/viewer)", "link": "lessons/lessons.html?id=open_close_program" }
-            ]
-          },
-          {
-            "id": "keyboard",
-            "name": "Keyboard Skills",
-            "topics": [
-              { "title": "Proper Hand Posture & Two-Finger Typing", "link": "lessons/lessons.html?id=hand_posture" },
-              { "title": "Using Enter, Space, Backspace", "link": "games/keyboard.html?topic=enter_space_backspace" }
-            ]
-          }
-        ]
-      },
-      {
-        "number": 3,
-        "title": "Term 3",
-        "categories": [
-          {
-            "id": "mouse",
-            "name": "Mouse Skills",
-            "topics": [
-              { "title": "Mouse Precision Practice (small targets)", "link": "games/mouse.html?topic=precision" }
-            ]
-          },
-          {
-            "id": "keyboard",
-            "name": "Keyboard Skills",
-            "topics": [
-              { "title": "Typing Practice: Letters → Words", "link": "games/keyboard.html?topic=letters_to_words" },
-              { "title": "Type Simple Words (guided games)", "link": "games/keyboard.html?topic=simple_words" }
-            ]
-          },
-          {
-            "id": "lessons",
-            "name": "Lessons & Mini Projects",
-            "topics": [
-              { "title": "Software vs Hardware (story)", "link": "lessons/lessons.html?id=software_vs_hardware" },
-              { "title": "Very Simple HTML — What is a Web Page?", "link": "lessons/lessons.html?id=intro_html" },
-              { "title": "Create a teacher-guided 'Hello' page", "link": "lessons/lessons.html?id=hello_page" }
+              { "title": "Home Row Practice", "link": "games/keyboard/home-row.html" },
+              { "title": "Type Two-Letter Words", "link": "games/keyboard/two-letter.html" },
+              { "title": "Type Three-Letter Words", "link": "games/keyboard/three-letter.html" }
             ]
           }
         ]
@@ -86,89 +36,26 @@
     "terms": [
       {
         "number": 1,
-        "title": "Term 1",
+        "title": "First Term",
         "categories": [
           {
             "id": "mouse",
             "name": "Mouse Skills",
             "topics": [
-              { "title": "Double Click & Open Folders", "link": "games/mouse.html?topic=double_click" },
-              { "title": "Drag & Drop Files into Folders", "link": "games/mouse.html?topic=drag_files" }
+              { "title": "Pointing", "link": "games/mouse/pointing.html" },
+              { "title": "Single Click", "link": "games/mouse/single-click.html" },
+              { "title": "Double Click", "link": "games/mouse/double-click.html" },
+              { "title": "Drag and Drop", "link": "games/mouse/drag-drop.html" }
             ]
           },
           {
             "id": "keyboard",
             "name": "Keyboard Skills",
             "topics": [
-              { "title": "Home-row Intro (finger placement)", "link": "games/keyboard.html?topic=home_row_intro" },
-              { "title": "Copy & Paste Basics (Ctrl+C / Ctrl+V)", "link": "lessons/lessons.html?id=copy_paste" }
-            ]
-          },
-          {
-            "id": "lessons",
-            "name": "Lessons",
-            "topics": [
-              { "title": "Naming & Saving Files (teacher help)", "link": "lessons/lessons.html?id=naming_saving_files" },
-              { "title": "Unplugged: If/Then (conditionals)", "link": "lessons/lessons.html?id=unplugged_conditionals" }
-            ]
-          }
-        ]
-      },
-      {
-        "number": 2,
-        "title": "Term 2",
-        "categories": [
-          {
-            "id": "mouse",
-            "name": "Mouse Skills",
-            "topics": [
-              { "title": "Drag-drop file into folder & delete safely", "link": "games/mouse.html?topic=drag_delete" },
-              { "title": "Right-click menu vs keyboard copy/paste", "link": "games/mouse.html?topic=right_click_menu" }
-            ]
-          },
-          {
-            "id": "keyboard",
-            "name": "Keyboard Skills",
-            "topics": [
-              { "title": "Short Typing Drills (accuracy first)", "link": "games/keyboard.html?topic=short_drills" },
-              { "title": "HTML tags intro: headings & paragraphs", "link": "lessons/lessons.html?id=html_tags_intro" }
-            ]
-          },
-          {
-            "id": "lessons",
-            "name": "Lessons",
-            "topics": [
-              { "title": "Intro to folders & organisation", "link": "lessons/lessons.html?id=folders_intro" },
-              { "title": "Unplugged debugging: fix the broken instruction", "link": "lessons/lessons.html?id=unplugged_debugging" }
-            ]
-          }
-        ]
-      },
-      {
-        "number": 3,
-        "title": "Term 3",
-        "categories": [
-          {
-            "id": "mouse",
-            "name": "Mouse Skills",
-            "topics": [
-              { "title": "Mouse: copy/paste with menu & shortcuts", "link": "games/mouse.html?topic=copy_paste_methods" }
-            ]
-          },
-          {
-            "id": "keyboard",
-            "name": "Keyboard Skills",
-            "topics": [
-              { "title": "Typing Speed-Building (timed drills)", "link": "games/keyboard.html?topic=speed_drills" },
-              { "title": "Basic keyboard shortcuts (Ctrl+S)", "link": "lessons/lessons.html?id=keyboard_shortcuts" }
-            ]
-          },
-          {
-            "id": "projects",
-            "name": "Mini Project",
-            "topics": [
-              { "title": "Mini Project: Make a 1-page 'About Me'", "link": "lessons/lessons.html?id=about_me_project" },
-              { "title": "HTML: lists & images (add image to page)", "link": "lessons/lessons.html?id=html_lists_images" }
+              { "title": "Home Row Practice", "link": "games/keyboard/home-row.html" },
+              { "title": "Type Two-Letter Words", "link": "games/keyboard/two-letter.html" },
+              { "title": "Type Three-Letter Words", "link": "games/keyboard/three-letter.html" },
+              { "title": "Typing Simple Sentences", "link": "games/keyboard/sentences.html" }
             ]
           }
         ]
@@ -181,374 +68,91 @@
     "terms": [
       {
         "number": 1,
-        "title": "Term 1",
+        "title": "First Term",
         "categories": [
-          {
-            "id": "keyboard",
-            "name": "Keyboard Skills",
-            "topics": [
-              { "title": "Touch-typing fundamentals (home row practice)", "link": "games/keyboard.html?topic=touch_typing_fundamentals" },
-              { "title": "Typing exercises: accuracy progression", "link": "games/keyboard.html?topic=typing_accuracy" }
-            ]
-          },
           {
             "id": "mouse",
             "name": "Mouse Skills",
             "topics": [
-              { "title": "Select text, copy, drag selection", "link": "games/mouse.html?topic=select_text" },
-              { "title": "Drag to select multiple items", "link": "games/mouse.html?topic=multi_select" }
+              { "title": "Pointing", "link": "games/mouse/pointing.html" },
+              { "title": "Single Click", "link": "games/mouse/single-click.html" },
+              { "title": "Double Click", "link": "games/mouse/double-click.html" },
+              { "title": "Drag and Drop", "link": "games/mouse/drag-drop.html" }
             ]
           },
-          {
-            "id": "lessons",
-            "name": "Lessons",
-            "topics": [
-              { "title": "What is an OS? (simple)", "link": "lessons/lessons.html?id=os_intro" },
-              { "title": "File paths & basic folder tree", "link": "lessons/lessons.html?id=file_paths" }
-            ]
-          }
-        ]
-      },
-      {
-        "number": 2,
-        "title": "Term 2",
-        "categories": [
           {
             "id": "keyboard",
             "name": "Keyboard Skills",
             "topics": [
-              { "title": "Speed + accuracy drills (home row focus)", "link": "games/keyboard.html?topic=speed_accuracy_home" },
-              { "title": "Typing: short paragraphs (punctuation)", "link": "games/keyboard.html?topic=short_paragraphs" }
-            ]
-          },
-          {
-            "id": "mouse",
-            "name": "Mouse Skills",
-            "topics": [
-              { "title": "Mouse: drag to select folders/items", "link": "games/mouse.html?topic=drag_select" },
-              { "title": "Mouse: scrollbars and large selection", "link": "games/mouse.html?topic=scroll_select" }
-            ]
-          },
-          {
-            "id": "lessons",
-            "name": "Lessons",
-            "topics": [
-              { "title": "HTML tags hands-on: headings, lists, paragraphs", "link": "lessons/lessons.html?id=html_tags_page" },
-              { "title": "Intro to CSS: simple inline styles", "link": "lessons/lessons.html?id=css_intro" }
-            ]
-          }
-        ]
-      },
-      {
-        "number": 3,
-        "title": "Term 3",
-        "categories": [
-          {
-            "id": "keyboard",
-            "name": "Keyboard Skills",
-            "topics": [
-              { "title": "Typing: short paragraphs (3–4 sentences)", "link": "games/keyboard.html?topic=paragraph_typing" },
-              { "title": "Typing: longer paragraphs & punctuation", "link": "games/keyboard.html?topic=long_paragraphs" }
-            ]
-          },
-          {
-            "id": "mouse",
-            "name": "Mouse Skills",
-            "topics": [
-              { "title": "Mouse: advanced selection & scroll", "link": "games/mouse.html?topic=advanced_scroll_select" }
-            ]
-          },
-          {
-            "id": "projects",
-            "name": "Projects & Publishing",
-            "topics": [
-              { "title": "Mini Project: 'My Class Page' (heading, list, image, link)", "link": "lessons/lessons.html?id=class_page_project" },
-              { "title": "Simple troubleshooting checklist", "link": "lessons/lessons.html?id=troubleshooting" }
+              { "title": "Home Row Practice", "link": "games/keyboard/home-row.html" },
+              { "title": "Type Words", "link": "games/keyboard/words.html" },
+              { "title": "Typing Sentences", "link": "games/keyboard/sentences.html" },
+              { "title": "Typing Short Paragraphs", "link": "games/keyboard/paragraphs.html" }
             ]
           }
         ]
       }
     ]
   },
-
-{
-  "id": "year4",
-  "name": "Year 4",
-  "terms": [
-    {
-      "number": 1,
-      "title": "Term 1",
-      "categories": [
-        {
-          "id": "keyboard",
-          "name": "Keyboard Skills",
-          "topics": [
-            { "title": "Typing: longer paragraphs with punctuation", "link": "games/keyboard.html?topic=paragraphs_punctuation" },
-            { "title": "Typing drills: accuracy + speed mix", "link": "games/keyboard.html?topic=drills_speed_accuracy" }
-          ]
-        },
-        {
-          "id": "mouse",
-          "name": "Mouse Skills",
-          "topics": [
-            { "title": "Using drawing tools (paint shapes, fill, erase)", "link": "games/mouse.html?topic=drawing_tools" }
-          ]
-        },
-        {
-          "id": "lessons",
-          "name": "Lessons",
-          "topics": [
-            { "title": "Intro to Word Processors (MS Word / Google Docs)", "link": "lessons/lessons.html?id=word_intro" },
-            { "title": "Saving & retrieving documents", "link": "lessons/lessons.html?id=saving_documents" }
-          ]
-        }
-      ]
-    },
-    {
-      "number": 2,
-      "title": "Term 2",
-      "categories": [
-        {
-          "id": "keyboard",
-          "name": "Keyboard Skills",
-          "topics": [
-            { "title": "Typing: composing simple letters", "link": "games/keyboard.html?topic=simple_letters" },
-            { "title": "Typing with formatting (bold, italics, underline)", "link": "lessons/lessons.html?id=typing_formatting" }
-          ]
-        },
-        {
-          "id": "mouse",
-          "name": "Mouse Skills",
-          "topics": [
-            { "title": "Using toolbars, ribbons & context menus", "link": "games/mouse.html?topic=toolbars_menus" }
-          ]
-        },
-        {
-          "id": "lessons",
-          "name": "Lessons",
-          "topics": [
-            { "title": "Intro to Spreadsheets (cells, rows, columns)", "link": "lessons/lessons.html?id=spreadsheets_intro" },
-            { "title": "HTML + CSS practice: styled webpage", "link": "lessons/lessons.html?id=html_css_practice" }
-          ]
-        }
-      ]
-    },
-    {
-      "number": 3,
-      "title": "Term 3",
-      "categories": [
-        {
-          "id": "keyboard",
-          "name": "Keyboard Skills",
-          "topics": [
-            { "title": "Typing: writing 1-page essay", "link": "games/keyboard.html?topic=essay_typing" },
-            { "title": "Typing: adding symbols & numbers", "link": "games/keyboard.html?topic=symbols_numbers" }
-          ]
-        },
-        {
-          "id": "mouse",
-          "name": "Mouse Skills",
-          "topics": [
-            { "title": "Mouse precision: drawing + editing shapes", "link": "games/mouse.html?topic=precision_drawing" }
-          ]
-        },
-        {
-          "id": "projects",
-          "name": "Projects",
-          "topics": [
-            { "title": "Mini Project: Create a Class Newsletter", "link": "lessons/lessons.html?id=class_newsletter" },
-            { "title": "Web Project: My First Styled Page", "link": "lessons/lessons.html?id=styled_page" }
-          ]
-        }
-      ]
-    }
-  ]
-},
-{
-  "id": "year5",
-  "name": "Year 5",
-  "terms": [
-    {
-      "number": 1,
-      "title": "Term 1",
-      "categories": [
-        {
-          "id": "keyboard",
-          "name": "Keyboard Skills",
-          "topics": [
-            { "title": "Typing: multiple paragraphs (story writing)", "link": "games/keyboard.html?topic=story_typing" },
-            { "title": "Typing: editing & proofreading", "link": "lessons/lessons.html?id=typing_editing" }
-          ]
-        },
-        {
-          "id": "mouse",
-          "name": "Mouse Skills",
-          "topics": [
-            { "title": "Using drag-drop in spreadsheets & docs", "link": "games/mouse.html?topic=drag_spreadsheet" }
-          ]
-        },
-        {
-          "id": "lessons",
-          "name": "Lessons",
-          "topics": [
-            { "title": "Internet Safety & Responsible Use", "link": "lessons/lessons.html?id=internet_safety" },
-            { "title": "Intro to Presentations (PowerPoint/Slides)", "link": "lessons/lessons.html?id=presentations_intro" }
-          ]
-        }
-      ]
-    },
-    {
-      "number": 2,
-      "title": "Term 2",
-      "categories": [
-        {
-          "id": "keyboard",
-          "name": "Keyboard Skills",
-          "topics": [
-            { "title": "Typing: longer stories with formatting", "link": "games/keyboard.html?topic=story_formatting" },
-            { "title": "Typing: report structure (title, headings)", "link": "games/keyboard.html?topic=report_structure" }
-          ]
-        },
-        {
-          "id": "mouse",
-          "name": "Mouse Skills",
-          "topics": [
-            { "title": "Editing images: crop, resize", "link": "games/mouse.html?topic=image_editing" }
-          ]
-        },
-        {
-          "id": "lessons",
-          "name": "Lessons",
-          "topics": [
-            { "title": "Intro to Databases (tables, records)", "link": "lessons/lessons.html?id=databases_intro" },
-            { "title": "Web Project: Personal Profile Page", "link": "lessons/lessons.html?id=profile_page" }
-          ]
-        }
-      ]
-    },
-    {
-      "number": 3,
-      "title": "Term 3",
-      "categories": [
-        {
-          "id": "keyboard",
-          "name": "Keyboard Skills",
-          "topics": [
-            { "title": "Typing: multi-page essays", "link": "games/keyboard.html?topic=multi_page_essay" },
-            { "title": "Typing: using references & bibliography", "link": "lessons/lessons.html?id=bibliography" }
-          ]
-        },
-        {
-          "id": "mouse",
-          "name": "Mouse Skills",
-          "topics": [
-            { "title": "Advanced precision: drawing + diagramming", "link": "games/mouse.html?topic=diagramming" }
-          ]
-        },
-        {
-          "id": "projects",
-          "name": "Projects",
-          "topics": [
-            { "title": "Project: Create a Research Poster", "link": "lessons/lessons.html?id=research_poster" },
-            { "title": "Web Project: Interactive Profile Page", "link": "lessons/lessons.html?id=interactive_profile" }
-          ]
-        }
-      ]
-    }
-  ]
-},
-{
-  "id": "year6",
-  "name": "Year 6",
-  "terms": [
-    {
-      "number": 1,
-      "title": "Term 1",
-      "categories": [
-        {
-          "id": "keyboard",
-          "name": "Keyboard Skills",
-          "topics": [
-            { "title": "Typing: formal letters & applications", "link": "games/keyboard.html?topic=formal_letters" },
-            { "title": "Typing: timed accuracy drills", "link": "games/keyboard.html?topic=timed_drills" }
-          ]
-        },
-        {
-          "id": "mouse",
-          "name": "Mouse Skills",
-          "topics": [
-            { "title": "Using advanced drawing tools (vector basics)", "link": "games/mouse.html?topic=vector_drawing" }
-          ]
-        },
-        {
-          "id": "lessons",
-          "name": "Lessons",
-          "topics": [
-            { "title": "Spreadsheets: formulas & charts", "link": "lessons/lessons.html?id=spreadsheets_formulas" },
-            { "title": "HTML + CSS mini project: Styled Portfolio", "link": "lessons/lessons.html?id=styled_portfolio" }
-          ]
-        }
-      ]
-    },
-    {
-      "number": 2,
-      "title": "Term 2",
-      "categories": [
-        {
-          "id": "keyboard",
-          "name": "Keyboard Skills",
-          "topics": [
-            { "title": "Typing: essays with citations", "link": "games/keyboard.html?topic=essays_citations" },
-            { "title": "Typing: presentations with notes", "link": "games/keyboard.html?topic=presentations_typing" }
-          ]
-        },
-        {
-          "id": "mouse",
-          "name": "Mouse Skills",
-          "topics": [
-            { "title": "Mouse precision: design + editing", "link": "games/mouse.html?topic=design_editing" }
-          ]
-        },
-        {
-          "id": "lessons",
-          "name": "Lessons",
-          "topics": [
-            { "title": "Intro to Programming: Scratch", "link": "lessons/lessons.html?id=scratch_intro" },
-            { "title": "Digital Citizenship", "link": "lessons/lessons.html?id=digital_citizenship" }
-          ]
-        }
-      ]
-    },
-    {
-      "number": 3,
-      "title": "Term 3",
-      "categories": [
-        {
-          "id": "keyboard",
-          "name": "Keyboard Skills",
-          "topics": [
-            { "title": "Typing: long essays & short reports", "link": "games/keyboard.html?topic=long_essays" },
-            { "title": "Typing: summary writing", "link": "games/keyboard.html?topic=summary_writing" }
-          ]
-        },
-        {
-          "id": "mouse",
-          "name": "Mouse Skills",
-          "topics": [
-            { "title": "Mouse: multi-tasking + tab management", "link": "games/mouse.html?topic=tab_management" }
-          ]
-        },
-        {
-          "id": "projects",
-          "name": "Projects",
-          "topics": [
-            { "title": "Project: Build a Class Blog (HTML + CSS)", "link": "lessons/lessons.html?id=class_blog" },
-            { "title": "Project: Digital Poster on Internet Safety", "link": "lessons/lessons.html?id=internet_poster" }
-          ]
-        }
-      ]
-    }
-  ]
-}
-
-  
+  {
+    "id": "year4",
+    "name": "Year 4",
+    "terms": [
+      {
+        "number": 1,
+        "title": "First Term",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              { "title": "Typing Sentences", "link": "games/keyboard/sentences.html" },
+              { "title": "Typing Short Paragraphs", "link": "games/keyboard/paragraphs.html" },
+              { "title": "Typing Long Sentences", "link": "games/keyboard/long-sentences.html" }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "year5",
+    "name": "Year 5",
+    "terms": [
+      {
+        "number": 1,
+        "title": "First Term",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              { "title": "Typing Short Paragraphs", "link": "games/keyboard/paragraphs.html" },
+              { "title": "Typing Long Sentences", "link": "games/keyboard/long-sentences.html" }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "year6",
+    "name": "Year 6",
+    "terms": [
+      {
+        "number": 1,
+        "title": "First Term",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              { "title": "Typing Paragraphs", "link": "games/keyboard/paragraphs.html" },
+              { "title": "Typing Essays", "link": "games/keyboard/essays.html" }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]
