@@ -30,7 +30,6 @@
       2: new Date("2026-01-04"),
       3: new Date("2026-04-20")
     };
-
     const today = new Date();
 
     fetch("data/classes.json")
@@ -53,53 +52,47 @@
           body.className =
             "max-h-0 overflow-hidden transition-all duration-500 ease-in-out bg-gray-50";
 
-          body.innerHTML = cls.terms
-            .map(term => {
-              const unlocked =
-                term.number === 1 || today >= termUnlockDates[term.number];
+          body.innerHTML = cls.terms.map(term => {
+              const unlocked = term.number === 1 || today >= termUnlockDates[term.number];
 
               return `
                 <div class="mb-4">
                   <h3 class="text-lg font-semibold text-blue-700 px-4 py-2">${term.title}</h3>
-                  ${term.categories
-                    .map(cat => `
-                      <div class="ml-4">
-                        <h4 class="text-md font-semibold text-gray-700 px-3 py-1">${cat.name}</h4>
-                        <ul class="space-y-3 pl-6">
-                          ${cat.topics
-                            .map(topic => {
-                              if (unlocked) {
-                                const href = topic.link
-                                  ? topic.link
-                                  : \`topics-details.html?class=\${cls.id}&term=\${term.number}&category=\${cat.id}&topic=\${encodeURIComponent(topic.title)}\`;
-                                return `
-                                  <li>
-                                    <a href="\${href}"
-                                       class="block px-4 py-2 rounded-lg shadow text-base transition bg-white hover:shadow-md hover:bg-blue-50">
-                                      \${topic.title}
-                                    </a>
-                                  </li>`;
-                              } else {
-                                return `
-                                  <li>
-                                    <span class="block px-4 py-2 rounded-lg shadow text-base bg-gray-200 text-gray-500 cursor-not-allowed">
-                                      \${topic.title} (Locked)
-                                    </span>
-                                  </li>`;
-                              }
-                            })
-                            .join("")}
-                        </ul>
-                      </div>
-                    `)
-                    .join("")}
+                  ${term.categories.map(cat => `
+                    <div class="ml-4">
+                      <h4 class="text-md font-semibold text-gray-700 px-3 py-1">${cat.name}</h4>
+                      <ul class="space-y-3 pl-6">
+                        ${cat.topics.map(topic => {
+                          if (unlocked) {
+                            const href = topic.link
+                              ? topic.link
+                              : \`topics-details.html?class=\${cls.id}&term=\${term.number}&category=\${cat.id}&topic=\${encodeURIComponent(topic.title)}\`;
+                            return `
+                              <li>
+                                <a href="\${href}"
+                                   class="block px-4 py-2 rounded-lg shadow text-base transition bg-white hover:shadow-md hover:bg-blue-50">
+                                  \${topic.title}
+                                </a>
+                              </li>`;
+                          } else {
+                            return `
+                              <li>
+                                <span class="block px-4 py-2 rounded-lg shadow text-base bg-gray-200 text-gray-500 cursor-not-allowed">
+                                  \${topic.title} (Locked)
+                                </span>
+                              </li>`;
+                          }
+                        }).join("")}
+                      </ul>
+                    </div>
+                  `).join("")}
                 </div>
               `;
-            })
-            .join("");
+            }).join("");
 
           card.appendChild(body);
 
+          // Accordion toggle
           header.addEventListener("click", () => {
             const isOpen = body.style.maxHeight && body.style.maxHeight !== "0px";
             document.querySelectorAll("#accordion div > div").forEach(el => (el.style.maxHeight = null));
@@ -119,67 +112,6 @@
         container.textContent = "⚠️ Failed to load class data.";
       });
   });
-  </script>
-
-  <!-- Refresh update button (hidden by default) -->
-  <button id="update-app" style="
-    display:none;
-    position:fixed;
-    bottom:20px;
-    right:20px;
-    padding:10px 16px;
-    background:#6a5acd;
-    color:#fff;
-    border:none;
-    border-radius:8px;
-    font-size:14px;
-    cursor:pointer;
-    box-shadow:0 4px 6px rgba(0,0,0,0.2);
-    z-index:1000;
-  ">
-    🔄 Refresh to update
-  </button>
-
-  <script>
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker
-          .register('/service-worker.js')
-          .then((registration) => {
-            console.log('[SW] Registered:', registration);
-
-            function showUpdateButton(worker) {
-              const btn = document.getElementById('update-app');
-              btn.style.display = 'block';
-              btn.addEventListener('click', () => {
-                worker.postMessage({ type: 'SKIP_WAITING' });
-              });
-            }
-
-            if (registration.waiting) {
-              showUpdateButton(registration.waiting);
-            }
-
-            registration.addEventListener('updatefound', () => {
-              const newWorker = registration.installing;
-              if (newWorker) {
-                newWorker.addEventListener('statechange', () => {
-                  if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-                    showUpdateButton(newWorker);
-                  }
-                });
-              }
-            });
-
-            navigator.serviceWorker.addEventListener('controllerchange', () => {
-              window.location.reload();
-            });
-          })
-          .catch((error) => {
-            console.error('[SW] Registration failed:', error);
-          });
-      });
-    }
   </script>
 </body>
 </html>
