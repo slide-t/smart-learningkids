@@ -12,10 +12,16 @@
               "id": "ict",
               "name": "ICT",
               "topics": [
-                { "title": "Introduction to Computers" },
-                { "title": "Parts of the Computer" },
-                { "title": "Keyboard Practice", "gamePage": "games/keyboard.html" },
-                { "title": "Mouse Practice", "gamePage": "games/mouse.html" }
+                { "id": "keyboard", "title": "Keyboard Practice", "link": "games/keyboard.html" },
+                { "id": "mouse", "title": "Mouse Practice", "link": "games/mouse.html" }
+              ]
+            },
+            {
+              "id": "maths",
+              "name": "Mathematics",
+              "topics": [
+                { "id": "numbers", "title": "Numbers & Counting" },
+                { "id": "shapes", "title": "Basic Shapes" }
               ]
             }
           ]
@@ -28,10 +34,8 @@
               "id": "ict",
               "name": "ICT",
               "topics": [
-                { "title": "Uses of the Computer" },
-                { "title": "Turning On and Off the Computer" },
-                { "title": "Keyboard Practice", "gamePage": "games/keyboard.html" },
-                { "title": "Mouse Practice", "gamePage": "games/mouse.html" }
+                { "id": "typing", "title": "Typing Tutor", "link": "games/keyboard.html" },
+                { "id": "dragdrop", "title": "Mouse Drag & Drop", "link": "games/mouse.html" }
               ]
             }
           ]
@@ -44,17 +48,14 @@
               "id": "ict",
               "name": "ICT",
               "topics": [
-                { "title": "Types of Computers" },
-                { "title": "Care of the Computer" },
-                { "title": "Keyboard Practice", "gamePage": "games/keyboard.html" },
-                { "title": "Mouse Practice", "gamePage": "games/mouse.html" }
+                { "id": "keyboard-speed", "title": "Keyboard Speed Test", "link": "games/keyboard.html" },
+                { "id": "mouse-speed", "title": "Mouse Speed Test", "link": "games/mouse.html" }
               ]
             }
           ]
         }
       ]
     },
-
     {
       "id": "year2",
       "name": "Year 2",
@@ -67,10 +68,8 @@
               "id": "ict",
               "name": "ICT",
               "topics": [
-                { "title": "Revision of Year 1" },
-                { "title": "Computer Devices (Input/Output)" },
-                { "title": "Keyboard Practice", "gamePage": "games/keyboard.html" },
-                { "title": "Mouse Practice", "gamePage": "games/mouse.html" }
+                { "id": "keyboard-words", "title": "Typing Words", "link": "games/keyboard.html" },
+                { "id": "mouse-target", "title": "Mouse Target Practice", "link": "games/mouse.html" }
               ]
             }
           ]
@@ -83,10 +82,8 @@
               "id": "ict",
               "name": "ICT",
               "topics": [
-                { "title": "Storage Devices" },
-                { "title": "Basic Typing Skills" },
-                { "title": "Keyboard Practice", "gamePage": "games/keyboard.html" },
-                { "title": "Mouse Practice", "gamePage": "games/mouse.html" }
+                { "id": "keyboard-sentences", "title": "Typing Sentences", "link": "games/keyboard.html" },
+                { "id": "mouse-drawing", "title": "Mouse Drawing", "link": "games/mouse.html" }
               ]
             }
           ]
@@ -99,17 +96,14 @@
               "id": "ict",
               "name": "ICT",
               "topics": [
-                { "title": "Introduction to Word Processing" },
-                { "title": "Typing Short Words" },
-                { "title": "Keyboard Practice", "gamePage": "games/keyboard.html" },
-                { "title": "Mouse Practice", "gamePage": "games/mouse.html" }
+                { "id": "keyboard-game", "title": "Keyboard Game Challenge", "link": "games/keyboard.html" },
+                { "id": "mouse-game", "title": "Mouse Game Challenge", "link": "games/mouse.html" }
               ]
             }
           ]
         }
       ]
     },
-
     {
       "id": "year3",
       "name": "Year 3",
@@ -122,10 +116,8 @@
               "id": "ict",
               "name": "ICT",
               "topics": [
-                { "title": "Introduction to Software and Hardware" },
-                { "title": "Functions of Input Devices" },
-                { "title": "Keyboard Practice", "gamePage": "games/keyboard.html" },
-                { "title": "Mouse Practice", "gamePage": "games/mouse.html" }
+                { "id": "keyboard-paragraph", "title": "Typing Paragraphs", "link": "games/keyboard.html" },
+                { "id": "mouse-shapes", "title": "Drawing Shapes with Mouse", "link": "games/mouse.html" }
               ]
             }
           ]
@@ -138,10 +130,8 @@
               "id": "ict",
               "name": "ICT",
               "topics": [
-                { "title": "Introduction to Paint" },
-                { "title": "Drawing with the Computer" },
-                { "title": "Keyboard Practice", "gamePage": "games/keyboard.html" },
-                { "title": "Mouse Practice", "gamePage": "games/mouse.html" }
+                { "id": "keyboard-speed2", "title": "Speed Typing Test", "link": "games/keyboard.html" },
+                { "id": "mouse-dragdrop2", "title": "Advanced Mouse Drag & Drop", "link": "games/mouse.html" }
               ]
             }
           ]
@@ -154,10 +144,8 @@
               "id": "ict",
               "name": "ICT",
               "topics": [
-                { "title": "Simple Computer Games" },
-                { "title": "Typing Sentences" },
-                { "title": "Keyboard Practice", "gamePage": "games/keyboard.html" },
-                { "title": "Mouse Practice", "gamePage": "games/mouse.html" }
+                { "id": "keyboard-story", "title": "Typing a Story", "link": "games/keyboard.html" },
+                { "id": "mouse-speed2", "title": "Mouse Reflex Test", "link": "games/mouse.html" }
               ]
             }
           ]
