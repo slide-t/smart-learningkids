@@ -21,7 +21,84 @@
     <div id="accordion" class="space-y-4"></div>
   </main>
 <script>
-document.addEventListener("DOMContentLoaded", () => {
+
+  document.addEventListener("DOMContentLoaded", () => {
+  const classesContainer = document.getElementById("classes-container");
+
+  async function loadClasses() {
+    try {
+      const response = await fetch("data/classes.json");
+      if (!response.ok) throw new Error("Failed to load JSON");
+      const data = await response.json();
+
+      // Normalize into array
+      let years = [];
+      if (Array.isArray(data)) {
+        years = data;
+      } else if (data.years && Array.isArray(data.years)) {
+        years = data.years;
+      } else if (typeof data === "object") {
+        years = [data];
+      }
+
+      renderClasses(years);
+    } catch (error) {
+      console.error("Error loading classes.json:", error);
+      classesContainer.innerHTML = `<p class="text-red-500">Failed to load classes. Check console.</p>`;
+    }
+  }
+
+  function renderClasses(years) {
+    classesContainer.innerHTML = "";
+
+    years.forEach((year) => {
+      const yearCard = document.createElement("div");
+      yearCard.className =
+        "bg-white shadow-lg rounded-lg p-6 mb-6 border border-gray-200";
+
+      yearCard.innerHTML = `
+        <h2 class="text-2xl font-bold text-indigo-700 mb-4">${year.name}</h2>
+      `;
+
+      year.terms?.forEach((term) => {
+        const termBlock = document.createElement("div");
+        termBlock.className = "mb-4";
+
+        termBlock.innerHTML = `
+          <h3 class="text-xl font-semibold text-gray-800 mb-2">${term.title}</h3>
+        `;
+
+        term.categories?.forEach((cat) => {
+          const catBlock = document.createElement("div");
+          catBlock.className = "ml-4 mb-2";
+
+          catBlock.innerHTML = `
+            <h4 class="text-lg font-medium text-purple-600 mb-1">${cat.name}</h4>
+          `;
+
+          const topicList = document.createElement("ul");
+          topicList.className = "list-disc ml-6 space-y-1";
+
+          cat.topics?.forEach((topic) => {
+            const li = document.createElement("li");
+            li.innerHTML = `<a href="${topic.link}" class="text-blue-600 hover:underline">${topic.title}</a>`;
+            topicList.appendChild(li);
+          });
+
+          catBlock.appendChild(topicList);
+          termBlock.appendChild(catBlock);
+        });
+
+        yearCard.appendChild(termBlock);
+      });
+
+      classesContainer.appendChild(yearCard);
+    });
+  }
+
+  loadClasses();
+});
+  /*document.addEventListener("DOMContentLoaded", () => {
   const container = document.getElementById("accordion");
 
   // Unlock dates for terms
@@ -118,7 +195,7 @@ document.addEventListener("DOMContentLoaded", () => {
           .join("");
 
         card.appendChild(body);
-
+*/
         // Accordion toggle
         header.addEventListener("click", () => {
           const isOpen = body.style.maxHeight && body.style.maxHeight !== "0px";
