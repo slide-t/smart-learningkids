@@ -166,3 +166,17 @@ startBtn.addEventListener("click", startGame);
 
 // ✅ Only load data on page load
 loadData();
+
+// ✅ Hook up Start button
+startBtn.addEventListener("click", () => {
+  startGame();
+  startBtn.style.display = "none"; // hide Start after starting
+  document.getElementById("restart-btn").style.display = "inline-block"; // show Restart
+});
+
+// ✅ Restart button handler
+document.getElementById("restart-btn").addEventListener("click", () => {
+  startGame();
+});
+
+
