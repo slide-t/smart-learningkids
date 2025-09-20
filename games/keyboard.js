@@ -5,7 +5,11 @@ const accuracyEl = document.getElementById("accuracy");
 const feedbackEl = document.getElementById("feedback");
 const fallingItemEl = document.getElementById("falling-item");
 const virtualKeyboard = document.getElementById("virtual-keyboard");
-const startBtn = document.getElementById("start-btn"); // ✅ Start button
+
+const startScreen = document.getElementById("start-screen");
+const startBtn = document.getElementById("start-btn");
+const gameContainer = document.getElementById("game-container");
+const restartBtn = document.getElementById("restart-btn");
 
 // 🔊 Sounds
 const correctSound = new Audio("sounds/correct.mp3");
@@ -19,7 +23,7 @@ let wrong = 0;
 let timer = 420; // 7 mins
 let timerInterval = null;
 
-// 🎹 Virtual keyboard layout (simplified for kids)
+// 🎹 Virtual keyboard layout
 const keys = [
   "A","B","C","D","E","F","G","H","I","J",
   "K","L","M","N","O","P","Q","R","S","T",
@@ -34,9 +38,9 @@ document.addEventListener("touchstart", function (e) {
   }
 }, { passive: false });
 
-// Load data (but don't auto-start)
+// Load data
 async function loadData() {
-  const res = await fetch("games/keyboard.json"); // ✅ corrected path
+  const res = await fetch("games/keyboard.json");
   data = await res.json();
 }
 
@@ -46,8 +50,13 @@ function startGame() {
     feedbackEl.textContent = "⚠️ Data not loaded!";
     return;
   }
+
+  // Hide start screen & show game
+  startScreen.style.display = "none";
+  gameContainer.classList.remove("hidden");
+
   clearInterval(timerInterval);
-  timer = 420; // reset timer
+  timer = 420;
   correct = 0;
   wrong = 0;
   updateScore();
@@ -64,6 +73,7 @@ function startTimer() {
     if (timer <= 0) {
       clearInterval(timerInterval);
       feedbackEl.textContent = "⏰ Time’s up!";
+      restartBtn.classList.remove("hidden"); // show restart when game ends
     }
     updateTimer();
   }, 1000);
@@ -86,7 +96,7 @@ function newWord() {
   setTimeout(() => fallingItemEl.classList.remove("drop-enter"), 700);
 }
 
-// Handle key press
+// Handle input
 function handleInput(input) {
   if (!currentWord) return;
 
@@ -131,7 +141,7 @@ function updateScore() {
   accuracyEl.textContent = total ? Math.round((correct / total) * 100) + "%" : "0%";
 }
 
-// Virtual keyboard setup
+// Virtual keyboard
 function setupVirtualKeyboard() {
   if (window.innerWidth < 768) {
     virtualKeyboard.classList.remove("hidden");
@@ -150,7 +160,7 @@ function setupVirtualKeyboard() {
   }
 }
 
-// Desktop keyboard input
+// Keyboard input (desktop)
 document.addEventListener("keydown", (e) => {
   if (e.key.length === 1) {
     handleInput(e.key.toUpperCase());
@@ -161,22 +171,16 @@ document.addEventListener("keydown", (e) => {
   }
 });
 
-// ✅ Hook up Start button
+// ✅ Start button
 startBtn.addEventListener("click", startGame);
 
-// ✅ Only load data on page load
+// ✅ Restart button → back to start screen
+restartBtn.addEventListener("click", () => {
+  clearInterval(timerInterval);
+  gameContainer.classList.add("hidden");
+  startScreen.style.display = "flex"; // show start again
+  feedbackEl.textContent = "";
+});
+
+// Load words
 loadData();
-
-// ✅ Hook up Start button
-startBtn.addEventListener("click", () => {
-  startGame();
-  startBtn.style.display = "none"; // hide Start after starting
-  document.getElementById("restart-btn").style.display = "inline-block"; // show Restart
-});
-
-// ✅ Restart button handler
-document.getElementById("restart-btn").addEventListener("click", () => {
-  startGame();
-});
-
-
