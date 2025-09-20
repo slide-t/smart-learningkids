@@ -1,5 +1,3 @@
-// keyboard.js
-
 const timerEl = document.getElementById("timer");
 const correctEl = document.getElementById("correct");
 const wrongEl = document.getElementById("wrong");
@@ -7,6 +5,7 @@ const accuracyEl = document.getElementById("accuracy");
 const feedbackEl = document.getElementById("feedback");
 const fallingItemEl = document.getElementById("falling-item");
 const virtualKeyboard = document.getElementById("virtual-keyboard");
+const startBtn = document.getElementById("start-btn"); // ✅ Start button
 
 // 🔊 Sounds
 const correctSound = new Audio("sounds/correct.mp3");
@@ -35,18 +34,24 @@ document.addEventListener("touchstart", function (e) {
   }
 }, { passive: false });
 
-// Load data
+// Load data (but don't auto-start)
 async function loadData() {
-  const res = await fetch("./keyboard.json");
+  const res = await fetch("games/keyboard.json"); // ✅ corrected path
   data = await res.json();
-  startGame();
 }
 
 // Start game
 function startGame() {
+  if (!data.length) {
+    feedbackEl.textContent = "⚠️ Data not loaded!";
+    return;
+  }
+  clearInterval(timerInterval);
+  timer = 420; // reset timer
   correct = 0;
   wrong = 0;
   updateScore();
+  updateTimer();
   startTimer();
   newWord();
   setupVirtualKeyboard();
@@ -99,8 +104,6 @@ function handleInput(input) {
 
   if (input.toUpperCase() === expected) {
     currentIndex++;
-
-    // Animate correct
     fallingItemEl.classList.add("correct-flash");
     setTimeout(() => fallingItemEl.classList.remove("correct-flash"), 300);
 
@@ -158,4 +161,8 @@ document.addEventListener("keydown", (e) => {
   }
 });
 
+// ✅ Hook up Start button
+startBtn.addEventListener("click", startGame);
+
+// ✅ Only load data on page load
 loadData();
