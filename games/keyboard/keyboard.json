@@ -1,1 +1,94 @@
 
+{
+  "levels": {
+    "1": {
+      "label": "Year 1 - Beginner",
+      "timeLimit": 420,
+      "stages": [
+        { "id": "letters", "type": "key", "title": "Letters A–Z", "items": ["a","s","d","f","j","k","l",";","q","w","e","r","t","y","u","i","o","p","z","x","c","v","b","n","m"] },
+        { "id": "two-letter-words", "type": "word", "title": "2-Letter Words", "items": ["am","an","at","it","in","on","up","go"] }
+      ]
+    },
+    "2": {
+      "label": "Year 2 - Beginner+",
+      "timeLimit": 420,
+      "stages": [
+        { "id": "home-row", "type": "key", "title": "Home Row Review", "items": ["a","s","d","f","j","k","l",";"] },
+        { "id": "three-letter-words", "type": "word", "title": "3-Letter Words", "items": ["cat","dog","sun","bag","hat","man","pen","run"] }
+      ]
+    },
+    "3": {
+      "label": "Year 3 - Early",
+      "timeLimit": 420,
+      "stages": [
+        { "id": "short-words", "type": "word", "title": "Short Words", "items": ["book","ball","door","fish","hand"] },
+        { "id": "simple-sentences", "type": "sentence", "title": "Simple Sentences", "items": ["I am a boy.","The sun is hot.","We can run."] }
+      ]
+    },
+    "4": {
+      "label": "Year 4 - Punctuation & Sentences",
+      "timeLimit": 420,
+      "stages": [
+        { "id": "punctuation", "type": "key", "title": "Punctuation Keys", "items": [".",",","?","!"] },
+        { "id": "sentences", "type": "sentence", "title": "Sentences", "items": ["The dog is big.", "We love to learn.", "Type with both hands."] }
+      ]
+    },
+    "5": {
+      "label": "Year 5 - Paragraph Practice",
+      "timeLimit": 420,
+      "stages": [
+        { "id": "short-paragraphs", "type": "paragraph", "title": "Short Paragraphs", "items": ["Typing helps us share ideas. Practice every day to improve speed and accuracy."] }
+      ]
+    },
+    "6": {
+      "label": "Year 6 - Extended Typing",
+      "timeLimit": 420,
+      "stages": [
+        { "id": "paragraphs", "type": "paragraph", "title": "Paragraphs", "items": ["With consistent practice, typing becomes faster and easier. Students gain confidence as they master the keyboard."] }
+      ]
+    },
+    "7": {
+      "label": "Year 7 - HTML Intro",
+      "timeLimit": 420,
+      "stages": [
+        { "id": "html-tags", "type": "code", "title": "HTML Tags", "items": ["<html>","<head>","<body>","<h1>Hello</h1>","<p>This is a paragraph.</p>"] }
+      ]
+    },
+    "8": {
+      "label": "Year 8 - CSS & JS Intro",
+      "timeLimit": 420,
+      "stages": [
+        { "id": "css-lines", "type": "code", "title": "CSS Lines", "items": ["body { }","color: red;","background: blue;"] },
+        { "id": "js-lines", "type": "code", "title": "JS Basics", "items": ["let name = 'Ali';","alert('Hi');"] }
+      ]
+    },
+    "9": {
+      "label": "Year 9 - JS Functions",
+      "timeLimit": 420,
+      "stages": [
+        { "id": "js-functions", "type": "code", "title": "Functions", "items": ["function add(a,b){ return a+b; }","console.log(add(1,2));"] }
+      ]
+    },
+    "10": {
+      "label": "Year 10 - DOM Projects",
+      "timeLimit": 420,
+      "stages": [
+        { "id": "dom-snippets", "type": "code", "title": "DOM Snippets", "items": ["document.querySelector('div').innerText = 'Hi';","for(let i=0;i<5;i++){ console.log(i); }"] }
+      ]
+    },
+    "11": {
+      "label": "Year 11 - Advanced JS",
+      "timeLimit": 420,
+      "stages": [
+        { "id": "advanced-js", "type": "code", "title": "Advanced Lines", "items": ["class Person { constructor(name){this.name=name;} }","fetch('/api').then(r=>r.json())"] }
+      ]
+    },
+    "12": {
+      "label": "Year 12 - Capstone Practice",
+      "timeLimit": 420,
+      "stages": [
+        { "id": "capstone", "type": "code", "title": "Project Snippets", "items": ["<!DOCTYPE html><html><head><title>SLK</title></head><body></body></html>","function gameLoop(){ requestAnimationFrame(gameLoop); }"] }
+      ]
+    }
+  }
+}
