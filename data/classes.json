@@ -1,0 +1,239 @@
+[
+  {
+    "id": "year1",
+    "name": "Year 1",
+    "terms": [
+      {
+        "number": 1,
+        "title": "First Term",
+        "categories": [
+          {
+            "id": "mouse",
+            "name": "Mouse Skills",
+            "topics": [
+              { "title": "Pointing", "link": "games/mouse/pointing.html" },
+              { "title": "Single Click", "link": "games/mouse/single-click.html" },
+              { "title": "Click Practice", "link": "games/mouse/click-practice.html" }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "year2",
+    "name": "Year 2",
+    "terms": [
+      {
+        "number": 1,
+        "title": "First Term",
+        "categories": [
+          {
+            "id": "mouse",
+            "name": "Mouse Skills",
+            "topics": [
+              { "title": "Pointing", "link": "games/mouse/pointing.html" },
+              { "title": "Single Click", "link": "games/mouse/single-click.html" },
+              { "title": "Click Practice", "link": "games/mouse/click-practice.html" }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "year3",
+    "name": "Year 3",
+    "terms": [
+      {
+        "number": 1,
+        "title": "First Term",
+        "categories": [
+          {
+            "id": "mouse",
+            "name": "Mouse Skills",
+            "topics": [
+              { "title": "Double Click", "link": "games/mouse/double-click.html" }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "year4",
+    "name": "Year 4",
+    "terms": [
+      {
+        "number": 1,
+        "title": "First Term",
+        "categories": [
+          {
+            "id": "mouse",
+            "name": "Mouse Skills",
+            "topics": [
+              { "title": "Right Click", "link": "games/mouse/right-click.html" }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "year5",
+    "name": "Year 5",
+    "terms": [
+      {
+        "number": 1,
+        "title": "First Term",
+        "categories": [
+          {
+            "id": "mouse",
+            "name": "Mouse Skills",
+            "topics": [
+              { "title": "Drag and Drop Shapes", "link": "games/mouse/drag-drop.html" }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "year6",
+    "name": "Year 6",
+    "terms": [
+      {
+        "number": 1,
+        "title": "First Term",
+        "categories": [
+          {
+            "id": "mouse",
+            "name": "Mouse Skills",
+            "topics": [
+              { "title": "Drag and Drop Advanced", "link": "games/mouse/drag-drop-advanced.html" }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "year7",
+    "name": "Year 7",
+    "terms": [
+      {
+        "number": 1,
+        "title": "First Term",
+        "categories": [
+          {
+            "id": "mouse",
+            "name": "Mouse Skills",
+            "topics": [
+              { "title": "Create Folder", "link": "games/mouse/create-folder.html" },
+              { "title": "Rename Folder", "link": "games/mouse/rename-folder.html" },
+              { "title": "Delete Folder", "link": "games/mouse/delete-folder.html" }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "year8",
+    "name": "Year 8",
+    "terms": [
+      {
+        "number": 1,
+        "title": "First Term",
+        "categories": [
+          {
+            "id": "mouse",
+            "name": "Mouse Skills",
+            "topics": [
+              { "title": "Copy and Paste Files", "link": "games/mouse/copy-paste.html" },
+              { "title": "Move Files Between Folders", "link": "games/mouse/move-files.html" }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "year9",
+    "name": "Year 9",
+    "terms": [
+      {
+        "number": 1,
+        "title": "First Term",
+        "categories": [
+          {
+            "id": "mouse",
+            "name": "Mouse Skills",
+            "topics": [
+              { "title": "Create Subfolder", "link": "games/mouse/create-subfolder.html" },
+              { "title": "Delete Subfolder", "link": "games/mouse/delete-subfolder.html" }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "year10",
+    "name": "Year 10",
+    "terms": [
+      {
+        "number": 1,
+        "title": "First Term",
+        "categories": [
+          {
+            "id": "mouse",
+            "name": "Mouse Skills",
+            "topics": [
+              { "title": "Organize Files", "link": "games/mouse/organize-files.html" },
+              { "title": "Drag Multiple Items", "link": "games/mouse/drag-multiple.html" }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "year11",
+    "name": "Year 11",
+    "terms": [
+      {
+        "number": 1,
+        "title": "First Term",
+        "categories": [
+          {
+            "id": "mouse",
+            "name": "Mouse Skills",
+            "topics": [
+              { "title": "Multi-Step Folder Actions", "link": "games/mouse/multi-step.html" }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "year12",
+    "name": "Year 12",
+    "terms": [
+      {
+        "number": 1,
+        "title": "First Term",
+        "categories": [
+          {
+            "id": "mouse",
+            "name": "Mouse Skills",
+            "topics": [
+              { "title": "Advanced Desktop Management", "link": "games/mouse/advanced-desktop.html" }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]
