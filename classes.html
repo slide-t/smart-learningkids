@@ -36,15 +36,11 @@
 <script>
 document.addEventListener("DOMContentLoaded", () => {
   const container = document.getElementById("accordion");
-
-  const termUnlockDates = {
-    2: new Date("2026-01-04"),
-    3: new Date("2026-04-05")
-  };
+  const termUnlockDates = { 2: new Date("2026-01-04"), 3: new Date("2026-04-05") };
   const today = new Date();
 
   fetch("data/classes.json")
-    .then(response => response.json())
+    .then(res => res.json())
     .then(data => {
       const classes = Array.isArray(data) ? data : Object.values(data);
 
@@ -52,66 +48,39 @@ document.addEventListener("DOMContentLoaded", () => {
         const card = document.createElement("div");
         card.className = "bg-white rounded-xl shadow-md overflow-hidden";
 
-        // Accordion header
         const header = document.createElement("button");
-        header.className =
-          "w-full flex justify-between items-center px-6 py-4 text-lg font-semibold bg-blue-100 hover:bg-blue-200 transition";
-        header.innerHTML = `
-          <span>${cls.name}</span>
-          <span class="transform transition-transform duration-300">+</span>
-        `;
+        header.className = "w-full flex justify-between items-center px-6 py-4 text-lg font-semibold bg-blue-100 hover:bg-blue-200 transition";
+        header.innerHTML = `<span class="text-gray-900">${cls.name}</span><span class="transform transition-transform duration-300 text-gray-900">+</span>`;
         card.appendChild(header);
 
-        // Accordion body
         const body = document.createElement("div");
-        body.className =
-          "max-h-0 overflow-hidden transition-all duration-500 ease-in-out bg-gray-50 opacity-0";
+        body.className = "max-h-0 overflow-hidden transition-all duration-500 ease-in-out bg-gray-50 opacity-0";
 
-        // Iterate terms → categories → topics
-        body.innerHTML = cls.terms
-          .map(term => {
-            return term.categories
-              .map(cat => {
-                return `
-                <div class="mb-4 fade-enter">
-                  <h3 class="text-lg font-semibold text-blue-700 px-4 py-2">${cat.name}</h3>
-                  <ul class="space-y-3 pl-6">
-                    ${cat.topics
-                      .map(topic => {
-                        // Optional: handle term unlock for keyboard topics only
-                        let unlocked = true;
-                        if (topic.term) {
-                          unlocked = topic.term === 1 || today >= termUnlockDates[topic.term];
-                        }
-                        if (unlocked) {
-                          return `<li>
-                            <span class="block px-4 py-2 rounded-lg shadow text-base transition bg-white hover:shadow-md hover:bg-blue-50 cursor-pointer">
-                              ${topic.title}
-                            </span>
-                          </li>`;
-                        } else {
-                          return `<li>
-                            <span class="block px-4 py-2 rounded-lg shadow text-base bg-gray-200 text-gray-500 cursor-not-allowed">
-                              ${topic.title} (Locked until ${termUnlockDates[topic.term].toDateString()})
-                            </span>
-                          </li>`;
-                        }
-                      })
-                      .join("")}
-                  </ul>
-                </div>`;
-              })
-              .join("");
-          })
-          .join("");
+        // Generate terms → categories → topics
+        body.innerHTML = cls.terms.map(term => {
+          return term.categories.map(cat => {
+            return `
+            <div class="mb-4 fade-enter">
+              <h3 class="text-lg font-semibold text-blue-700 px-4 py-2">${cat.name} (${term.title})</h3>
+              <ul class="space-y-3 pl-6">
+                ${cat.topics.map(topic => {
+                  // Optional term unlock logic
+                  let unlocked = true;
+                  if (topic.term) unlocked = topic.term === 1 || today >= termUnlockDates[topic.term];
+                  return unlocked
+                    ? `<li><span class="block px-4 py-2 rounded-lg shadow text-gray-900 bg-white hover:shadow-md hover:bg-blue-50 transition cursor-pointer">${topic.title}</span></li>`
+                    : `<li><span class="block px-4 py-2 rounded-lg shadow text-gray-500 bg-gray-200 cursor-not-allowed">${topic.title} (Locked until ${termUnlockDates[topic.term].toDateString()})</span></li>`;
+                }).join('')}
+              </ul>
+            </div>`;
+          }).join('');
+        }).join('');
 
         card.appendChild(body);
 
-        // Toggle with fade
         header.addEventListener("click", () => {
           const isOpen = body.style.maxHeight && body.style.maxHeight !== "0px";
 
-          // Close all
           document.querySelectorAll("#accordion div > div").forEach(el => {
             el.style.maxHeight = null;
             el.style.opacity = 0;
@@ -136,7 +105,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 </script>
-
 
 </body>
 </html>
