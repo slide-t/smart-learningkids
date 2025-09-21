@@ -411,6 +411,392 @@
         ]
       }
     ]
+  },
+
+  {
+    "id": "year6",
+    "name": "Year 6",
+    "terms": [
+      {
+        "number": 1,
+        "title": "Term 1",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              {
+                "title": "Timed Accuracy Drills",
+                "type": "timed",
+                "description": "Timed accuracy sessions for speed and precision.",
+                "items": ["The quick brown fox","Typing drills sample"]
+              }
+            ]
+          },
+          {
+            "id": "mouse",
+            "name": "Mouse Skills",
+            "topics": [
+              {
+                "title": "Click & Drag Challenges",
+                "type": "drag-drop",
+                "description": "Move multiple objects to target areas quickly.",
+                "items": ["Drag shapes to correct spots.","Arrange objects by color."]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "number": 2,
+        "title": "Term 2",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              {
+                "title": "Essays with Citations",
+                "type": "essay",
+                "description": "Practice longer essays including citations.",
+                "items": ["Research your favourite animal and type a report."]
+              }
+            ]
+          },
+          {
+            "id": "mouse",
+            "name": "Mouse Skills",
+            "topics": [
+              {
+                "title": "Precision Scrolling",
+                "type": "scroll",
+                "description": "Scroll through documents accurately.",
+                "items": ["Scroll to specific paragraphs.","Use scroll bars efficiently."]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "number": 3,
+        "title": "Term 3",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              {
+                "title": "Summary Writing",
+                "type": "summary",
+                "description": "Summarise passages accurately and concisely.",
+                "items": ["Summarise the paragraph provided."]
+              }
+            ]
+          },
+          {
+            "id": "mouse",
+            "name": "Mouse Skills",
+            "topics": [
+              {
+                "title": "Drag & Drop Precision",
+                "type": "drag-drop",
+                "description": "Accurate placement of multiple objects.",
+                "items": ["Arrange words in order.","Move shapes to exact positions."]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "year7",
+    "name": "Year 7",
+    "terms": [
+      {
+        "number": 1,
+        "title": "Term 1",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              {
+                "title": "Reports & Research",
+                "type": "reports",
+                "description": "Practice longer typed reports.",
+                "items": ["Report practice sample"]
+              }
+            ]
+          },
+          {
+            "id": "mouse",
+            "name": "Mouse Skills",
+            "topics": [
+              {
+                "title": "Interactive Dragging",
+                "type": "drag-drop",
+                "description": "Drag objects to interactive areas.",
+                "items": ["Complete the drag puzzle.","Organize charts."]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "number": 2,
+        "title": "Term 2",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              {
+                "title": "Timed Essays",
+                "type": "timed",
+                "description": "Timed essay sections for speed and accuracy.",
+                "items": ["Type the given prompt in 20 mins"]
+              }
+            ]
+          },
+          {
+            "id": "mouse",
+            "name": "Mouse Skills",
+            "topics": [
+              {
+                "title": "Precision Click Drills",
+                "type": "click",
+                "description": "Practice accurate clicking and double clicks.",
+                "items": ["Click small targets quickly.","Double-click icons."]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "number": 3,
+        "title": "Term 3",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              {
+                "title": "Project Writing",
+                "type": "projects",
+                "description": "Long project typing exercises.",
+                "items": ["Project: class magazine"]
+              }
+            ]
+          },
+          {
+            "id": "mouse",
+            "name": "Mouse Skills",
+            "topics": [
+              {
+                "title": "Advanced Drag & Drop",
+                "type": "drag-drop",
+                "description": "Organize multiple objects efficiently.",
+                "items": ["Sort numbers ascending.","Arrange puzzle pieces."]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "year8",
+    "name": "Year 8",
+    "terms": [
+      {
+        "number": 1,
+        "title": "Term 1",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              {
+                "title": "Research Papers",
+                "type": "research",
+                "description": "Practice research writing.",
+                "items": ["Start research paper template"]
+              }
+            ]
+          },
+          {
+            "id": "mouse",
+            "name": "Mouse Skills",
+            "topics": [
+              {
+                "title": "Mouse Navigation",
+                "type": "navigation",
+                "description": "Practice navigating documents with the mouse.",
+                "items": ["Open folders and files.","Scroll through documents."]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "number": 2,
+        "title": "Term 2",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              {
+                "title": "Report Construction",
+                "type": "reports",
+                "description": "Make a full report.",
+                "items": ["Report sample"]
+              }
+            ]
+          },
+          {
+            "id": "mouse",
+            "name": "Mouse Skills",
+            "topics": [
+              {
+                "title": "Precision Dragging",
+                "type": "drag-drop",
+                "description": "Move objects to precise locations.",
+                "items": ["Move shapes to exact coordinates.","Arrange items correctly."]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "number": 3,
+        "title": "Term 3",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              {
+                "title": "Project Typing",
+                "type": "projects",
+                "description": "Typing for multi-media projects.",
+                "items": ["Project story writing"]
+              }
+            ]
+          },
+          {
+            "id": "mouse",
+            "name": "Mouse Skills",
+            "topics": [
+              {
+                "title": "Drag & Arrange Multimedia",
+                "type": "drag-drop",
+                "description": "Organize text, images, and shapes.",
+                "items": ["Arrange images on canvas.","Move text boxes."]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "year9",
+    "name": "Year 9",
+    "terms": [
+      {
+        "number": 1,
+        "title": "Term 1",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              {
+                "title": "Advanced Reports",
+                "type": "reports",
+                "description": "Practice longer reports and structure.",
+                "items": ["Report template"]
+              }
+            ]
+          },
+          {
+            "id": "mouse",
+            "name": "Mouse Skills",
+            "topics": [
+              {
+                "title": "Precision Mouse Work",
+                "type": "precision",
+                "description": "Complex mouse tasks for accuracy.",
+                "items": ["Click moving targets.","Organize files quickly."]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "number": 2,
+        "title": "Term 2",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              {
+                "title": "Research Development",
+                "type": "research",
+                "description": "Research development and citation practice.",
+                "items": ["Research tasks"]
+              }
+            ]
+          },
+          {
+            "id": "mouse",
+            "name": "Mouse Skills",
+            "topics": [
+              {
+                "title": "Scrolling & Dragging",
+                "type": "scroll-drag",
+                "description": "Scroll and drag accurately.",
+                "items": ["Scroll to paragraph.","Drag files to folders."]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "number": 3,
+        "title": "Term 3",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              {
+                "title": "Final Project Prep",
+                "type": "projects",
+                "description": "Draft and prepare final projects.",
+                "items": ["Draft final project"]
+              }
+            ]
+          },
+          {
+            "id": "mouse",
+            "name": "Mouse Skills",
+            "topics": [
+              {
+                "title": "Complex Drag & Drop",
+                "type": "drag-drop",
+                "description": "Advanced organization using mouse.",
+                "items": ["Arrange multiple objects.","Sort data in tables."]
+              }
+            ]
+          }
+        ]
+      }
+    ]
   }
 ]
+
   
