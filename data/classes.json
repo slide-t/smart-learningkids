@@ -146,5 +146,150 @@
         ]
       }
     ]
+  },
+
+  {
+    "id": "year7",
+    "name": "Year 7",
+    "subjects": [
+      {
+        "id": "mouse",
+        "name": "Mouse Skills",
+        "topics": [
+          { "title": "File Search", "link": "games/mouse/mouse.html?year=7&term=1&topic=File Search" },
+          { "title": "Desktop Management", "link": "games/mouse/mouse.html?year=7&term=2&topic=Desktop Management", "unlockDate": "2026-01-04" },
+          { "title": "Organize Files", "link": "games/mouse/mouse.html?year=7&term=3&topic=Organize Files", "unlockDate": "2026-04-05" }
+        ]
+      },
+      {
+        "id": "keyboard",
+        "name": "Keyboard Skills",
+        "topics": [
+          { "title": "Typing Speeches", "link": "games/keyboard/keyboard.html?year=7&term=1&topic=Typing Speeches" },
+          { "title": "Typing Dialogue", "link": "games/keyboard/keyboard.html?year=7&term=2&topic=Typing Dialogue", "unlockDate": "2026-01-04" },
+          { "title": "Typing Stories", "link": "games/keyboard/keyboard.html?year=7&term=3&topic=Typing Stories", "unlockDate": "2026-04-05" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "year8",
+    "name": "Year 8",
+    "subjects": [
+      {
+        "id": "mouse",
+        "name": "Mouse Skills",
+        "topics": [
+          { "title": "Using Shortcuts", "link": "games/mouse/mouse.html?year=8&term=1&topic=Using Shortcuts" },
+          { "title": "Drag into Folders", "link": "games/mouse/mouse.html?year=8&term=2&topic=Drag into Folders", "unlockDate": "2026-01-04" },
+          { "title": "Advanced Right Click", "link": "games/mouse/mouse.html?year=8&term=3&topic=Advanced Right Click", "unlockDate": "2026-04-05" }
+        ]
+      },
+      {
+        "id": "keyboard",
+        "name": "Keyboard Skills",
+        "topics": [
+          { "title": "Typing Formal Letters", "link": "games/keyboard/keyboard.html?year=8&term=1&topic=Typing Formal Letters" },
+          { "title": "Typing Reports", "link": "games/keyboard/keyboard.html?year=8&term=2&topic=Typing Reports", "unlockDate": "2026-01-04" },
+          { "title": "Typing Narratives", "link": "games/keyboard/keyboard.html?year=8&term=3&topic=Typing Narratives", "unlockDate": "2026-04-05" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "year9",
+    "name": "Year 9",
+    "subjects": [
+      {
+        "id": "mouse",
+        "name": "Mouse Skills",
+        "topics": [
+          { "title": "Copy Multiple Folders", "link": "games/mouse/mouse.html?year=9&term=1&topic=Copy Multiple Folders" },
+          { "title": "Advanced File Management", "link": "games/mouse/mouse.html?year=9&term=2&topic=Advanced File Management", "unlockDate": "2026-01-04" },
+          { "title": "System Settings", "link": "games/mouse/mouse.html?year=9&term=3&topic=System Settings", "unlockDate": "2026-04-05" }
+        ]
+      },
+      {
+        "id": "keyboard",
+        "name": "Keyboard Skills",
+        "topics": [
+          { "title": "Typing Speeches", "link": "games/keyboard/keyboard.html?year=9&term=1&topic=Typing Speeches" },
+          { "title": "Typing Essays", "link": "games/keyboard/keyboard.html?year=9&term=2&topic=Typing Essays", "unlockDate": "2026-01-04" },
+          { "title": "Typing Proposals", "link": "games/keyboard/keyboard.html?year=9&term=3&topic=Typing Proposals", "unlockDate": "2026-04-05" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "year10",
+    "name": "Year 10",
+    "subjects": [
+      {
+        "id": "mouse",
+        "name": "Mouse Skills",
+        "topics": [
+          { "title": "File Backup", "link": "games/mouse/mouse.html?year=10&term=1&topic=File Backup" },
+          { "title": "File Restore", "link": "games/mouse/mouse.html?year=10&term=2&topic=File Restore", "unlockDate": "2026-01-04" },
+          { "title": "Advanced File Operations", "link": "games/mouse/mouse.html?year=10&term=3&topic=Advanced File Operations", "unlockDate": "2026-04-05" }
+        ]
+      },
+      {
+        "id": "keyboard",
+        "name": "Keyboard Skills",
+        "topics": [
+          { "title": "Typing Reports", "link": "games/keyboard/keyboard.html?year=10&term=1&topic=Typing Reports" },
+          { "title": "Typing Projects", "link": "games/keyboard/keyboard.html?year=10&term=2&topic=Typing Projects", "unlockDate": "2026-01-04" },
+          { "title": "Typing Research Papers", "link": "games/keyboard/keyboard.html?year=10&term=3&topic=Typing Research Papers", "unlockDate": "2026-04-05" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "year11",
+    "name": "Year 11",
+    "subjects": [
+      {
+        "id": "mouse",
+        "name": "Mouse Skills",
+        "topics": [
+          { "title": "Software Installations", "link": "games/mouse/mouse.html?year=11&term=1&topic=Software Installations" },
+          { "title": "Software Configurations", "link": "games/mouse/mouse.html?year=11&term=2&topic=Software Configurations", "unlockDate": "2026-01-04" },
+          { "title": "System Updates", "link": "games/mouse/mouse.html?year=11&term=3&topic=System Updates", "unlockDate": "2026-04-05" }
+        ]
+      },
+      {
+        "id": "keyboard",
+        "name": "Keyboard Skills",
+        "topics": [
+          { "title": "Typing Theses", "link": "games/keyboard/keyboard.html?year=11&term=1&topic=Typing Theses" },
+          { "title": "Typing Technical Docs", "link": "games/keyboard/keyboard.html?year=11&term=2&topic=Typing Technical Docs", "unlockDate": "2026-01-04" },
+          { "title": "Typing Academic Papers", "link": "games/keyboard/keyboard.html?year=11&term=3&topic=Typing Academic Papers", "unlockDate": "2026-04-05" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "year12",
+    "name": "Year 12",
+    "subjects": [
+      {
+        "id": "mouse",
+        "name": "Mouse Skills",
+        "topics": [
+          { "title": "System Navigation", "link": "games/mouse/mouse.html?year=12&term=1&topic=System Navigation" },
+          { "title": "Advanced Configurations", "link": "games/mouse/mouse.html?year=12&term=2&topic=Advanced Configurations", "unlockDate": "2026-01-04" },
+          { "title": "Project File Management", "link": "games/mouse/mouse.html?year=12&term=3&topic=Project File Management", "unlockDate": "2026-04-05" }
+        ]
+      },
+      {
+        "id": "keyboard",
+        "name": "Keyboard Skills",
+        "topics": [
+          { "title": "Typing Dissertations", "link": "games/keyboard/keyboard.html?year=12&term=1&topic=Typing Dissertations" },
+          { "title": "Typing Presentations", "link": "games/keyboard/keyboard.html?year=12&term=2&topic=Typing Presentations", "unlockDate": "2026-01-04" },
+          { "title": "Typing Final Projects", "link": "games/keyboard/keyboard.html?year=12&term=3&topic=Typing Final Projects", "unlockDate": "2026-04-05" }
+        ]
+      }
+    ]
   }
 ]
