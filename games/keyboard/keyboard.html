@@ -2,88 +2,32 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Keyboard Practice</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #f9f9ff, #e6e6fa);
-      margin: 0;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      overflow: hidden;
-    }
-
-    .game-board {
-      width: 100%;
-      max-width: 800px;
-      padding: 20px;
-      box-sizing: border-box;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      background: #ffffffcc;
-      border-radius: 12px;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-    }
-
-    h1 {
-      color: #4b3f72;
-      margin-bottom: 15px;
-    }
-
-    #question-container {
-      font-size: 20px;
-      font-weight: bold;
-      text-align: center;
-      width: 100%;
-    }
-
-    input[type="text"] {
-      border: 2px solid #ccc;
-      border-radius: 8px;
-      padding: 10px;
-      font-size: 18px;
-      width: 80%;
-      box-sizing: border-box;
-    }
-
-    #feedback {
-      margin-top: 15px;
-      font-size: 18px;
-      font-weight: bold;
-      text-align: center;
-    }
-
-    .control-btn {
-      margin: 10px 5px;
-      padding: 10px 20px;
-      font-size: 16px;
-      background: #4b3f72;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-
-    .control-btn:hover {
-      background: #362d57;
-    }
-
-    #next-btn {
-      margin-top: 20px;
-    }
-  </style>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-  <div class="game-board">
-    <h1>⌨️ Keyboard Practice</h1>
-    <div id="question-container"></div>
-    <div id="feedback"></div>
-    <button id="next-btn" class="hidden">Next</button>
+<body class="bg-gradient-to-br from-purple-50 to-blue-100 min-h-screen flex flex-col items-center justify-center font-sans">
+
+  <!-- Header -->
+  <header class="text-center mb-6">
+    <h1 class="text-3xl font-bold text-purple-700">⌨️ Keyboard Practice</h1>
+    <p class="text-gray-600">Follow the instructions and type carefully</p>
+  </header>
+
+  <!-- Exercise Container -->
+  <main id="question-container" class="bg-white shadow-xl rounded-lg p-6 w-full max-w-2xl border border-purple-200">
+    <!-- Exercises dynamically injected by JS -->
+    <p class="text-center text-gray-500">Loading exercise...</p>
+  </main>
+
+  <!-- Feedback -->
+  <div id="feedback" class="mt-4 text-lg font-semibold text-center"></div>
+
+  <!-- Next button (hidden until needed) -->
+  <div class="mt-6 flex justify-center">
+    <button id="next-btn" class="hidden px-6 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition">
+      Next
+    </button>
   </div>
 
   <script src="keyboard.js"></script>
