@@ -5,6 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Smart Learning Kids - Classes</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .fade-enter {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    .fade-enter-active {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+  </style>
 </head>
 <body class="bg-gray-50 text-gray-900 font-sans">
 
@@ -36,7 +47,10 @@ document.addEventListener("DOMContentLoaded", () => {
   fetch("data/classes.json")
     .then(response => response.json())
     .then(data => {
-      data.forEach(cls => {
+      // Support array or object at top level
+      const classes = Array.isArray(data) ? data : Object.values(data);
+
+      classes.forEach(cls => {
         // Accordion card
         const card = document.createElement("div");
         card.className = "bg-white rounded-xl shadow-md overflow-hidden";
@@ -54,15 +68,18 @@ document.addEventListener("DOMContentLoaded", () => {
         // Body
         const body = document.createElement("div");
         body.className =
-          "max-h-0 overflow-hidden transition-all duration-500 ease-in-out bg-gray-50";
+          "max-h-0 overflow-hidden transition-all duration-500 ease-in-out bg-gray-50 opacity-0";
 
         // Subjects & topics
-        body.innerHTML = cls.subjects
-          .map(subject => `
-            <div class="mb-4">
+        const subjects = Array.isArray(cls.subjects) ? cls.subjects : Object.values(cls.subjects);
+        body.innerHTML = subjects
+          .map(subject => {
+            const topics = Array.isArray(subject.topics) ? subject.topics : Object.values(subject.topics);
+            return `
+            <div class="mb-4 fade-enter">
               <h3 class="text-lg font-semibold text-blue-700 px-4 py-2">${subject.name}</h3>
               <ul class="space-y-3 pl-6">
-                ${subject.topics
+                ${topics
                   .map(topic => {
                     const urlParams = new URLSearchParams(topic.link.split("?")[1]);
                     const term = parseInt(urlParams.get("term"), 10);
@@ -86,24 +103,32 @@ document.addEventListener("DOMContentLoaded", () => {
                   })
                   .join("")}
               </ul>
-            </div>
-          `)
+            </div>`;
+          })
           .join("");
 
         card.appendChild(body);
 
-        // Accordion toggle
+        // Accordion toggle with fade-in animation
         header.addEventListener("click", () => {
           const isOpen = body.style.maxHeight && body.style.maxHeight !== "0px";
 
           // Close all other cards
-          document.querySelectorAll("#accordion div > div").forEach(el => el.style.maxHeight = null);
+          document.querySelectorAll("#accordion div > div").forEach(el => {
+            el.style.maxHeight = null;
+            el.style.opacity = 0;
+          });
           document.querySelectorAll("#accordion button span:last-child").forEach(icon => icon.style.transform = "rotate(0deg)");
 
           // Toggle this card
           if (!isOpen) {
             body.style.maxHeight = body.scrollHeight + "px";
+            body.style.opacity = 1;
+            body.classList.add("fade-enter-active");
             header.querySelector("span:last-child").style.transform = "rotate(45deg)";
+          } else {
+            body.style.opacity = 0;
+            body.classList.remove("fade-enter-active");
           }
         });
 
@@ -116,6 +141,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 </script>
-  
+
 </body>
 </html>
