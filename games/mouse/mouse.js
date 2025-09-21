@@ -3,66 +3,55 @@ document.addEventListener("DOMContentLoaded", () => {
   const feedback = document.getElementById("feedback");
   const nextButton = document.getElementById("next-btn");
 
-  // Use global variables set in HTML
-  const topicName = window.topicName || "Mouse Practice";
-  const year = window.mouseYear || 1;
+  // Read URL parameters
+  const urlParams = new URLSearchParams(window.location.search);
+  const topicName = urlParams.get("topic") || "Mouse Practice";
 
-  // Define progressive exercises
+  // Mouse exercises by topic/year
   const mouseExercises = {
-    1: { // Year 1
-      "Pointing": [
-        { x: 50, y: 50, description: "Move your mouse to the top-left corner and click 😊" },
-        { x: 150, y: 100, description: "Point to the star ⭐ and click." },
-        { x: 200, y: 200, description: "Move to the circle 🔵 and click." },
-        { x: 300, y: 250, description: "Click the square ⬜" },
-        { x: 100, y: 300, description: "Click the triangle 🔺" }
-      ],
-      "Single Click": [
-        { x: 100, y: 100, description: "Click on the smiley 😎" },
-        { x: 200, y: 150, description: "Click the heart ❤️" },
-        { x: 250, y: 200, description: "Click the thumbs up 👍" },
-        { x: 300, y: 250, description: "Click the star ⭐" },
-        { x: 150, y: 300, description: "Click the diamond 💎" }
-      ]
-    },
-    2: { // Year 2 (more varied positions)
-      "Pointing": [
-        { x: 60, y: 60, description: "Click on the smiley 😃" },
-        { x: 180, y: 120, description: "Click the star ⭐" },
-        { x: 250, y: 220, description: "Click the heart ❤️" },
-        { x: 320, y: 280, description: "Click the thumbs up 👍" },
-        { x: 140, y: 350, description: "Click the diamond 💎" }
-      ],
-      "Single Click": [
-        { x: 100, y: 80, description: "Click the moon 🌙" },
-        { x: 200, y: 150, description: "Click the sun ☀️" },
-        { x: 300, y: 220, description: "Click the cloud ☁️" },
-        { x: 400, y: 300, description: "Click the star ⭐" },
-        { x: 150, y: 350, description: "Click the heart ❤️" }
-      ]
-    },
-    3: { // Year 3 (introduce double click)
-      "Double Click": [
-        { x: 100, y: 100, description: "Double click on the star ⭐" },
-        { x: 200, y: 150, description: "Double click the heart ❤️" },
-        { x: 300, y: 220, description: "Double click the smiley 😎" },
-        { x: 400, y: 280, description: "Double click the thumbs up 👍" },
-        { x: 150, y: 350, description: "Double click the diamond 💎" }
-      ]
-    },
-    4: { // Year 4 (Right click practice)
-      "Right Click": [
-        { x: 100, y: 100, description: "Right click on the star ⭐" },
-        { x: 200, y: 150, description: "Right click the heart ❤️" },
-        { x: 300, y: 220, description: "Right click the smiley 😎" },
-        { x: 400, y: 280, description: "Right click the thumbs up 👍" },
-        { x: 150, y: 350, description: "Right click the diamond 💎" }
-      ]
-    }
-    // Add more topics progressively for years 5-12
+    "Pointing": [
+      { x: 50, y: 50, description: "Move your mouse to the top-left corner and click. 🖱️" },
+      { x: 300, y: 100, description: "Point to the star ⭐ and click." },
+      { x: 200, y: 250, description: "Move the cursor to the circle ⚪ and click." },
+      { x: 400, y: 300, description: "Point to the triangle ▲ and click." },
+      { x: 150, y: 400, description: "Move to the heart ❤️ and click." }
+    ],
+    "Single Click": [
+      { x: 100, y: 50, description: "Click on the star ⭐" },
+      { x: 300, y: 150, description: "Click the square ◼️" },
+      { x: 200, y: 250, description: "Click the circle ⚪" },
+      { x: 400, y: 300, description: "Click the triangle ▲" },
+      { x: 150, y: 400, description: "Click the emoji 😊" }
+    ],
+    "Double Click": [
+      { x: 100, y: 50, description: "Double-click the star ⭐" },
+      { x: 300, y: 150, description: "Double-click the square ◼️" },
+      { x: 200, y: 250, description: "Double-click the circle ⚪" },
+      { x: 400, y: 300, description: "Double-click the triangle ▲" },
+      { x: 150, y: 400, description: "Double-click the emoji 😎" }
+    ],
+    "Right Click": [
+      { x: 100, y: 50, description: "Right-click the star ⭐" },
+      { x: 300, y: 150, description: "Right-click the square ◼️" },
+      { x: 200, y: 250, description: "Right-click the circle ⚪" },
+      { x: 400, y: 300, description: "Right-click the triangle ▲" },
+      { x: 150, y: 400, description: "Right-click the emoji 😊" }
+    ],
+    "Drag and Drop": [
+      { x: 50, y: 50, targetX: 300, targetY: 150, description: "Drag the star ⭐ to the box" },
+      { x: 200, y: 100, targetX: 350, targetY: 300, description: "Drag the circle ⚪ to the triangle ▲" }
+    ],
+    "Create Folder": [
+      { x: 50, y: 50, description: "Right-click on desktop and create a new folder 📁" },
+      { x: 100, y: 150, description: "Rename the folder ✏️" }
+    ],
+    "Advanced Desktop Management": [
+      { x: 50, y: 50, description: "Create a folder 📁, create a subfolder inside, and drag files into it" },
+      { x: 150, y: 150, description: "Delete a file 🗑️ and undo" }
+    ]
   };
 
-  const exercises = (mouseExercises[year] && mouseExercises[year][topicName]) || [];
+  let exercises = mouseExercises[topicName] || [];
   let currentExerciseIndex = 0;
 
   function showExercise() {
@@ -72,72 +61,105 @@ document.addEventListener("DOMContentLoaded", () => {
     if (currentExerciseIndex >= exercises.length) {
       questionContainer.innerHTML = `
         <h2>🎉 Congratulations! You completed the "${topicName}" practice.</h2>
+        <div style="margin-top:15px;">
+          <button id="restart-btn">Restart</button>
+          <button id="classes-btn">Back To Classes</button>
+          <button id="home-btn">Home</button>
+        </div>
       `;
-      nextButton.textContent = "Restart";
-      nextButton.classList.remove("hidden");
-      nextButton.onclick = () => {
+
+      document.getElementById("restart-btn").onclick = () => {
         currentExerciseIndex = 0;
         showExercise();
       };
-
-      // Add Back To Classes and Home buttons
-      const backBtn = document.createElement("button");
-      backBtn.textContent = "Back To Classes";
-      backBtn.style.marginTop = "10px";
-      backBtn.style.padding = "10px 15px";
-      backBtn.style.borderRadius = "8px";
-      backBtn.style.cursor = "pointer";
-      backBtn.onclick = () => window.location.href = "../classes.html";
-      questionContainer.appendChild(backBtn);
-
-      const homeBtn = document.createElement("button");
-      homeBtn.textContent = "Home";
-      homeBtn.style.marginTop = "10px";
-      homeBtn.style.marginLeft = "10px";
-      homeBtn.style.padding = "10px 15px";
-      homeBtn.style.borderRadius = "8px";
-      homeBtn.style.cursor = "pointer";
-      homeBtn.onclick = () => window.location.href = "../../index.html";
-      questionContainer.appendChild(homeBtn);
+      document.getElementById("classes-btn").onclick = () => {
+        window.location.href = "../classes.html";
+      };
+      document.getElementById("home-btn").onclick = () => {
+        window.location.href = "../index.html";
+      };
 
       return;
     }
 
     const exercise = exercises[currentExerciseIndex];
 
-    questionContainer.innerHTML = `
-      <h2>${topicName} Exercise ${currentExerciseIndex + 1}/${exercises.length}</h2>
-      <p>${exercise.description}</p>
-      <div style="width:100%;height:400px;position:relative;border:2px dashed #ccc;margin-top:20px;" id="exercise-area">
-        <button id="target-btn" style="
-          position:absolute;
-          top:${exercise.y}px;
-          left:${exercise.x}px;
-          padding:10px 15px;
-          border-radius:8px;
-          cursor:pointer;
-        ">🖱️ Click Me</button>
-      </div>
-    `;
+    // Drag & Drop
+    if (exercise.targetX !== undefined && exercise.targetY !== undefined) {
+      questionContainer.innerHTML = `
+        <h2>${topicName} Exercise ${currentExerciseIndex + 1}/${exercises.length}</h2>
+        <p>${exercise.description}</p>
+        <div id="exercise-area" style="position:relative;width:100%;height:400px;border:2px dashed #ccc;margin-top:20px;">
+          <div id="drag-item" style="
+            position:absolute; top:${exercise.y}px; left:${exercise.x}px;
+            padding:10px; cursor:grab; background:#fffa; border-radius:8px;">⭐</div>
+          <div id="drop-area" style="
+            position:absolute; top:${exercise.targetY}px; left:${exercise.targetX}px;
+            width:60px; height:60px; border:2px dashed #888; border-radius:8px;"></div>
+        </div>
+      `;
 
-    const targetBtn = document.getElementById("target-btn");
+      const dragItem = document.getElementById("drag-item");
+      const dropArea = document.getElementById("drop-area");
 
-    if (topicName.toLowerCase().includes("double click")) {
-      targetBtn.addEventListener("dblclick", () => {
-        feedback.textContent = "✅ Correct Double Click!";
-        feedback.style.color = "green";
-        currentExerciseIndex++;
-        setTimeout(showExercise, 800);
-      });
-    } else if (topicName.toLowerCase().includes("right click")) {
-      targetBtn.addEventListener("contextmenu", (e) => {
-        e.preventDefault();
-        feedback.textContent = "✅ Correct Right Click!";
-        feedback.style.color = "green";
-        currentExerciseIndex++;
-        setTimeout(showExercise, 800);
-      });
-    } else {
+      dragItem.onmousedown = function(e) {
+        let shiftX = e.clientX - dragItem.getBoundingClientRect().left;
+        let shiftY = e.clientY - dragItem.getBoundingClientRect().top;
+
+        dragItem.style.position = 'absolute';
+        dragItem.style.zIndex = 1000;
+        document.body.append(dragItem);
+
+        function moveAt(pageX, pageY) {
+          dragItem.style.left = pageX - shiftX + 'px';
+          dragItem.style.top = pageY - shiftY + 'px';
+        }
+
+        moveAt(e.pageX, e.pageY);
+
+        function onMouseMove(event) {
+          moveAt(event.pageX, event.pageY);
+        }
+
+        document.addEventListener('mousemove', onMouseMove);
+
+        dragItem.onmouseup = function() {
+          document.removeEventListener('mousemove', onMouseMove);
+          if (dragItem.getBoundingClientRect().top >= dropArea.getBoundingClientRect().top &&
+              dragItem.getBoundingClientRect().left >= dropArea.getBoundingClientRect().left &&
+              dragItem.getBoundingClientRect().right <= dropArea.getBoundingClientRect().right &&
+              dragItem.getBoundingClientRect().bottom <= dropArea.getBoundingClientRect().bottom) {
+            feedback.textContent = "✅ Correct!";
+            feedback.style.color = "green";
+            currentExerciseIndex++;
+            setTimeout(showExercise, 800);
+          } else {
+            feedback.textContent = "❌ Try again!";
+            feedback.style.color = "red";
+            dragItem.style.left = exercise.x + "px";
+            dragItem.style.top = exercise.y + "px";
+          }
+          dragItem.onmouseup = null;
+        };
+      };
+      dragItem.ondragstart = () => false;
+    } else { // Single / Double / Right Click or Emoji Click
+      questionContainer.innerHTML = `
+        <h2>${topicName} Exercise ${currentExerciseIndex + 1}/${exercises.length}</h2>
+        <p>${exercise.description}</p>
+        <div style="width:100%;height:400px;position:relative;border:2px dashed #ccc;margin-top:20px;" id="exercise-area">
+          <button id="target-btn" style="
+            position:absolute;
+            top:${exercise.y}px;
+            left:${exercise.x}px;
+            padding:10px 15px;
+            border-radius:8px;
+            cursor:pointer;
+          ">Click Me</button>
+        </div>
+      `;
+
+      const targetBtn = document.getElementById("target-btn");
       targetBtn.addEventListener("click", () => {
         feedback.textContent = "✅ Correct!";
         feedback.style.color = "green";
