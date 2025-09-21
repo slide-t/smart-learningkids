@@ -1,1 +1,38 @@
 
+[
+  {
+    "question": "Pointing",
+    "options": ["Click anywhere", "Move mouse to target", "Drag object", "Double click"],
+    "answer": "Move mouse to target"
+  },
+  {
+    "question": "Single Click",
+    "options": ["Double click", "Right click", "Click once", "Drag and drop"],
+    "answer": "Click once"
+  },
+  {
+    "question": "Double Click",
+    "options": ["Click once", "Click twice quickly", "Right click", "Drag and drop"],
+    "answer": "Click twice quickly"
+  },
+  {
+    "question": "Drag and Drop",
+    "options": ["Click once", "Double click", "Drag and drop", "Right click"],
+    "answer": "Drag and drop"
+  },
+  {
+    "question": "Mouse Maze",
+    "options": ["Move carefully through path", "Click randomly", "Double click anywhere", "Scroll only"],
+    "answer": "Move carefully through path"
+  },
+  {
+    "question": "Target Practice",
+    "options": ["Click moving targets", "Drag objects", "Scroll list", "Right click icons"],
+    "answer": "Click moving targets"
+  },
+  {
+    "question": "Follow the Path",
+    "options": ["Drag and drop", "Move pointer along path", "Double click", "Scroll down"],
+    "answer": "Move pointer along path"
+  }
+]
