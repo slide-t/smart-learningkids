@@ -1,0 +1,143 @@
+[
+  {
+    "id": "year1",
+    "name": "Year 1",
+    "terms": [
+      {
+        "number": 1,
+        "title": "Term 1",
+        "categories": [
+          {
+            "id": "mouse",
+            "name": "Mouse Skills",
+            "topics": [
+              { "title": "Point & Click", "type": "action", "description": "Point and click on icons.", "items": ["Click the sun","Click the cat"] },
+              { "title": "Drag & Drop", "type": "action", "description": "Drag items to target.", "items": ["Drag apple to basket","Drag book to shelf"] },
+              { "title": "Scroll Practice", "type": "scroll", "description": "Practice scrolling images.", "items": ["Scroll down the page","Scroll up the page"] }
+            ]
+          },
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              { "title": "Home Row Intro", "type": "keys", "description": "Learn where your fingers rest: a s d f  j k l ;", "items": ["a","s","d","f","j","k","l",";"] },
+              { "title": "Home Row Practice", "type": "sequence", "description": "Practice quick home-row key presses and simple patterns.", "items": ["as","df","jk","l;","asd","fjd"] },
+              { "title": "Two-Letter Words (home row)", "type": "words", "description": "Type two-letter words using home row keys.", "items": ["as","fa","ad","la","kl"] },
+              { "title": "Three-Letter Words (home row)", "type": "words", "description": "Type three-letter home-row words.", "items": ["sad","lad","ask","fak","jkl"] }
+            ]
+          }
+        ]
+      },
+      {
+        "number": 2,
+        "title": "Term 2",
+        "categories": [
+          {
+            "id": "mouse",
+            "name": "Mouse Skills",
+            "topics": [
+              { "title": "Drag & Drop Simple", "type": "action", "description": "Move objects to target areas.", "items": ["Drag car to garage","Drag ball to basket"] }
+            ]
+          },
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              { "title": "Enter Space Backspace", "type": "special", "description": "Practice using Space, Enter and Backspace.", "items": ["cat","dog","sun"] },
+              { "title": "Simple Words (mixed)", "type": "words", "description": "Type short words (2-3 letters).", "items": ["map","pen","cup","dog","cat"] }
+            ]
+          }
+        ]
+      },
+      {
+        "number": 3,
+        "title": "Term 3",
+        "categories": [
+          {
+            "id": "mouse",
+            "name": "Mouse Skills",
+            "topics": [
+              { "title": "Mouse Accuracy Game", "type": "game", "description": "Click targets quickly and accurately.", "items": ["Click all stars","Click all circles"] }
+            ]
+          },
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              { "title": "Letters to Words", "type": "words", "description": "Progress from letters to simple words.", "items": ["b a t","bat","cap","man"] },
+              { "title": "Short Sentences", "type": "sentences", "description": "Type short sentences (punctuation included).", "items": ["I am a kid.","We like to play."] }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "year2",
+    "name": "Year 2",
+    "terms": [
+      {
+        "number": 1,
+        "title": "Term 1",
+        "categories": [
+          {
+            "id": "mouse",
+            "name": "Mouse Skills",
+            "topics": [
+              { "title": "Pointing & Clicking", "type": "action", "description": "Click objects accurately.", "items": ["Click apple","Click sun"] }
+            ]
+          },
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              { "title": "Home Row + Top Row Keys", "type": "keys", "description": "Introduce top-row letters q w e r t.", "items": ["q","w","e","r","t","a","s","d","f","j","k","l"] },
+              { "title": "Three-Letter Words", "type": "words", "description": "Practice three-letter words.", "items": ["dog","sun","box","pen","cup"] }
+            ]
+          }
+        ]
+      },
+      {
+        "number": 2,
+        "title": "Term 2",
+        "categories": [
+          {
+            "id": "mouse",
+            "name": "Mouse Skills",
+            "topics": [
+              { "title": "Drag & Drop Game", "type": "game", "description": "Drag objects accurately.", "items": ["Drag cat to mat","Drag ball to box"] }
+            ]
+          },
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              { "title": "Four-Letter Words", "type": "words", "description": "Type four-letter words.", "items": ["tree","book","frog","milk","play"] },
+              { "title": "Speed Drills (short)", "type": "timed", "description": "Short timed drills.", "items": ["cat dog sun map pen"] }
+            ]
+          }
+        ]
+      },
+      {
+        "number": 3,
+        "title": "Term 3",
+        "categories": [
+          {
+            "id": "mouse",
+            "name": "Mouse Skills",
+            "topics": [
+              { "title": "Accuracy Challenge", "type": "game", "description": "Click small moving targets.", "items": ["Click all stars","Click all moons"] }
+            ]
+          },
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              { "title": "Short Paragraphs", "type": "paragraphs", "description": "Type short 2–3 sentence paragraphs.", "items": ["The dog runs in the sun. It likes to play.","My book is red. I read every day."] }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]
