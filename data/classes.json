@@ -139,5 +139,72 @@
         ]
       }
     ]
+  },
+  {
+    "id": "year3",
+    "name": "Year 3",
+    "terms": [
+      {
+        "number": 1,
+        "title": "Term 1",
+        "categories": [
+          {
+            "id": "mouse",
+            "name": "Mouse Skills",
+            "topics": [
+              { "title": "Mouse Precision Practice", "type": "game", "description": "Click targets quickly and accurately.", "items": ["Click circle","Click star"] }
+            ]
+          },
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              { "title": "Touch-typing Fundamentals", "type": "home_row_drill", "description": "Focus on home-row accuracy.", "items": ["asdf jkl;","asdf asdf jkl; jkl;"] },
+              { "title": "Words & Short Sentences", "type": "words", "description": "3–5 letter words and short sentences.", "items": ["apple","happy","small","I like apples.","We play games."] }
+            ]
+          }
+        ]
+      },
+      {
+        "number": 2,
+        "title": "Term 2",
+        "categories": [
+          {
+            "id": "mouse",
+            "name": "Mouse Skills",
+            "topics": [
+              { "title": "Drag & Drop Challenge", "type": "game", "description": "Drag items to correct positions.", "items": ["Drag star to box","Drag ball to basket"] }
+            ]
+          },
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              { "title": "Speed + Accuracy Home Row", "type": "timed", "description": "Improve speed on home row keys.", "items": ["asdfasdf","jkl;jkl;","asdjkl;"] }
+            ]
+          }
+        ]
+      },
+      {
+        "number": 3,
+        "title": "Term 3",
+        "categories": [
+          {
+            "id": "mouse",
+            "name": "Mouse Skills",
+            "topics": [
+              { "title": "Mouse Game Challenge", "type": "game", "description": "Click multiple moving targets.", "items": ["Click all stars","Click all moons"] }
+            ]
+          },
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              { "title": "Paragraph Typing", "type": "paragraphs", "description": "3–4 sentence paragraphs.", "items": ["My name is Maya. I love music. We sing at school.","The sun sets in the west. Birds return home at night."] }
+            ]
+          }
+        ]
+      }
+    ]
   }
 ]
