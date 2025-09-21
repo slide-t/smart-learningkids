@@ -1,0 +1,565 @@
+[
+  {
+    "id": "year1",
+    "name": "Year 1",
+    "terms": [
+      {
+        "number": 1,
+        "title": "First Term",
+        "categories": [
+          {
+            "id": "mouse",
+            "name": "Mouse Skills",
+            "topics": [
+              { "title": "Pointing", "link": "games/mouse/pointing.html" },
+              { "title": "Single Click", "link": "games/mouse/single-click.html" }
+            ]
+          },
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              { "title": "Home Row Practice", "link": "games/keyboard/home-row.html" },
+              { "title": "Type Two-Letter Words", "link": "games/keyboard/two-letter.html" }
+            ]
+          }
+        ]
+      },
+      {
+        "number": 2,
+        "title": "Second Term",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              { "title": "Typing Simple Words", "link": "games/keyboard/simple-words.html" }
+            ]
+          }
+        ]
+      },
+      {
+        "number": 3,
+        "title": "Third Term",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              { "title": "Typing Short Sentences", "link": "games/keyboard/short-sentences.html" }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "year2",
+    "name": "Year 2",
+    "terms": [
+      {
+        "number": 1,
+        "title": "First Term",
+        "categories": [
+          {
+            "id": "mouse",
+            "name": "Mouse Skills",
+            "topics": [
+              { "title": "Pointing", "link": "games/mouse/pointing.html" }
+            ]
+          },
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              { "title": "Type Three-Letter Words", "link": "games/keyboard/three-letter.html" }
+            ]
+          }
+        ]
+      },
+      {
+        "number": 2,
+        "title": "Second Term",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              { "title": "Typing Simple Paragraphs", "link": "games/keyboard/simple-paragraphs.html" }
+            ]
+          }
+        ]
+      },
+      {
+        "number": 3,
+        "title": "Third Term",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              { "title": "Typing Complex Sentences", "link": "games/keyboard/complex-sentences.html" }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "year3",
+    "name": "Year 3",
+    "terms": [
+      {
+        "number": 1,
+        "title": "First Term",
+        "categories": [
+          {
+            "id": "mouse",
+            "name": "Mouse Skills",
+            "topics": [
+              { "title": "Pointing", "link": "games/mouse/pointing.html" }
+            ]
+          },
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              { "title": "Typing Short Paragraphs", "link": "games/keyboard/paragraphs.html" }
+            ]
+          }
+        ]
+      },
+      {
+        "number": 2,
+        "title": "Second Term",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              { "title": "Typing Medium Paragraphs", "link": "games/keyboard/medium-paragraphs.html" }
+            ]
+          }
+        ]
+      },
+      {
+        "number": 3,
+        "title": "Third Term",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              { "title": "Typing Long Paragraphs", "link": "games/keyboard/long-paragraphs.html" }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "year4",
+    "name": "Year 4",
+    "terms": [
+      {
+        "number": 1,
+        "title": "First Term",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              { "title": "Typing Sentences", "link": "games/keyboard/sentences.html" }
+            ]
+          }
+        ]
+      },
+      {
+        "number": 2,
+        "title": "Second Term",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              { "title": "Typing Short Paragraphs", "link": "games/keyboard/paragraphs.html" }
+            ]
+          }
+        ]
+      },
+      {
+        "number": 3,
+        "title": "Third Term",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              { "title": "Typing Long Sentences", "link": "games/keyboard/long-sentences.html" }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "year5",
+    "name": "Year 5",
+    "terms": [
+      {
+        "number": 1,
+        "title": "First Term",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              { "title": "Typing Short Paragraphs", "link": "games/keyboard/paragraphs.html" }
+            ]
+          }
+        ]
+      },
+      {
+        "number": 2,
+        "title": "Second Term",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              { "title": "Typing Medium Paragraphs", "link": "games/keyboard/medium-paragraphs.html" }
+            ]
+          }
+        ]
+      },
+      {
+        "number": 3,
+        "title": "Third Term",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              { "title": "Typing Essays", "link": "games/keyboard/essays.html" }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "year6",
+    "name": "Year 6",
+    "terms": [
+      {
+        "number": 1,
+        "title": "First Term",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              { "title": "Typing Paragraphs", "link": "games/keyboard/paragraphs.html" }
+            ]
+          }
+        ]
+      },
+      {
+        "number": 2,
+        "title": "Second Term",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              { "title": "Typing Medium Essays", "link": "games/keyboard/medium-essays.html" }
+            ]
+          }
+        ]
+      },
+      {
+        "number": 3,
+        "title": "Third Term",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              { "title": "Typing Long Essays", "link": "games/keyboard/long-essays.html" }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "year7",
+    "name": "Year 7",
+    "terms": [
+      {
+        "number": 1,
+        "title": "First Term",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              { "title": "Typing Sentences", "link": "games/keyboard/sentences.html" }
+            ]
+          }
+        ]
+      },
+      {
+        "number": 2,
+        "title": "Second Term",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              { "title": "Typing Paragraphs", "link": "games/keyboard/paragraphs.html" }
+            ]
+          }
+        ]
+      },
+      {
+        "number": 3,
+        "title": "Third Term",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              { "title": "Typing Essays", "link": "games/keyboard/essays.html" }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "year8",
+    "name": "Year 8",
+    "terms": [
+      {
+        "number": 1,
+        "title": "First Term",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              { "title": "Typing Essays", "link": "games/keyboard/essays.html" }
+            ]
+          }
+        ]
+      },
+      {
+        "number": 2,
+        "title": "Second Term",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              { "title": "Typing Reports", "link": "games/keyboard/reports.html" }
+            ]
+          }
+        ]
+      },
+      {
+        "number": 3,
+        "title": "Third Term",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              { "title": "Typing Research Papers", "link": "games/keyboard/research.html" }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "year9",
+    "name": "Year 9",
+    "terms": [
+      {
+        "number": 1,
+        "title": "First Term",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              { "title": "Typing Reports", "link": "games/keyboard/reports.html" }
+            ]
+          }
+        ]
+      },
+      {
+        "number": 2,
+        "title": "Second Term",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              { "title": "Typing Research Papers", "link": "games/keyboard/research.html" }
+            ]
+          }
+        ]
+      },
+      {
+        "number": 3,
+        "title": "Third Term",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              { "title": "Typing Projects", "link": "games/keyboard/projects.html" }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "year10",
+    "name": "Year 10",
+    "terms": [
+      {
+        "number": 1,
+        "title": "First Term",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              { "title": "Typing Research Papers", "link": "games/keyboard/research.html" }
+            ]
+          }
+        ]
+      },
+      {
+        "number": 2,
+        "title": "Second Term",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              { "title": "Typing Projects", "link": "games/keyboard/projects.html" }
+            ]
+          }
+        ]
+      },
+      {
+        "number": 3,
+        "title": "Third Term",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              { "title": "Typing Theses", "link": "games/keyboard/theses.html" }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "year11",
+    "name": "Year 11",
+    "terms": [
+      {
+        "number": 1,
+        "title": "First Term",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              { "title": "Typing Projects", "link": "games/keyboard/projects.html" }
+            ]
+          }
+        ]
+      },
+      {
+        "number": 2,
+        "title": "Second Term",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              { "title": "Typing Theses", "link": "games/keyboard/theses.html" }
+            ]
+          }
+        ]
+      },
+      {
+        "number": 3,
+        "title": "Third Term",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              { "title": "Typing Dissertations", "link": "games/keyboard/dissertations.html" }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "year12",
+    "name": "Year 12",
+    "terms": [
+      {
+        "number": 1,
+        "title": "First Term",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              { "title": "Typing Theses", "link": "games/keyboard/theses.html" }
+            ]
+          }
+        ]
+      },
+      {
+        "number": 2,
+        "title": "Second Term",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              { "title": "Typing Dissertations", "link": "games/keyboard/dissertations.html" }
+            ]
+          }
+        ]
+      },
+      {
+        "number": 3,
+        "title": "Third Term",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              { "title": "Typing Final Projects", "link": "games/keyboard/final-projects.html" }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]
