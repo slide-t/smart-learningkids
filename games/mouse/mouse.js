@@ -104,10 +104,10 @@ document.addEventListener("DOMContentLoaded", () => {
         showExercise();
       };
       document.getElementById("back-btn").onclick = () => {
-        window.location.href = "../classes.html";
+        window.location.href = "classes.html";
       };
       document.getElementById("home-btn").onclick = () => {
-        window.location.href = "../index.html";
+        window.location.href = "https://slide-t.github.io/smart-learningkids/index.html";
       };
       return;
     }
