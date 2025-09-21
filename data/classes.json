@@ -6,66 +6,48 @@
       {
         "id": "term1",
         "name": "First Term",
-        "categories": [
+        "activities": [
           {
-            "id": "mouse",
-            "name": "Mouse Skills",
-            "topics": [
-              { "title": "Pointing", "link": "games/mouse/mouse.html?class=year1&term=1&category=mouse&topic=Pointing" },
-              { "title": "Single Click", "link": "games/mouse/mouse.html?class=year1&term=1&category=mouse&topic=Single%20Click" }
-            ]
+            "id": "home-row-keys",
+            "title": "Practice Home Row Keys (asdf jkl;)",
+            "detailsPage": "keyboard.html?id=home-row-keys"
           },
           {
-            "id": "keyboard",
-            "name": "Keyboard Skills",
-            "topics": [
-              { "title": "Home Row Keys", "link": "games/keyboard/keyboard.html?class=year1&term=1&category=keyboard&topic=Home%20Row%20Keys" },
-              { "title": "Typing Two-Letter Words", "link": "games/keyboard/keyboard.html?class=year1&term=1&category=keyboard&topic=Typing%20Two-Letter%20Words" }
-            ]
+            "id": "two-three-words",
+            "title": "Type 2–3 Letter Words (cat, sad, lad)",
+            "detailsPage": "keyboard.html?id=two-three-words"
           }
         ]
       },
       {
         "id": "term2",
         "name": "Second Term",
-        "categories": [
+        "activities": [
           {
-            "id": "mouse",
-            "name": "Mouse Skills",
-            "topics": [
-              { "title": "Drag and Drop", "link": "games/mouse/mouse.html?class=year1&term=2&category=mouse&topic=Drag%20and%20Drop" },
-              { "title": "Scroll Practice", "link": "games/mouse/mouse.html?class=year1&term=2&category=mouse&topic=Scroll%20Practice" }
-            ]
+            "id": "color-drop-letters",
+            "title": "Colored Letters Drop Game (Home Row)",
+            "detailsPage": "keyboard.html?id=color-drop-letters"
           },
           {
-            "id": "keyboard",
-            "name": "Keyboard Skills",
-            "topics": [
-              { "title": "Typing Three-Letter Words", "link": "games/keyboard/keyboard.html?class=year1&term=2&category=keyboard&topic=Typing%20Three-Letter%20Words" },
-              { "title": "Typing Short Words", "link": "games/keyboard/keyboard.html?class=year1&term=2&category=keyboard&topic=Typing%20Short%20Words" }
-            ]
+            "id": "three-four-words",
+            "title": "Type 3–4 Letter Words (fall, ask, dash)",
+            "detailsPage": "keyboard.html?id=three-four-words"
           }
         ]
       },
       {
         "id": "term3",
         "name": "Third Term",
-        "categories": [
+        "activities": [
           {
-            "id": "mouse",
-            "name": "Mouse Skills",
-            "topics": [
-              { "title": "Click and Double Click", "link": "games/mouse/mouse.html?class=year1&term=3&category=mouse&topic=Click%20and%20Double%20Click" },
-              { "title": "Fun Emoji Clicks", "link": "games/mouse/mouse.html?class=year1&term=3&category=mouse&topic=Fun%20Emoji%20Clicks" }
-            ]
+            "id": "short-sentences",
+            "title": "Type Short Sentences (I can type.)",
+            "detailsPage": "keyboard.html?id=short-sentences"
           },
           {
-            "id": "keyboard",
-            "name": "Keyboard Skills",
-            "topics": [
-              { "title": "Typing Four-Letter Words", "link": "games/keyboard/keyboard.html?class=year1&term=3&category=keyboard&topic=Typing%20Four-Letter%20Words" },
-              { "title": "Typing with Colors", "link": "games/keyboard/keyboard.html?class=year1&term=3&category=keyboard&topic=Typing%20with%20Colors" }
-            ]
+            "id": "paragraph-intro",
+            "title": "Type a Simple Paragraph",
+            "detailsPage": "keyboard.html?id=paragraph-intro"
           }
         ]
       }
@@ -78,66 +60,48 @@
       {
         "id": "term1",
         "name": "First Term",
-        "categories": [
+        "activities": [
           {
-            "id": "mouse",
-            "name": "Mouse Skills",
-            "topics": [
-              { "title": "Click Different Shapes", "link": "games/mouse/mouse.html?class=year2&term=1&category=mouse&topic=Click%20Different%20Shapes" },
-              { "title": "Clicking with Emojis", "link": "games/mouse/mouse.html?class=year2&term=1&category=mouse&topic=Clicking%20with%20Emojis" }
-            ]
+            "id": "add-top-row",
+            "title": "Practice Home + Top Row Keys (qwerty)",
+            "detailsPage": "keyboard.html?id=add-top-row"
           },
           {
-            "id": "keyboard",
-            "name": "Keyboard Skills",
-            "topics": [
-              { "title": "Extended Home Row Keys", "link": "games/keyboard/keyboard.html?class=year2&term=1&category=keyboard&topic=Extended%20Home%20Row%20Keys" },
-              { "title": "Typing Three-Letter Words", "link": "games/keyboard/keyboard.html?class=year2&term=1&category=keyboard&topic=Typing%20Three-Letter%20Words" }
-            ]
+            "id": "simple-words",
+            "title": "Type 3–4 Letter Words (read, boat, fast)",
+            "detailsPage": "keyboard.html?id=simple-words"
           }
         ]
       },
       {
         "id": "term2",
         "name": "Second Term",
-        "categories": [
+        "activities": [
           {
-            "id": "mouse",
-            "name": "Mouse Skills",
-            "topics": [
-              { "title": "Drag Shapes Around", "link": "games/mouse/mouse.html?class=year2&term=2&category=mouse&topic=Drag%20Shapes%20Around" },
-              { "title": "Click and Hold", "link": "games/mouse/mouse.html?class=year2&term=2&category=mouse&topic=Click%20and%20Hold" }
-            ]
+            "id": "falling-words",
+            "title": "Falling Words Typing Game (colorful)",
+            "detailsPage": "keyboard.html?id=falling-words"
           },
           {
-            "id": "keyboard",
-            "name": "Keyboard Skills",
-            "topics": [
-              { "title": "Typing Four-Letter Words", "link": "games/keyboard/keyboard.html?class=year2&term=2&category=keyboard&topic=Typing%20Four-Letter%20Words" },
-              { "title": "Typing Simple Words", "link": "games/keyboard/keyboard.html?class=year2&term=2&category=keyboard&topic=Typing%20Simple%20Words" }
-            ]
+            "id": "short-sentences",
+            "title": "Type Short Sentences (We love books.)",
+            "detailsPage": "keyboard.html?id=short-sentences"
           }
         ]
       },
       {
         "id": "term3",
         "name": "Third Term",
-        "categories": [
+        "activities": [
           {
-            "id": "mouse",
-            "name": "Mouse Skills",
-            "topics": [
-              { "title": "Double Click Practice", "link": "games/mouse/mouse.html?class=year2&term=3&category=mouse&topic=Double%20Click%20Practice" },
-              { "title": "Simple Drag and Drop Game", "link": "games/mouse/mouse.html?class=year2&term=3&category=mouse&topic=Simple%20Drag%20and%20Drop%20Game" }
-            ]
+            "id": "paragraphs",
+            "title": "Type a Short Paragraph (daily life)",
+            "detailsPage": "keyboard.html?id=paragraphs"
           },
           {
-            "id": "keyboard",
-            "name": "Keyboard Skills",
-            "topics": [
-              { "title": "Typing Short Words", "link": "games/keyboard/keyboard.html?class=year2&term=3&category=keyboard&topic=Typing%20Short%20Words" },
-              { "title": "Typing with Fun Colors", "link": "games/keyboard/keyboard.html?class=year2&term=3&category=keyboard&topic=Typing%20with%20Fun%20Colors" }
-            ]
+            "id": "dictation-mode",
+            "title": "Listen & Type Mode (fun dictation)",
+            "detailsPage": "keyboard.html?id=dictation-mode"
           }
         ]
       }
@@ -150,66 +114,78 @@
       {
         "id": "term1",
         "name": "First Term",
-        "categories": [
+        "activities": [
           {
-            "id": "mouse",
-            "name": "Mouse Skills",
-            "topics": [
-              { "title": "Click on Random Shapes", "link": "games/mouse/mouse.html?class=year3&term=1&category=mouse&topic=Click%20on%20Random%20Shapes" },
-              { "title": "Right Click Practice", "link": "games/mouse/mouse.html?class=year3&term=1&category=mouse&topic=Right%20Click%20Practice" }
-            ]
+            "id": "words-5-letters",
+            "title": "Keyboard: Type 5-Letter Words (apple, bread)",
+            "detailsPage": "games/keyboard/keyboard.html?class=year3&term=1&category=keyboard&topic=words-5-letters"
           },
           {
-            "id": "keyboard",
-            "name": "Keyboard Skills",
-            "topics": [
-              { "title": "Typing Short Words", "link": "games/keyboard/keyboard.html?class=year3&term=1&category=keyboard&topic=Typing%20Short%20Words" },
-              { "title": "Typing with Colors", "link": "games/keyboard/keyboard.html?class=year3&term=1&category=keyboard&topic=Typing%20with%20Colors" }
-            ]
+            "id": "short-sentences",
+            "title": "Keyboard: Type Short Sentences (The dog runs.)",
+            "detailsPage": "games/keyboard/keyboard.html?class=year3&term=1&category=keyboard&topic=short-sentences"
+          },
+          {
+            "id": "right-click",
+            "title": "Mouse: Right Click on Desktop",
+            "detailsPage": "games/mouse/mouse.html?class=year3&term=1&category=mouse&topic=right-click"
+          },
+          {
+            "id": "create-folder",
+            "title": "Mouse: Create a New Folder",
+            "detailsPage": "games/mouse/mouse.html?class=year3&term=1&category=mouse&topic=create-folder"
           }
         ]
       },
       {
         "id": "term2",
         "name": "Second Term",
-        "categories": [
+        "activities": [
           {
-            "id": "mouse",
-            "name": "Mouse Skills",
-            "topics": [
-              { "title": "Drag and Drop Puzzle", "link": "games/mouse/mouse.html?class=year3&term=2&category=mouse&topic=Drag%20and%20Drop%20Puzzle" },
-              { "title": "Scroll Adventure", "link": "games/mouse/mouse.html?class=year3&term=2&category=mouse&topic=Scroll%20Adventure" }
-            ]
+            "id": "color-falling-words",
+            "title": "Keyboard: Color Falling Words Game",
+            "detailsPage": "games/keyboard/keyboard.html?class=year3&term=2&category=keyboard&topic=color-falling-words"
           },
           {
-            "id": "keyboard",
-            "name": "Keyboard Skills",
-            "topics": [
-              { "title": "Typing Simple Sentences", "link": "games/keyboard/keyboard.html?class=year3&term=2&category=keyboard&topic=Typing%20Simple%20Sentences" },
-              { "title": "Typing Practice Game", "link": "games/keyboard/keyboard.html?class=year3&term=2&category=keyboard&topic=Typing%20Practice%20Game" }
-            ]
+            "id": "sentences-paragraphs",
+            "title": "Keyboard: Type Sentences & Short Paragraphs",
+            "detailsPage": "games/keyboard/keyboard.html?class=year3&term=2&category=keyboard&topic=sentences-paragraphs"
+          },
+          {
+            "id": "subfolder",
+            "title": "Mouse: Add a Subfolder",
+            "detailsPage": "games/mouse/mouse.html?class=year3&term=2&category=mouse&topic=subfolder"
+          },
+          {
+            "id": "delete-folder",
+            "title": "Mouse: Delete a Folder",
+            "detailsPage": "games/mouse/mouse.html?class=year3&term=2&category=mouse&topic=delete-folder"
           }
         ]
       },
       {
         "id": "term3",
         "name": "Third Term",
-        "categories": [
+        "activities": [
           {
-            "id": "mouse",
-            "name": "Mouse Skills",
-            "topics": [
-              { "title": "Right Click Menu", "link": "games/mouse/mouse.html?class=year3&term=3&category=mouse&topic=Right%20Click%20Menu" },
-              { "title": "Drag and Drop Shapes", "link": "games/mouse/mouse.html?class=year3&term=3&category=mouse&topic=Drag%20and%20Drop%20Shapes" }
-            ]
+            "id": "paragraphs",
+            "title": "Keyboard: Type a Paragraph (School Life)",
+            "detailsPage": "games/keyboard/keyboard.html?class=year3&term=3&category=keyboard&topic=paragraphs"
           },
           {
-            "id": "keyboard",
-            "name": "Keyboard Skills",
-            "topics": [
-              { "title": "Typing Short Paragraphs", "link": "games/keyboard/keyboard.html?class=year3&term=3&category=keyboard&topic=Typing%20Short%20Paragraphs" },
-              { "title": "Typing in Fun Mode", "link": "games/keyboard/keyboard.html?class=year3&term=3&category=keyboard&topic=Typing%20in%20Fun%20Mode" }
-            ]
+            "id": "timed-typing",
+            "title": "Keyboard: Timed Typing Challenge",
+            "detailsPage": "games/keyboard/keyboard.html?class=year3&term=3&category=keyboard&topic=timed-typing"
+          },
+          {
+            "id": "drag-drop",
+            "title": "Mouse: Drag & Drop Practice",
+            "detailsPage": "games/mouse/mouse.html?class=year3&term=3&category=mouse&topic=drag-drop"
+          },
+          {
+            "id": "scrolling",
+            "title": "Mouse: Scrolling Practice",
+            "detailsPage": "games/mouse/mouse.html?class=year3&term=3&category=mouse&topic=scrolling"
           }
         ]
       }
@@ -222,69 +198,82 @@
       {
         "id": "term1",
         "name": "First Term",
-        "categories": [
+        "activities": [
           {
-            "id": "mouse",
-            "name": "Mouse Skills",
-            "topics": [
-              { "title": "File Select with Click", "link": "games/mouse/mouse.html?class=year4&term=1&category=mouse&topic=File%20Select%20with%20Click" },
-              { "title": "Open and Close Windows", "link": "games/mouse/mouse.html?class=year4&term=1&category=mouse&topic=Open%20and%20Close%20Windows" }
-            ]
+            "id": "long-words",
+            "title": "Keyboard: Type Longer Words (elephant, window)",
+            "detailsPage": "games/keyboard/keyboard.html?class=year4&term=1&category=keyboard&topic=long-words"
           },
           {
-            "id": "keyboard",
-            "name": "Keyboard Skills",
-            "topics": [
-              { "title": "Typing Sentences", "link": "games/keyboard/keyboard.html?class=year4&term=1&category=keyboard&topic=Typing%20Sentences" },
-              { "title": "Typing Practice Stories", "link": "games/keyboard/keyboard.html?class=year4&term=1&category=keyboard&topic=Typing%20Practice%20Stories" }
-            ]
+            "id": "punctuation-sentences",
+            "title": "Keyboard: Type Sentences with Punctuation",
+            "detailsPage": "games/keyboard/keyboard.html?class=year4&term=1&category=keyboard&topic=punctuation-sentences"
+          },
+          {
+            "id": "rename-folder",
+            "title": "Mouse: Rename a Folder",
+            "detailsPage": "games/mouse/mouse.html?class=year4&term=1&category=mouse&topic=rename-folder"
+          },
+          {
+            "id": "select-multiple",
+            "title": "Mouse: Select Multiple Files",
+            "detailsPage": "games/mouse/mouse.html?class=year4&term=1&category=mouse&topic=select-multiple"
           }
         ]
       },
       {
         "id": "term2",
         "name": "Second Term",
-        "categories": [
+        "activities": [
           {
-            "id": "mouse",
-            "name": "Mouse Skills",
-            "topics": [
-              { "title": "Create and Rename Folder", "link": "games/mouse/mouse.html?class=year4&term=2&category=mouse&topic=Create%20and%20Rename%20Folder" },
-              { "title": "Move and Delete Files", "link": "games/mouse/mouse.html?class=year4&term=2&category=mouse&topic=Move%20and%20Delete%20Files" }
-            ]
+            "id": "paragraphs-2",
+            "title": "Keyboard: Typing Paragraphs with Capitals",
+            "detailsPage": "games/keyboard/keyboard.html?class=year4&term=2&category=keyboard&topic=paragraphs-2"
           },
           {
-            "id": "keyboard",
-            "name": "Keyboard Skills",
-            "topics": [
-              { "title": "Typing Simple Paragraphs", "link": "games/keyboard/keyboard.html?class=year4&term=2&category=keyboard&topic=Typing%20Simple%20Paragraphs" },
-              { "title": "Typing and Editing", "link": "games/keyboard/keyboard.html?class=year4&term=2&category=keyboard&topic=Typing%20and%20Editing" }
-            ]
+            "id": "speed-typing",
+            "title": "Keyboard: Speed Typing Test (short text)",
+            "detailsPage": "games/keyboard/keyboard.html?class=year4&term=2&category=keyboard&topic=speed-typing"
+          },
+          {
+            "id": "copy-paste",
+            "title": "Mouse: Copy and Paste a File",
+            "detailsPage": "games/mouse/mouse.html?class=year4&term=2&category=mouse&topic=copy-paste"
+          },
+          {
+            "id": "move-files",
+            "title": "Mouse: Move Files Between Folders",
+            "detailsPage": "games/mouse/mouse.html?class=year4&term=2&category=mouse&topic=move-files"
           }
         ]
       },
       {
         "id": "term3",
         "name": "Third Term",
-        "categories": [
+        "activities": [
           {
-            "id": "mouse",
-            "name": "Mouse Skills",
-            "topics": [
-              { "title": "Drag to Create Folder Structure", "link": "games/mouse/mouse.html?class=year4&term=3&category=mouse&topic=Drag%20to%20Create%20Folder%20Structure" },
-              { "title": "Recycle Bin Practice", "link": "games/mouse/mouse.html?class=year4&term=3&category=mouse&topic=Recycle%20Bin%20Practice" }
-            ]
+            "id": "stories",
+            "title": "Keyboard: Type Short Stories",
+            "detailsPage": "games/keyboard/keyboard.html?class=year4&term=3&category=keyboard&topic=stories"
           },
           {
-            "id": "keyboard",
-            "name": "Keyboard Skills",
-            "topics": [
-              { "title": "Typing Short Essays", "link": "games/keyboard/keyboard.html?class=year4&term=3&category=keyboard&topic=Typing%20Short%20Essays" },
-              { "title": "Typing Paragraph Stories", "link": "games/keyboard/keyboard.html?class=year4&term=3&category=keyboard&topic=Typing%20Paragraph%20Stories" }
-            ]
+            "id": "timed-paragraphs",
+            "title": "Keyboard: Timed Typing (Paragraphs)",
+            "detailsPage": "games/keyboard/keyboard.html?class=year4&term=3&category=keyboard&topic=timed-paragraphs"
+          },
+          {
+            "id": "drag-resize",
+            "title": "Mouse: Drag to Resize Windows",
+            "detailsPage": "games/mouse/mouse.html?class=year4&term=3&category=mouse&topic=drag-resize"
+          },
+          {
+            "id": "advanced-scrolling",
+            "title": "Mouse: Advanced Scrolling (long pages)",
+            "detailsPage": "games/mouse/mouse.html?class=year4&term=3&category=mouse&topic=advanced-scrolling"
           }
         ]
       }
     ]
   }
 ]
+  
