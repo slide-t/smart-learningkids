@@ -1,0 +1,150 @@
+[
+  {
+    "id": "year1",
+    "name": "Year 1",
+    "subjects": [
+      {
+        "id": "mouse",
+        "name": "Mouse Skills",
+        "topics": [
+          { "title": "Pointing", "link": "games/mouse/mouse.html?year=1&term=1&topic=Pointing" },
+          { "title": "Single Click", "link": "games/mouse/mouse.html?year=1&term=1&topic=Single Click" },
+          { "title": "Drag & Drop", "link": "games/mouse/mouse.html?year=1&term=2&topic=Drag & Drop", "unlockDate": "2026-01-04" },
+          { "title": "Scroll Practice", "link": "games/mouse/mouse.html?year=1&term=3&topic=Scroll Practice", "unlockDate": "2026-04-05" }
+        ]
+      },
+      {
+        "id": "keyboard",
+        "name": "Keyboard Skills",
+        "topics": [
+          { "title": "Home Row Intro", "link": "games/keyboard/keyboard.html?year=1&term=1&topic=Home Row Intro" },
+          { "title": "Two-Letter Words", "link": "games/keyboard/keyboard.html?year=1&term=1&topic=Two-Letter Words" },
+          { "title": "Three-Letter Words", "link": "games/keyboard/keyboard.html?year=1&term=2&topic=Three-Letter Words", "unlockDate": "2026-01-04" },
+          { "title": "Four-Letter Words", "link": "games/keyboard/keyboard.html?year=1&term=3&topic=Four-Letter Words", "unlockDate": "2026-04-05" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "year2",
+    "name": "Year 2",
+    "subjects": [
+      {
+        "id": "mouse",
+        "name": "Mouse Skills",
+        "topics": [
+          { "title": "Emoji Click", "link": "games/mouse/mouse.html?year=2&term=1&topic=Emoji Click" },
+          { "title": "Double Click", "link": "games/mouse/mouse.html?year=2&term=1&topic=Double Click" },
+          { "title": "Drag Shapes", "link": "games/mouse/mouse.html?year=2&term=2&topic=Drag Shapes", "unlockDate": "2026-01-04" },
+          { "title": "Scroll Game", "link": "games/mouse/mouse.html?year=2&term=3&topic=Scroll Game", "unlockDate": "2026-04-05" }
+        ]
+      },
+      {
+        "id": "keyboard",
+        "name": "Keyboard Skills",
+        "topics": [
+          { "title": "Extended Home Row", "link": "games/keyboard/keyboard.html?year=2&term=1&topic=Extended Home Row" },
+          { "title": "Three-Letter Words", "link": "games/keyboard/keyboard.html?year=2&term=1&topic=Three-Letter Words" },
+          { "title": "Four-Letter Words", "link": "games/keyboard/keyboard.html?year=2&term=2&topic=Four-Letter Words", "unlockDate": "2026-01-04" },
+          { "title": "Short Words Practice", "link": "games/keyboard/keyboard.html?year=2&term=3&topic=Short Words Practice", "unlockDate": "2026-04-05" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "year3",
+    "name": "Year 3",
+    "subjects": [
+      {
+        "id": "mouse",
+        "name": "Mouse Skills",
+        "topics": [
+          { "title": "Click Shapes", "link": "games/mouse/mouse.html?year=3&term=1&topic=Click Shapes" },
+          { "title": "Right Click Menu", "link": "games/mouse/mouse.html?year=3&term=2&topic=Right Click Menu", "unlockDate": "2026-01-04" },
+          { "title": "Create Folder", "link": "games/mouse/mouse.html?year=3&term=3&topic=Create Folder", "unlockDate": "2026-04-05" }
+        ]
+      },
+      {
+        "id": "keyboard",
+        "name": "Keyboard Skills",
+        "topics": [
+          { "title": "Typing Simple Words", "link": "games/keyboard/keyboard.html?year=3&term=1&topic=Typing Simple Words" },
+          { "title": "Typing Short Sentences", "link": "games/keyboard/keyboard.html?year=3&term=2&topic=Typing Short Sentences", "unlockDate": "2026-01-04" },
+          { "title": "Typing Simple Paragraphs", "link": "games/keyboard/keyboard.html?year=3&term=3&topic=Typing Simple Paragraphs", "unlockDate": "2026-04-05" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "year4",
+    "name": "Year 4",
+    "subjects": [
+      {
+        "id": "mouse",
+        "name": "Mouse Skills",
+        "topics": [
+          { "title": "Folder Rename", "link": "games/mouse/mouse.html?year=4&term=1&topic=Folder Rename" },
+          { "title": "Subfolder Creation", "link": "games/mouse/mouse.html?year=4&term=2&topic=Subfolder Creation", "unlockDate": "2026-01-04" },
+          { "title": "Delete Folder", "link": "games/mouse/mouse.html?year=4&term=3&topic=Delete Folder", "unlockDate": "2026-04-05" }
+        ]
+      },
+      {
+        "id": "keyboard",
+        "name": "Keyboard Skills",
+        "topics": [
+          { "title": "Typing Short Paragraphs", "link": "games/keyboard/keyboard.html?year=4&term=1&topic=Typing Short Paragraphs" },
+          { "title": "Typing Longer Sentences", "link": "games/keyboard/keyboard.html?year=4&term=2&topic=Typing Longer Sentences", "unlockDate": "2026-01-04" },
+          { "title": "Typing a Letter", "link": "games/keyboard/keyboard.html?year=4&term=3&topic=Typing a Letter", "unlockDate": "2026-04-05" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "year5",
+    "name": "Year 5",
+    "subjects": [
+      {
+        "id": "mouse",
+        "name": "Mouse Skills",
+        "topics": [
+          { "title": "Select Multiple Files", "link": "games/mouse/mouse.html?year=5&term=1&topic=Select Multiple Files" },
+          { "title": "Copy & Paste", "link": "games/mouse/mouse.html?year=5&term=2&topic=Copy & Paste", "unlockDate": "2026-01-04" },
+          { "title": "Move Files", "link": "games/mouse/mouse.html?year=5&term=3&topic=Move Files", "unlockDate": "2026-04-05" }
+        ]
+      },
+      {
+        "id": "keyboard",
+        "name": "Keyboard Skills",
+        "topics": [
+          { "title": "Typing a Story", "link": "games/keyboard/keyboard.html?year=5&term=1&topic=Typing a Story" },
+          { "title": "Typing Paragraphs", "link": "games/keyboard/keyboard.html?year=5&term=2&topic=Typing Paragraphs", "unlockDate": "2026-01-04" },
+          { "title": "Typing a Poem", "link": "games/keyboard/keyboard.html?year=5&term=3&topic=Typing a Poem", "unlockDate": "2026-04-05" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "year6",
+    "name": "Year 6",
+    "subjects": [
+      {
+        "id": "mouse",
+        "name": "Mouse Skills",
+        "topics": [
+          { "title": "Drag Multiple Items", "link": "games/mouse/mouse.html?year=6&term=1&topic=Drag Multiple Items" },
+          { "title": "Cut & Paste", "link": "games/mouse/mouse.html?year=6&term=2&topic=Cut & Paste", "unlockDate": "2026-01-04" },
+          { "title": "Recycle Bin Practice", "link": "games/mouse/mouse.html?year=6&term=3&topic=Recycle Bin Practice", "unlockDate": "2026-04-05" }
+        ]
+      },
+      {
+        "id": "keyboard",
+        "name": "Keyboard Skills",
+        "topics": [
+          { "title": "Typing Essays", "link": "games/keyboard/keyboard.html?year=6&term=1&topic=Typing Essays" },
+          { "title": "Typing Articles", "link": "games/keyboard/keyboard.html?year=6&term=2&topic=Typing Articles", "unlockDate": "2026-01-04" },
+          { "title": "Typing Reports", "link": "games/keyboard/keyboard.html?year=6&term=3&topic=Typing Reports", "unlockDate": "2026-04-05" }
+        ]
+      }
+    ]
+  }
+]
