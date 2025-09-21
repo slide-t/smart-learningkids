@@ -3,139 +3,71 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Smart Learning Kids - Classes</title>
+  <title>Keyboard Practice</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-50 text-gray-900 font-sans">
+<body class="bg-gradient-to-br from-blue-50 to-purple-50 text-gray-900 font-sans min-h-screen flex flex-col">
+
   <!-- Header -->
-  <header class="bg-blue-600 text-white shadow-md fixed top-0 left-0 w-full z-50">
+  <header class="bg-purple-600 text-white shadow-md fixed top-0 left-0 w-full z-50">
     <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-      <h1 class="text-2xl font-bold">Smart Learning Kids</h1>
-      <a href="index.html" class="bg-white text-blue-600 px-4 py-2 rounded-lg font-medium shadow hover:bg-blue-100 transition">Home</a>
+      <h1 class="text-2xl font-bold">Keyboard Practice</h1>
+      <a href="classes.html" class="bg-white text-purple-600 px-4 py-2 rounded-lg font-medium shadow hover:bg-purple-100 transition">Back to Classes</a>
     </div>
   </header>
 
-  <!-- Content -->
-  <main class="pt-24 max-w-4xl mx-auto px-4">
-    <h2 class="text-3xl font-bold text-center mb-8">Select Your Class</h2>
-    <div id="accordion" class="space-y-4"></div>
+  <!-- Main -->
+  <main class="flex-1 pt-24 max-w-4xl mx-auto px-4">
+    <h2 id="lesson-title" class="text-3xl font-bold text-center mb-6">Loading Lesson...</h2>
+
+    <!-- Game Container -->
+    <div id="game-container" class="bg-white rounded-2xl shadow-lg p-6 min-h-[300px] flex items-center justify-center relative">
+      <p class="text-gray-500">Preparing your typing game...</p>
+    </div>
+
+    <!-- Controls -->
+    <div class="mt-8 flex justify-between items-center">
+      <button id="start-btn" class="px-6 py-3 bg-purple-600 text-white font-semibold rounded-lg shadow hover:bg-purple-700 transition">Start Game</button>
+      <div id="score-display" class="text-lg font-medium text-gray-700">Score: 0</div>
+    </div>
   </main>
 
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const container = document.getElementById("accordion");
+  <!-- Scripts -->
+  <script src="js/keyboard.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const params = new URLSearchParams(window.location.search);
+      const lessonId = params.get("lesson");
+      const lessonTitle = document.getElementById("lesson-title");
+      const gameContainer = document.getElementById("game-container");
+      const startBtn = document.getElementById("start-btn");
 
-  // Unlock dates for 2nd and 3rd terms
-  const termUnlockDates = {
-    2: new Date("2026-01-04"),
-    3: new Date("2026-04-20")
-  };
-  const today = new Date();
-
-  fetch("data/classes.json")
-    .then(response => response.json())
-    .then(data => {
-      const classes = Array.isArray(data) ? data : data.classes;
-
-      if (!classes) {
-        console.error("❌ JSON format invalid:", data);
-        container.textContent = "⚠️ Invalid class data format.";
+      if (!lessonId) {
+        lessonTitle.textContent = "⚠️ Lesson Not Found";
+        gameContainer.innerHTML = "<p class='text-red-500'>Please access this page via your class link.</p>";
+        startBtn.disabled = true;
         return;
       }
 
-      classes.forEach(cls => {
-        const card = document.createElement("div");
-        card.className = "bg-white rounded-xl shadow-md overflow-hidden mb-4";
+      // Match lesson from keyboardLessons in keyboard.js
+      const lesson = keyboardLessons.find(l => l.id === lessonId);
 
-        // Accordion header
-        const header = document.createElement("button");
-        header.className =
-          "w-full flex justify-between items-center px-6 py-4 text-lg font-semibold bg-blue-100 hover:bg-blue-200 transition";
-        header.innerHTML = `
-          <span>${cls.name}</span>
-          <span class="accordion-icon transform transition-transform duration-300">+</span>
-        `;
-        card.appendChild(header);
+      if (!lesson) {
+        lessonTitle.textContent = "⚠️ Lesson Not Found";
+        gameContainer.innerHTML = "<p class='text-red-500'>Lesson not available.</p>";
+        startBtn.disabled = true;
+        return;
+      }
 
-        // Accordion body
-        const body = document.createElement("div");
-        body.className =
-          "accordion-body max-h-0 overflow-hidden transition-all duration-500 ease-in-out bg-gray-50";
+      // Load lesson title
+      lessonTitle.textContent = lesson.title;
 
-        // Render terms
-        body.innerHTML = (cls.terms || [])
-          .map(term => {
-            const unlocked =
-              term.number === 1 || today >= termUnlockDates[term.number];
-
-            return `
-              <div class="mb-4">
-                <h3 class="text-lg font-semibold text-blue-700 px-4 py-2">${term.title}</h3>
-                ${(term.categories || [])
-                  .map(cat => `
-                  <div class="ml-4 mb-2">
-                    <h4 class="text-md font-semibold text-purple-600 px-3 py-1">${cat.name}</h4>
-                    <ul class="space-y-2 pl-6">
-                      ${(cat.topics || [])
-                        .map(topic => {
-                          const icon = topic.link.includes("mouse") ? "🖱️" :
-                                       topic.link.includes("keyboard") ? "⌨️" : "📖";
-
-                          if (unlocked) {
-                            return `
-                              <li>
-                                <a href="${topic.link}"
-                                   class="block px-4 py-2 rounded-lg shadow text-base transition bg-white hover:shadow-md hover:bg-blue-50 flex items-center gap-2">
-                                  <span>${icon}</span> ${topic.title}
-                                </a>
-                              </li>`;
-                          } else {
-                            return `
-                              <li>
-                                <span class="block px-4 py-2 rounded-lg shadow text-base bg-gray-200 text-gray-500 cursor-not-allowed flex items-center gap-2">
-                                  <span>${icon}</span> ${topic.title} (Locked)
-                                </span>
-                              </li>`;
-                          }
-                        }).join("")}
-                    </ul>
-                  </div>
-                `).join("")}
-              </div>
-            `;
-          }).join("");
-
-        card.appendChild(body);
-
-        // Accordion toggle
-        header.addEventListener("click", () => {
-          const isOpen = body.classList.contains("open");
-
-          // Close all other accordions
-          container.querySelectorAll(".accordion-body").forEach(el => {
-            el.style.maxHeight = null;
-            el.classList.remove("open");
-          });
-          container.querySelectorAll(".accordion-icon").forEach(icon => {
-            icon.style.transform = "rotate(0deg)";
-          });
-
-          // Open this one
-          if (!isOpen) {
-            body.style.maxHeight = body.scrollHeight + "px";
-            body.classList.add("open");
-            header.querySelector(".accordion-icon").style.transform = "rotate(45deg)";
-          }
-        });
-
-        container.appendChild(card);
+      // Game initialization
+      startBtn.addEventListener("click", () => {
+        gameContainer.innerHTML = ""; // clear old
+        startTypingGame(lesson, gameContainer, document.getElementById("score-display"));
       });
-    })
-    .catch(err => {
-      console.error("❌ Error loading JSON:", err);
-      container.textContent = "⚠️ Failed to load class data.";
     });
-});
-</script>
+  </script>
 </body>
 </html>
