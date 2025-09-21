@@ -1,94 +1,158 @@
-
 {
-  "levels": {
-    "1": {
-      "label": "Year 1 - Beginner",
-      "timeLimit": 420,
-      "stages": [
-        { "id": "letters", "type": "key", "title": "Letters A–Z", "items": ["a","s","d","f","j","k","l",";","q","w","e","r","t","y","u","i","o","p","z","x","c","v","b","n","m"] },
-        { "id": "two-letter-words", "type": "word", "title": "2-Letter Words", "items": ["am","an","at","it","in","on","up","go"] }
-      ]
-    },
-    "2": {
-      "label": "Year 2 - Beginner+",
-      "timeLimit": 420,
-      "stages": [
-        { "id": "home-row", "type": "key", "title": "Home Row Review", "items": ["a","s","d","f","j","k","l",";"] },
-        { "id": "three-letter-words", "type": "word", "title": "3-Letter Words", "items": ["cat","dog","sun","bag","hat","man","pen","run"] }
-      ]
-    },
-    "3": {
-      "label": "Year 3 - Early",
-      "timeLimit": 420,
-      "stages": [
-        { "id": "short-words", "type": "word", "title": "Short Words", "items": ["book","ball","door","fish","hand"] },
-        { "id": "simple-sentences", "type": "sentence", "title": "Simple Sentences", "items": ["I am a boy.","The sun is hot.","We can run."] }
-      ]
-    },
-    "4": {
-      "label": "Year 4 - Punctuation & Sentences",
-      "timeLimit": 420,
-      "stages": [
-        { "id": "punctuation", "type": "key", "title": "Punctuation Keys", "items": [".",",","?","!"] },
-        { "id": "sentences", "type": "sentence", "title": "Sentences", "items": ["The dog is big.", "We love to learn.", "Type with both hands."] }
-      ]
-    },
-    "5": {
-      "label": "Year 5 - Paragraph Practice",
-      "timeLimit": 420,
-      "stages": [
-        { "id": "short-paragraphs", "type": "paragraph", "title": "Short Paragraphs", "items": ["Typing helps us share ideas. Practice every day to improve speed and accuracy."] }
-      ]
-    },
-    "6": {
-      "label": "Year 6 - Extended Typing",
-      "timeLimit": 420,
-      "stages": [
-        { "id": "paragraphs", "type": "paragraph", "title": "Paragraphs", "items": ["With consistent practice, typing becomes faster and easier. Students gain confidence as they master the keyboard."] }
-      ]
-    },
-    "7": {
-      "label": "Year 7 - HTML Intro",
-      "timeLimit": 420,
-      "stages": [
-        { "id": "html-tags", "type": "code", "title": "HTML Tags", "items": ["<html>","<head>","<body>","<h1>Hello</h1>","<p>This is a paragraph.</p>"] }
-      ]
-    },
-    "8": {
-      "label": "Year 8 - CSS & JS Intro",
-      "timeLimit": 420,
-      "stages": [
-        { "id": "css-lines", "type": "code", "title": "CSS Lines", "items": ["body { }","color: red;","background: blue;"] },
-        { "id": "js-lines", "type": "code", "title": "JS Basics", "items": ["let name = 'Ali';","alert('Hi');"] }
-      ]
-    },
-    "9": {
-      "label": "Year 9 - JS Functions",
-      "timeLimit": 420,
-      "stages": [
-        { "id": "js-functions", "type": "code", "title": "Functions", "items": ["function add(a,b){ return a+b; }","console.log(add(1,2));"] }
-      ]
-    },
-    "10": {
-      "label": "Year 10 - DOM Projects",
-      "timeLimit": 420,
-      "stages": [
-        { "id": "dom-snippets", "type": "code", "title": "DOM Snippets", "items": ["document.querySelector('div').innerText = 'Hi';","for(let i=0;i<5;i++){ console.log(i); }"] }
-      ]
-    },
-    "11": {
-      "label": "Year 11 - Advanced JS",
-      "timeLimit": 420,
-      "stages": [
-        { "id": "advanced-js", "type": "code", "title": "Advanced Lines", "items": ["class Person { constructor(name){this.name=name;} }","fetch('/api').then(r=>r.json())"] }
-      ]
-    },
-    "12": {
-      "label": "Year 12 - Capstone Practice",
-      "timeLimit": 420,
-      "stages": [
-        { "id": "capstone", "type": "code", "title": "Project Snippets", "items": ["<!DOCTYPE html><html><head><title>SLK</title></head><body></body></html>","function gameLoop(){ requestAnimationFrame(gameLoop); }"] }
-      ]
-    }
+  "Year1": {
+    "Home Row Practice": [
+      {
+        "description": "Practice the home row keys: type asdf jkl;",
+        "expected": "asdf jkl;"
+      },
+      {
+        "description": "Type in this order: f d s a l k j ;",
+        "expected": "fdsalkj;"
+      }
+    ],
+    "Type Two-Letter Words": [
+      {
+        "description": "Type the word: an",
+        "expected": "an"
+      },
+      {
+        "description": "Type the word: it",
+        "expected": "it"
+      },
+      {
+        "description": "Type the word: up",
+        "expected": "up"
+      }
+    ]
+  },
+  "Year2": {
+    "Type Three-Letter Words": [
+      {
+        "description": "Type the word: cat",
+        "expected": "cat"
+      },
+      {
+        "description": "Type the word: dog",
+        "expected": "dog"
+      },
+      {
+        "description": "Type the word: sun",
+        "expected": "sun"
+      }
+    ],
+    "Typing Simple Sentences": [
+      {
+        "description": "Type this sentence exactly: The cat runs fast.",
+        "expected": "The cat runs fast."
+      },
+      {
+        "description": "Type this sentence: I like to read books.",
+        "expected": "I like to read books."
+      }
+    ]
+  },
+  "Year3": {
+    "Typing Short Paragraphs": [
+      {
+        "description": "Type the paragraph exactly:\n\nMy name is John. I like school. I play football every day.",
+        "expected": "My name is John. I like school. I play football every day."
+      },
+      {
+        "description": "Type the paragraph:\n\nI have a pet dog. It is very friendly. I take care of it.",
+        "expected": "I have a pet dog. It is very friendly. I take care of it."
+      }
+    ]
+  },
+  "Year4": {
+    "Typing Sentences": [
+      {
+        "description": "Type this sentence: Learning is fun when we practice daily.",
+        "expected": "Learning is fun when we practice daily."
+      },
+      {
+        "description": "Type this sentence: My favourite subject is Mathematics.",
+        "expected": "My favourite subject is Mathematics."
+      }
+    ]
+  },
+  "Year5": {
+    "Typing Short Paragraphs": [
+      {
+        "description": "Type the paragraph: I enjoy reading stories about animals. It helps me learn new things.",
+        "expected": "I enjoy reading stories about animals. It helps me learn new things."
+      },
+      {
+        "description": "Type the paragraph: The sun rises in the east and sets in the west.",
+        "expected": "The sun rises in the east and sets in the west."
+      }
+    ]
+  },
+  "Year6": {
+    "Typing Paragraphs": [
+      {
+        "description": "Type the paragraph: I went to the park today. The flowers were beautiful and the birds were singing.",
+        "expected": "I went to the park today. The flowers were beautiful and the birds were singing."
+      },
+      {
+        "description": "Type the paragraph: My family and I had a picnic by the river. We played games and ate delicious food.",
+        "expected": "My family and I had a picnic by the river. We played games and ate delicious food."
+      }
+    ]
+  },
+  "Year7": {
+    "Typing Medium Paragraphs": [
+      {
+        "description": "Type the paragraph: Education is important for a bright future. Students should study hard and practice daily.",
+        "expected": "Education is important for a bright future. Students should study hard and practice daily."
+      },
+      {
+        "description": "Type the paragraph: Good habits help us grow into responsible and kind individuals.",
+        "expected": "Good habits help us grow into responsible and kind individuals."
+      }
+    ]
+  },
+  "Year8": {
+    "Typing Essays": [
+      {
+        "description": "Type the essay: My favourite hobby is reading books. I enjoy learning new words and exploring different stories. Reading improves my imagination and writing skills.",
+        "expected": "My favourite hobby is reading books. I enjoy learning new words and exploring different stories. Reading improves my imagination and writing skills."
+      }
+    ]
+  },
+  "Year9": {
+    "Typing Reports": [
+      {
+        "description": "Type the report: The school organized a science fair. Students presented projects about plants, animals, and technology. The event was informative and fun.",
+        "expected": "The school organized a science fair. Students presented projects about plants, animals, and technology. The event was informative and fun."
+      }
+    ]
+  },
+  "Year10": {
+    "Typing Research Papers": [
+      {
+        "description": "Type the research paper: Climate change affects weather patterns worldwide. Governments and citizens must take action to reduce carbon emissions and protect the environment.",
+        "expected": "Climate change affects weather patterns worldwide. Governments and citizens must take action to reduce carbon emissions and protect the environment."
+      }
+    ]
+  },
+  "Year11": {
+    "Typing Theses": [
+      {
+        "description": "Type the thesis excerpt: Renewable energy sources like solar and wind power are crucial for sustainable development. Research shows they can significantly reduce greenhouse gas emissions.",
+        "expected": "Renewable energy sources like solar and wind power are crucial for sustainable development. Research shows they can significantly reduce greenhouse gas emissions."
+      }
+    ]
+  },
+  "Year12": {
+    "Typing Dissertations": [
+      {
+        "description": "Type the dissertation excerpt: Advanced artificial intelligence applications in healthcare improve diagnostics, treatment planning, and patient monitoring. Ethical considerations are paramount.",
+        "expected": "Advanced artificial intelligence applications in healthcare improve diagnostics, treatment planning, and patient monitoring. Ethical considerations are paramount."
+      },
+      {
+        "description": "Type the dissertation excerpt: Sustainable urban planning reduces pollution, enhances quality of life, and supports economic growth. Collaborative efforts between governments and communities are essential.",
+        "expected": "Sustainable urban planning reduces pollution, enhances quality of life, and supports economic growth. Collaborative efforts between governments and communities are essential."
+      }
+    ]
   }
 }
