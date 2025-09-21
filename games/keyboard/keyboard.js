@@ -6,92 +6,76 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Read URL parameters
   const urlParams = new URLSearchParams(window.location.search);
-  const year = urlParams.get("class") || "year1";
-  const term = parseInt(urlParams.get("term")) || 1;
   const topicName = urlParams.get("topic") || "Keyboard Practice";
 
-  let exercises = [];
-  let currentExerciseIndex = 0;
-
-  // Load keyboard.json
+  // Load exercises from keyboard.json
   fetch("keyboard.json")
-    .then(res => res.json())
-    .then(data => {
-      const yearData = data.find(y => y.year === year);
-      if (!yearData) throw new Error("Year data not found");
+    .then((res) => res.json())
+    .then((data) => {
+      let exercises = data[topicName] || [];
+      let currentExerciseIndex = 0;
 
-      const termData = yearData.terms.find(t => t.number === term);
-      if (!termData) throw new Error("Term data not found");
+      function showExercise() {
+        feedback.textContent = "";
+        nextButton.classList.add("hidden");
 
-      const category = termData.categories.find(c => c.id === "keyboard");
-      if (!category) throw new Error("Keyboard category not found");
+        if (currentExerciseIndex >= exercises.length) {
+          questionContainer.innerHTML = `
+            <h2 class="text-2xl font-bold text-green-600 text-center">🎉 Congratulations!</h2>
+            <p class="text-center text-gray-700 mb-4">You completed the "${topicName}" practice.</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-3 mt-4">
+              <button id="restart-btn" class="px-6 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition">🔄 Restart</button>
+              <a href="../../index.html" class="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition text-center">🏠 Home</a>
+              <a href="../../classes.html" class="px-6 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition text-center">📚 Back to Classes</a>
+            </div>
+          `;
 
-      const topic = category.topics.find(t => t.title === topicName);
-      if (!topic) throw new Error("Topic not found");
+          document.getElementById("restart-btn").onclick = () => {
+            currentExerciseIndex = 0;
+            showExercise();
+          };
+          return;
+        }
 
-      exercises = topic.exercise || [];
+        const exercise = exercises[currentExerciseIndex];
+
+        questionContainer.innerHTML = `
+          <h2 class="text-xl font-semibold text-purple-700 mb-2">${topicName} Exercise ${currentExerciseIndex + 1}/${exercises.length}</h2>
+          <p class="mb-4 text-gray-600">${exercise.description}</p>
+          <input id="answer-input" type="text" placeholder="Type here..." 
+                 class="w-full border-2 border-purple-300 rounded-lg p-3 focus:outline-none focus:border-purple-500"/>
+        `;
+
+        const input = document.getElementById("answer-input");
+        input.focus();
+
+        input.addEventListener("keyup", (e) => {
+          if (e.key === "Enter") {
+            checkAnswer(input.value.trim());
+          }
+        });
+
+        nextButton.onclick = () => checkAnswer(input.value.trim());
+      }
+
+      function checkAnswer(answer) {
+        const exercise = exercises[currentExerciseIndex];
+        if (answer === exercise.answer) {
+          feedback.textContent = "✅ Correct!";
+          feedback.className = "mt-4 text-lg font-semibold text-green-600 text-center";
+          currentExerciseIndex++;
+          setTimeout(showExercise, 1000);
+        } else {
+          feedback.textContent = "❌ Wrong, try again!";
+          feedback.className = "mt-4 text-lg font-semibold text-red-600 text-center";
+        }
+      }
+
       showExercise();
     })
-    .catch(err => {
-      console.error("Error loading keyboard exercises:", err);
-      questionContainer.innerHTML = "<p>⚠️ Failed to load keyboard exercises.</p>";
+    .catch((err) => {
+      console.error("Error loading keyboard.json:", err);
+      questionContainer.innerHTML =
+        '<p class="text-red-600 text-center">⚠️ Failed to load keyboard exercises.</p>';
     });
-
-  function showExercise() {
-    feedback.textContent = "";
-    nextButton.classList.add("hidden");
-
-    if (currentExerciseIndex >= exercises.length) {
-      questionContainer.innerHTML = `
-        <h2>🎉 Congratulations! You completed "${topicName}".</h2>
-        <div style="margin-top:20px;">
-          <button id="restart-btn" class="action-btn">Restart</button>
-          <button id="back-btn" class="action-btn">Back To Classes</button>
-          <button id="home-btn" class="action-btn">Home</button>
-        </div>
-      `;
-      document.getElementById("restart-btn").onclick = () => {
-        currentExerciseIndex = 0;
-        showExercise();
-      };
-      document.getElementById("back-btn").onclick = () => {
-        window.history.back();
-      };
-      document.getElementById("home-btn").onclick = () => {
-        window.location.href = "index.html";
-      };
-      return;
-    }
-
-    const exerciseText = exercises[currentExerciseIndex];
-
-    questionContainer.innerHTML = `
-      <h2>${topicName} Exercise ${currentExerciseIndex + 1}/${exercises.length}</h2>
-      <p>Type the following text exactly:</p>
-      <div id="exercise-text" style="background:#f0f0ff;padding:12px;margin:15px 0;border-radius:6px;">${exerciseText}</div>
-      <textarea id="user-input" rows="4" style="width:100%;padding:10px;border-radius:6px;border:1px solid #ccc;"></textarea>
-    `;
-
-    const userInput = document.getElementById("user-input");
-    userInput.focus();
-
-    userInput.addEventListener("input", checkInput);
-  }
-
-  function checkInput() {
-    const userInput = document.getElementById("user-input");
-    const exerciseText = exercises[currentExerciseIndex];
-
-    if (userInput.value === exerciseText) {
-      feedback.textContent = "✅ Correct!";
-      feedback.style.color = "green";
-      currentExerciseIndex++;
-      setTimeout(showExercise, 800); // move to next exercise
-    } else if (!exerciseText.startsWith(userInput.value)) {
-      feedback.textContent = "❌ Incorrect. Check your typing!";
-      feedback.style.color = "red";
-    } else {
-      feedback.textContent = "";
-    }
-  }
 });
