@@ -1,158 +1,535 @@
-{
-  "Year1": {
-    "Home Row Practice": [
+[
+  {
+    "year": "year1",
+    "terms": [
       {
-        "description": "Practice the home row keys: type asdf jkl;",
-        "expected": "asdf jkl;"
+        "number": 1,
+        "title": "First Term",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Home Row Keys",
+            "topics": [
+              { "title": "Home Row Practice", "exercise": ["Type 'asdf jkl;' five times"] },
+              { "title": "Two-Letter Words", "exercise": ["Type 'as', 'fa', 'jk', 'lj', 'ak'"] }
+            ]
+          }
+        ]
       },
       {
-        "description": "Type in this order: f d s a l k j ;",
-        "expected": "fdsalkj;"
-      }
-    ],
-    "Type Two-Letter Words": [
-      {
-        "description": "Type the word: an",
-        "expected": "an"
+        "number": 2,
+        "title": "Second Term",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              { "title": "Three-Letter Words", "exercise": ["cat", "dog", "hat", "bat", "pen"] }
+            ]
+          }
+        ]
       },
       {
-        "description": "Type the word: it",
-        "expected": "it"
-      },
-      {
-        "description": "Type the word: up",
-        "expected": "up"
+        "number": 3,
+        "title": "Third Term",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              { "title": "Simple Sentences", "exercise": ["I like to play.", "The cat is big."] }
+            ]
+          }
+        ]
       }
     ]
   },
-  "Year2": {
-    "Type Three-Letter Words": [
+  {
+    "year": "year2",
+    "terms": [
       {
-        "description": "Type the word: cat",
-        "expected": "cat"
+        "number": 1,
+        "title": "First Term",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Home Row & Words",
+            "topics": [
+              { "title": "Home Row Review", "exercise": ["Type 'asdf jkl;' with speed"] },
+              { "title": "Two & Three Letter Words", "exercise": ["sun", "bat", "cup", "dog", "pen"] }
+            ]
+          }
+        ]
       },
       {
-        "description": "Type the word: dog",
-        "expected": "dog"
+        "number": 2,
+        "title": "Second Term",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              { "title": "Short Sentences", "exercise": ["The sun is hot.", "I see a dog.", "We play outside."] }
+            ]
+          }
+        ]
       },
       {
-        "description": "Type the word: sun",
-        "expected": "sun"
+        "number": 3,
+        "title": "Third Term",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              { "title": "Typing Practice", "exercise": ["I like apples.", "The cat runs fast.", "We read books."] }
+            ]
+          }
+        ]
       }
-    ],
-    "Typing Simple Sentences": [
+    ]
+  },
+  {
+    "year": "year3",
+    "terms": [
       {
-        "description": "Type this sentence exactly: The cat runs fast.",
-        "expected": "The cat runs fast."
+        "number": 1,
+        "title": "First Term",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Words & Sentences",
+            "topics": [
+              { "title": "Four-Letter Words", "exercise": ["home", "tree", "fish", "milk", "book"] },
+              { "title": "Simple Sentences", "exercise": ["I like milk.", "He runs fast.", "The dog is big."] }
+            ]
+          }
+        ]
       },
       {
-        "description": "Type this sentence: I like to read books.",
-        "expected": "I like to read books."
-      }
-    ]
-  },
-  "Year3": {
-    "Typing Short Paragraphs": [
-      {
-        "description": "Type the paragraph exactly:\n\nMy name is John. I like school. I play football every day.",
-        "expected": "My name is John. I like school. I play football every day."
+        "number": 2,
+        "title": "Second Term",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              { "title": "Medium Sentences", "exercise": ["I am learning to type.", "The children play outside."] }
+            ]
+          }
+        ]
       },
       {
-        "description": "Type the paragraph:\n\nI have a pet dog. It is very friendly. I take care of it.",
-        "expected": "I have a pet dog. It is very friendly. I take care of it."
-      }
-    ]
-  },
-  "Year4": {
-    "Typing Sentences": [
-      {
-        "description": "Type this sentence: Learning is fun when we practice daily.",
-        "expected": "Learning is fun when we practice daily."
-      },
-      {
-        "description": "Type this sentence: My favourite subject is Mathematics.",
-        "expected": "My favourite subject is Mathematics."
-      }
-    ]
-  },
-  "Year5": {
-    "Typing Short Paragraphs": [
-      {
-        "description": "Type the paragraph: I enjoy reading stories about animals. It helps me learn new things.",
-        "expected": "I enjoy reading stories about animals. It helps me learn new things."
-      },
-      {
-        "description": "Type the paragraph: The sun rises in the east and sets in the west.",
-        "expected": "The sun rises in the east and sets in the west."
-      }
-    ]
-  },
-  "Year6": {
-    "Typing Paragraphs": [
-      {
-        "description": "Type the paragraph: I went to the park today. The flowers were beautiful and the birds were singing.",
-        "expected": "I went to the park today. The flowers were beautiful and the birds were singing."
-      },
-      {
-        "description": "Type the paragraph: My family and I had a picnic by the river. We played games and ate delicious food.",
-        "expected": "My family and I had a picnic by the river. We played games and ate delicious food."
-      }
-    ]
-  },
-  "Year7": {
-    "Typing Medium Paragraphs": [
-      {
-        "description": "Type the paragraph: Education is important for a bright future. Students should study hard and practice daily.",
-        "expected": "Education is important for a bright future. Students should study hard and practice daily."
-      },
-      {
-        "description": "Type the paragraph: Good habits help us grow into responsible and kind individuals.",
-        "expected": "Good habits help us grow into responsible and kind individuals."
-      }
-    ]
-  },
-  "Year8": {
-    "Typing Essays": [
-      {
-        "description": "Type the essay: My favourite hobby is reading books. I enjoy learning new words and exploring different stories. Reading improves my imagination and writing skills.",
-        "expected": "My favourite hobby is reading books. I enjoy learning new words and exploring different stories. Reading improves my imagination and writing skills."
-      }
-    ]
-  },
-  "Year9": {
-    "Typing Reports": [
-      {
-        "description": "Type the report: The school organized a science fair. Students presented projects about plants, animals, and technology. The event was informative and fun.",
-        "expected": "The school organized a science fair. Students presented projects about plants, animals, and technology. The event was informative and fun."
-      }
-    ]
-  },
-  "Year10": {
-    "Typing Research Papers": [
-      {
-        "description": "Type the research paper: Climate change affects weather patterns worldwide. Governments and citizens must take action to reduce carbon emissions and protect the environment.",
-        "expected": "Climate change affects weather patterns worldwide. Governments and citizens must take action to reduce carbon emissions and protect the environment."
-      }
-    ]
-  },
-  "Year11": {
-    "Typing Theses": [
-      {
-        "description": "Type the thesis excerpt: Renewable energy sources like solar and wind power are crucial for sustainable development. Research shows they can significantly reduce greenhouse gas emissions.",
-        "expected": "Renewable energy sources like solar and wind power are crucial for sustainable development. Research shows they can significantly reduce greenhouse gas emissions."
-      }
-    ]
-  },
-  "Year12": {
-    "Typing Dissertations": [
-      {
-        "description": "Type the dissertation excerpt: Advanced artificial intelligence applications in healthcare improve diagnostics, treatment planning, and patient monitoring. Ethical considerations are paramount.",
-        "expected": "Advanced artificial intelligence applications in healthcare improve diagnostics, treatment planning, and patient monitoring. Ethical considerations are paramount."
-      },
-      {
-        "description": "Type the dissertation excerpt: Sustainable urban planning reduces pollution, enhances quality of life, and supports economic growth. Collaborative efforts between governments and communities are essential.",
-        "expected": "Sustainable urban planning reduces pollution, enhances quality of life, and supports economic growth. Collaborative efforts between governments and communities are essential."
+        "number": 3,
+        "title": "Third Term",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              { "title": "Typing Paragraphs", "exercise": ["Short paragraph typing practice."] }
+            ]
+          }
+        ]
       }
     ]
   }
-}
+
+ [
+  {
+    "year": "year4",
+    "terms": [
+      {
+        "number": 1,
+        "title": "First Term",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Typing Sentences",
+            "topics": [
+              { "title": "Typing Short Sentences", "exercise": ["The sun rises in the east.", "Cats like to play with balls.", "I enjoy reading books."] }
+            ]
+          }
+        ]
+      },
+      {
+        "number": 2,
+        "title": "Second Term",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Typing Paragraphs",
+            "topics": [
+              { "title": "Typing Short Paragraphs", "exercise": ["Type a short paragraph of 3–4 sentences about your day."] }
+            ]
+          }
+        ]
+      },
+      {
+        "number": 3,
+        "title": "Third Term",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Typing Skills",
+            "topics": [
+              { "title": "Typing Medium Paragraphs", "exercise": ["Type a 5–6 sentence paragraph about your favorite hobby."] }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "year": "year5",
+    "terms": [
+      {
+        "number": 1,
+        "title": "First Term",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Typing Skills",
+            "topics": [
+              { "title": "Typing Medium Paragraphs", "exercise": ["Type a paragraph about your last vacation."] }
+            ]
+          }
+        ]
+      },
+      {
+        "number": 2,
+        "title": "Second Term",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Typing Skills",
+            "topics": [
+              { "title": "Typing Long Paragraphs", "exercise": ["Type a long paragraph describing a historical event."] }
+            ]
+          }
+        ]
+      },
+      {
+        "number": 3,
+        "title": "Third Term",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Typing Skills",
+            "topics": [
+              { "title": "Typing Short Essays", "exercise": ["Write a short essay about your favorite subject."] }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "year": "year6",
+    "terms": [
+      {
+        "number": 1,
+        "title": "First Term",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Typing Skills",
+            "topics": [
+              { "title": "Typing Essays", "exercise": ["Type a 1-paragraph essay about your family."] }
+            ]
+          }
+        ]
+      },
+      {
+        "number": 2,
+        "title": "Second Term",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Typing Skills",
+            "topics": [
+              { "title": "Typing Medium Essays", "exercise": ["Type a 2-paragraph essay on your favorite hobby."] }
+            ]
+          }
+        ]
+      },
+      {
+        "number": 3,
+        "title": "Third Term",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Typing Skills",
+            "topics": [
+              { "title": "Typing Long Essays", "exercise": ["Type a 3–4 paragraph essay about your school."] }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "year": "year7",
+    "terms": [
+      {
+        "number": 1,
+        "title": "First Term",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Typing Skills",
+            "topics": [
+              { "title": "Typing Short Essays", "exercise": ["Write a short essay on your favorite sport."] }
+            ]
+          }
+        ]
+      },
+      {
+        "number": 2,
+        "title": "Second Term",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Typing Skills",
+            "topics": [
+              { "title": "Typing Medium Essays", "exercise": ["Write a 2-paragraph essay about your best friend."] }
+            ]
+          }
+        ]
+      },
+      {
+        "number": 3,
+        "title": "Third Term",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Typing Skills",
+            "topics": [
+              { "title": "Typing Long Essays", "exercise": ["Write a detailed essay on a memorable event."] }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "year": "year8",
+    "terms": [
+      {
+        "number": 1,
+        "title": "First Term",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Typing Skills",
+            "topics": [
+              { "title": "Typing Short Reports", "exercise": ["Type a short report about your school day."] }
+            ]
+          }
+        ]
+      },
+      {
+        "number": 2,
+        "title": "Second Term",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Typing Skills",
+            "topics": [
+              { "title": "Typing Medium Reports", "exercise": ["Type a 2-paragraph report about a science experiment."] }
+            ]
+          }
+        ]
+      },
+      {
+        "number": 3,
+        "title": "Third Term",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Typing Skills",
+            "topics": [
+              { "title": "Typing Research Reports", "exercise": ["Type a research report on a historical figure."] }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "year": "year9",
+    "terms": [
+      {
+        "number": 1,
+        "title": "First Term",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Typing Skills",
+            "topics": [
+              { "title": "Typing Reports", "exercise": ["Type a report on a current event."] }
+            ]
+          }
+        ]
+      },
+      {
+        "number": 2,
+        "title": "Second Term",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Typing Skills",
+            "topics": [
+              { "title": "Typing Research Reports", "exercise": ["Type a detailed research report on a famous scientist."] }
+            ]
+          }
+        ]
+      },
+      {
+        "number": 3,
+        "title": "Third Term",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Typing Skills",
+            "topics": [
+              { "title": "Typing Projects", "exercise": ["Type a full project report including introduction, methods, and conclusion."] }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "year": "year10",
+    "terms": [
+      {
+        "number": 1,
+        "title": "First Term",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Typing Skills",
+            "topics": [
+              { "title": "Typing Research Papers", "exercise": ["Type a 2–3 page research paper."] }
+            ]
+          }
+        ]
+      },
+      {
+        "number": 2,
+        "title": "Second Term",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Typing Skills",
+            "topics": [
+              { "title": "Typing Projects", "exercise": ["Type a full project report including diagrams and data tables."] }
+            ]
+          }
+        ]
+      },
+      {
+        "number": 3,
+        "title": "Third Term",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Typing Theses",
+            "topics": [
+              { "title": "Typing Theses", "exercise": ["Type a thesis chapter including introduction and literature review."] }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "year": "year11",
+    "terms": [
+      {
+        "number": 1,
+        "title": "First Term",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Typing Skills",
+            "topics": [
+              { "title": "Typing Projects", "exercise": ["Type a detailed project report with analysis and results."] }
+            ]
+          }
+        ]
+      },
+      {
+        "number": 2,
+        "title": "Second Term",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Typing Theses",
+            "topics": [
+              { "title": "Typing Theses", "exercise": ["Type thesis chapters with proper formatting and references."] }
+            ]
+          }
+        ]
+      },
+      {
+        "number": 3,
+        "title": "Third Term",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Typing Dissertations",
+            "topics": [
+              { "title": "Typing Dissertations", "exercise": ["Type dissertation including methodology, analysis, and conclusion."] }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "year": "year12",
+    "terms": [
+      {
+        "number": 1,
+        "title": "First Term",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Typing Skills",
+            "topics": [
+              { "title": "Typing Theses", "exercise": ["Type your final year thesis chapter."] }
+            ]
+          }
+        ]
+      },
+      {
+        "number": 2,
+        "title": "Second Term",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Typing Skills",
+            "topics": [
+              { "title": "Typing Dissertations", "exercise": ["Type dissertation chapters for final submission."] }
+            ]
+          }
+        ]
+      },
+      {
+        "number": 3,
+        "title": "Third Term",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Typing Final Projects",
+            "topics": [
+              { "title": "Typing Final Projects", "exercise": ["Type complete final project including introduction, analysis, and conclusion."] }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+] 
