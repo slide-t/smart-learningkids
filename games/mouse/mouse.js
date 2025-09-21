@@ -1,89 +1,87 @@
-
 document.addEventListener("DOMContentLoaded", () => {
   const questionContainer = document.getElementById("question-container");
+  const optionsContainer = document.getElementById("options-container");
   const feedback = document.getElementById("feedback");
   const nextButton = document.getElementById("next-btn");
 
   let questions = [];
   let currentQuestionIndex = 0;
 
-  // Load classes.json and extract mouse topics
-  fetch("data/classes.json")
+  // Get topic from URL query string
+  const urlParams = new URLSearchParams(window.location.search);
+  const topicName = urlParams.get("topic"); // e.g., pointing, single-click
+
+  // Load classes.json
+  fetch("../data/classes.json") // adjust path relative to mouse.html
     .then((res) => res.json())
-    .then((data) => {
-      const classes = Array.isArray(data) ? data : data.classes;
+    .then((classes) => {
+      // Flatten all topics across years, terms, and categories
+      const allTopics = classes.flatMap((year) =>
+        year.terms.flatMap((term) =>
+          term.categories.flatMap((cat) =>
+            cat.topics.map((t) => ({
+              ...t,
+              category: cat.name,
+              year: year.name,
+              term: term.title,
+            }))
+          )
+        )
+      );
 
-      classes.forEach((cls) => {
-        cls.terms?.forEach((term) => {
-          term.categories?.forEach((cat) => {
-            if (cat.id === "mouse") {
-              cat.topics?.forEach((topic) => {
-                questions.push({
-                  question: topic.title,
-                  options: ["Practice", "Review", "Skip", "Check"], // Placeholder options; can be customized
-                  answer: "Practice", // Default correct answer placeholder
-                  link: topic.link,
-                });
-              });
-            }
-          });
-        });
-      });
-
-      if (questions.length === 0) {
-        questionContainer.innerHTML =
-          "<h2>No mouse topics found in classes.json</h2>";
+      const topic = allTopics.find((t) => t.title.toLowerCase() === topicName?.toLowerCase());
+      if (!topic) {
+        questionContainer.innerHTML = `<h2>❌ Topic not found: ${topicName}</h2>`;
         return;
       }
+
+      // Convert topic into question objects for the game
+      questions = topic.questions || [
+        {
+          question: `Practice ${topic.title}`,
+          options: ["Option 1", "Option 2", "Option 3", "Option 4"],
+          answer: "Option 1",
+        },
+      ];
 
       showQuestion();
     })
     .catch((err) => {
       console.error("Error loading classes.json:", err);
-      questionContainer.innerHTML =
-        "<h2>Error loading mouse topics. Check console.</h2>";
+      questionContainer.innerHTML = "<h2>❌ Failed to load topics.</h2>";
     });
 
   function showQuestion() {
     feedback.textContent = "";
     nextButton.classList.add("hidden");
 
-    const q = questions[currentQuestionIndex];
+    const question = questions[currentQuestionIndex];
+    questionContainer.innerHTML = `<h2>${question.question}</h2>`;
+    optionsContainer.innerHTML = question.options
+      .map(
+        (opt, index) =>
+          `<button class="option-btn" data-index="${index}">${opt}</button>`
+      )
+      .join("");
 
-    questionContainer.innerHTML = `
-      <h2>${q.question}</h2>
-      <div class="options">
-        ${q.options
-          .map(
-            (opt, idx) =>
-              `<button class="option-btn" data-index="${idx}">${opt}</button>`
-          )
-          .join("")}
-      </div>
-    `;
-
-    document.querySelectorAll(".option-btn").forEach((btn) => {
-      btn.addEventListener("click", selectAnswer);
-    });
+    document.querySelectorAll(".option-btn").forEach((btn) =>
+      btn.addEventListener("click", selectAnswer)
+    );
   }
 
   function selectAnswer(e) {
-    const selectedBtn = e.target;
-    const selectedIndex = selectedBtn.dataset.index;
-    const q = questions[currentQuestionIndex];
+    const selectedIndex = e.target.dataset.index;
+    const question = questions[currentQuestionIndex];
 
-    if (q.options[selectedIndex] === q.answer) {
+    if (question.options[selectedIndex] === question.answer) {
       feedback.textContent = "✅ Correct!";
       feedback.style.color = "green";
     } else {
-      feedback.textContent = `❌ Wrong! The correct answer is: ${q.answer}`;
+      feedback.textContent = `❌ Wrong! The correct answer is: ${question.answer}`;
       feedback.style.color = "red";
     }
 
-    document.querySelectorAll(".option-btn").forEach((btn) => {
-      btn.disabled = true;
-    });
-
+    document.querySelectorAll(".option-btn").forEach((btn) => (btn.disabled = true));
     nextButton.classList.remove("hidden");
   }
 
@@ -92,8 +90,8 @@ document.addEventListener("DOMContentLoaded", () => {
     if (currentQuestionIndex < questions.length) {
       showQuestion();
     } else {
-      questionContainer.innerHTML =
-        "<h2>🎉 Well done! You completed all the Mouse questions.</h2>";
+      questionContainer.innerHTML = `<h2>🎉 Well done! You completed all ${topicName} questions.</h2>`;
+      optionsContainer.innerHTML = "";
       nextButton.classList.add("hidden");
     }
   });
