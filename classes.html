@@ -7,6 +7,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-50 text-gray-900 font-sans">
+
   <!-- Header -->
   <header class="bg-blue-600 text-white shadow-md fixed top-0 left-0 w-full z-50">
     <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
@@ -25,7 +26,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   const container = document.getElementById("accordion");
 
-  // Unlock dates
+  // Term unlock dates
   const termUnlockDates = {
     2: new Date("2026-01-04"),
     3: new Date("2026-04-05")
@@ -36,9 +37,11 @@ document.addEventListener("DOMContentLoaded", () => {
     .then(response => response.json())
     .then(data => {
       data.forEach(cls => {
+        // Accordion card
         const card = document.createElement("div");
         card.className = "bg-white rounded-xl shadow-md overflow-hidden";
 
+        // Header
         const header = document.createElement("button");
         header.className =
           "w-full flex justify-between items-center px-6 py-4 text-lg font-semibold bg-blue-100 hover:bg-blue-200 transition";
@@ -48,20 +51,19 @@ document.addEventListener("DOMContentLoaded", () => {
         `;
         card.appendChild(header);
 
+        // Body
         const body = document.createElement("div");
         body.className =
           "max-h-0 overflow-hidden transition-all duration-500 ease-in-out bg-gray-50";
 
+        // Subjects & topics
         body.innerHTML = cls.subjects
           .map(subject => `
             <div class="mb-4">
-              <h3 class="text-lg font-semibold text-blue-700 px-4 py-2">
-                ${subject.name}
-              </h3>
+              <h3 class="text-lg font-semibold text-blue-700 px-4 py-2">${subject.name}</h3>
               <ul class="space-y-3 pl-6">
                 ${subject.topics
                   .map(topic => {
-                    // Extract term number from link
                     const urlParams = new URLSearchParams(topic.link.split("?")[1]);
                     const term = parseInt(urlParams.get("term"), 10);
                     const unlocked = term === 1 || today >= termUnlockDates[term];
@@ -69,8 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     if (unlocked) {
                       return `
                         <li>
-                          <a href="${topic.link}"
-                            class="block px-4 py-2 rounded-lg shadow text-base transition bg-white hover:shadow-md hover:bg-blue-50">
+                          <a href="${topic.link}" class="block px-4 py-2 rounded-lg shadow text-base transition bg-white hover:shadow-md hover:bg-blue-50">
                             ${topic.title}
                           </a>
                         </li>`;
@@ -91,20 +92,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
         card.appendChild(body);
 
-        // Toggle accordion
+        // Accordion toggle
         header.addEventListener("click", () => {
           const isOpen = body.style.maxHeight && body.style.maxHeight !== "0px";
-          document
-            .querySelectorAll("#accordion div > div")
-            .forEach(el => (el.style.maxHeight = null));
-          document
-            .querySelectorAll("#accordion button span:last-child")
-            .forEach(icon => (icon.style.transform = "rotate(0deg)"));
 
+          // Close all other cards
+          document.querySelectorAll("#accordion div > div").forEach(el => el.style.maxHeight = null);
+          document.querySelectorAll("#accordion button span:last-child").forEach(icon => icon.style.transform = "rotate(0deg)");
+
+          // Toggle this card
           if (!isOpen) {
             body.style.maxHeight = body.scrollHeight + "px";
-            header.querySelector("span:last-child").style.transform =
-              "rotate(45deg)";
+            header.querySelector("span:last-child").style.transform = "rotate(45deg)";
           }
         });
 
