@@ -35,64 +35,59 @@
     </div>
   </main>
 
-  <!-- Scripts -->
-  <script src="js/keyboard.js"></script>
+<!-- Scripts -->
+<script src="keyboard.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const params = new URLSearchParams(window.location.search);
+    const lessonId = params.get("lesson");
+    const lessonTitle = document.getElementById("lesson-title");
+    const gameContainer = document.getElementById("game-container");
+    const startBtn = document.getElementById("start-btn");
+    const resetBtn = document.getElementById("reset-btn");
+    const scoreDisplay = document.getElementById("score-display");
 
-  <script>
-    // Page wiring: find lesson and call startTypingGame when Start clicked
-    document.addEventListener("DOMContentLoaded", () => {
-      const params = new URLSearchParams(window.location.search);
-      const lessonId = params.get("lesson");
-      const lessonTitle = document.getElementById("lesson-title");
-      const gameContainer = document.getElementById("game-container");
-      const startBtn = document.getElementById("start-btn");
-      const resetBtn = document.getElementById("reset-btn");
-      const scoreDisplay = document.getElementById("score-display");
+    if (!window.keyboardLessons) {
+      lessonTitle.textContent = "⚠️ Lesson Data Missing";
+      gameContainer.innerHTML = "<p class='text-red-500'>Missing keyboard.js or keyboardLessons. Check console.</p>";
+      startBtn.disabled = true;
+      return;
+    }
 
-      // ensure keyboard.js loaded and created keyboardLessons
-      if (!window.keyboardLessons) {
-        lessonTitle.textContent = "⚠️ Lesson Data Missing";
-        gameContainer.innerHTML = "<p class='text-red-500'>Missing keyboard.js or keyboardLessons. Check console.</p>";
-        startBtn.disabled = true;
-        return;
-      }
+    if (!lessonId) {
+      lessonTitle.textContent = "⚠️ Lesson Not Found";
+      gameContainer.innerHTML = "<p class='text-red-500'>Please access this page via your class link.</p>";
+      startBtn.disabled = true;
+      return;
+    }
 
-      if (!lessonId) {
-        lessonTitle.textContent = "⚠️ Lesson Not Found";
-        gameContainer.innerHTML = "<p class='text-red-500'>Please access this page via your class link.</p>";
-        startBtn.disabled = true;
-        return;
-      }
+    const lesson = window.keyboardLessons.find(l => l.id === lessonId);
 
-      const lesson = window.keyboardLessons.find(l => l.id === lessonId);
+    if (!lesson) {
+      lessonTitle.textContent = "⚠️ Lesson Not Found";
+      gameContainer.innerHTML = "<p class='text-red-500'>Lesson not available.</p>";
+      startBtn.disabled = true;
+      return;
+    }
 
-      if (!lesson) {
-        lessonTitle.textContent = "⚠️ Lesson Not Found";
-        gameContainer.innerHTML = "<p class='text-red-500'>Lesson not available.</p>";
-        startBtn.disabled = true;
-        return;
-      }
+    lessonTitle.textContent = lesson.title;
 
-      // Show lesson title
-      lessonTitle.textContent = lesson.title;
-
-      // Start button toggles game (start/stop). The startTypingGame function itself toggles if a game is running.
-      startBtn.addEventListener("click", () => {
-        // call startTypingGame provided by js/keyboard.js
-        window.startTypingGame(lesson, gameContainer, scoreDisplay, startBtn);
-      });
-
-      // Reset button clears board and score (keeps lesson same)
-      resetBtn.addEventListener("click", () => {
-        // If a game is running, stop it first
-        if (window._typingGameRunning && typeof window.stopTypingGame === "function") {
-          window.stopTypingGame();
-        }
-        scoreDisplay.textContent = "Score: 0";
-        gameContainer.innerHTML = "<p class='text-gray-500'>Press Start to begin the typing game.</p>";
-        startBtn.textContent = "Start Game";
-      });
+    startBtn.addEventListener("click", () => {
+      window.startTypingGame(lesson, gameContainer, scoreDisplay, startBtn);
     });
-  </script>
+
+    resetBtn.addEventListener("click", () => {
+      if (window._typingGameRunning && typeof window.stopTypingGame === "function") {
+        window.stopTypingGame();
+      }
+      scoreDisplay.textContent = "Score: 0";
+      gameContainer.innerHTML = "<p class='text-gray-500'>Press Start to begin the typing game.</p>";
+      startBtn.textContent = "Start Game";
+    });
+  });
+</script>
+  
+
+
 </body>
 </html>
