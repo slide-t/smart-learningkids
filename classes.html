@@ -36,8 +36,6 @@
 <script>
 document.addEventListener("DOMContentLoaded", () => {
   const container = document.getElementById("accordion");
-  const termUnlockDates = { 2: new Date("2026-01-04"), 3: new Date("2026-04-05") };
-  const today = new Date();
 
   fetch("data/classes.json")
     .then(res => res.json())
@@ -56,21 +54,19 @@ document.addEventListener("DOMContentLoaded", () => {
         const body = document.createElement("div");
         body.className = "max-h-0 overflow-hidden transition-all duration-500 ease-in-out bg-gray-50 opacity-0";
 
-        // Generate terms → categories → topics
+        // Build terms → categories → topics
         body.innerHTML = cls.terms.map(term => {
           return term.categories.map(cat => {
             return `
             <div class="mb-4 fade-enter">
               <h3 class="text-lg font-semibold text-blue-700 px-4 py-2">${cat.name} (${term.title})</h3>
               <ul class="space-y-3 pl-6">
-                ${cat.topics.map(topic => {
-                  // Optional term unlock logic
-                  let unlocked = true;
-                  if (topic.term) unlocked = topic.term === 1 || today >= termUnlockDates[topic.term];
-                  return unlocked
-                    ? `<li><span class="block px-4 py-2 rounded-lg shadow text-gray-900 bg-white hover:shadow-md hover:bg-blue-50 transition cursor-pointer">${topic.title}</span></li>`
-                    : `<li><span class="block px-4 py-2 rounded-lg shadow text-gray-500 bg-gray-200 cursor-not-allowed">${topic.title} (Locked until ${termUnlockDates[topic.term].toDateString()})</span></li>`;
-                }).join('')}
+                ${cat.topics.map(topic => `
+                  <li>
+                    <span class="block px-4 py-2 rounded-lg shadow text-gray-900 bg-white hover:shadow-md hover:bg-blue-50 transition cursor-pointer">
+                      ${topic.title}
+                    </span>
+                  </li>`).join('')}
               </ul>
             </div>`;
           }).join('');
@@ -78,6 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         card.appendChild(body);
 
+        // Accordion toggle
         header.addEventListener("click", () => {
           const isOpen = body.style.maxHeight && body.style.maxHeight !== "0px";
 
