@@ -206,5 +206,211 @@
         ]
       }
     ]
+  },
+
+  {
+    "id": "year4",
+    "name": "Year 4",
+    "terms": [
+      {
+        "number": 1,
+        "title": "Term 1",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              {
+                "title": "Typing Sentences",
+                "type": "sentences",
+                "description": "Practice composing sentences.",
+                "items": ["I went to the park today.","She likes to draw pictures."]
+              },
+              {
+                "title": "Typing Short Paragraphs",
+                "type": "paragraphs",
+                "description": "Type 2–3 sentence paragraphs.",
+                "items": ["We had a picnic. It was fun.","The cat sat on the warm mat."]
+              }
+            ]
+          },
+          {
+            "id": "mouse",
+            "name": "Mouse Skills",
+            "topics": [
+              {
+                "title": "Click & Drag Basics",
+                "type": "drag-drop",
+                "description": "Learn to click, drag, and drop objects.",
+                "items": ["Drag the circle to the square.","Move the puzzle piece."]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "number": 2,
+        "title": "Term 2",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              {
+                "title": "Formatting & Symbols",
+                "type": "special",
+                "description": "Type symbols and format text.",
+                "items": ["( ) , . ! ?", "$100", "E-mail: test@example.com"]
+              }
+            ]
+          },
+          {
+            "id": "mouse",
+            "name": "Mouse Skills",
+            "topics": [
+              {
+                "title": "Scrolling & Navigation",
+                "type": "scroll",
+                "description": "Practice scrolling up/down and navigating windows.",
+                "items": ["Scroll the page.","Use the scroll bar to reach bottom."]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "number": 3,
+        "title": "Term 3",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              {
+                "title": "One-Page Essay",
+                "type": "essay",
+                "description": "Type a one-page essay.",
+                "items": ["Write about your favourite day at school."]
+              }
+            ]
+          },
+          {
+            "id": "mouse",
+            "name": "Mouse Skills",
+            "topics": [
+              {
+                "title": "Precision Clicks",
+                "type": "click",
+                "description": "Practice precise clicking and double clicks.",
+                "items": ["Click the small target.","Double-click the icon."]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "year5",
+    "name": "Year 5",
+    "terms": [
+      {
+        "number": 1,
+        "title": "Term 1",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              {
+                "title": "Typing Stories",
+                "type": "essay",
+                "description": "Compose multiple paragraphs.",
+                "items": ["Write a short story about a journey."]
+              },
+              {
+                "title": "Editing & Proofreading",
+                "type": "editing",
+                "description": "Practice editing already-typed text.",
+                "items": ["Correct the paragraph given."]
+              }
+            ]
+          },
+          {
+            "id": "mouse",
+            "name": "Mouse Skills",
+            "topics": [
+              {
+                "title": "Drag & Drop Exercises",
+                "type": "drag-drop",
+                "description": "Move objects to targets.",
+                "items": ["Drag fruit to basket.","Organize shapes by color."]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "number": 2,
+        "title": "Term 2",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              {
+                "title": "Report Structure",
+                "type": "reports",
+                "description": "Practice titles, headings, paragraphs.",
+                "items": ["Create a 1-page report about your hobby."]
+              }
+            ]
+          },
+          {
+            "id": "mouse",
+            "name": "Mouse Skills",
+            "topics": [
+              {
+                "title": "Mouse Accuracy Drills",
+                "type": "precision",
+                "description": "Practice accurate clicks on moving targets.",
+                "items": ["Click the moving target.","Drag items quickly to bin."]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "number": 3,
+        "title": "Term 3",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              {
+                "title": "Multi-page Essay",
+                "type": "essay",
+                "description": "Longer writing practice.",
+                "items": ["Plan and write a 2-part essay."]
+              }
+            ]
+          },
+          {
+            "id": "mouse",
+            "name": "Mouse Skills",
+            "topics": [
+              {
+                "title": "Advanced Drag & Drop",
+                "type": "drag-drop",
+                "description": "Organize multiple objects correctly.",
+                "items": ["Sort numbers ascending.","Arrange puzzle pieces."]
+              }
+            ]
+          }
+        ]
+      }
+    ]
   }
 ]
+  
