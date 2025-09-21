@@ -1,38 +1,31 @@
-
 [
   {
-    "question": "Pointing",
-    "options": ["Click anywhere", "Move mouse to target", "Drag object", "Double click"],
-    "answer": "Move mouse to target"
+    "title": "Pointing Practice",
+    "description": "Follow the emoji 🖱️ on the screen and click it 5 times.",
+    "type": "emoji",
+    "icon": "🖱️"
   },
   {
-    "question": "Single Click",
-    "options": ["Double click", "Right click", "Click once", "Drag and drop"],
-    "answer": "Click once"
+    "title": "Single Click Practice",
+    "description": "Click on the moving emoji 🖱️ as it appears around the screen 5 times.",
+    "type": "emoji",
+    "icon": "🖱️"
   },
   {
-    "question": "Double Click",
-    "options": ["Click once", "Click twice quickly", "Right click", "Drag and drop"],
-    "answer": "Click twice quickly"
+    "title": "Double Click Practice",
+    "description": "Double click the emoji 🖱️ 5 times. Watch carefully where it moves!",
+    "type": "emoji",
+    "icon": "🖱️"
   },
   {
-    "question": "Drag and Drop",
-    "options": ["Click once", "Double click", "Drag and drop", "Right click"],
-    "answer": "Drag and drop"
+    "title": "Drag and Drop Practice",
+    "description": "Drag the emoji 🖱️ from one location to another. Repeat 5 times.",
+    "type": "emoji",
+    "icon": "🖱️"
   },
   {
-    "question": "Mouse Maze",
-    "options": ["Move carefully through path", "Click randomly", "Double click anywhere", "Scroll only"],
-    "answer": "Move carefully through path"
-  },
-  {
-    "question": "Target Practice",
-    "options": ["Click moving targets", "Drag objects", "Scroll list", "Right click icons"],
-    "answer": "Click moving targets"
-  },
-  {
-    "question": "Follow the Path",
-    "options": ["Drag and drop", "Move pointer along path", "Double click", "Scroll down"],
-    "answer": "Move pointer along path"
+    "title": "Click Shapes Practice",
+    "description": "Click all the shapes appearing on the screen 5 times.",
+    "type": "shape"
   }
 ]
