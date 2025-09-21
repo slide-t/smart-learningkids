@@ -953,6 +953,144 @@
         ]
       }
     ]
+  },
+
+
+  {
+    "id": "year11",
+    "name": "Year 11",
+    "terms": [
+      {
+        "number": 1,
+        "title": "First Term",
+        "categories": [
+          {
+            "id": "mouse",
+            "name": "Mouse Skills",
+            "topics": [
+              {
+                "title": "Advanced Desktop Management",
+                "link": "games/mouse/mouse.html?class=year11&term=1&category=mouse&topic=Advanced%20Desktop%20Management"
+              },
+              {
+                "title": "Right Click & Context Menu",
+                "link": "games/mouse/mouse.html?class=year11&term=1&category=mouse&topic=Right%20Click%20%26%20Context%20Menu"
+              }
+            ]
+          },
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              {
+                "title": "Typing Research Projects",
+                "link": "games/keyboard/keyboard.html?class=year11&term=1&category=keyboard&topic=Typing%20Research%20Projects"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "number": 2,
+        "title": "Second Term",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              {
+                "title": "Typing Dissertations",
+                "link": "games/keyboard/keyboard.html?class=year11&term=2&category=keyboard&topic=Typing%20Dissertations"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "number": 3,
+        "title": "Third Term",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              {
+                "title": "Typing Advanced Projects",
+                "link": "games/keyboard/keyboard.html?class=year11&term=3&category=keyboard&topic=Typing%20Advanced%20Projects"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "year12",
+    "name": "Year 12",
+    "terms": [
+      {
+        "number": 1,
+        "title": "First Term",
+        "categories": [
+          {
+            "id": "mouse",
+            "name": "Mouse Skills",
+            "topics": [
+              {
+                "title": "Full Desktop Management",
+                "link": "games/mouse/mouse.html?class=year12&term=1&category=mouse&topic=Full%20Desktop%20Management"
+              },
+              {
+                "title": "Multi-tasking with Windows",
+                "link": "games/mouse/mouse.html?class=year12&term=1&category=mouse&topic=Multi-tasking%20with%20Windows"
+              }
+            ]
+          },
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              {
+                "title": "Typing Theses",
+                "link": "games/keyboard/keyboard.html?class=year12&term=1&category=keyboard&topic=Typing%20Theses"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "number": 2,
+        "title": "Second Term",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              {
+                "title": "Typing Dissertations",
+                "link": "games/keyboard/keyboard.html?class=year12&term=2&category=keyboard&topic=Typing%20Dissertations"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "number": 3,
+        "title": "Third Term",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              {
+                "title": "Typing Final Projects",
+                "link": "games/keyboard/keyboard.html?class=year12&term=3&category=keyboard&topic=Typing%20Final%20Projects"
+              }
+            ]
+          }
+        ]
+      }
+    ]
   }
 ]
   
