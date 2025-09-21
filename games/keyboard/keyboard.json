@@ -1,535 +1,365 @@
 [
   {
-    "year": "year1",
+    "id": "year1",
+    "name": "Year 1",
     "terms": [
       {
         "number": 1,
-        "title": "First Term",
+        "title": "Term 1",
         "categories": [
           {
             "id": "keyboard",
-            "name": "Home Row Keys",
+            "name": "Keyboard Skills",
             "topics": [
-              { "title": "Home Row Practice", "exercise": ["Type 'asdf jkl;' five times"] },
-              { "title": "Two-Letter Words", "exercise": ["Type 'as', 'fa', 'jk', 'lj', 'ak'"] }
+              {
+                "title": "Home Row Intro",
+                "type": "keys",
+                "description": "Learn where your fingers rest: a s d f  j k l ;",
+                "items": ["a","s","d","f","j","k","l",";"]
+              },
+              {
+                "title": "Home Row Practice",
+                "type": "sequence",
+                "description": "Practice quick home-row key presses and simple patterns.",
+                "items": ["as","df","jk","l;","asd","fjd"]
+              },
+              {
+                "title": "Two-Letter Words (home row)",
+                "type": "words",
+                "description": "Type two-letter words using home row keys.",
+                "items": ["as","fa","ad","la","kl"]
+              },
+              {
+                "title": "Three-Letter Words (home row)",
+                "type": "words",
+                "description": "Type three-letter home-row words.",
+                "items": ["sad","lad","ask","fak","jkl"]
+              }
             ]
           }
         ]
       },
       {
         "number": 2,
-        "title": "Second Term",
+        "title": "Term 2",
         "categories": [
           {
             "id": "keyboard",
             "name": "Keyboard Skills",
             "topics": [
-              { "title": "Three-Letter Words", "exercise": ["cat", "dog", "hat", "bat", "pen"] }
+              {
+                "title": "Enter Space Backspace",
+                "type": "special",
+                "description": "Practice using Space, Enter and Backspace while typing short words.",
+                "items": ["cat", "dog", "sun"]
+              },
+              {
+                "title": "Simple Words (mixed)",
+                "type": "words",
+                "description": "Type short words (2-3 letters).",
+                "items": ["map","pen","cup","dog","cat"]
+              }
             ]
           }
         ]
       },
       {
         "number": 3,
-        "title": "Third Term",
+        "title": "Term 3",
         "categories": [
           {
             "id": "keyboard",
             "name": "Keyboard Skills",
             "topics": [
-              { "title": "Simple Sentences", "exercise": ["I like to play.", "The cat is big."] }
+              {
+                "title": "Letters to Words",
+                "type": "words",
+                "description": "Progress from letters to simple words.",
+                "items": ["b a t","bat","cap","man"]
+              },
+              {
+                "title": "Short Sentences",
+                "type": "sentences",
+                "description": "Type short sentences (punctuation included).",
+                "items": ["I am a kid.","We like to play."]
+              }
             ]
           }
         ]
       }
     ]
   },
-  {
-    "year": "year2",
-    "terms": [
-      {
-        "number": 1,
-        "title": "First Term",
-        "categories": [
-          {
-            "id": "keyboard",
-            "name": "Home Row & Words",
-            "topics": [
-              { "title": "Home Row Review", "exercise": ["Type 'asdf jkl;' with speed"] },
-              { "title": "Two & Three Letter Words", "exercise": ["sun", "bat", "cup", "dog", "pen"] }
-            ]
-          }
-        ]
-      },
-      {
-        "number": 2,
-        "title": "Second Term",
-        "categories": [
-          {
-            "id": "keyboard",
-            "name": "Keyboard Skills",
-            "topics": [
-              { "title": "Short Sentences", "exercise": ["The sun is hot.", "I see a dog.", "We play outside."] }
-            ]
-          }
-        ]
-      },
-      {
-        "number": 3,
-        "title": "Third Term",
-        "categories": [
-          {
-            "id": "keyboard",
-            "name": "Keyboard Skills",
-            "topics": [
-              { "title": "Typing Practice", "exercise": ["I like apples.", "The cat runs fast.", "We read books."] }
-            ]
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "year": "year3",
-    "terms": [
-      {
-        "number": 1,
-        "title": "First Term",
-        "categories": [
-          {
-            "id": "keyboard",
-            "name": "Words & Sentences",
-            "topics": [
-              { "title": "Four-Letter Words", "exercise": ["home", "tree", "fish", "milk", "book"] },
-              { "title": "Simple Sentences", "exercise": ["I like milk.", "He runs fast.", "The dog is big."] }
-            ]
-          }
-        ]
-      },
-      {
-        "number": 2,
-        "title": "Second Term",
-        "categories": [
-          {
-            "id": "keyboard",
-            "name": "Keyboard Skills",
-            "topics": [
-              { "title": "Medium Sentences", "exercise": ["I am learning to type.", "The children play outside."] }
-            ]
-          }
-        ]
-      },
-      {
-        "number": 3,
-        "title": "Third Term",
-        "categories": [
-          {
-            "id": "keyboard",
-            "name": "Keyboard Skills",
-            "topics": [
-              { "title": "Typing Paragraphs", "exercise": ["Short paragraph typing practice."] }
-            ]
-          }
-        ]
-      }
-    ]
-  }
 
- [
   {
-    "year": "year4",
+    "id": "year2",
+    "name": "Year 2",
     "terms": [
       {
         "number": 1,
-        "title": "First Term",
+        "title": "Term 1",
         "categories": [
           {
             "id": "keyboard",
-            "name": "Typing Sentences",
+            "name": "Keyboard Skills",
             "topics": [
-              { "title": "Typing Short Sentences", "exercise": ["The sun rises in the east.", "Cats like to play with balls.", "I enjoy reading books."] }
+              {
+                "title": "Home Row + Top Row Keys",
+                "type": "keys",
+                "description": "Introduce a few top-row letters (e.g. q w e r t).",
+                "items": ["q","w","e","r","t","a","s","d","f","j","k","l"]
+              },
+              {
+                "title": "Three-Letter Words",
+                "type": "words",
+                "description": "Practice three-letter words (a mix).",
+                "items": ["dog","sun","box","pen","cup"]
+              }
             ]
           }
         ]
       },
       {
         "number": 2,
-        "title": "Second Term",
+        "title": "Term 2",
         "categories": [
           {
             "id": "keyboard",
-            "name": "Typing Paragraphs",
+            "name": "Keyboard Skills",
             "topics": [
-              { "title": "Typing Short Paragraphs", "exercise": ["Type a short paragraph of 3–4 sentences about your day."] }
+              {
+                "title": "Four-Letter Words",
+                "type": "words",
+                "description": "Type four-letter words.",
+                "items": ["tree","book","frog","milk","play"]
+              },
+              {
+                "title": "Speed Drills (short)",
+                "type": "timed",
+                "description": "Short timed drills for accuracy.",
+                "items": ["cat dog sun map pen"]
+              }
             ]
           }
         ]
       },
       {
         "number": 3,
-        "title": "Third Term",
+        "title": "Term 3",
         "categories": [
           {
             "id": "keyboard",
-            "name": "Typing Skills",
+            "name": "Keyboard Skills",
             "topics": [
-              { "title": "Typing Medium Paragraphs", "exercise": ["Type a 5–6 sentence paragraph about your favorite hobby."] }
+              {
+                "title": "Short Paragraphs",
+                "type": "paragraphs",
+                "description": "Type short 2–3 sentence paragraphs.",
+                "items": ["The dog runs in the sun. It likes to play.","My book is red. I read every day."]
+              }
             ]
           }
         ]
       }
     ]
   },
+
   {
-    "year": "year5",
+    "id": "year3",
+    "name": "Year 3",
     "terms": [
       {
         "number": 1,
-        "title": "First Term",
+        "title": "Term 1",
         "categories": [
           {
             "id": "keyboard",
-            "name": "Typing Skills",
+            "name": "Keyboard Skills",
             "topics": [
-              { "title": "Typing Medium Paragraphs", "exercise": ["Type a paragraph about your last vacation."] }
+              {
+                "title": "Touch-typing Fundamentals",
+                "type": "home_row_drill",
+                "description": "Touch-typing drills focusing on home-row accuracy.",
+                "items": ["asdf jkl;","asdf asdf jkl; jkl;"]
+              },
+              {
+                "title": "Words & Short Sentences",
+                "type": "words",
+                "description": "3–5 letter words and short sentences.",
+                "items": ["apple","happy","small","I like apples.","We play games."]
+              }
             ]
           }
         ]
       },
       {
         "number": 2,
-        "title": "Second Term",
+        "title": "Term 2",
         "categories": [
           {
             "id": "keyboard",
-            "name": "Typing Skills",
+            "name": "Keyboard Skills",
             "topics": [
-              { "title": "Typing Long Paragraphs", "exercise": ["Type a long paragraph describing a historical event."] }
+              {
+                "title": "Speed + Accuracy Home Row",
+                "type": "timed",
+                "description": "Build accuracy and speed on home row.",
+                "items": ["asdfasdf","jkl;jkl;","asdjkl;"]
+              }
             ]
           }
         ]
       },
       {
         "number": 3,
-        "title": "Third Term",
+        "title": "Term 3",
         "categories": [
           {
             "id": "keyboard",
-            "name": "Typing Skills",
+            "name": "Keyboard Skills",
             "topics": [
-              { "title": "Typing Short Essays", "exercise": ["Write a short essay about your favorite subject."] }
+              {
+                "title": "Paragraph Typing",
+                "type": "paragraphs",
+                "description": "Write 3–4 sentence paragraphs with punctuation.",
+                "items": ["My name is Maya. I love music. We sing at school.","The sun sets in the west. Birds return home at night."]
+              }
             ]
           }
         ]
       }
     ]
   },
+
   {
-    "year": "year6",
+    "id": "year4",
+    "name": "Year 4",
     "terms": [
       {
         "number": 1,
-        "title": "First Term",
+        "title": "Term 1",
         "categories": [
           {
             "id": "keyboard",
-            "name": "Typing Skills",
+            "name": "Keyboard Skills",
             "topics": [
-              { "title": "Typing Essays", "exercise": ["Type a 1-paragraph essay about your family."] }
+              { "title": "Typing Sentences", "type": "sentences", "description": "Practice composing sentences.", "items": ["I went to the park today.","She likes to draw pictures."] },
+              { "title": "Typing Short Paragraphs", "type": "paragraphs", "description": "2–3 sentence paragraphs.", "items": ["We had a picnic. It was fun.","The cat sat on the warm mat."] }
             ]
           }
         ]
       },
       {
         "number": 2,
-        "title": "Second Term",
+        "title": "Term 2",
         "categories": [
           {
             "id": "keyboard",
-            "name": "Typing Skills",
+            "name": "Keyboard Skills",
             "topics": [
-              { "title": "Typing Medium Essays", "exercise": ["Type a 2-paragraph essay on your favorite hobby."] }
+              { "title": "Formatting & Symbols", "type": "special", "description": "Type symbols and format text.", "items": ["( ) , . ! ?", "$100", "E-mail: test@example.com"] }
             ]
           }
         ]
       },
       {
         "number": 3,
-        "title": "Third Term",
+        "title": "Term 3",
         "categories": [
           {
             "id": "keyboard",
-            "name": "Typing Skills",
+            "name": "Keyboard Skills",
             "topics": [
-              { "title": "Typing Long Essays", "exercise": ["Type a 3–4 paragraph essay about your school."] }
+              { "title": "One-Page Essay", "type": "essay", "description": "Type a 1 page style paragraph (practice).", "items": ["Write about your favourite day at school."] }
             ]
           }
         ]
       }
     ]
   },
+
   {
-    "year": "year7",
+    "id": "year5",
+    "name": "Year 5",
     "terms": [
       {
         "number": 1,
-        "title": "First Term",
+        "title": "Term 1",
         "categories": [
-          {
-            "id": "keyboard",
-            "name": "Typing Skills",
-            "topics": [
-              { "title": "Typing Short Essays", "exercise": ["Write a short essay on your favorite sport."] }
-            ]
-          }
+          { "id": "keyboard", "name": "Keyboard Skills", "topics": [{ "title": "Typing Stories", "type": "essay", "description": "Compose multiple paragraphs", "items": ["Write a short story about a journey."] }, { "title": "Editing & Proofreading", "type": "editing", "description": "Practice editing already-typed text.", "items": ["Correct the paragraph given."] }] }
         ]
       },
-      {
-        "number": 2,
-        "title": "Second Term",
-        "categories": [
-          {
-            "id": "keyboard",
-            "name": "Typing Skills",
-            "topics": [
-              { "title": "Typing Medium Essays", "exercise": ["Write a 2-paragraph essay about your best friend."] }
-            ]
-          }
-        ]
-      },
-      {
-        "number": 3,
-        "title": "Third Term",
-        "categories": [
-          {
-            "id": "keyboard",
-            "name": "Typing Skills",
-            "topics": [
-              { "title": "Typing Long Essays", "exercise": ["Write a detailed essay on a memorable event."] }
-            ]
-          }
-        ]
-      }
+      { "number": 2, "title": "Term 2", "categories": [{ "id": "keyboard", "name": "Keyboard Skills", "topics": [{ "title": "Report Structure", "type": "reports", "description": "Titles, headings, paragraphs", "items": ["Create a 1 page report about your hobby."] }] }] },
+      { "number": 3, "title": "Term 3", "categories": [{ "id": "keyboard", "name": "Keyboard Skills", "topics": [{ "title": "Multi-page Essay", "type": "essay", "description": "Longer writing skills", "items": ["Plan and write a 2-part essay."] }] }] }
     ]
   },
+
   {
-    "year": "year8",
+    "id": "year6",
+    "name": "Year 6",
     "terms": [
-      {
-        "number": 1,
-        "title": "First Term",
-        "categories": [
-          {
-            "id": "keyboard",
-            "name": "Typing Skills",
-            "topics": [
-              { "title": "Typing Short Reports", "exercise": ["Type a short report about your school day."] }
-            ]
-          }
-        ]
-      },
-      {
-        "number": 2,
-        "title": "Second Term",
-        "categories": [
-          {
-            "id": "keyboard",
-            "name": "Typing Skills",
-            "topics": [
-              { "title": "Typing Medium Reports", "exercise": ["Type a 2-paragraph report about a science experiment."] }
-            ]
-          }
-        ]
-      },
-      {
-        "number": 3,
-        "title": "Third Term",
-        "categories": [
-          {
-            "id": "keyboard",
-            "name": "Typing Skills",
-            "topics": [
-              { "title": "Typing Research Reports", "exercise": ["Type a research report on a historical figure."] }
-            ]
-          }
-        ]
-      }
+      { "number": 1, "title": "Term 1", "categories": [{ "id": "keyboard", "name": "Keyboard Skills", "topics": [{ "title": "Timed Accuracy Drills", "type": "timed", "description": "Timed accuracy sessions", "items": ["The quick brown fox","Typing drills sample"] }] }] },
+      { "number": 2, "title": "Term 2", "categories": [{ "id": "keyboard", "name": "Keyboard Skills", "topics": [{ "title": "Essays with citations", "type": "essay", "description": "Practice longer essays", "items": ["Research your favourite animal and type a report."] }] }] },
+      { "number": 3, "title": "Term 3", "categories": [{ "id": "keyboard", "name": "Keyboard Skills", "topics": [{ "title": "Summary Writing", "type": "summary", "description": "Summarise a passage", "items": ["Summarise the paragraph provided."] }] }] }
     ]
   },
+
   {
-    "year": "year9",
+    "id": "year7",
+    "name": "Year 7",
     "terms": [
-      {
-        "number": 1,
-        "title": "First Term",
-        "categories": [
-          {
-            "id": "keyboard",
-            "name": "Typing Skills",
-            "topics": [
-              { "title": "Typing Reports", "exercise": ["Type a report on a current event."] }
-            ]
-          }
-        ]
-      },
-      {
-        "number": 2,
-        "title": "Second Term",
-        "categories": [
-          {
-            "id": "keyboard",
-            "name": "Typing Skills",
-            "topics": [
-              { "title": "Typing Research Reports", "exercise": ["Type a detailed research report on a famous scientist."] }
-            ]
-          }
-        ]
-      },
-      {
-        "number": 3,
-        "title": "Third Term",
-        "categories": [
-          {
-            "id": "keyboard",
-            "name": "Typing Skills",
-            "topics": [
-              { "title": "Typing Projects", "exercise": ["Type a full project report including introduction, methods, and conclusion."] }
-            ]
-          }
-        ]
-      }
+      { "number": 1, "title": "Term 1", "categories": [{ "id": "keyboard", "name": "Keyboard Skills", "topics": [{ "title": "Reports & Research", "type": "reports", "description": "Longer typed reports", "items": ["Report practice sample"] }] }] },
+      { "number": 2, "title": "Term 2", "categories": [{ "id": "keyboard", "name": "Keyboard Skills", "topics": [{ "title": "Timed Essays", "type": "timed", "description": "Timed essay sections", "items": ["Type the given prompt in 20 mins"] }] }] },
+      { "number": 3, "title": "Term 3", "categories": [{ "id": "keyboard", "name": "Keyboard Skills", "topics": [{ "title": "Project Writing", "type": "projects", "description": "Long project typing", "items": ["Project: class magazine"] }] }] }
     ]
   },
+
   {
-    "year": "year10",
+    "id": "year8",
+    "name": "Year 8",
     "terms": [
-      {
-        "number": 1,
-        "title": "First Term",
-        "categories": [
-          {
-            "id": "keyboard",
-            "name": "Typing Skills",
-            "topics": [
-              { "title": "Typing Research Papers", "exercise": ["Type a 2–3 page research paper."] }
-            ]
-          }
-        ]
-      },
-      {
-        "number": 2,
-        "title": "Second Term",
-        "categories": [
-          {
-            "id": "keyboard",
-            "name": "Typing Skills",
-            "topics": [
-              { "title": "Typing Projects", "exercise": ["Type a full project report including diagrams and data tables."] }
-            ]
-          }
-        ]
-      },
-      {
-        "number": 3,
-        "title": "Third Term",
-        "categories": [
-          {
-            "id": "keyboard",
-            "name": "Typing Theses",
-            "topics": [
-              { "title": "Typing Theses", "exercise": ["Type a thesis chapter including introduction and literature review."] }
-            ]
-          }
-        ]
-      }
+      { "number": 1, "title": "Term 1", "categories": [{ "id": "keyboard", "name": "Keyboard Skills", "topics": [{ "title": "Research Papers", "type": "research", "description": "Research writing", "items": ["Start research paper template"] }] }] },
+      { "number": 2, "title": "Term 2", "categories": [{ "id": "keyboard", "name": "Keyboard Skills", "topics": [{ "title": "Report Construction", "type": "reports", "description": "Make a full report", "items": ["Report sample"] }] }] },
+      { "number": 3, "title": "Term 3", "categories": [{ "id": "keyboard", "name": "Keyboard Skills", "topics": [{ "title": "Project Typing", "type": "projects", "description": "Typing for multi-media projects", "items": ["Project story writing"] }] }] }
     ]
   },
+
   {
-    "year": "year11",
+    "id": "year9",
+    "name": "Year 9",
     "terms": [
-      {
-        "number": 1,
-        "title": "First Term",
-        "categories": [
-          {
-            "id": "keyboard",
-            "name": "Typing Skills",
-            "topics": [
-              { "title": "Typing Projects", "exercise": ["Type a detailed project report with analysis and results."] }
-            ]
-          }
-        ]
-      },
-      {
-        "number": 2,
-        "title": "Second Term",
-        "categories": [
-          {
-            "id": "keyboard",
-            "name": "Typing Theses",
-            "topics": [
-              { "title": "Typing Theses", "exercise": ["Type thesis chapters with proper formatting and references."] }
-            ]
-          }
-        ]
-      },
-      {
-        "number": 3,
-        "title": "Third Term",
-        "categories": [
-          {
-            "id": "keyboard",
-            "name": "Typing Dissertations",
-            "topics": [
-              { "title": "Typing Dissertations", "exercise": ["Type dissertation including methodology, analysis, and conclusion."] }
-            ]
-          }
-        ]
-      }
+      { "number": 1, "title": "Term 1", "categories": [{ "id": "keyboard", "name": "Keyboard Skills", "topics": [{ "title": "Advanced Reports", "type": "reports", "description": "Longer reports & structure", "items": ["Report template"] }] }] },
+      { "number": 2, "title": "Term 2", "categories": [{ "id": "keyboard", "name": "Keyboard Skills", "topics": [{ "title": "Research Development", "type": "research", "description": "Research development & citation", "items": ["Research tasks"] }] }] },
+      { "number": 3, "title": "Term 3", "categories": [{ "id": "keyboard", "name": "Keyboard Skills", "topics": [{ "title": "Final Project Prep", "type": "projects", "description": "Final project drafting", "items": ["Draft final project"] }] }] }
     ]
   },
+
   {
-    "year": "year12",
+    "id": "year10",
+    "name": "Year 10",
     "terms": [
-      {
-        "number": 1,
-        "title": "First Term",
-        "categories": [
-          {
-            "id": "keyboard",
-            "name": "Typing Skills",
-            "topics": [
-              { "title": "Typing Theses", "exercise": ["Type your final year thesis chapter."] }
-            ]
-          }
-        ]
-      },
-      {
-        "number": 2,
-        "title": "Second Term",
-        "categories": [
-          {
-            "id": "keyboard",
-            "name": "Typing Skills",
-            "topics": [
-              { "title": "Typing Dissertations", "exercise": ["Type dissertation chapters for final submission."] }
-            ]
-          }
-        ]
-      },
-      {
-        "number": 3,
-        "title": "Third Term",
-        "categories": [
-          {
-            "id": "keyboard",
-            "name": "Typing Final Projects",
-            "topics": [
-              { "title": "Typing Final Projects", "exercise": ["Type complete final project including introduction, analysis, and conclusion."] }
-            ]
-          }
-        ]
-      }
+      { "number": 1, "title": "Term 1", "categories": [{ "id": "keyboard", "name": "Keyboard Skills", "topics": [{ "title": "Thesis Practice", "type": "thesis", "description": "Thesis drafting practice", "items": ["Thesis draft sample"] }] }] },
+      { "number": 2, "title": "Term 2", "categories": [{ "id": "keyboard", "name": "Keyboard Skills", "topics": [{ "title": "Project Writing", "type": "projects", "description": "Complex project typing", "items": ["Project full draft"] }] }] },
+      { "number": 3, "title": "Term 3", "categories": [{ "id": "keyboard", "name": "Keyboard Skills", "topics": [{ "title": "Final Submission Prep", "type": "finals", "description": "Prepare final projects", "items": ["Final edits & polish"] }] }] }
+    ]
+  },
+
+  {
+    "id": "year11",
+    "name": "Year 11",
+    "terms": [
+      { "number": 1, "title": "Term 1", "categories": [{ "id": "keyboard", "name": "Keyboard Skills", "topics": [{ "title": "Advanced Projects", "type": "projects", "description": "Large projects", "items": ["Project plan & write"] }] }] },
+      { "number": 2, "title": "Term 2", "categories": [{ "id": "keyboard", "name": "Keyboard Skills", "topics": [{ "title": "Theses & Dissertations", "type": "thesis", "description": "Long thesis drafting", "items": ["Long draft sample"] }] }] },
+      { "number": 3, "title": "Term 3", "categories": [{ "id": "keyboard", "name": "Keyboard Skills", "topics": [{ "title": "Final Projects", "type": "finals", "description": "Final project writing", "items": ["Final project writing"] }] }] }
+    ]
+  },
+
+  {
+    "id": "year12",
+    "name": "Year 12",
+    "terms": [
+      { "number": 1, "title": "Term 1", "categories": [{ "id": "keyboard", "name": "Keyboard Skills", "topics": [{ "title": "Dissertations", "type": "thesis", "description": "Long dissertation practice", "items": ["Dissertation draft"] }] }] },
+      { "number": 2, "title": "Term 2", "categories": [{ "id": "keyboard", "name": "Keyboard Skills", "topics": [{ "title": "Final Projects", "type": "finals", "description": "Year final projects", "items": ["Project final"] }] }] },
+      { "number": 3, "title": "Term 3", "categories": [{ "id": "keyboard", "name": "Keyboard Skills", "topics": [{ "title": "Publication & Presentation", "type": "presentation", "description": "Polish for presentation", "items": ["Prepare presentation"] }] }] }
     ]
   }
-] 
+]
