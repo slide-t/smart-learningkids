@@ -2,66 +2,122 @@
 document.addEventListener("DOMContentLoaded", () => {
   const questionContainer = document.getElementById("question-container");
   const feedback = document.getElementById("feedback");
+  const nextButton = document.getElementById("next-btn");
 
-  // Read URL parameters for topic
+  // Read URL parameters
   const urlParams = new URLSearchParams(window.location.search);
   const topicName = urlParams.get("topic") || "Mouse Practice";
+  const year = parseInt(urlParams.get("year")) || 1;
 
-  // Progressive exercises per topic
-  const mouseExercises = {
-    "Pointing": [
-      { x: 50, y: 50, description: "Move your mouse to the top-left corner and click. 🖱️" },
-      { x: 300, y: 100, description: "Point to the star ⭐ and click." },
-      { x: 200, y: 200, description: "Move to the heart ❤️ and click." },
-      { x: 400, y: 250, description: "Point to the smiley 😎 and click." },
-      { x: 150, y: 350, description: "Move to the thumbs up 👍 and click." }
+  // Progressive exercises per year
+  const yearExercises = {
+    1: [
+      { type: "click", x: 100, y: 100, target: "😊", description: "Click the smiling emoji 😊" },
+      { type: "click", x: 300, y: 150, target: "⭐", description: "Click the star ⭐" },
+      { type: "click", x: 200, y: 250, target: "❤️", description: "Click the heart ❤️" },
+      { type: "click", x: 400, y: 300, target: "😎", description: "Click the cool emoji 😎" },
+      { type: "click", x: 150, y: 400, target: "👍", description: "Click the thumbs up 👍" }
     ],
-    "Single Click": [
-      { x: 100, y: 50, description: "Click the square ◼️" },
-      { x: 250, y: 120, description: "Click the triangle 🔺" },
-      { x: 350, y: 200, description: "Click the circle ⚪" },
-      { x: 150, y: 300, description: "Click the star ⭐" },
-      { x: 300, y: 400, description: "Click the heart ❤️" }
+    2: [
+      { type: "click", x: 120, y: 120, target: "🔥", description: "Click the fire emoji 🔥" },
+      { type: "click", x: 350, y: 150, target: "🍎", description: "Click the apple 🍎" },
+      { type: "click", x: 200, y: 300, target: "⚡", description: "Click the lightning ⚡" },
+      { type: "click", x: 400, y: 250, target: "🎵", description: "Click the music 🎵" },
+      { type: "click", x: 150, y: 420, target: "🌟", description: "Click the glowing star 🌟" }
     ],
-    "Double Click": [
-      { x: 100, y: 50, description: "Double click the folder 📁" },
-      { x: 250, y: 150, description: "Double click the star ⭐" },
-      { x: 350, y: 250, description: "Double click the circle ⚪" },
-      { x: 200, y: 350, description: "Double click the square ◼️" },
-      { x: 400, y: 100, description: "Double click the heart ❤️" }
+    3: [
+      { type: "double", x: 100, y: 100, target: "📁", description: "Double-click the folder 📁" },
+      { type: "double", x: 300, y: 150, target: "📂", description: "Double-click the open folder 📂" },
+      { type: "double", x: 200, y: 250, target: "📄", description: "Double-click the document 📄" },
+      { type: "double", x: 400, y: 300, target: "📝", description: "Double-click the notepad 📝" },
+      { type: "double", x: 150, y: 400, target: "⭐", description: "Double-click the star ⭐" }
     ],
-    "Right Click": [
-      { x: 150, y: 100, description: "Right-click the folder 📁" },
-      { x: 300, y: 150, description: "Right-click the star ⭐" },
-      { x: 200, y: 250, description: "Right-click the circle ⚪" },
-      { x: 400, y: 300, description: "Right-click the triangle 🔺" },
-      { x: 100, y: 400, description: "Right-click the heart ❤️" }
+    4: [
+      { type: "drag", x: 100, y: 100, target: "⭐", description: "Drag the star ⭐ into the box" },
+      { type: "drag", x: 300, y: 150, target: "⚪", description: "Drag the circle ⚪ into the target area" },
+      { type: "drag", x: 200, y: 250, target: "❤️", description: "Drag the heart ❤️ into the box" },
+      { type: "drag", x: 400, y: 300, target: "😎", description: "Drag the cool emoji 😎 to the box" },
+      { type: "drag", x: 150, y: 400, target: "👍", description: "Drag the thumbs up 👍 into the target" }
+    ],
+    5: [
+      { type: "drag", x: 150, y: 100, target: "🍎", description: "Drag the apple 🍎 to the basket" },
+      { type: "drag", x: 350, y: 200, target: "🍌", description: "Drag the banana 🍌 to the basket" },
+      { type: "drag", x: 200, y: 250, target: "🍒", description: "Drag the cherry 🍒 to the basket" },
+      { type: "drag", x: 400, y: 300, target: "🍇", description: "Drag the grapes 🍇 to the basket" },
+      { type: "drag", x: 100, y: 400, target: "🍉", description: "Drag the watermelon 🍉 to the basket" }
+    ],
+    6: [
+      { type: "right", x: 150, y: 150, target: "📁", description: "Right-click the folder 📁 to open menu" },
+      { type: "right", x: 300, y: 200, target: "⭐", description: "Right-click the star ⭐ to open menu" },
+      { type: "right", x: 200, y: 300, target: "📝", description: "Right-click the notepad 📝 to open menu" },
+      { type: "right", x: 400, y: 250, target: "📄", description: "Right-click the document 📄 to open menu" },
+      { type: "right", x: 100, y: 400, target: "❤️", description: "Right-click the heart ❤️ to open menu" }
+    ],
+    // Years 7–12 progressively combine double, right, drag and click with desktop workflow
+    7: [
+      { type: "double", x: 150, y: 150, target: "📁", description: "Double-click the folder 📁 to open" },
+      { type: "drag", x: 300, y: 200, target: "⭐", description: "Drag the star ⭐ to the target" },
+      { type: "right", x: 200, y: 300, target: "📝", description: "Right-click the notepad 📝" }
+    ],
+    8: [
+      { type: "double", x: 100, y: 100, target: "📂", description: "Double-click the open folder 📂" },
+      { type: "drag", x: 350, y: 200, target: "📄", description: "Drag the document 📄 to folder" },
+      { type: "right", x: 200, y: 250, target: "📝", description: "Right-click the notepad 📝" }
+    ],
+    9: [
+      { type: "double", x: 150, y: 150, target: "📁", description: "Double-click the folder 📁" },
+      { type: "drag", x: 300, y: 200, target: "⭐", description: "Drag the star ⭐ to target" },
+      { type: "right", x: 200, y: 300, target: "📝", description: "Right-click the notepad 📝" }
+    ],
+    10: [
+      { type: "drag", x: 100, y: 100, target: "📁", description: "Create a new folder: drag 📁 to desktop" },
+      { type: "drag", x: 350, y: 200, target: "📂", description: "Add subfolder: drag 📂 into parent" }
+    ],
+    11: [
+      { type: "drag", x: 200, y: 100, target: "📁", description: "Move folder 📁 to correct location" },
+      { type: "right", x: 300, y: 200, target: "📂", description: "Right-click subfolder 📂" }
+    ],
+    12: [
+      { type: "drag", x: 150, y: 150, target: "📁", description: "Final project: create folder, add subfolders, rename, delete" }
     ]
-    // Add more topics progressively for Years 4–12
   };
 
-  let exercises = mouseExercises[topicName] || [];
+  let exercises = yearExercises[year] || [];
   let currentExerciseIndex = 0;
 
   function showExercise() {
     feedback.textContent = "";
-    const container = document.getElementById("options-container");
-    container.innerHTML = "";
+    nextButton.classList.add("hidden");
 
     if (currentExerciseIndex >= exercises.length) {
       questionContainer.innerHTML = `
-        <h2>🎉 Congratulations! You completed the "${topicName}" practice.</h2>
+        <h2>🎉 Congratulations! You completed Year ${year} "${topicName}" practice.</h2>
+        <div class="flex gap-3 mt-4">
+          <button id="restart-btn" style="padding:10px 15px;border-radius:8px;background:#4b3f72;color:#fff;cursor:pointer;">Restart</button>
+          <button id="back-btn" style="padding:10px 15px;border-radius:8px;background:#555;color:#fff;cursor:pointer;">Back to Classes</button>
+          <button id="home-btn" style="padding:10px 15px;border-radius:8px;background:#888;color:#fff;cursor:pointer;">Home</button>
+        </div>
       `;
-      createCompletionButtons();
+
+      document.getElementById("restart-btn").onclick = () => {
+        currentExerciseIndex = 0;
+        showExercise();
+      };
+      document.getElementById("back-btn").onclick = () => {
+        window.location.href = "../classes.html";
+      };
+      document.getElementById("home-btn").onclick = () => {
+        window.location.href = "../index.html";
+      };
       return;
     }
 
     const exercise = exercises[currentExerciseIndex];
 
     questionContainer.innerHTML = `
-      <h2>${topicName} Exercise ${currentExerciseIndex + 1}/${exercises.length}</h2>
+      <h2>Year ${year} ${topicName} Exercise ${currentExerciseIndex + 1}/${exercises.length}</h2>
       <p>${exercise.description}</p>
-      <div id="exercise-area" style="width:100%;height:400px;position:relative;border:2px dashed #ccc;margin-top:20px;">
+      <div style="width:100%;height:400px;position:relative;border:2px dashed #ccc;margin-top:20px;" id="exercise-area">
         <button id="target-btn" style="
           position:absolute;
           top:${exercise.y}px;
@@ -69,72 +125,60 @@ document.addEventListener("DOMContentLoaded", () => {
           padding:10px 15px;
           border-radius:8px;
           cursor:pointer;
-        ">🖱️ Click Me</button>
+        ">${exercise.target}</button>
       </div>
     `;
 
     const targetBtn = document.getElementById("target-btn");
 
-    // Determine click type based on topic
-    if (topicName === "Double Click") {
-      let clickCount = 0;
-      targetBtn.addEventListener("click", () => {
-        clickCount++;
-        if (clickCount === 2) {
-          feedback.textContent = "✅ Correct Double Click!";
-          feedback.style.color = "green";
-          clickCount = 0;
-          currentExerciseIndex++;
-          setTimeout(showExercise, 800);
-        }
-      });
-    } else if (topicName === "Right Click") {
-      targetBtn.addEventListener("contextmenu", (e) => {
-        e.preventDefault();
-        feedback.textContent = "✅ Correct Right Click!";
+    const handleEvent = (e) => {
+      e.preventDefault();
+      if (
+        (exercise.type === "click" && e.type === "click") ||
+        (exercise.type === "double" && e.type === "dblclick") ||
+        (exercise.type === "right" && e.type === "contextmenu")
+      ) {
+        feedback.textContent = "✅ Correct!";
         feedback.style.color = "green";
         currentExerciseIndex++;
         setTimeout(showExercise, 800);
+      } else {
+        feedback.textContent = "❌ Wrong! Try again.";
+        feedback.style.color = "red";
+      }
+    };
+
+    if (exercise.type === "click") targetBtn.addEventListener("click", handleEvent);
+    if (exercise.type === "double") targetBtn.addEventListener("dblclick", handleEvent);
+    if (exercise.type === "right") targetBtn.addEventListener("contextmenu", handleEvent);
+
+    if (exercise.type === "drag") {
+      targetBtn.setAttribute("draggable", true);
+      const exerciseArea = document.getElementById("exercise-area");
+      const dropZone = document.createElement("div");
+      dropZone.style = `
+        position:absolute;
+        width:100px;
+        height:100px;
+        border:2px dashed green;
+        top:${exercise.y + 50}px;
+        left:${exercise.x + 50}px;
+      `;
+      exerciseArea.appendChild(dropZone);
+
+      targetBtn.addEventListener("dragstart", (e) => {
+        e.dataTransfer.setData("text/plain", "drag");
       });
-    } else {
-      targetBtn.addEventListener("click", () => {
-        feedback.textContent = "✅ Correct!";
+
+      dropZone.addEventListener("dragover", (e) => e.preventDefault());
+      dropZone.addEventListener("drop", (e) => {
+        e.preventDefault();
+        feedback.textContent = "✅ Correct Drag!";
         feedback.style.color = "green";
         currentExerciseIndex++;
         setTimeout(showExercise, 800);
       });
     }
-  }
-
-  function createCompletionButtons() {
-    const container = document.getElementById("options-container");
-    container.innerHTML = "";
-
-    const restartBtn = document.createElement("button");
-    restartBtn.textContent = "🔄 Restart Practice";
-    restartBtn.className = "option-btn";
-    restartBtn.addEventListener("click", () => {
-      currentExerciseIndex = 0;
-      showExercise();
-    });
-
-    const classesBtn = document.createElement("button");
-    classesBtn.textContent = "📚 Back To Classes";
-    classesBtn.className = "option-btn";
-    classesBtn.addEventListener("click", () => {
-      window.location.href = "../classes.html"; // Adjust path as needed
-    });
-
-    const homeBtn = document.createElement("button");
-    homeBtn.textContent = "🏠 Home";
-    homeBtn.className = "option-btn";
-    homeBtn.addEventListener("click", () => {
-      window.location.href = "../index.html"; // Adjust path as needed
-    });
-
-    container.appendChild(restartBtn);
-    container.appendChild(classesBtn);
-    container.appendChild(homeBtn);
   }
 
   showExercise();
