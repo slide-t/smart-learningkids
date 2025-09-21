@@ -1,279 +1,205 @@
 // keyboard.js
-(() => {
-  // DOM
-  const startBtn = document.getElementById('start-btn');
-  const splash = document.getElementById('splash');
-  const gameArea = document.getElementById('game-area');
-  const topicTitle = document.getElementById('topic-title');
-  const topicDesc = document.getElementById('topic-desc');
-  const fallingStage = document.getElementById('falling-stage');
-  const fallingItem = document.getElementById('falling-item');
-  const textInput = document.getElementById('text-input');
-  const feedback = document.getElementById('feedback');
-  const timerEl = document.getElementById('timer');
-  const accuracyEl = document.getElementById('accuracy');
-  const correctEl = document.getElementById('correct');
-  const wrongEl = document.getElementById('wrong');
-  const nextBtn = document.getElementById('next-btn');
-  const restartBtn = document.getElementById('restart-btn');
-  const backBtn = document.getElementById('back-classes');
-  const homeBtn = document.getElementById('home-btn');
+document.addEventListener("DOMContentLoaded", () => {
+  const container = document.getElementById("keyboard-game");
+  const restartBtn = document.getElementById("restart-btn");
+  const backBtn = document.getElementById("back-btn");
+  const homeBtn = document.getElementById("home-btn");
 
-  // Config
-  let data = null;
-  let topicObj = null;
-  let exercises = [];
-  let exerciseIndex = 0;
-  let correct = 0, wrong = 0;
-  let timer = 420; // seconds
-  let timerInterval = null;
+  // Get topic from query string
+  const urlParams = new URLSearchParams(window.location.search);
+  const topic = urlParams.get("topic");
 
-  // Utils
-  const qs = (name) => new URLSearchParams(location.search).get(name);
-  const normalize = s => (s || '').toString().trim().toLowerCase().replace(/\s+/g, '');
-
-  // Prevent mobile soft keyboard (only allow physical keyboards)
-  if (textInput) {
-    textInput.setAttribute("readonly", "readonly"); // block mobile typing
-    textInput.addEventListener("focus", () => {
-      // Remove readonly only if physical keyboard detected
-      textInput.removeAttribute("readonly");
-    });
-  }
-
-  // Load JSON
-  async function loadJSON() {
-    try {
-      const res = await fetch('keyboard.json');
-      if (!res.ok) throw new Error('Failed to load keyboard.json');
-      data = await res.json();
-      initFromURL();
-    } catch (err) {
-      console.error(err);
-      topicTitle.textContent = 'Error loading data';
-      topicDesc.textContent = '';
+  // Game content mapped from classes.json
+  const games = {
+    "home-row": {
+      title: "Home Row Practice",
+      instructions: "Practice typing the home row keys: a, s, d, f, j, k, l, ;",
+      content: ["a", "s", "d", "f", "j", "k", "l", ";"]
+    },
+    "two-letter": {
+      title: "Type Two-Letter Words",
+      instructions: "Type the two-letter words shown.",
+      content: ["at", "on", "in", "up", "to", "it"]
+    },
+    "three-letter": {
+      title: "Type Three-Letter Words",
+      instructions: "Type the three-letter words shown.",
+      content: ["cat", "dog", "sun", "pen", "car"]
+    },
+    "simple-words": {
+      title: "Typing Simple Words",
+      instructions: "Type each word correctly.",
+      content: ["book", "chair", "table", "plant", "water"]
+    },
+    "short-sentences": {
+      title: "Typing Short Sentences",
+      instructions: "Type these short sentences.",
+      content: ["I am happy.", "We play ball.", "The cat runs."]
+    },
+    "simple-paragraphs": {
+      title: "Typing Simple Paragraphs",
+      instructions: "Type the paragraph as shown.",
+      content: [
+        "My name is Ada. I love to read books. I go to school every day."
+      ]
+    },
+    "complex-sentences": {
+      title: "Typing Complex Sentences",
+      instructions: "Type the sentences with commas and connectors.",
+      content: [
+        "When it rains, we stay indoors.",
+        "Although it was late, she finished her homework."
+      ]
+    },
+    "paragraphs": {
+      title: "Typing Short Paragraphs",
+      instructions: "Type this short paragraph.",
+      content: [
+        "The sun rises in the east and sets in the west. It gives us light and warmth."
+      ]
+    },
+    "medium-paragraphs": {
+      title: "Typing Medium Paragraphs",
+      instructions: "Type this medium-length paragraph.",
+      content: [
+        "Computers are useful machines. They help us to write, learn, and play games. Many people use them at work and in schools."
+      ]
+    },
+    "long-paragraphs": {
+      title: "Typing Long Paragraphs",
+      instructions: "Type this long paragraph carefully.",
+      content: [
+        "Education is important for everyone. It gives us knowledge and skills that prepare us for life. Without education, it is difficult to find good jobs or solve everyday problems."
+      ]
+    },
+    "sentences": {
+      title: "Typing Sentences",
+      instructions: "Type each sentence shown.",
+      content: [
+        "Typing helps improve computer skills.",
+        "We learn faster when we practice daily."
+      ]
+    },
+    "long-sentences": {
+      title: "Typing Long Sentences",
+      instructions: "Type these long sentences.",
+      content: [
+        "She was excited to visit the museum, which had many interesting exhibits about history and science."
+      ]
+    },
+    "essays": {
+      title: "Typing Essays",
+      instructions: "Type this short essay.",
+      content: [
+        "Technology has changed the world. Computers, phones, and the internet make communication and learning faster. However, we must use them wisely."
+      ]
+    },
+    "medium-essays": {
+      title: "Typing Medium Essays",
+      instructions: "Type this medium essay.",
+      content: [
+        "Healthy living is important. Eating good food, exercising daily, and sleeping well help us stay strong. Students should learn how to balance study and rest."
+      ]
+    },
+    "long-essays": {
+      title: "Typing Long Essays",
+      instructions: "Type this long essay.",
+      content: [
+        "Our environment is precious. Clean air, water, and land are essential for life. Sadly, pollution is destroying nature. We must recycle, plant trees, and reduce waste to protect our planet for future generations."
+      ]
+    },
+    "reports": {
+      title: "Typing Reports",
+      instructions: "Type this report.",
+      content: [
+        "Report on School Library: The library has 500 books including storybooks and science books. It opens at 8 am and closes at 4 pm. Students are encouraged to borrow books weekly."
+      ]
+    },
+    "research": {
+      title: "Typing Research Papers",
+      instructions: "Type this research paper excerpt.",
+      content: [
+        "Research shows that children who read daily perform better in school. They have stronger vocabulary and better writing skills compared to those who do not read regularly."
+      ]
+    },
+    "projects": {
+      title: "Typing Projects",
+      instructions: "Type this project write-up.",
+      content: [
+        "Science Project: We built a water filter using sand, gravel, and charcoal. The filter cleaned dirty water and made it clear. This project taught us how to make safe drinking water."
+      ]
+    },
+    "theses": {
+      title: "Typing Theses",
+      instructions: "Type this thesis excerpt.",
+      content: [
+        "This thesis studies the effects of technology in education. It examines how digital tools influence student learning and teacher instruction in modern classrooms."
+      ]
+    },
+    "dissertations": {
+      title: "Typing Dissertations",
+      instructions: "Type this dissertation excerpt.",
+      content: [
+        "This dissertation explores climate change impacts on agriculture. Data collected from 20 communities shows that rainfall patterns affect food production significantly."
+      ]
+    },
+    "final-projects": {
+      title: "Typing Final Projects",
+      instructions: "Type this final project excerpt.",
+      content: [
+        "Final Project: Developing a community app for waste recycling. The app allows households to schedule pickups and track recycling activities."
+      ]
     }
-  }
+  };
 
-  // Find topic from URL params (class, term, topic)
-  function initFromURL() {
-    const classId = qs('class');
-    const termNum = qs('term') ? Number(qs('term')) : null;
-    const topicParam = qs('topic');
+  // Load game
+  if (topic && games[topic]) {
+    const game = games[topic];
+    container.innerHTML = `
+      <h2 class="text-2xl font-bold mb-4">${game.title}</h2>
+      <p class="mb-4">${game.instructions}</p>
+      <div id="game-content" class="p-4 border rounded bg-gray-100">
+        <p id="prompt" class="text-lg font-mono"></p>
+        <input id="typing-input" class="mt-2 p-2 border rounded w-full" placeholder="Start typing here..." />
+        <p id="feedback" class="mt-2 text-sm"></p>
+      </div>
+    `;
 
-    let found = null;
-    if (classId && data) {
-      const year = data.find(y => y.id === classId || normalize(y.name) === normalize(classId));
-      if (year) {
-        const term = (year.terms || []).find(t => (termNum ? t.number === termNum : true));
-        if (term) {
-          const keyboardCat = (term.categories || []).find(c => c.id === 'keyboard' || normalize(c.name).includes('keyboard'));
-          if (keyboardCat) {
-            if (topicParam) {
-              const t = (keyboardCat.topics || []).find(topic => normalize(topic.title) === normalize(topicParam));
-              if (t) found = t;
-            }
-            if (!found) found = (keyboardCat.topics || [])[0];
-          }
-        }
-      }
-    }
+    let index = 0;
+    const promptEl = document.getElementById("prompt");
+    const inputEl = document.getElementById("typing-input");
+    const feedbackEl = document.getElementById("feedback");
 
-    // fallback search
-    if (!found && topicParam) {
-      for (const y of data) {
-        for (const t of (y.terms || [])) {
-          for (const c of (t.categories || [])) {
-            for (const top of (c.topics || [])) {
-              if (normalize(top.title) === normalize(topicParam)) {
-                found = top;
-                break;
-              }
-            }
-            if (found) break;
-          }
-          if (found) break;
-        }
-        if (found) break;
-      }
-    }
-
-    // final fallback
-    if (!found) {
-      outer:
-      for (const y of data) {
-        for (const t of (y.terms || [])) {
-          const kc = (t.categories || []).find(c => c.id === 'keyboard' || normalize(c.name).includes('keyboard'));
-          if (kc && kc.topics && kc.topics.length) {
-            found = kc.topics[0];
-            break outer;
-          }
-        }
-      }
-    }
-
-    topicObj = found;
-    if (!topicObj) {
-      topicTitle.textContent = 'No keyboard topic found';
-      return;
-    }
-
-    topicTitle.textContent = topicObj.title || 'Keyboard Practice';
-    topicDesc.textContent = topicObj.description || '';
-    exercises = Array.isArray(topicObj.items) ? topicObj.items.slice() : [];
-    exercises = exercises.map(it => String(it));
-  }
-
-  // Start
-  function startPractice() {
-    exerciseIndex = 0;
-    correct = 0;
-    wrong = 0;
-    updateScore();
-    splash.classList.add('hidden');
-    gameArea.classList.remove('hidden');
-    textInput.value = '';
-    textInput.focus();
-    startTimer();
-    showExercise();
-  }
-
-  // Timer
-  function startTimer() {
-    clearInterval(timerInterval);
-    timer = 420;
-    updateTimer();
-    timerInterval = setInterval(() => {
-      timer--;
-      if (timer <= 0) {
-        clearInterval(timerInterval);
-        feedback.textContent = '⏰ Time’s up!';
-        feedback.style.color = 'red';
-        endPractice();
-      }
-      updateTimer();
-    }, 1000);
-  }
-  function updateTimer() {
-    const m = String(Math.floor(timer/60)).padStart(2,'0');
-    const s = String(timer%60).padStart(2,'0');
-    timerEl.textContent = `${m}:${s}`;
-  }
-
-  // Show exercise
-  function showExercise() {
-    feedback.textContent = '';
-    nextBtn.classList.add('hidden');
-    restartBtn.classList.add('hidden');
-    backBtn.classList.add('hidden');
-    homeBtn.classList.add('hidden');
-
-    if (exerciseIndex >= exercises.length) {
-      fallingItem.textContent = '';
-      feedback.innerHTML = `<span class="text-green-600 font-bold">🎉 Congratulations — you completed "${topicObj.title}"</span>`;
-      nextBtn.textContent = 'Next';
-      nextBtn.classList.remove('hidden');
-      restartBtn.classList.remove('hidden');
-      backBtn.classList.remove('hidden');
-      homeBtn.classList.remove('hidden');
-      return;
-    }
-
-    const item = exercises[exerciseIndex];
-    animateFalling(item);
-    textInput.value = '';
-    textInput.focus();
-  }
-
-  // Falling animation
-  function animateFalling(text) {
-    fallingItem.textContent = text;
-    fallingItem.style.position = 'absolute';
-    fallingItem.style.top = '-40px';
-    const stageRect = fallingStage.getBoundingClientRect();
-    const minX = 10;
-    const maxX = Math.max(10, stageRect.width - 100);
-    const left = Math.floor(Math.random() * (maxX - minX)) + minX;
-    fallingItem.style.left = `${left}px`;
-    fallingItem.style.transition = 'transform 1.2s ease-in, top 1.2s linear';
-    fallingItem.style.transform = 'translateY(0)';
-    requestAnimationFrame(() => {
-      fallingItem.style.top = `${stageRect.height - 60}px`;
-      fallingItem.style.transform = 'scale(1.05)';
-      setTimeout(() => {
-        fallingItem.style.transform = 'scale(1)';
-      }, 1200);
-    });
-  }
-
-  // Input checking
-  function checkInput() {
-    const expected = exercises[exerciseIndex] ? String(exercises[exerciseIndex]).trim() : '';
-    const got = textInput.value.trim();
-    if (!expected) return;
-    if (normalize(got) === normalize(expected)) {
-      correct++;
-      feedback.textContent = `✅ Correct: ${expected}`;
-      feedback.style.color = 'green';
-      exerciseIndex++;
-      updateScore();
-      setTimeout(showExercise, 700);
-    }
-  }
-
-  // Enter key handling
-  textInput && textInput.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter') {
-      const expected = exercises[exerciseIndex] ? String(exercises[exerciseIndex]).trim() : '';
-      const got = textInput.value.trim();
-      if (normalize(got) === normalize(expected)) {
-        correct++;
-        feedback.textContent = `✅ Correct: ${expected}`;
-        feedback.style.color = 'green';
+    function loadPrompt() {
+      if (index < game.content.length) {
+        promptEl.textContent = game.content[index];
+        inputEl.value = "";
+        feedbackEl.textContent = "";
       } else {
-        wrong++;
-        feedback.textContent = `❌ Wrong — expected: ${expected}`;
-        feedback.style.color = 'red';
+        promptEl.textContent = "Well done! 🎉 You finished this topic.";
+        inputEl.disabled = true;
       }
-      updateScore();
-      exerciseIndex++;
-      setTimeout(showExercise, 700);
     }
-  });
 
-  // Score update
-  function updateScore() {
-    correctEl.textContent = correct;
-    wrongEl.textContent = wrong;
-    const total = correct + wrong;
-    accuracyEl.textContent = total ? Math.round((correct/total)*100) + '%' : '0%';
+    inputEl.addEventListener("input", () => {
+      if (inputEl.value === game.content[index]) {
+        feedbackEl.textContent = "✅ Correct!";
+        feedbackEl.className = "text-green-600 mt-2 text-sm";
+        index++;
+        setTimeout(loadPrompt, 1000);
+      } else {
+        feedbackEl.textContent = "⏳ Keep typing...";
+        feedbackEl.className = "text-blue-600 mt-2 text-sm";
+      }
+    });
+
+    loadPrompt();
+  } else {
+    container.innerHTML = `<p class="text-red-600">❌ Invalid topic. Please go back and select again.</p>`;
   }
 
-  // End practice
-  function endPractice() {
-    clearInterval(timerInterval);
-    restartBtn.classList.remove('hidden');
-    backBtn.classList.remove('hidden');
-    homeBtn.classList.remove('hidden');
-    nextBtn.classList.add('hidden');
-    feedback.textContent = 'Practice ended. Use Restart or Back to Classes.';
-  }
-
-  // Restart
-  restartBtn.addEventListener('click', () => {
-    exerciseIndex = 0;
-    correct = 0; wrong = 0;
-    updateScore();
-    showExercise();
-  });
-
-  // Start button
-  startBtn.addEventListener('click', () => {
-    startPractice();
-    startBtn.classList.add('hidden');
-  });
-
-  // Load JSON
-  loadJSON();
-
-})();
+  // Button handlers
+  if (restartBtn) restartBtn.addEventListener("click", () => location.reload());
+  if (backBtn) backBtn.addEventListener("click", () => window.location.href = "classes.html");
+  if (homeBtn) homeBtn.addEventListener("click", () => window.location.href = "index.html");
+});
