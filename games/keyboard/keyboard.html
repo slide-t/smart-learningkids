@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Keyboard Practice</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gradient-to-br from-blue-50 to-purple-50 text-gray-900 font-sans min-h-screen flex flex-col">
+<body class="bg-gradient-to-br from-blue-50 to-blue-100 text-gray-900 font-sans min-h-screen flex flex-col">
 
   <!-- Header -->
-  <header class="bg-purple-600 text-white shadow-md fixed top-0 left-0 w-full z-50">
+  <header class="bg-blue-600 text-white shadow-md fixed top-0 left-0 w-full z-50">
     <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
       <h1 class="text-2xl font-bold">Keyboard Practice</h1>
-      <a href="classes.html" class="bg-white text-purple-600 px-4 py-2 rounded-lg font-medium shadow hover:bg-purple-100 transition">Back to Classes</a>
+      <a href="classes.html" class="bg-white text-blue-600 px-4 py-2 rounded-lg font-medium shadow hover:bg-blue-100 transition">Back to Classes</a>
     </div>
   </header>
 
   <!-- Main -->
-  <main class="flex-1 pt-24 max-w-4xl mx-auto px-4">
+  <main class="flex-1 pt-24 max-w-4xl mx-auto px-4 w-full">
     <h2 id="lesson-title" class="text-3xl font-bold text-center mb-6">Loading Lesson...</h2>
 
     <!-- Game Container -->
@@ -26,21 +26,36 @@
     </div>
 
     <!-- Controls -->
-    <div class="mt-8 flex justify-between items-center">
-      <button id="start-btn" class="px-6 py-3 bg-purple-600 text-white font-semibold rounded-lg shadow hover:bg-purple-700 transition">Start Game</button>
+    <div class="mt-8 flex flex-col sm:flex-row sm:justify-between items-center gap-4">
+      <div class="flex gap-3">
+        <button id="start-btn" class="px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow hover:bg-blue-700 transition">Start Game</button>
+        <button id="reset-btn" class="px-4 py-3 bg-white border border-blue-200 text-blue-600 rounded-lg shadow hover:bg-blue-50 transition">Reset</button>
+      </div>
       <div id="score-display" class="text-lg font-medium text-gray-700">Score: 0</div>
     </div>
   </main>
 
   <!-- Scripts -->
   <script src="js/keyboard.js"></script>
+
   <script>
+    // Page wiring: find lesson and call startTypingGame when Start clicked
     document.addEventListener("DOMContentLoaded", () => {
       const params = new URLSearchParams(window.location.search);
       const lessonId = params.get("lesson");
       const lessonTitle = document.getElementById("lesson-title");
       const gameContainer = document.getElementById("game-container");
       const startBtn = document.getElementById("start-btn");
+      const resetBtn = document.getElementById("reset-btn");
+      const scoreDisplay = document.getElementById("score-display");
+
+      // ensure keyboard.js loaded and created keyboardLessons
+      if (!window.keyboardLessons) {
+        lessonTitle.textContent = "⚠️ Lesson Data Missing";
+        gameContainer.innerHTML = "<p class='text-red-500'>Missing keyboard.js or keyboardLessons. Check console.</p>";
+        startBtn.disabled = true;
+        return;
+      }
 
       if (!lessonId) {
         lessonTitle.textContent = "⚠️ Lesson Not Found";
@@ -49,8 +64,7 @@
         return;
       }
 
-      // Match lesson from keyboardLessons in keyboard.js
-      const lesson = keyboardLessons.find(l => l.id === lessonId);
+      const lesson = window.keyboardLessons.find(l => l.id === lessonId);
 
       if (!lesson) {
         lessonTitle.textContent = "⚠️ Lesson Not Found";
@@ -59,13 +73,24 @@
         return;
       }
 
-      // Load lesson title
+      // Show lesson title
       lessonTitle.textContent = lesson.title;
 
-      // Game initialization
+      // Start button toggles game (start/stop). The startTypingGame function itself toggles if a game is running.
       startBtn.addEventListener("click", () => {
-        gameContainer.innerHTML = ""; // clear old
-        startTypingGame(lesson, gameContainer, document.getElementById("score-display"));
+        // call startTypingGame provided by js/keyboard.js
+        window.startTypingGame(lesson, gameContainer, scoreDisplay, startBtn);
+      });
+
+      // Reset button clears board and score (keeps lesson same)
+      resetBtn.addEventListener("click", () => {
+        // If a game is running, stop it first
+        if (window._typingGameRunning && typeof window.stopTypingGame === "function") {
+          window.stopTypingGame();
+        }
+        scoreDisplay.textContent = "Score: 0";
+        gameContainer.innerHTML = "<p class='text-gray-500'>Press Start to begin the typing game.</p>";
+        startBtn.textContent = "Start Game";
       });
     });
   </script>
