@@ -11,9 +11,60 @@
             "id": "mouse",
             "name": "Mouse Skills",
             "topics": [
-              { "title": "Pointing", "link": "games/mouse/pointing.html" },
-              { "title": "Single Click", "link": "games/mouse/single-click.html" },
-              { "title": "Click Practice", "link": "games/mouse/click-practice.html" }
+              {
+                "title": "Pointing",
+                "link": "games/mouse/mouse.html?class=year1&term=1&category=mouse&topic=Pointing"
+              },
+              {
+                "title": "Single Click",
+                "link": "games/mouse/mouse.html?class=year1&term=1&category=mouse&topic=Single%20Click"
+              }
+            ]
+          },
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              {
+                "title": "Home Row Practice",
+                "link": "games/keyboard/keyboard.html?class=year1&term=1&category=keyboard&topic=Home%20Row%20Practice"
+              },
+              {
+                "title": "Type Two-Letter Words",
+                "link": "games/keyboard/keyboard.html?class=year1&term=1&category=keyboard&topic=Type%20Two-Letter%20Words"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "number": 2,
+        "title": "Second Term",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              {
+                "title": "Typing Simple Words",
+                "link": "games/keyboard/keyboard.html?class=year1&term=2&category=keyboard&topic=Typing%20Simple%20Words"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "number": 3,
+        "title": "Third Term",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              {
+                "title": "Typing Short Sentences",
+                "link": "games/keyboard/keyboard.html?class=year1&term=3&category=keyboard&topic=Typing%20Short%20Sentences"
+              }
             ]
           }
         ]
@@ -32,9 +83,52 @@
             "id": "mouse",
             "name": "Mouse Skills",
             "topics": [
-              { "title": "Pointing", "link": "games/mouse/pointing.html" },
-              { "title": "Single Click", "link": "games/mouse/single-click.html" },
-              { "title": "Click Practice", "link": "games/mouse/click-practice.html" }
+              {
+                "title": "Pointing",
+                "link": "games/mouse/mouse.html?class=year2&term=1&category=mouse&topic=Pointing"
+              }
+            ]
+          },
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              {
+                "title": "Type Three-Letter Words",
+                "link": "games/keyboard/keyboard.html?class=year2&term=1&category=keyboard&topic=Type%20Three-Letter%20Words"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "number": 2,
+        "title": "Second Term",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              {
+                "title": "Typing Simple Paragraphs",
+                "link": "games/keyboard/keyboard.html?class=year2&term=2&category=keyboard&topic=Typing%20Simple%20Paragraphs"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "number": 3,
+        "title": "Third Term",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              {
+                "title": "Typing Complex Sentences",
+                "link": "games/keyboard/keyboard.html?class=year2&term=3&category=keyboard&topic=Typing%20Complex%20Sentences"
+              }
             ]
           }
         ]
@@ -53,13 +147,63 @@
             "id": "mouse",
             "name": "Mouse Skills",
             "topics": [
-              { "title": "Double Click", "link": "games/mouse/double-click.html" }
+              {
+                "title": "Pointing",
+                "link": "games/mouse/mouse.html?class=year3&term=1&category=mouse&topic=Pointing"
+              },
+              {
+                "title": "Single Click",
+                "link": "games/mouse/mouse.html?class=year3&term=1&category=mouse&topic=Single%20Click"
+              }
+            ]
+          },
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              {
+                "title": "Typing Short Paragraphs",
+                "link": "games/keyboard/keyboard.html?class=year3&term=1&category=keyboard&topic=Typing%20Short%20Paragraphs"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "number": 2,
+        "title": "Second Term",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              {
+                "title": "Typing Medium Paragraphs",
+                "link": "games/keyboard/keyboard.html?class=year3&term=2&category=keyboard&topic=Typing%20Medium%20Paragraphs"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "number": 3,
+        "title": "Third Term",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              {
+                "title": "Typing Long Paragraphs",
+                "link": "games/keyboard/keyboard.html?class=year3&term=3&category=keyboard&topic=Typing%20Long%20Paragraphs"
+              }
             ]
           }
         ]
       }
     ]
   },
+
   {
     "id": "year4",
     "name": "Year 4",
@@ -72,7 +216,56 @@
             "id": "mouse",
             "name": "Mouse Skills",
             "topics": [
-              { "title": "Right Click", "link": "games/mouse/right-click.html" }
+              {
+                "title": "Single Click Fun",
+                "link": "games/mouse/mouse.html?class=year4&term=1&category=mouse&topic=Single%20Click%20Fun"
+              },
+              {
+                "title": "Double Click",
+                "link": "games/mouse/mouse.html?class=year4&term=1&category=mouse&topic=Double%20Click"
+              }
+            ]
+          },
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              {
+                "title": "Typing Sentences",
+                "link": "games/keyboard/keyboard.html?class=year4&term=1&category=keyboard&topic=Typing%20Sentences"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "number": 2,
+        "title": "Second Term",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              {
+                "title": "Typing Short Paragraphs",
+                "link": "games/keyboard/keyboard.html?class=year4&term=2&category=keyboard&topic=Typing%20Short%20Paragraphs"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "number": 3,
+        "title": "Third Term",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              {
+                "title": "Typing Long Sentences",
+                "link": "games/keyboard/keyboard.html?class=year4&term=3&category=keyboard&topic=Typing%20Long%20Sentences"
+              }
             ]
           }
         ]
@@ -91,7 +284,56 @@
             "id": "mouse",
             "name": "Mouse Skills",
             "topics": [
-              { "title": "Drag and Drop Shapes", "link": "games/mouse/drag-drop.html" }
+              {
+                "title": "Drag and Drop",
+                "link": "games/mouse/mouse.html?class=year5&term=1&category=mouse&topic=Drag%20and%20Drop"
+              },
+              {
+                "title": "Right Click",
+                "link": "games/mouse/mouse.html?class=year5&term=1&category=mouse&topic=Right%20Click"
+              }
+            ]
+          },
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              {
+                "title": "Typing Short Paragraphs",
+                "link": "games/keyboard/keyboard.html?class=year5&term=1&category=keyboard&topic=Typing%20Short%20Paragraphs"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "number": 2,
+        "title": "Second Term",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              {
+                "title": "Typing Medium Paragraphs",
+                "link": "games/keyboard/keyboard.html?class=year5&term=2&category=keyboard&topic=Typing%20Medium%20Paragraphs"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "number": 3,
+        "title": "Third Term",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              {
+                "title": "Typing Essays",
+                "link": "games/keyboard/keyboard.html?class=year5&term=3&category=keyboard&topic=Typing%20Essays"
+              }
             ]
           }
         ]
@@ -110,13 +352,63 @@
             "id": "mouse",
             "name": "Mouse Skills",
             "topics": [
-              { "title": "Drag and Drop Advanced", "link": "games/mouse/drag-drop-advanced.html" }
+              {
+                "title": "Create New Folder",
+                "link": "games/mouse/mouse.html?class=year6&term=1&category=mouse&topic=Create%20New%20Folder"
+              },
+              {
+                "title": "Rename Folder",
+                "link": "games/mouse/mouse.html?class=year6&term=1&category=mouse&topic=Rename%20Folder"
+              }
+            ]
+          },
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              {
+                "title": "Typing Paragraphs",
+                "link": "games/keyboard/keyboard.html?class=year6&term=1&category=keyboard&topic=Typing%20Paragraphs"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "number": 2,
+        "title": "Second Term",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              {
+                "title": "Typing Medium Essays",
+                "link": "games/keyboard/keyboard.html?class=year6&term=2&category=keyboard&topic=Typing%20Medium%20Essays"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "number": 3,
+        "title": "Third Term",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              {
+                "title": "Typing Long Essays",
+                "link": "games/keyboard/keyboard.html?class=year6&term=3&category=keyboard&topic=Typing%20Long%20Essays"
+              }
             ]
           }
         ]
       }
     ]
   },
+
   {
     "id": "year7",
     "name": "Year 7",
@@ -129,9 +421,56 @@
             "id": "mouse",
             "name": "Mouse Skills",
             "topics": [
-              { "title": "Create Folder", "link": "games/mouse/create-folder.html" },
-              { "title": "Rename Folder", "link": "games/mouse/rename-folder.html" },
-              { "title": "Delete Folder", "link": "games/mouse/delete-folder.html" }
+              {
+                "title": "Move and Click Shapes",
+                "link": "games/mouse/mouse.html?class=year7&term=1&category=mouse&topic=Move%20and%20Click%20Shapes"
+              },
+              {
+                "title": "Right Click Practice",
+                "link": "games/mouse/mouse.html?class=year7&term=1&category=mouse&topic=Right%20Click%20Practice"
+              }
+            ]
+          },
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              {
+                "title": "Typing Essays",
+                "link": "games/keyboard/keyboard.html?class=year7&term=1&category=keyboard&topic=Typing%20Essays"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "number": 2,
+        "title": "Second Term",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              {
+                "title": "Typing Reports",
+                "link": "games/keyboard/keyboard.html?class=year7&term=2&category=keyboard&topic=Typing%20Reports"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "number": 3,
+        "title": "Third Term",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              {
+                "title": "Typing Research Papers",
+                "link": "games/keyboard/keyboard.html?class=year7&term=3&category=keyboard&topic=Typing%20Research%20Papers"
+              }
             ]
           }
         ]
@@ -150,8 +489,56 @@
             "id": "mouse",
             "name": "Mouse Skills",
             "topics": [
-              { "title": "Copy and Paste Files", "link": "games/mouse/copy-paste.html" },
-              { "title": "Move Files Between Folders", "link": "games/mouse/move-files.html" }
+              {
+                "title": "Drag and Drop Objects",
+                "link": "games/mouse/mouse.html?class=year8&term=1&category=mouse&topic=Drag%20and%20Drop%20Objects"
+              },
+              {
+                "title": "Click on Moving Targets",
+                "link": "games/mouse/mouse.html?class=year8&term=1&category=mouse&topic=Click%20on%20Moving%20Targets"
+              }
+            ]
+          },
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              {
+                "title": "Typing Research Papers",
+                "link": "games/keyboard/keyboard.html?class=year8&term=1&category=keyboard&topic=Typing%20Research%20Papers"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "number": 2,
+        "title": "Second Term",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              {
+                "title": "Typing Reports",
+                "link": "games/keyboard/keyboard.html?class=year8&term=2&category=keyboard&topic=Typing%20Reports"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "number": 3,
+        "title": "Third Term",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              {
+                "title": "Typing Research Papers",
+                "link": "games/keyboard/keyboard.html?class=year8&term=3&category=keyboard&topic=Typing%20Research%20Papers"
+              }
             ]
           }
         ]
@@ -170,8 +557,56 @@
             "id": "mouse",
             "name": "Mouse Skills",
             "topics": [
-              { "title": "Create Subfolder", "link": "games/mouse/create-subfolder.html" },
-              { "title": "Delete Subfolder", "link": "games/mouse/delete-subfolder.html" }
+              {
+                "title": "Organize Desktop Icons",
+                "link": "games/mouse/mouse.html?class=year9&term=1&category=mouse&topic=Organize%20Desktop%20Icons"
+              },
+              {
+                "title": "Open and Close Windows",
+                "link": "games/mouse/mouse.html?class=year9&term=1&category=mouse&topic=Open%20and%20Close%20Windows"
+              }
+            ]
+          },
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              {
+                "title": "Typing Projects",
+                "link": "games/keyboard/keyboard.html?class=year9&term=1&category=keyboard&topic=Typing%20Projects"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "number": 2,
+        "title": "Second Term",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              {
+                "title": "Typing Theses",
+                "link": "games/keyboard/keyboard.html?class=year9&term=2&category=keyboard&topic=Typing%20Theses"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "number": 3,
+        "title": "Third Term",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              {
+                "title": "Typing Dissertations",
+                "link": "games/keyboard/keyboard.html?class=year9&term=3&category=keyboard&topic=Typing%20Dissertations"
+              }
             ]
           }
         ]
@@ -190,17 +625,66 @@
             "id": "mouse",
             "name": "Mouse Skills",
             "topics": [
-              { "title": "Organize Files", "link": "games/mouse/organize-files.html" },
-              { "title": "Drag Multiple Items", "link": "games/mouse/drag-multiple.html" }
+              {
+                "title": "Organize Folders and Files",
+                "link": "games/mouse/mouse.html?class=year10&term=1&category=mouse&topic=Organize%20Folders%20and%20Files"
+              },
+              {
+                "title": "Right Click Menu Practice",
+                "link": "games/mouse/mouse.html?class=year10&term=1&category=mouse&topic=Right%20Click%20Menu%20Practice"
+              }
+            ]
+          },
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              {
+                "title": "Typing Theses",
+                "link": "games/keyboard/keyboard.html?class=year10&term=1&category=keyboard&topic=Typing%20Theses"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "number": 2,
+        "title": "Second Term",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              {
+                "title": "Typing Dissertations",
+                "link": "games/keyboard/keyboard.html?class=year10&term=2&category=keyboard&topic=Typing%20Dissertations"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "number": 3,
+        "title": "Third Term",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              {
+                "title": "Typing Final Projects",
+                "link": "games/keyboard/keyboard.html?class=year10&term=3&category=keyboard&topic=Typing%20Final%20Projects"
+              }
             ]
           }
         ]
       }
     ]
   },
+
   {
-    "id": "year11",
-    "name": "Year 11",
+    "id": "year7",
+    "name": "Year 7",
     "terms": [
       {
         "number": 1,
@@ -210,7 +694,56 @@
             "id": "mouse",
             "name": "Mouse Skills",
             "topics": [
-              { "title": "Multi-Step Folder Actions", "link": "games/mouse/multi-step.html" }
+              {
+                "title": "Move and Click Shapes",
+                "link": "games/mouse/mouse.html?class=year7&term=1&category=mouse&topic=Move%20and%20Click%20Shapes"
+              },
+              {
+                "title": "Right Click Practice",
+                "link": "games/mouse/mouse.html?class=year7&term=1&category=mouse&topic=Right%20Click%20Practice"
+              }
+            ]
+          },
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              {
+                "title": "Typing Essays",
+                "link": "games/keyboard/keyboard.html?class=year7&term=1&category=keyboard&topic=Typing%20Essays"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "number": 2,
+        "title": "Second Term",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              {
+                "title": "Typing Reports",
+                "link": "games/keyboard/keyboard.html?class=year7&term=2&category=keyboard&topic=Typing%20Reports"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "number": 3,
+        "title": "Third Term",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              {
+                "title": "Typing Research Papers",
+                "link": "games/keyboard/keyboard.html?class=year7&term=3&category=keyboard&topic=Typing%20Research%20Papers"
+              }
             ]
           }
         ]
@@ -218,8 +751,8 @@
     ]
   },
   {
-    "id": "year12",
-    "name": "Year 12",
+    "id": "year8",
+    "name": "Year 8",
     "terms": [
       {
         "number": 1,
@@ -229,7 +762,192 @@
             "id": "mouse",
             "name": "Mouse Skills",
             "topics": [
-              { "title": "Advanced Desktop Management", "link": "games/mouse/advanced-desktop.html" }
+              {
+                "title": "Drag and Drop Objects",
+                "link": "games/mouse/mouse.html?class=year8&term=1&category=mouse&topic=Drag%20and%20Drop%20Objects"
+              },
+              {
+                "title": "Click on Moving Targets",
+                "link": "games/mouse/mouse.html?class=year8&term=1&category=mouse&topic=Click%20on%20Moving%20Targets"
+              }
+            ]
+          },
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              {
+                "title": "Typing Research Papers",
+                "link": "games/keyboard/keyboard.html?class=year8&term=1&category=keyboard&topic=Typing%20Research%20Papers"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "number": 2,
+        "title": "Second Term",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              {
+                "title": "Typing Reports",
+                "link": "games/keyboard/keyboard.html?class=year8&term=2&category=keyboard&topic=Typing%20Reports"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "number": 3,
+        "title": "Third Term",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              {
+                "title": "Typing Research Papers",
+                "link": "games/keyboard/keyboard.html?class=year8&term=3&category=keyboard&topic=Typing%20Research%20Papers"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "year9",
+    "name": "Year 9",
+    "terms": [
+      {
+        "number": 1,
+        "title": "First Term",
+        "categories": [
+          {
+            "id": "mouse",
+            "name": "Mouse Skills",
+            "topics": [
+              {
+                "title": "Organize Desktop Icons",
+                "link": "games/mouse/mouse.html?class=year9&term=1&category=mouse&topic=Organize%20Desktop%20Icons"
+              },
+              {
+                "title": "Open and Close Windows",
+                "link": "games/mouse/mouse.html?class=year9&term=1&category=mouse&topic=Open%20and%20Close%20Windows"
+              }
+            ]
+          },
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              {
+                "title": "Typing Projects",
+                "link": "games/keyboard/keyboard.html?class=year9&term=1&category=keyboard&topic=Typing%20Projects"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "number": 2,
+        "title": "Second Term",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              {
+                "title": "Typing Theses",
+                "link": "games/keyboard/keyboard.html?class=year9&term=2&category=keyboard&topic=Typing%20Theses"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "number": 3,
+        "title": "Third Term",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              {
+                "title": "Typing Dissertations",
+                "link": "games/keyboard/keyboard.html?class=year9&term=3&category=keyboard&topic=Typing%20Dissertations"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "year10",
+    "name": "Year 10",
+    "terms": [
+      {
+        "number": 1,
+        "title": "First Term",
+        "categories": [
+          {
+            "id": "mouse",
+            "name": "Mouse Skills",
+            "topics": [
+              {
+                "title": "Organize Folders and Files",
+                "link": "games/mouse/mouse.html?class=year10&term=1&category=mouse&topic=Organize%20Folders%20and%20Files"
+              },
+              {
+                "title": "Right Click Menu Practice",
+                "link": "games/mouse/mouse.html?class=year10&term=1&category=mouse&topic=Right%20Click%20Menu%20Practice"
+              }
+            ]
+          },
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              {
+                "title": "Typing Theses",
+                "link": "games/keyboard/keyboard.html?class=year10&term=1&category=keyboard&topic=Typing%20Theses"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "number": 2,
+        "title": "Second Term",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              {
+                "title": "Typing Dissertations",
+                "link": "games/keyboard/keyboard.html?class=year10&term=2&category=keyboard&topic=Typing%20Dissertations"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "number": 3,
+        "title": "Third Term",
+        "categories": [
+          {
+            "id": "keyboard",
+            "name": "Keyboard Skills",
+            "topics": [
+              {
+                "title": "Typing Final Projects",
+                "link": "games/keyboard/keyboard.html?class=year10&term=3&category=keyboard&topic=Typing%20Final%20Projects"
+              }
             ]
           }
         ]
@@ -237,3 +955,6 @@
     ]
   }
 ]
+  
+  
+  
