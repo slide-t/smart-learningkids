@@ -1,33 +1,41 @@
+// keyboard.js
 document.addEventListener("DOMContentLoaded", () => {
   const questionContainer = document.getElementById("question-container");
   const feedback = document.getElementById("feedback");
   const nextButton = document.getElementById("next-btn");
 
-  // Read URL parameters for class, term, category, topic
+  // Read URL parameters
   const urlParams = new URLSearchParams(window.location.search);
-  const topicName = urlParams.get("topic") || "Home Row Practice";
-  const className = urlParams.get("class") || "Year1";
+  const year = urlParams.get("class") || "year1";
+  const term = parseInt(urlParams.get("term")) || 1;
+  const topicName = urlParams.get("topic") || "Keyboard Practice";
 
   let exercises = [];
+  let currentExerciseIndex = 0;
 
-  // Load keyboard exercises JSON
+  // Load keyboard.json
   fetch("keyboard.json")
-    .then(response => response.json())
+    .then(res => res.json())
     .then(data => {
-      if (data[className] && data[className][topicName]) {
-        exercises = data[className][topicName];
-        currentExerciseIndex = 0;
-        showExercise();
-      } else {
-        questionContainer.innerHTML = "<p>⚠️ No exercises found for this topic.</p>";
-      }
+      const yearData = data.find(y => y.year === year);
+      if (!yearData) throw new Error("Year data not found");
+
+      const termData = yearData.terms.find(t => t.number === term);
+      if (!termData) throw new Error("Term data not found");
+
+      const category = termData.categories.find(c => c.id === "keyboard");
+      if (!category) throw new Error("Keyboard category not found");
+
+      const topic = category.topics.find(t => t.title === topicName);
+      if (!topic) throw new Error("Topic not found");
+
+      exercises = topic.exercise || [];
+      showExercise();
     })
     .catch(err => {
-      console.error("❌ Error loading keyboard.json:", err);
-      questionContainer.innerHTML = "<p>⚠️ Failed to load exercises.</p>";
+      console.error("Error loading keyboard exercises:", err);
+      questionContainer.innerHTML = "<p>⚠️ Failed to load keyboard exercises.</p>";
     });
-
-  let currentExerciseIndex = 0;
 
   function showExercise() {
     feedback.textContent = "";
@@ -35,14 +43,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (currentExerciseIndex >= exercises.length) {
       questionContainer.innerHTML = `
-        <h2>🎉 Congratulations! You completed "${topicName}" practice.</h2>
+        <h2>🎉 Congratulations! You completed "${topicName}".</h2>
         <div style="margin-top:20px;">
-          <button id="restart-btn" class="control-btn">Restart</button>
-          <button id="back-btn" class="control-btn">Back to Classes</button>
-          <button id="home-btn" class="control-btn">Home</button>
+          <button id="restart-btn" class="action-btn">Restart</button>
+          <button id="back-btn" class="action-btn">Back To Classes</button>
+          <button id="home-btn" class="action-btn">Home</button>
         </div>
       `;
-
       document.getElementById("restart-btn").onclick = () => {
         currentExerciseIndex = 0;
         showExercise();
@@ -56,27 +63,35 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    const exercise = exercises[currentExerciseIndex];
+    const exerciseText = exercises[currentExerciseIndex];
+
     questionContainer.innerHTML = `
       <h2>${topicName} Exercise ${currentExerciseIndex + 1}/${exercises.length}</h2>
-      <p>${exercise.description}</p>
-      <input type="text" id="user-input" placeholder="Type here..." style="width:80%;padding:10px;font-size:18px;margin-top:15px;" autofocus>
-      <div style="margin-top:15px;">
-        <button id="check-btn" class="control-btn">Check</button>
-      </div>
+      <p>Type the following text exactly:</p>
+      <div id="exercise-text" style="background:#f0f0ff;padding:12px;margin:15px 0;border-radius:6px;">${exerciseText}</div>
+      <textarea id="user-input" rows="4" style="width:100%;padding:10px;border-radius:6px;border:1px solid #ccc;"></textarea>
     `;
 
-    document.getElementById("check-btn").onclick = () => {
-      const userInput = document.getElementById("user-input").value.trim();
-      if (userInput === exercise.expected) {
-        feedback.textContent = "✅ Correct!";
-        feedback.style.color = "green";
-        currentExerciseIndex++;
-        setTimeout(showExercise, 800);
-      } else {
-        feedback.textContent = `❌ Wrong! Try again.`;
-        feedback.style.color = "red";
-      }
-    };
+    const userInput = document.getElementById("user-input");
+    userInput.focus();
+
+    userInput.addEventListener("input", checkInput);
+  }
+
+  function checkInput() {
+    const userInput = document.getElementById("user-input");
+    const exerciseText = exercises[currentExerciseIndex];
+
+    if (userInput.value === exerciseText) {
+      feedback.textContent = "✅ Correct!";
+      feedback.style.color = "green";
+      currentExerciseIndex++;
+      setTimeout(showExercise, 800); // move to next exercise
+    } else if (!exerciseText.startsWith(userInput.value)) {
+      feedback.textContent = "❌ Incorrect. Check your typing!";
+      feedback.style.color = "red";
+    } else {
+      feedback.textContent = "";
+    }
   }
 });
