@@ -206,6 +206,84 @@ document.addEventListener("DOMContentLoaded", () => {
   const nextBtn = document.getElementById("nextBtn");
   const homeBtn = document.getElementById("homeBtn");
 
+  const practiceArea = document.getElementById("practiceArea");
+  const virtualKeyboard = document.getElementById("virtualKeyboard");
+  const targetChar = document.getElementById("targetChar");
+  const feedback = document.getElementById("feedback");
+
+  // Characters to practice
+  const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+  let currentIndex = 0;
+
+  function pickChar() {
+    if (currentIndex < chars.length) {
+      targetChar.textContent = chars[currentIndex];
+      feedback.textContent = "";
+    } else {
+      feedback.textContent = "✅ Great job! You finished all rounds.";
+      nextBtn.classList.add("hidden");
+      restartBtn.classList.remove("hidden");
+    }
+  }
+
+  function initGame() {
+    currentIndex = 0;
+    pickChar();
+    document.addEventListener("keydown", handleKeyPress);
+  }
+
+  function handleKeyPress(e) {
+    const expected = chars[currentIndex];
+    if (!expected) return;
+
+    if (e.key.toUpperCase() === expected) {
+      feedback.textContent = "✅ Correct!";
+      nextBtn.classList.remove("hidden"); // show Next button
+    } else {
+      feedback.textContent = "❌ Try again!";
+    }
+  }
+
+  // Start button
+  if (startBtn) {
+    startBtn.addEventListener("click", () => {
+      startBtn.classList.add("hidden");
+      practiceArea.classList.remove("hidden");
+      virtualKeyboard.classList.remove("hidden");
+      initGame();
+    });
+  }
+
+  // Next button
+  if (nextBtn) {
+    nextBtn.addEventListener("click", () => {
+      currentIndex++;
+      pickChar();
+      nextBtn.classList.add("hidden");
+    });
+  }
+
+  // Restart button
+  if (restartBtn) {
+    restartBtn.addEventListener("click", () => location.reload());
+  }
+
+  // Home button
+  if (homeBtn) {
+    homeBtn.addEventListener("click", () => {
+      window.location.href = "index.html";
+    });
+  }
+});
+  
+  
+  /*document.addEventListener("DOMContentLoaded", () => {
+  // Get buttons
+  const startBtn = document.getElementById("startBtn");
+  const restartBtn = document.getElementById("restartBtn");
+  const nextBtn = document.getElementById("nextBtn");
+  const homeBtn = document.getElementById("homeBtn");
+
   // Start button logic
   if (startBtn && topic && games[topic]) {
     startBtn.addEventListener("click", () => {
