@@ -70,7 +70,22 @@
 
   <!-- Styles for Keys -->
   <style>
-    .key {
+
+.key.correct {
+      background: #16a34a; /* green-600 */
+      color: white;
+      transform: scale(1.15);
+      box-shadow: 0 0 12px rgba(22,163,74,0.7);
+    }
+
+    .key.wrong {
+      background: #dc2626; /* red-600 */
+      color: white;
+      transform: scale(1.15);
+      box-shadow: 0 0 12px rgba(220,38,38,0.7);
+    }
+    
+   .key {
       background: #e0f0ff;
       color: #1e40af;
       font-weight: bold;
