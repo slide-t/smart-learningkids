@@ -1,138 +1,187 @@
 // keyboard.js
 document.addEventListener("DOMContentLoaded", () => {
-  const container = document.getElementById("keyboard-game");
-  const startBtn = document.getElementById("startBtn");
-  const restartBtn = document.getElementById("restartBtn");
-  const nextBtn = document.getElementById("nextBtn");
-  const backBtn = document.getElementById("backBtn");
-  const homeBtn = document.getElementById("homeBtn");
-
-  // Get topic from query string
   const urlParams = new URLSearchParams(window.location.search);
   const topic = urlParams.get("topic");
 
-  // Define available games/topics
+  // ==============================
+  // MODE 1: Typing words/sentences
+  // ==============================
+  const container = document.getElementById("keyboard-game");
+
   const games = {
-    letters: {
-      title: "Keyboard Letters",
-      chars: "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("")
+    "home-row": {
+      title: "Home Row Practice",
+      instructions: "Practice typing the home row keys: a, s, d, f, j, k, l, ;",
+      content: ["a", "s", "d", "f", "j", "k", "l", ";"]
     },
-    numbers: {
-      title: "Keyboard Numbers",
-      chars: "0123456789".split("")
-    }
+    "two-letter": {
+      title: "Type Two-Letter Words",
+      instructions: "Type the two-letter words shown.",
+      content: ["at", "on", "in", "up", "to", "it"]
+    },
+    // ... add more topics here
   };
 
-  // Initialize game
-  function initGame(game) {
+  function initTypingGame(game) {
+    if (!container) return;
+
     container.innerHTML = `
-      <h2 class="text-xl font-bold mb-4">${game.title}</h2>
-      <p id="prompt" class="text-lg mb-4">Press the highlighted key</p>
-      <div id="virtual-keyboard" class="grid grid-cols-10 gap-2 mb-4"></div>
-      <div class="flex space-x-4">
-        <button id="nextBtn" class="px-4 py-2 bg-blue-500 text-white rounded">Next</button>
-        <button id="restartBtn" class="px-4 py-2 bg-yellow-500 text-white rounded">Restart</button>
-        <button id="backBtn" class="px-4 py-2 bg-gray-500 text-white rounded">Back</button>
-        <button id="homeBtn" class="px-4 py-2 bg-green-600 text-white rounded">Home</button>
+      <h2 class="text-2xl font-bold mb-4">${game.title}</h2>
+      <p class="mb-4">${game.instructions}</p>
+      <div id="game-content" class="p-4 border rounded bg-gray-100">
+        <p id="prompt" class="text-lg font-mono"></p>
+        <input id="typing-input" class="mt-2 p-2 border rounded w-full" placeholder="Start typing here..." />
+        <p id="feedback" class="mt-2 text-sm"></p>
       </div>
     `;
 
-    const vk = document.getElementById("virtual-keyboard");
-    const prompt = document.getElementById("prompt");
-    const nextBtn = document.getElementById("nextBtn");
+    let index = 0;
+    const promptEl = document.getElementById("prompt");
+    const inputEl = document.getElementById("typing-input");
+    const feedbackEl = document.getElementById("feedback");
 
-    let currentIndex = 0;
-
-    // Build virtual keyboard
-    game.chars.forEach(char => {
-      const keyEl = document.createElement("div");
-      keyEl.textContent = char;
-      keyEl.className = "key px-3 py-2 border rounded text-center";
-      keyEl.id = `key-${char}`;
-      vk.appendChild(keyEl);
-    });
-
-    // Highlight next character
-    function highlightChar() {
-      document.querySelectorAll(".key").forEach(el => el.classList.remove("bg-yellow-300"));
-      if (currentIndex < game.chars.length) {
-        const char = game.chars[currentIndex];
-        const keyEl = document.getElementById(`key-${char}`);
-        if (keyEl) keyEl.classList.add("bg-yellow-300");
-        prompt.textContent = `Press "${char}"`;
+    function loadPrompt() {
+      if (index < game.content.length) {
+        promptEl.textContent = game.content[index];
+        inputEl.value = "";
+        feedbackEl.textContent = "";
       } else {
-        prompt.textContent = "🎉 Great job! You finished.";
+        promptEl.textContent = "Well done! 🎉 You finished this topic.";
+        inputEl.disabled = true;
       }
     }
 
-    // Handle input (both physical + virtual)
-    function handleInput(inputChar) {
-      if (currentIndex >= game.chars.length) return;
-
-      const expectedChar = game.chars[currentIndex];
-      const keyEl = document.getElementById(`key-${expectedChar}`);
-
-      if (inputChar.toUpperCase() === expectedChar) {
-        // Correct input
-        if (keyEl) {
-          keyEl.classList.add("bg-green-400");
-          setTimeout(() => {
-            keyEl.classList.remove("bg-green-400");
-            currentIndex++;
-            highlightChar();
-          }, 500); // auto-advance
-        }
+    inputEl.addEventListener("input", () => {
+      if (inputEl.value === game.content[index]) {
+        feedbackEl.textContent = "✅ Correct!";
+        feedbackEl.className = "text-green-600 mt-2 text-sm";
+        index++;
+        setTimeout(loadPrompt, 1000);
       } else {
-        // Wrong input
-        const wrongEl = document.getElementById(`key-${inputChar.toUpperCase()}`);
-        if (wrongEl) {
-          wrongEl.classList.add("bg-red-400");
-          setTimeout(() => wrongEl.classList.remove("bg-red-400"), 500);
-        }
+        feedbackEl.textContent = "⏳ Keep typing...";
+        feedbackEl.className = "text-blue-600 mt-2 text-sm";
       }
-    }
-
-    // Virtual key clicks
-    document.querySelectorAll(".key").forEach(keyEl => {
-      keyEl.addEventListener("click", () => handleInput(keyEl.textContent));
     });
 
-    // Physical keyboard
-    document.addEventListener("keydown", e => {
-      handleInput(e.key.toUpperCase());
-    });
-
-    // Next button (manual)
-    if (nextBtn) {
-      nextBtn.addEventListener("click", () => {
-        currentIndex++;
-        highlightChar();
-      });
-    }
-
-    highlightChar();
+    loadPrompt();
   }
 
-  // Start button logic
-  if (startBtn && topic && games[topic]) {
+  // ==============================
+  // MODE 2: Virtual Keyboard (A–Z)
+  // ==============================
+  const startBtn = document.getElementById("startBtn");
+  const restartBtn = document.getElementById("restartBtn");
+  const nextBtn = document.getElementById("nextBtn");
+  const homeBtn = document.getElementById("homeBtn");
+
+  const practiceArea = document.getElementById("practiceArea");
+  const virtualKeyboard = document.getElementById("virtualKeyboard");
+  const targetChar = document.getElementById("targetChar");
+  const feedback = document.getElementById("feedback");
+
+  const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+  let currentIndex = 0;
+
+  function pickChar() {
+    if (!targetChar) return;
+    if (currentIndex < chars.length) {
+      targetChar.textContent = chars[currentIndex];
+      feedback.textContent = "";
+
+      // highlight next key
+      document.querySelectorAll(".key").forEach(k => k.classList.remove("active"));
+      const keyDiv = document.querySelector(`.key[data-key="${chars[currentIndex]}"]`);
+      if (keyDiv) keyDiv.classList.add("active");
+    } else {
+      feedback.textContent = "✅ Great job! You finished all rounds.";
+      nextBtn.classList.add("hidden");
+      restartBtn.classList.remove("hidden");
+    }
+  }
+
+  function initPracticeGame() {
+    currentIndex = 0;
+    pickChar();
+    document.addEventListener("keydown", handleKeyPress);
+  }
+
+  function handleKeyPress(e) {
+    const expected = chars[currentIndex];
+    if (!expected) return;
+
+    const pressedKey = e.key.toUpperCase();
+    const keyDiv = document.querySelector(`.key[data-key="${pressedKey}"]`);
+
+    if (pressedKey === expected) {
+      feedback.textContent = "✅ Correct!";
+      feedback.className = "text-green-600 font-bold";
+
+      // flash green
+      if (keyDiv) {
+        keyDiv.classList.add("correct");
+        setTimeout(() => keyDiv.classList.remove("correct"), 300);
+      }
+
+      nextBtn.classList.remove("hidden"); // show Next button
+    } else {
+      feedback.textContent = "❌ Try again!";
+      feedback.className = "text-red-600 font-bold";
+
+      // flash red
+      if (keyDiv) {
+        keyDiv.classList.add("wrong");
+        setTimeout(() => keyDiv.classList.remove("wrong"), 300);
+      }
+    }
+  }
+
+  // ==============================
+  // BUTTONS
+  // ==============================
+  if (startBtn) {
     startBtn.addEventListener("click", () => {
-      startBtn.style.display = "none"; // hide start button
-      initGame(games[topic]);
+      startBtn.classList.add("hidden");
+      practiceArea.classList.remove("hidden");
+      virtualKeyboard.classList.remove("hidden");
+      initPracticeGame();
     });
-  } else if (!games[topic]) {
-    container.innerHTML = `<p class="text-red-600">❌ Invalid topic. Please go back and select again.</p>`;
   }
 
-  // Other button handlers
-  if (restartBtn) restartBtn.addEventListener("click", () => location.reload());
-  if (backBtn) backBtn.addEventListener("click", () => (window.location.href = "classes.html"));
-  if (homeBtn) homeBtn.addEventListener("click", () => (window.location.href = "index.html"));
+  if (nextBtn) {
+    nextBtn.addEventListener("click", () => {
+      currentIndex++;
+      pickChar();
+      nextBtn.classList.add("hidden");
+    });
+  }
 
+  if (restartBtn) {
+    restartBtn.addEventListener("click", () => location.reload());
+  }
+
+  if (homeBtn) {
+    homeBtn.addEventListener("click", () => {
+      window.location.href = "index.html";
+    });
+  }
+
+  // ==============================
+  // DECIDE WHICH MODE TO RUN
+  // ==============================
+  if (topic && games[topic]) {
+    initTypingGame(games[topic]);
+  } else {
+    // Default to virtual keyboard mode (no error)
+    console.log("No valid topic provided, waiting for Start button.");
+  }
+
+  // ==============================
+  // OPTIONAL: Block mobile users
+  // ==============================
   /*
-  // 🚫 Mobile devices restriction (commented out for now)
   if (/Mobi|Android/i.test(navigator.userAgent)) {
-    container.innerHTML = "<p class='text-red-600'>❌ Sorry, this game is for desktop devices only.</p>";
-    return;
+    alert("❌ This game works best on desktop with a physical keyboard.");
+    window.location.href = "index.html";
   }
   */
 });
