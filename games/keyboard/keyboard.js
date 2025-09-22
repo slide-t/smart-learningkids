@@ -8,14 +8,16 @@ document.addEventListener("DOMContentLoaded", () => {
   const restartBtn = document.getElementById("restartBtn");
   const homeBtn = document.getElementById("homeBtn");
 
-  // Full keyboard layout including common symbols
-  const keyLayout = [
-    ["Q","W","E","R","T","Y","U","I","O","P"],
-    ["A","S","D","F","G","H","J","K","L",";"],
-    ["Z","X","C","V","B","N","M",",",".","/"],
-    ["1","2","3","4","5","6","7","8","9","0"],
-    ["-","+","=","'","\"","!","?","@","#","$"]
-  ];
+  // Full keyboard layout with dynamic rows
+  const layouts = {
+    letters: [
+      ["Q","W","E","R","T","Y","U","I","O","P"],
+      ["A","S","D","F","G","H","J","K","L",";"],
+      ["Z","X","C","V","B","N","M",",",".","/"]
+    ],
+    numbers: [["1","2","3","4","5","6","7","8","9","0"]],
+    symbols: [["-","+","=","'","\"","!","?","@","#","$"]]
+  };
 
   // Progressive stages
   const stages = [
@@ -33,10 +35,18 @@ document.addEventListener("DOMContentLoaded", () => {
   let target = "";
   let score = 0;
 
-  // Render virtual keyboard
-  function renderKeyboard() {
+  // Determine which layout to show
+  function getLayoutForKey(char) {
+    if (/^[a-zA-Z;,\./]$/.test(char)) return layouts.letters;
+    if (/^[0-9]$/.test(char)) return layouts.numbers;
+    return layouts.symbols;
+  }
+
+  // Render virtual keyboard dynamically
+  function renderKeyboard(char) {
+    const layout = getLayoutForKey(char);
     virtualKeyboard.innerHTML = "";
-    keyLayout.forEach(row => {
+    layout.forEach(row => {
       const rowDiv = document.createElement("div");
       rowDiv.className = "flex justify-center gap-1 mb-1";
       row.forEach(key => {
@@ -51,14 +61,12 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Enable only the next key
+  // Highlight only the target key
   function highlightKey(char) {
     document.querySelectorAll(".key").forEach(k => {
       k.classList.remove("active");
       k.classList.add("disabled");
     });
-
-    if (!char) return;
     const keyBtn = Array.from(document.querySelectorAll(".key"))
       .find(k => k.dataset.key.toUpperCase() === char.toUpperCase());
     if (keyBtn) {
@@ -67,20 +75,25 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Pick next target
+  // Pick next target key or word
   function nextTarget() {
     if (!currentStage.keys.length) return;
     const randomIndex = Math.floor(Math.random() * currentStage.keys.length);
     target = currentStage.keys[randomIndex];
     targetCharEl.textContent = target;
     feedbackEl.textContent = "";
-    highlightKey(target);
+    renderKeyboard(target);
+    highlightKey(target[0]); // only first char highlighted for words
   }
 
-  // Handle input
+  // Handle user input
   function handleInput(input) {
     if (!target) return;
-    if (input.toUpperCase() === target.toUpperCase()) {
+
+    let expected = target[0]; // first char
+    if (target.length === 1) expected = target; // single keys
+
+    if (input.toUpperCase() === expected.toUpperCase()) {
       score += 10;
       feedbackEl.textContent = `✅ Correct! Score: ${score}`;
       nextTarget();
@@ -89,7 +102,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Stage control
+  // Move to next stage
   function nextStage() {
     stageIndex++;
     if (stageIndex >= stages.length) {
@@ -108,7 +121,6 @@ document.addEventListener("DOMContentLoaded", () => {
     nextBtn.classList.remove("hidden");
     restartBtn.classList.remove("hidden");
     virtualKeyboard.classList.remove("hidden");
-    renderKeyboard();
     feedbackEl.textContent = `➡️ Stage: ${currentStage.name}`;
     nextTarget();
   });
@@ -126,9 +138,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   homeBtn.addEventListener("click", () => window.location.href = "index.html");
 
-  // Keyboard input support
+  // Keyboard input
   document.addEventListener("keydown", e => {
-    if (e.key.length === 1) handleInput(e.key.toUpperCase());
+    if (e.key.length === 1) handleInput(e.key);
     else if (e.key === " ") handleInput("SPACE");
     else if (e.key === ";") handleInput(";");
   });
