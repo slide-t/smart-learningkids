@@ -200,6 +200,18 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 // Start button logic
+const startBtn = document.getElementById("startBtn");
+
+if (startBtn && topic && games[topic]) {
+  startBtn.addEventListener("click", () => {
+    startBtn.style.display = "none"; // hide start button after click
+    initGame(games[topic]);
+  });
+} else if (!games[topic]) {
+  container.innerHTML = `<p class="text-red-600">❌ Invalid topic. Please go back and select again.</p>`;
+}
+  
+      /*// Start button logic
 const startBtn = document.querySelector(".startBtn");
 
 if (startBtn && topic && games[topic]) {
@@ -211,7 +223,7 @@ if (startBtn && topic && games[topic]) {
   container.innerHTML = `<p class="text-red-600">❌ Invalid topic. Please go back and select again.</p>`;
 }
       
-  /*// Start button logic
+// Start button logic
   if (startBtn && topic && games[topic]) {
     startBtn.addEventListener("click", () => {
       startBtn.style.display = "none"; // hide start button after click
