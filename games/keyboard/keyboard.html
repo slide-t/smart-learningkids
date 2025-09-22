@@ -3,127 +3,49 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Keyboard Game</title>
+  <title>Keyboard Practice</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    #game-container { min-height: 300px; }
-    #typing-input { font-size: 1.5rem; }
-    #feedback { font-size: 1.2rem; font-weight: bold; }
-    .confetti { animation: confetti-fall 1s ease-out; }
-    @keyframes confetti-fall {
-      0% { transform: translateY(-50px); opacity: 1; }
-      100% { transform: translateY(50px); opacity: 0; }
-    }
-  </style>
 </head>
-<body class="bg-gradient-to-br from-blue-50 to-blue-100 font-sans min-h-screen flex flex-col">
+<body class="bg-gradient-to-br from-blue-50 to-blue-100 text-gray-900 font-sans min-h-screen flex flex-col">
 
-<header class="bg-blue-600 text-white p-4 shadow-md flex justify-between items-center fixed top-0 w-full z-50">
-  <h1 class="text-2xl font-bold">Keyboard Game</h1>
-  <a href="classes.html" class="bg-white text-blue-600 px-3 py-2 rounded shadow hover:bg-blue-100 transition">Back to Classes</a>
-</header>
-
-<main class="flex-1 pt-24 max-w-4xl mx-auto px-4 w-full">
-  <h2 id="lesson-title" class="text-3xl font-bold text-center mb-6">Loading Lesson...</h2>
-  <div id="game-container" class="bg-white rounded-2xl shadow-lg p-6 flex flex-col items-center justify-center relative">
-    <p id="prompt" class="text-2xl font-mono mb-4">Ready?</p>
-    <input id="typing-input" class="p-3 border rounded w-full text-center" placeholder="Start typing here..." autocomplete="off">
-    <p id="feedback" class="mt-2"></p>
-    <div class="flex justify-between mt-4 w-full">
-      <button id="start-btn" class="px-6 py-3 bg-blue-600 text-white rounded shadow hover:bg-blue-700">Start</button>
-      <button id="reset-btn" class="px-6 py-3 bg-white border text-blue-600 rounded shadow hover:bg-blue-50">Reset</button>
+  <!-- Header -->
+  <header class="bg-blue-600 text-white shadow-md fixed top-0 left-0 w-full z-50">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+      <h1 class="text-2xl font-bold">Keyboard Practice</h1>
+      <a href="classes.html" class="bg-white text-blue-600 px-4 py-2 rounded-lg font-medium shadow hover:bg-blue-100 transition">Back to Classes</a>
     </div>
-    <div class="mt-4 w-full flex justify-between">
-      <span id="score-display" class="text-lg font-semibold">Score: 0</span>
-      <span id="progress-display" class="text-lg font-semibold">0 / 0</span>
-    </div>
-  </div>
-</main>
+  </header>
 
-<script src="keyboard.js"></script>
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const params = new URLSearchParams(window.location.search);
-  const lessonId = params.get("lesson");
-  const lessonTitle = document.getElementById("lesson-title");
-  const promptEl = document.getElementById("prompt");
-  const inputEl = document.getElementById("typing-input");
-  const feedbackEl = document.getElementById("feedback");
-  const startBtn = document.getElementById("start-btn");
-  const resetBtn = document.getElementById("reset-btn");
-  const scoreDisplay = document.getElementById("score-display");
-  const progressDisplay = document.getElementById("progress-display");
+  <!-- Main -->
+  <main class="flex-1 pt-24 max-w-4xl mx-auto px-4 w-full">
+    
+    <!-- Topic List -->
+    <section id="topic-list" class="mb-8">
+      <h2 class="text-xl font-semibold mb-4">Select a Topic:</h2>
+      <div id="topics-container" class="grid grid-cols-1 sm:grid-cols-2 gap-4"></div>
+    </section>
 
-  if (!window.keyboardLessons) {
-    lessonTitle.textContent = "⚠️ Lesson Data Missing";
-    promptEl.textContent = "Check keyboardLessons.js";
-    startBtn.disabled = true;
-    return;
-  }
+    <!-- Game Container -->
+    <section id="game-container" class="bg-white rounded-2xl shadow-lg p-6 min-h-[300px] flex flex-col items-center justify-center hidden">
+      <h2 id="lesson-title" class="text-2xl font-bold mb-4"></h2>
+      <p id="lesson-instructions" class="mb-4"></p>
+      <div id="game-content" class="p-4 border rounded bg-gray-100 w-full">
+        <p id="prompt" class="text-lg font-mono mb-2"></p>
+        <input id="typing-input" class="mt-2 p-2 border rounded w-full" placeholder="Start typing here..." autocomplete="off" />
+        <p id="feedback" class="mt-2 text-sm"></p>
+        <div class="flex justify-between mt-4">
+          <span id="score-display" class="font-semibold">Score: 0</span>
+          <span id="progress-display" class="font-semibold">0 / 0</span>
+        </div>
+      </div>
+      <div class="mt-6 flex gap-3">
+        <button id="restart-btn" class="px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow hover:bg-blue-700 transition">Restart</button>
+        <button id="back-btn" class="px-4 py-3 bg-white border border-blue-200 text-blue-600 rounded-lg shadow hover:bg-blue-50 transition">Back to Topics</button>
+      </div>
+    </section>
 
-  const lesson = window.keyboardLessons.find(l => l.id === lessonId);
-  if (!lesson) {
-    lessonTitle.textContent = "⚠️ Lesson Not Found";
-    promptEl.textContent = "Please access via class link";
-    startBtn.disabled = true;
-    return;
-  }
+  </main>
 
-  let index = 0;
-  let score = 0;
-  const items = lesson.items || [];
-
-  lessonTitle.textContent = lesson.title;
-  progressDisplay.textContent = `0 / ${items.length}`;
-  inputEl.disabled = true;
-
-  function loadPrompt() {
-    if (index < items.length) {
-      promptEl.textContent = items[index];
-      inputEl.value = "";
-      inputEl.disabled = false;
-      inputEl.focus();
-      progressDisplay.textContent = `${index} / ${items.length}`;
-      feedbackEl.textContent = "";
-    } else {
-      promptEl.textContent = "🎉 Congratulations! You finished!";
-      inputEl.disabled = true;
-      feedbackEl.textContent = `Final Score: ${score}`;
-    }
-  }
-
-  inputEl.addEventListener("input", () => {
-    if (inputEl.value === items[index]) {
-      feedbackEl.textContent = "✅ Correct!";
-      feedbackEl.className = "text-green-600 mt-2 text-lg confetti";
-      score += 10;
-      scoreDisplay.textContent = `Score: ${score}`;
-      index++;
-      setTimeout(loadPrompt, 800);
-    } else {
-      feedbackEl.textContent = "⏳ Keep typing...";
-      feedbackEl.className = "text-blue-600 mt-2 text-lg";
-    }
-  });
-
-  startBtn.addEventListener("click", () => {
-    index = 0;
-    score = 0;
-    scoreDisplay.textContent = "Score: 0";
-    loadPrompt();
-  });
-
-  resetBtn.addEventListener("click", () => {
-    index = 0;
-    score = 0;
-    scoreDisplay.textContent = "Score: 0";
-    promptEl.textContent = "Ready?";
-    inputEl.value = "";
-    inputEl.disabled = true;
-    feedbackEl.textContent = "";
-    progressDisplay.textContent = `0 / ${items.length}`;
-  });
-});
-</script>
+  <script src="keyboard.js"></script>
 </body>
 </html>
