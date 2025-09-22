@@ -6,14 +6,8 @@
   <title>Smart Learning Kids - Classes</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    .accordion-body {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.5s ease;
-    }
-    .accordion-header span:last-child {
-      transition: transform 0.3s ease;
-    }
+    .accordion-body { max-height: 0; overflow: hidden; transition: max-height 0.5s ease; }
+    .accordion-header span:last-child { transition: transform 0.3s ease; }
   </style>
 </head>
 <body class="bg-gray-50 text-gray-900 font-sans">
@@ -67,16 +61,20 @@ document.addEventListener("DOMContentLoaded", async () => {
                 <h4 class="text-md font-semibold text-purple-600 px-3 py-1">${cat.name}</h4>
                 <ul class="space-y-2 pl-6">
                   ${(cat.topics || []).map(topic => {
+                    // Build link dynamically based on category id
+                    const link = termUnlocked ? `games/${cat.id}/${cat.id}.html` : "#";
+                    const icon = cat.id === "mouse" ? "🖱️" : cat.id === "keyboard" ? "⌨️" : "📖";
+
                     if (termUnlocked) {
                       return `<li>
-                        <span class="block px-4 py-2 rounded-lg shadow text-gray-900 bg-white hover:shadow-md hover:bg-blue-50 transition cursor-pointer">
-                          ${topic.title}
-                        </span>
+                        <a href="${link}" class="block px-4 py-2 rounded-lg shadow text-gray-900 bg-white hover:shadow-md hover:bg-blue-50 transition flex items-center gap-2">
+                          <span>${icon}</span> ${topic.title}
+                        </a>
                       </li>`;
                     } else {
                       return `<li>
-                        <span class="block px-4 py-2 rounded-lg shadow text-base bg-gray-200 text-gray-500 cursor-not-allowed">
-                          ${topic.title} (Locked)
+                        <span class="block px-4 py-2 rounded-lg shadow text-base bg-gray-200 text-gray-500 cursor-not-allowed flex items-center gap-2">
+                          <span>${icon}</span> ${topic.title} (Locked)
                         </span>
                       </li>`;
                     }
@@ -93,7 +91,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         const isOpen = body.style.maxHeight && body.style.maxHeight !== "0px";
         container.querySelectorAll(".accordion-body").forEach(el => el.style.maxHeight = null);
         container.querySelectorAll(".accordion-header span:last-child").forEach(icon => icon.style.transform = "rotate(0deg)");
-
         if (!isOpen) {
           body.style.maxHeight = body.scrollHeight + "px";
           header.querySelector("span:last-child").style.transform = "rotate(45deg)";
