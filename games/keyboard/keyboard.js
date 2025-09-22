@@ -27,6 +27,23 @@ document.addEventListener("DOMContentLoaded", () => {
       instructions: "Type the three-letter words shown.",
       content: ["cat", "dog", "sun", "pen", "car"]
     },
+
+    "simple-words": {
+      title: "Typing Simple Words",
+      instructions: "Type each word correctly.",
+      content: ["book", "chair", "table", "plant", "water"]
+    },
+    "short-sentences": {
+      title: "Typing Short Sentences",
+      instructions: "Type these short sentences.",
+      content: ["I am happy.", "We play ball.", "The cat runs."]
+    },
+    "simple-paragraphs": {
+      title: "Typing Simple Paragraphs",
+      instructions: "Type the paragraph as shown.",
+      content: [
+        "My name is Ada. I love to read books. I go to school every day."
+      ]
     // ... (rest of your topics unchanged)
   };
 
