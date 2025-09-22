@@ -3,90 +3,48 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-  <title>Mouse Game Board</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #f3f3ff, #e6e6fa);
-      margin: 0;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      overflow: hidden;
-    }
-
-    .game-board {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
-      box-sizing: border-box;
-    }
-
-    h1 {
-      color: #4b3f72;
-      margin-bottom: 20px;
-    }
-
-    #question-container {
-      font-size: 22px;
-      font-weight: bold;
-      margin-bottom: 20px;
-      text-align: center;
-    }
-
-    #feedback {
-      margin-top: 20px;
-      font-size: 20px;
-      font-weight: bold;
-      text-align: center;
-    }
-
-    #next-btn {
-      margin-top: 25px;
-      padding: 14px 24px;
-      font-size: 18px;
-      background: #4b3f72;
-      color: white;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-
-    #next-btn:hover {
-      background: #362d57;
-    }
-
-    .hidden {
-      display: none;
-    }
-
-  </style>
+  <title>Mouse Practice</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-  <div class="game-board">
-    <h1>🖱️ Mouse Practice</h1>
-    <div id="question-container"></div>
-    <div id="feedback"></div>
-    <button id="next-btn" class="hidden"></button>
-  </div>
+<body class="bg-gradient-to-br from-purple-50 to-purple-100 text-gray-900 font-sans min-h-screen flex flex-col items-center justify-center">
 
+  <!-- Header -->
+  <header class="bg-purple-600 text-white shadow-md fixed top-0 left-0 w-full z-50">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+      <h1 class="text-2xl font-bold">🖱️ Mouse Practice</h1>
+      <a href="classes.html" class="bg-white text-purple-600 px-4 py-2 rounded-lg font-medium shadow hover:bg-purple-100 transition">
+        Back to Classes
+      </a>
+    </div>
+  </header>
+
+  <!-- Main Game Container -->
+  <main class="flex-1 w-full max-w-4xl mx-auto px-4 pt-24 flex flex-col items-center justify-center">
+    <div id="game-container" class="bg-white rounded-2xl shadow-lg p-6 w-full min-h-[300px] flex flex-col items-center justify-center relative">
+      <div id="question-container" class="text-2xl font-bold text-center mb-4">Loading Mouse Activity...</div>
+      <div id="feedback" class="text-lg font-semibold text-center text-gray-700 mb-4"></div>
+      <button id="next-btn" class="hidden px-6 py-3 bg-purple-600 text-white font-semibold rounded-lg shadow hover:bg-purple-700 transition">
+        Next
+      </button>
+    </div>
+  </main>
+
+  <!-- Scripts -->
   <script src="mouse.js"></script>
   <script>
-    // Automatically set topic & year from URL or default
-    // Example URL: mouse.html?topic=Pointing&year=1
+    // Get topic & year from URL parameters or default values
     const urlParams = new URLSearchParams(window.location.search);
     const topic = urlParams.get("topic") || "Mouse Practice";
-    const year = urlParams.get("year") || 1;
+    const year = parseInt(urlParams.get("year")) || 1;
 
     // Pass parameters to mouse.js via global variables
-    window.topicName = topic;
-    window.mouseYear = parseInt(year);
+    window.mouseLesson = { topic, year };
+
+    // Optional: Initialize mouse lesson if mouse.js exposes a function
+    if (typeof window.initMouseLesson === "function") {
+      window.initMouseLesson(topic, year);
+    }
   </script>
+
 </body>
 </html>
