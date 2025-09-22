@@ -1,111 +1,171 @@
-// keyboard.js
-document.addEventListener("DOMContentLoaded", () => {
-  const container = document.getElementById("keyboard-game");
-  const restartBtn = document.getElementById("restart-btn");
-  const backBtn = document.getElementById("back-btn");
-  const homeBtn = document.getElementById("home-btn");
+let topics = [];
+let currentTopicIndex = 0;
+let currentContent = [];
+let score = 0;
+let progress = 0;
+let activeWord = "";
+let gameOver = false;
 
-  const canvas = document.createElement("canvas");
-  canvas.width = 600;
-  canvas.height = 400;
-  canvas.className = "border rounded bg-gray-100 w-full";
-  container.innerHTML = "";
-  container.appendChild(canvas);
+const topicsContainer = document.getElementById("topics-container");
+const gameContainer = document.getElementById("game-container");
+const lessonTitle = document.getElementById("lesson-title");
+const lessonInstructions = document.getElementById("lesson-instructions");
+const typingInput = document.getElementById("typing-input");
+const promptEl = document.getElementById("prompt");
+const feedbackEl = document.getElementById("feedback");
+const scoreEl = document.getElementById("score-display");
+const progressEl = document.getElementById("progress-display");
+const restartBtn = document.getElementById("restart-btn");
+const nextBtn = document.getElementById("next-btn");
+const backBtn = document.getElementById("back-btn");
+const canvas = document.getElementById("falling-keys-canvas");
+const ctx = canvas.getContext("2d");
 
-  const ctx = canvas.getContext("2d");
+canvas.width = canvas.offsetWidth;
+canvas.height = canvas.offsetHeight;
 
-  // Game state
-  let letters = [];
-  let score = 0;
-  let lives = 3;
-  let active = true;
+let fallingItems = [];
+let fallSpeed = 1.5;
+let spawnInterval;
+let animationFrame;
 
-  // Home row letters
-  const homeRow = ["a", "s", "d", "f", "j", "k", "l", ";"];
+// Load topics
+fetch("keyboard.json")
+  .then(res => res.json())
+  .then(data => {
+    topics = data.topics;
+    renderTopics();
+  });
 
-  function spawnLetter() {
-    if (!active) return;
-    const text = homeRow[Math.floor(Math.random() * homeRow.length)];
-    letters.push({
-      text,
-      x: Math.random() * (canvas.width - 50) + 20,
-      y: -20,
-      speed: 1 + Math.random() * 1.5,
-      born: Date.now(),
-    });
-  }
+// Render topics on page
+function renderTopics() {
+  topicsContainer.innerHTML = "";
+  topics.forEach((topic, index) => {
+    const btn = document.createElement("button");
+    btn.textContent = topic.title;
+    btn.className = "p-4 bg-blue-500 text-white rounded-lg shadow hover:bg-blue-600 transition";
+    btn.addEventListener("click", () => loadTopic(index));
+    topicsContainer.appendChild(btn);
+  });
+}
 
-  function draw() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+// Load a topic
+function loadTopic(index) {
+  currentTopicIndex = index;
+  const topic = topics[index];
+  currentContent = [...topic.content];
+  score = 0;
+  progress = 0;
+  gameOver = false;
+  fallingItems = [];
 
-    // Score + lives
-    ctx.fillStyle = "#333";
-    ctx.font = "16px Arial";
-    ctx.fillText(`Score: ${score}`, 10, 20);
-    ctx.fillText(`Lives: ${lives}`, canvas.width - 80, 20);
+  lessonTitle.textContent = topic.title;
+  lessonInstructions.textContent = topic.instructions;
+  scoreEl.textContent = `Score: ${score}`;
+  progressEl.textContent = `${progress} / ${currentContent.length}`;
+  typingInput.value = "";
+  typingInput.disabled = false;
+  typingInput.focus();
+  feedbackEl.textContent = "";
 
-    // Letters
-    ctx.font = "32px Arial";
-    letters.forEach((l) => {
-      ctx.fillStyle = "blue";
-      ctx.fillText(l.text, l.x, l.y);
-    });
-  }
+  topicsContainer.parentElement.classList.add("hidden");
+  gameContainer.classList.remove("hidden");
 
-  function update() {
-    const now = Date.now();
-    letters.forEach((l) => {
-      l.y += l.speed;
-      if (now - l.born > 3000) {
-        // too late
-        letters = letters.filter((x) => x !== l);
-        lives--;
-        if (lives <= 0) endGame();
-      }
-    });
-    letters = letters.filter((l) => l.y < canvas.height + 20);
-  }
+  restartBtn.classList.add("hidden");
+  nextBtn.classList.add("hidden");
+  backBtn.classList.add("hidden");
 
-  function loop() {
-    if (!active) return;
-    update();
-    draw();
-    requestAnimationFrame(loop);
-  }
+  startFallingGame();
+}
 
-  function handleKey(e) {
-    if (!active) return;
-    const key = e.key.toLowerCase();
-    const match = letters.find((l) => l.text.toLowerCase() === key);
-    if (match) {
-      score += 10;
-      letters = letters.filter((l) => l !== match);
+// Start falling keys/words
+function startFallingGame() {
+  clearInterval(spawnInterval);
+  cancelAnimationFrame(animationFrame);
+  fallingItems = [];
+
+  spawnInterval = setInterval(() => {
+    if (progress >= currentContent.length) return;
+    const text = currentContent[progress];
+    const x = Math.random() * (canvas.width - 40) + 20;
+    fallingItems.push({ text, x, y: 0 });
+  }, 2000);
+
+  animateFalling();
+}
+
+// Animate falling items
+function animateFalling() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.font = "20px monospace";
+  ctx.fillStyle = "blue";
+
+  fallingItems.forEach(item => {
+    ctx.fillText(item.text, item.x, item.y);
+    item.y += fallSpeed;
+
+    if (item.y > canvas.height - 20 && !gameOver) {
+      feedbackEl.textContent = `⏱ Missed: ${item.text}`;
+      feedbackEl.className = "text-red-600 font-semibold";
+      endGame();
+    }
+  });
+
+  animationFrame = requestAnimationFrame(animateFalling);
+}
+
+// Typing input check
+typingInput.addEventListener("input", () => {
+  const value = typingInput.value.trim();
+  if (value === currentContent[progress]) {
+    score++;
+    progress++;
+    scoreEl.textContent = `Score: ${score}`;
+    progressEl.textContent = `${progress} / ${currentContent.length}`;
+    feedbackEl.textContent = "✅ Correct!";
+    feedbackEl.className = "text-green-600 font-semibold";
+    typingInput.value = "";
+
+    // Remove matched item from fallingItems
+    fallingItems = fallingItems.filter(item => item.text !== value);
+
+    if (progress >= currentContent.length) {
+      endGame();
     }
   }
+});
 
-  function endGame() {
-    active = false;
-    ctx.fillStyle = "green";
-    ctx.font = "28px Arial";
-    ctx.fillText("🎉 Well done! Home Row complete.", 60, canvas.height / 2);
+// End game
+function endGame() {
+  gameOver = true;
+  clearInterval(spawnInterval);
+  cancelAnimationFrame(animationFrame);
+  typingInput.disabled = true;
 
-    // Show buttons
-    restartBtn.style.display = "inline-block";
-    backBtn.style.display = "inline-block";
-    homeBtn.style.display = "inline-block";
+  feedbackEl.textContent = "🎉 Well done! You finished this practice.";
+  feedbackEl.className = "text-green-600 font-semibold mt-2";
+
+  restartBtn.classList.remove("hidden");
+  nextBtn.classList.remove("hidden");
+  backBtn.classList.remove("hidden");
+}
+
+// Restart current topic
+restartBtn.addEventListener("click", () => {
+  loadTopic(currentTopicIndex);
+});
+
+// Next topic
+nextBtn.addEventListener("click", () => {
+  if (currentTopicIndex < topics.length - 1) {
+    loadTopic(currentTopicIndex + 1);
+  } else {
+    alert("🎉 You've completed all keyboard practices!");
+    window.location.href = "classes.html";
   }
+});
 
-  // Events
-  document.addEventListener("keydown", handleKey);
-
-  if (restartBtn)
-    restartBtn.addEventListener("click", () => {
-      location.reload();
-    });
-  if (backBtn) backBtn.addEventListener("click", () => (window.location.href = "classes.html"));
-  if (homeBtn) homeBtn.addEventListener("click", () => (window.location.href = "index.html"));
-
-  // Start game
-  setInterval(spawnLetter, 2000); // spawn every 2s
-  loop();
+// Back to topics/home
+backBtn.addEventListener("click", () => {
+  window.location.href = "classes.html";
 });
