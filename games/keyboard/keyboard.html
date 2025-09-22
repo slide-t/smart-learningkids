@@ -26,21 +26,27 @@
     </section>
 
     <!-- Game Container -->
-    <section id="game-container" class="bg-white rounded-2xl shadow-lg p-6 min-h-[300px] flex flex-col items-center justify-center hidden">
+    <section id="game-container" class="bg-white rounded-2xl shadow-lg p-6 min-h-[350px] flex flex-col items-center justify-center hidden">
       <h2 id="lesson-title" class="text-2xl font-bold mb-4"></h2>
       <p id="lesson-instructions" class="mb-4"></p>
-      <div id="game-content" class="p-4 border rounded bg-gray-100 w-full">
+
+      <!-- Game Board -->
+      <div id="game-content" class="p-4 border rounded bg-gray-100 w-full relative h-[200px] overflow-hidden">
         <p id="prompt" class="text-lg font-mono mb-2"></p>
         <input id="typing-input" class="mt-2 p-2 border rounded w-full" placeholder="Start typing here..." autocomplete="off" />
         <p id="feedback" class="mt-2 text-sm"></p>
-        <div class="flex justify-between mt-4">
+        <canvas id="falling-keys-canvas" class="absolute top-0 left-0 w-full h-full"></canvas>
+        <div class="flex justify-between mt-4 relative z-10">
           <span id="score-display" class="font-semibold">Score: 0</span>
           <span id="progress-display" class="font-semibold">0 / 0</span>
         </div>
       </div>
+
+      <!-- Action Buttons -->
       <div class="mt-6 flex gap-3">
-        <button id="restart-btn" class="px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow hover:bg-blue-700 transition">Restart</button>
-        <button id="back-btn" class="px-4 py-3 bg-white border border-blue-200 text-blue-600 rounded-lg shadow hover:bg-blue-50 transition">Back to Topics</button>
+        <button id="restart-btn" class="hidden px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow hover:bg-blue-700 transition">Restart</button>
+        <button id="next-btn" class="hidden px-6 py-3 bg-green-600 text-white font-semibold rounded-lg shadow hover:bg-green-700 transition">Next</button>
+        <button id="back-btn" class="hidden px-4 py-3 bg-white border border-blue-200 text-blue-600 rounded-lg shadow hover:bg-blue-50 transition">Back to Topics</button>
       </div>
     </section>
 
