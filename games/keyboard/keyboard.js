@@ -199,9 +199,41 @@ document.addEventListener("DOMContentLoaded", () => {
     loadPrompt();
   }
 
-// Start button logic
-const startBtn = document.getElementById("startBtn");
+document.addEventListener("DOMContentLoaded", () => {
+  // Get buttons
+  const startBtn = document.getElementById("startBtn");
+  const restartBtn = document.getElementById("restartBtn");
+  const nextBtn = document.getElementById("nextBtn");
+  const homeBtn = document.getElementById("homeBtn");
 
+  // Start button logic
+  if (startBtn && topic && games[topic]) {
+    startBtn.addEventListener("click", () => {
+      startBtn.classList.add("hidden"); // use Tailwind hidden class
+      initGame(games[topic]);
+    });
+  } else if (!games[topic]) {
+    container.innerHTML = `<p class="text-red-600">❌ Invalid topic. Please go back and select again.</p>`;
+  }
+
+  // Button handlers
+  if (restartBtn) restartBtn.addEventListener("click", () => location.reload());
+  if (homeBtn) homeBtn.addEventListener("click", () => window.location.href = "index.html");
+  if (nextBtn) nextBtn.addEventListener("click", () => {
+    // TODO: define what "Next" should do in your game
+    console.log("Next button clicked");
+  });
+});
+  
+  
+  
+  /*// Get buttons
+const startBtn = document.getElementById("startBtn");
+const restartBtn = document.getElementById("restartBtn");
+const nextBtn = document.getElementById("nextBtn");
+const homeBtn = document.getElementById("homeBtn");
+
+// Start button logic
 if (startBtn && topic && games[topic]) {
   startBtn.addEventListener("click", () => {
     startBtn.style.display = "none"; // hide start button after click
@@ -211,27 +243,6 @@ if (startBtn && topic && games[topic]) {
   container.innerHTML = `<p class="text-red-600">❌ Invalid topic. Please go back and select again.</p>`;
 }
   
-      /*// Start button logic
-const startBtn = document.querySelector(".startBtn");
-
-if (startBtn && topic && games[topic]) {
-  startBtn.addEventListener("click", () => {
-    startBtn.style.display = "none"; // hide start button after click
-    initGame(games[topic]);
-  });
-} else if (!games[topic]) {
-  container.innerHTML = `<p class="text-red-600">❌ Invalid topic. Please go back and select again.</p>`;
-}
-      
-// Start button logic
-  if (startBtn && topic && games[topic]) {
-    startBtn.addEventListener("click", () => {
-      startBtn.style.display = "none"; // hide start button after click
-      initGame(games[topic]);
-    });
-  } else if (!games[topic]) {
-    container.innerHTML = `<p class="text-red-600">❌ Invalid topic. Please go back and select again.</p>`;
-  }*/
 
   // Button handlers
   if (restartBtn) restartBtn.addEventListener("click", () => location.reload());
