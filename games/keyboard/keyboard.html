@@ -18,35 +18,26 @@
 
   <!-- Main -->
   <main class="flex-1 pt-24 max-w-4xl mx-auto px-4 w-full">
-    
-    <!-- Topic List -->
-    <section id="topic-list" class="mb-8">
-      <h2 class="text-xl font-semibold mb-4">Select a Topic:</h2>
-      <div id="topics-container" class="grid grid-cols-1 sm:grid-cols-2 gap-4"></div>
-    </section>
 
     <!-- Game Container -->
-    <section id="game-container" class="bg-white rounded-2xl shadow-lg p-6 min-h-[350px] flex flex-col items-center justify-center hidden">
+    <section id="game-container" class="bg-white rounded-2xl shadow-lg p-6 min-h-[400px] flex flex-col items-center justify-center">
       <h2 id="lesson-title" class="text-2xl font-bold mb-4"></h2>
       <p id="lesson-instructions" class="mb-4"></p>
 
-      <!-- Game Board -->
-      <div id="game-content" class="p-4 border rounded bg-gray-100 w-full relative h-[200px] overflow-hidden">
-        <p id="prompt" class="text-lg font-mono mb-2"></p>
-        <input id="typing-input" class="mt-2 p-2 border rounded w-full" placeholder="Start typing here..." autocomplete="off" />
-        <p id="feedback" class="mt-2 text-sm"></p>
-        <canvas id="falling-keys-canvas" class="absolute top-0 left-0 w-full h-full"></canvas>
-        <div class="flex justify-between mt-4 relative z-10">
-          <span id="score-display" class="font-semibold">Score: 0</span>
-          <span id="progress-display" class="font-semibold">0 / 0</span>
-        </div>
+      <!-- Canvas for falling keys -->
+      <canvas id="game-canvas" width="600" height="300" class="border rounded w-full bg-gray-100"></canvas>
+
+      <!-- Score + Progress -->
+      <div class="flex justify-between mt-4 w-full">
+        <span id="score-display" class="font-semibold">Score: 0</span>
+        <span id="progress-display" class="font-semibold">0 / 0</span>
       </div>
 
-      <!-- Action Buttons -->
-      <div class="mt-6 flex gap-3">
-        <button id="restart-btn" class="hidden px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow hover:bg-blue-700 transition">Restart</button>
-        <button id="next-btn" class="hidden px-6 py-3 bg-green-600 text-white font-semibold rounded-lg shadow hover:bg-green-700 transition">Next</button>
-        <button id="back-btn" class="hidden px-4 py-3 bg-white border border-blue-200 text-blue-600 rounded-lg shadow hover:bg-blue-50 transition">Back to Topics</button>
+      <!-- Buttons -->
+      <div id="game-buttons" class="mt-6 flex gap-3 hidden">
+        <button id="restart-btn" class="px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow hover:bg-blue-700 transition">Restart</button>
+        <button id="next-btn" class="px-6 py-3 bg-green-600 text-white font-semibold rounded-lg shadow hover:bg-green-700 transition">Next</button>
+        <button id="home-btn" class="px-6 py-3 bg-gray-600 text-white font-semibold rounded-lg shadow hover:bg-gray-700 transition">Home</button>
       </div>
     </section>
 
