@@ -8,44 +8,25 @@ document.addEventListener("DOMContentLoaded", () => {
   const feedbackEl = document.getElementById("feedback");
   const virtualKeyboard = document.getElementById("virtualKeyboard");
 
-  // --- GAME DATA ---
   const stages = [
-    {
-      name: "Home Row Keys",
-      description: "Practice typing the home row keys including semicolon.",
-      items: ["a","s","d","f","j","k","l",";"]
-    },
-    {
-      name: "Two-Letter Words",
-      description: "Type these two-letter words.",
-      items: ["at","on","in","up","to","it"]
-    },
-    {
-      name: "Three-Letter Words",
-      description: "Type these three-letter words.",
-      items: ["cat","dog","sun","pen","car"]
-    },
-    {
-      name: "Simple Words",
-      description: "Type simple words including special characters.",
-      items: ["book","chair","table","plant","water","hi!","go?"]
-    },
-    {
-      name: "Numbers & Symbols",
-      description: "Practice typing numbers and symbols.",
-      items: ["1","2","3","4","5","6","7","8","9","0","@", "#", "$", "%", "&", "*"]
-    }
+    { name: "Home Row Keys", items: ["a","s","d","f","j","k","l",";"] },
+    { name: "Two-Letter Words", items: ["at","on","in","up","to","it"] },
+    { name: "Three-Letter Words", items: ["cat","dog","sun","pen","car"] },
+    { name: "Simple Words", items: ["book","chair","table","plant","water","hi!","go?"] },
+    { name: "Numbers & Symbols", items: ["1","2","3","4","5","6","7","8","9","0","@", "#", "$", "%", "&", "*"] }
   ];
 
   let currentStageIndex = 0;
   let currentItemIndex = 0;
   let currentItem = "";
 
-  const keys = [
-    "1","2","3","4","5","6","7","8","9","0",
-    "Q","W","E","R","T","Y","U","I","O","P",
-    "A","S","D","F","G","H","J","K","L",";",
-    "Z","X","C","V","B","N","M",",",".","?","SPACE","ENTER"
+  // Proper keyboard rows
+  const keyboardRows = [
+    ["1","2","3","4","5","6","7","8","9","0"],
+    ["Q","W","E","R","T","Y","U","I","O","P"],
+    ["A","S","D","F","G","H","J","K","L",";"],
+    ["Z","X","C","V","B","N","M",",",".","?"],
+    ["SPACE","ENTER"]
   ];
 
   let keyButtons = {};
@@ -53,31 +34,37 @@ document.addEventListener("DOMContentLoaded", () => {
   function setupVirtualKeyboard() {
     virtualKeyboard.innerHTML = "";
     virtualKeyboard.classList.remove("hidden");
-    keys.forEach(key => {
-      const btn = document.createElement("div");
-      btn.textContent = key === "SPACE" ? "⎵" : key;
-      btn.className = "key";
-      btn.dataset.key = key;
-      btn.addEventListener("click", () => {
-        if (!btn.classList.contains("disabled")) {
-          btn.classList.add("active");
-          setTimeout(() => btn.classList.remove("active"), 200);
-          handleInput(key);
-        }
+
+    keyboardRows.forEach(row => {
+      const rowDiv = document.createElement("div");
+      rowDiv.className = "flex justify-center gap-1 mb-1";
+
+      row.forEach(key => {
+        const btn = document.createElement("div");
+        btn.textContent = key === "SPACE" ? "⎵" : key;
+        btn.className = "key";
+        btn.dataset.key = key;
+        btn.addEventListener("click", () => {
+          if (!btn.classList.contains("disabled")) {
+            btn.classList.add("active");
+            setTimeout(() => btn.classList.remove("active"), 200);
+            handleInput(key);
+          }
+        });
+        rowDiv.appendChild(btn);
+        keyButtons[key.toUpperCase()] = btn;
       });
-      virtualKeyboard.appendChild(btn);
-      keyButtons[key.toUpperCase()] = btn;
+
+      virtualKeyboard.appendChild(rowDiv);
     });
   }
 
-  // Enable only current needed keys
   function highlightCurrentKey() {
     Object.values(keyButtons).forEach(btn => btn.classList.add("disabled"));
     if (!currentItem) return;
 
-    const chars = currentItem.split("");
-    const nextChar = chars[0].toUpperCase(); // only first char for now
-    const btn = keyButtons[nextChar === " " ? "SPACE" : nextChar];
+    const nextChar = currentItem[0].toUpperCase() === " " ? "SPACE" : currentItem[0].toUpperCase();
+    const btn = keyButtons[nextChar];
     if (btn) btn.classList.remove("disabled");
   }
 
@@ -100,14 +87,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function handleInput(input) {
     if (!currentItem) return;
-    
     if (input === "SPACE") input = " ";
     if (input === "ENTER") input = "";
 
     const expectedChar = currentItem[0];
     if (input.toLowerCase() === expectedChar.toLowerCase()) {
       feedbackEl.textContent = "✅ Correct!";
-      // Remove first character from currentItem
       currentItem = currentItem.slice(1);
       if (currentItem.length === 0) {
         currentItemIndex++;
@@ -117,7 +102,7 @@ document.addEventListener("DOMContentLoaded", () => {
         highlightCurrentKey();
       }
     } else {
-      feedbackEl.textContent = `❌ Try again!`;
+      feedbackEl.textContent = "❌ Try again!";
     }
   }
 
@@ -157,8 +142,6 @@ document.addEventListener("DOMContentLoaded", () => {
     if (keyPressed === " ") keyPressed = "SPACE";
     else if (keyPressed === "Enter") keyPressed = "ENTER";
     const btn = keyButtons[keyPressed.toUpperCase()];
-    if (btn && !btn.classList.contains("disabled")) {
-      handleInput(keyPressed);
-    }
+    if (btn && !btn.classList.contains("disabled")) handleInput(keyPressed);
   });
 });
