@@ -8,7 +8,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const restartBtn = document.getElementById("restartBtn");
   const homeBtn = document.getElementById("homeBtn");
 
-  // Full keyboard layout with dynamic rows
+  // Parse year from query param
+  const urlParams = new URLSearchParams(window.location.search);
+  const year = urlParams.get("year") || "1";
+
+  // Full keyboard layouts
   const layouts = {
     letters: [
       ["Q","W","E","R","T","Y","U","I","O","P"],
@@ -19,30 +23,43 @@ document.addEventListener("DOMContentLoaded", () => {
     symbols: [["-","+","=","'","\"","!","?","@","#","$"]]
   };
 
-  // Progressive stages
-  const stages = [
-    { name: "Home Row", keys: ["A","S","D","F","J","K","L",";"] },
-    { name: "Top Row", keys: ["Q","W","E","R","T","Y","U","I","O","P"] },
-    { name: "Bottom Row", keys: ["Z","X","C","V","B","N","M",",",".","/"] },
-    { name: "Numbers", keys: ["1","2","3","4","5","6","7","8","9","0"] },
-    { name: "Symbols", keys: ["-","+","=","'","\"","!","?","@","#","$"] },
-    { name: "Words Practice", keys: ["cat","dog","sun","pen","book","water"] },
-    { name: "Sentences Practice", keys: ["I am happy.","We play ball.","The cat runs."] }
-  ];
-
+  let stages = [];
   let stageIndex = 0;
-  let currentStage = stages[stageIndex];
+  let currentStage = null;
   let target = "";
+  let targetPos = 0;
   let score = 0;
 
-  // Determine which layout to show
+  // Load keyboard.json dynamically
+  fetch("keyboard.json")
+    .then(res => res.json())
+    .then(data => {
+      const level = data.levels[year];
+      if (!level) {
+        feedbackEl.textContent = "⚠️ No data for this year.";
+        startBtn.disabled = true;
+        return;
+      }
+      // Convert JSON stages to internal format
+      stages = level.stages.map(s => ({
+        name: s.title,
+        type: s.type,
+        keys: s.items
+      }));
+      currentStage = stages[stageIndex];
+    })
+    .catch(err => {
+      feedbackEl.textContent = "⚠️ Error loading keyboard data.";
+      console.error(err);
+      startBtn.disabled = true;
+    });
+
   function getLayoutForKey(char) {
     if (/^[a-zA-Z;,\./]$/.test(char)) return layouts.letters;
     if (/^[0-9]$/.test(char)) return layouts.numbers;
     return layouts.symbols;
   }
 
-  // Render virtual keyboard dynamically
   function renderKeyboard(char) {
     const layout = getLayoutForKey(char);
     virtualKeyboard.innerHTML = "";
@@ -61,7 +78,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Highlight only the target key
   function highlightKey(char) {
     document.querySelectorAll(".key").forEach(k => {
       k.classList.remove("active");
@@ -75,39 +91,54 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Pick next target key or word
   function nextTarget() {
     if (!currentStage.keys.length) return;
+
     const randomIndex = Math.floor(Math.random() * currentStage.keys.length);
     target = currentStage.keys[randomIndex];
+    targetPos = 0;
+
     targetCharEl.textContent = target;
     feedbackEl.textContent = "";
-    renderKeyboard(target);
-    highlightKey(target[0]); // only first char highlighted for words
+
+    // For type=key, highlight first char; for words/sentences, highlight first char
+    if (currentStage.type === "key") {
+      renderKeyboard(target);
+      highlightKey(target[0]);
+    } else {
+      renderKeyboard(target[0]);
+      highlightKey(target[0]);
+    }
   }
 
-  // Handle user input
   function handleInput(input) {
     if (!target) return;
 
-    let expected = target[0]; // first char
-    if (target.length === 1) expected = target; // single keys
+    let expected = target[targetPos];
+    if (expected === " ") expected = " "; // handle space
 
-    if (input.toUpperCase() === expected.toUpperCase()) {
-      score += 10;
-      feedbackEl.textContent = `✅ Correct! Score: ${score}`;
-      nextTarget();
+    if (input.toUpperCase() === expected.toUpperCase() || (expected === " " && input === "SPACE")) {
+      targetPos++;
+      if (targetPos < target.length) {
+        targetCharEl.textContent = target[targetPos];
+        renderKeyboard(target[targetPos]);
+        highlightKey(target[targetPos]);
+      } else {
+        score += 10;
+        feedbackEl.textContent = `✅ Correct! Score: ${score}`;
+        nextTarget();
+      }
     } else {
       feedbackEl.textContent = `❌ Wrong! Try again`;
     }
   }
 
-  // Move to next stage
   function nextStage() {
     stageIndex++;
     if (stageIndex >= stages.length) {
       feedbackEl.textContent = `🎉 All stages complete! Final Score: ${score}`;
       practiceArea.classList.add("hidden");
+      virtualKeyboard.classList.add("hidden");
       return;
     }
     currentStage = stages[stageIndex];
@@ -115,8 +146,9 @@ document.addEventListener("DOMContentLoaded", () => {
     nextTarget();
   }
 
-  // Buttons
+  // Button listeners
   startBtn.addEventListener("click", () => {
+    if (!currentStage) return;
     practiceArea.classList.remove("hidden");
     nextBtn.classList.remove("hidden");
     restartBtn.classList.remove("hidden");
@@ -138,7 +170,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   homeBtn.addEventListener("click", () => window.location.href = "index.html");
 
-  // Keyboard input
   document.addEventListener("keydown", e => {
     if (e.key.length === 1) handleInput(e.key);
     else if (e.key === " ") handleInput("SPACE");
