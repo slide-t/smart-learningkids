@@ -12,82 +12,98 @@
   <header class="bg-blue-600 text-white shadow-md fixed top-0 left-0 w-full z-50">
     <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
       <h1 class="text-2xl font-bold">Keyboard Practice</h1>
-      <a href="classes.html" class="bg-white text-blue-600 px-4 py-2 rounded-lg font-medium shadow hover:bg-blue-100 transition">Back to Classes</a>
+      <a href="classes.html" class="bg-white text-blue-600 px-4 py-2 rounded-lg font-medium shadow hover:bg-blue-100 transition">
+        Back to Classes
+      </a>
     </div>
   </header>
 
-  <!-- Main -->
+  <!-- Main Content -->
   <main class="flex-1 pt-24 max-w-4xl mx-auto px-4 w-full">
-    <h2 id="lesson-title" class="text-3xl font-bold text-center mb-6">Loading Lesson...</h2>
+    <h2 id="lesson-title" class="text-3xl font-bold text-center mb-6" role="heading" aria-level="2">
+      Loading Lesson...
+    </h2>
 
     <!-- Game Container -->
-    <div id="game-container" class="bg-white rounded-2xl shadow-lg p-6 min-h-[300px] flex items-center justify-center relative">
+    <div id="game-container" class="bg-white rounded-2xl shadow-lg p-6 min-h-[300px] flex items-center justify-center relative" role="region" aria-live="polite">
       <p class="text-gray-500">Preparing your typing game...</p>
     </div>
 
     <!-- Controls -->
     <div class="mt-8 flex flex-col sm:flex-row sm:justify-between items-center gap-4">
       <div class="flex gap-3">
-        <button id="start-btn" class="px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow hover:bg-blue-700 transition">Start Game</button>
-        <button id="reset-btn" class="px-4 py-3 bg-white border border-blue-200 text-blue-600 rounded-lg shadow hover:bg-blue-50 transition">Reset</button>
+        <button id="start-btn" class="px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow hover:bg-blue-700 transition">
+          Start Game
+        </button>
+        <button id="reset-btn" class="px-4 py-3 bg-white border border-blue-200 text-blue-600 rounded-lg shadow hover:bg-blue-50 transition">
+          Reset
+        </button>
       </div>
-      <div id="score-display" class="text-lg font-medium text-gray-700">Score: 0</div>
+      <div id="score-display" class="text-lg font-medium text-gray-700" role="status" aria-live="polite">
+        Score: 0
+      </div>
     </div>
   </main>
 
-<!-- Scripts -->
-<script src="keyboard.js"></script>
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const params = new URLSearchParams(window.location.search);
-    const lessonId = params.get("lesson");
-    const lessonTitle = document.getElementById("lesson-title");
-    const gameContainer = document.getElementById("game-container");
-    const startBtn = document.getElementById("start-btn");
-    const resetBtn = document.getElementById("reset-btn");
-    const scoreDisplay = document.getElementById("score-display");
+  <!-- Scripts -->
+  <script src="keyboard.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const params = new URLSearchParams(window.location.search);
+      const lessonId = params.get("lesson");
 
-    if (!window.keyboardLessons) {
-      lessonTitle.textContent = "⚠️ Lesson Data Missing";
-      gameContainer.innerHTML = "<p class='text-red-500'>Missing keyboard.js or keyboardLessons. Check console.</p>";
-      startBtn.disabled = true;
-      return;
-    }
+      const lessonTitle = document.getElementById("lesson-title");
+      const gameContainer = document.getElementById("game-container");
+      const startBtn = document.getElementById("start-btn");
+      const resetBtn = document.getElementById("reset-btn");
+      const scoreDisplay = document.getElementById("score-display");
 
-    if (!lessonId) {
-      lessonTitle.textContent = "⚠️ Lesson Not Found";
-      gameContainer.innerHTML = "<p class='text-red-500'>Please access this page via your class link.</p>";
-      startBtn.disabled = true;
-      return;
-    }
-
-    const lesson = window.keyboardLessons.find(l => l.id === lessonId);
-
-    if (!lesson) {
-      lessonTitle.textContent = "⚠️ Lesson Not Found";
-      gameContainer.innerHTML = "<p class='text-red-500'>Lesson not available.</p>";
-      startBtn.disabled = true;
-      return;
-    }
-
-    lessonTitle.textContent = lesson.title;
-
-    startBtn.addEventListener("click", () => {
-      window.startTypingGame(lesson, gameContainer, scoreDisplay, startBtn);
-    });
-
-    resetBtn.addEventListener("click", () => {
-      if (window._typingGameRunning && typeof window.stopTypingGame === "function") {
-        window.stopTypingGame();
+      // Safety checks
+      if (!window.keyboardLessons) {
+        lessonTitle.textContent = "⚠️ Lesson Data Missing";
+        gameContainer.innerHTML = "<p class='text-red-500'>Missing keyboard.js or keyboardLessons. Check console.</p>";
+        startBtn.disabled = true;
+        return;
       }
-      scoreDisplay.textContent = "Score: 0";
-      gameContainer.innerHTML = "<p class='text-gray-500'>Press Start to begin the typing game.</p>";
-      startBtn.textContent = "Start Game";
-    });
-  });
-</script>
-  
 
+      if (!lessonId) {
+        lessonTitle.textContent = "⚠️ Lesson Not Found";
+        gameContainer.innerHTML = "<p class='text-red-500'>Please access this page via your class link.</p>";
+        startBtn.disabled = true;
+        return;
+      }
+
+      const lesson = window.keyboardLessons.find(l => l.id === lessonId);
+
+      if (!lesson) {
+        lessonTitle.textContent = "⚠️ Lesson Not Found";
+        gameContainer.innerHTML = "<p class='text-red-500'>Lesson not available.</p>";
+        startBtn.disabled = true;
+        return;
+      }
+
+      lessonTitle.textContent = lesson.title;
+
+      // Start Game
+      startBtn.addEventListener("click", () => {
+        if (typeof window.startTypingGame === "function") {
+          window.startTypingGame(lesson, gameContainer, scoreDisplay, startBtn);
+        } else {
+          console.warn("startTypingGame function not found.");
+        }
+      });
+
+      // Reset Game
+      resetBtn.addEventListener("click", () => {
+        if (window._typingGameRunning && typeof window.stopTypingGame === "function") {
+          window.stopTypingGame();
+        }
+        scoreDisplay.textContent = "Score: 0";
+        gameContainer.innerHTML = "<p class='text-gray-500'>Press Start to begin the typing game.</p>";
+        startBtn.textContent = "Start Game";
+      });
+    });
+  </script>
 
 </body>
 </html>
