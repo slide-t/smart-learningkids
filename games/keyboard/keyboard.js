@@ -1,171 +1,136 @@
-let topics = [];
-let currentTopicIndex = 0;
-let currentContent = [];
-let score = 0;
-let progress = 0;
-let activeWord = "";
-let gameOver = false;
+document.addEventListener("DOMContentLoaded", () => {
+  const titleEl = document.getElementById("lesson-title");
+  const instrEl = document.getElementById("lesson-instructions");
+  const canvas = document.getElementById("game-canvas");
+  const ctx = canvas.getContext("2d");
 
-const topicsContainer = document.getElementById("topics-container");
-const gameContainer = document.getElementById("game-container");
-const lessonTitle = document.getElementById("lesson-title");
-const lessonInstructions = document.getElementById("lesson-instructions");
-const typingInput = document.getElementById("typing-input");
-const promptEl = document.getElementById("prompt");
-const feedbackEl = document.getElementById("feedback");
-const scoreEl = document.getElementById("score-display");
-const progressEl = document.getElementById("progress-display");
-const restartBtn = document.getElementById("restart-btn");
-const nextBtn = document.getElementById("next-btn");
-const backBtn = document.getElementById("back-btn");
-const canvas = document.getElementById("falling-keys-canvas");
-const ctx = canvas.getContext("2d");
+  const scoreEl = document.getElementById("score-display");
+  const progressEl = document.getElementById("progress-display");
+  const btns = document.getElementById("game-buttons");
+  const restartBtn = document.getElementById("restart-btn");
+  const nextBtn = document.getElementById("next-btn");
+  const homeBtn = document.getElementById("home-btn");
 
-canvas.width = canvas.offsetWidth;
-canvas.height = canvas.offsetHeight;
+  // Topic from query
+  const urlParams = new URLSearchParams(window.location.search);
+  const topicId = urlParams.get("topic") || null;
+  const termId = urlParams.get("term") || "term1"; // default to term1
 
-let fallingItems = [];
-let fallSpeed = 1.5;
-let spawnInterval;
-let animationFrame;
+  // Fetch JSON
+  fetch("keyboard.json")
+    .then(res => res.json())
+    .then(data => {
+      const terms = data.terms;
+      const term = terms.find(t => t.id === termId && t.unlocked);
+      if (!term) {
+        titleEl.textContent = "❌ Term is locked or not found.";
+        return;
+      }
 
-// Load topics
-fetch("keyboard.json")
-  .then(res => res.json())
-  .then(data => {
-    topics = data.topics;
-    renderTopics();
-  });
+      let topicIndex = term.topics.findIndex(t => t.id === topicId);
+      if (topicIndex === -1) topicIndex = 0; // fallback to first
 
-// Render topics on page
-function renderTopics() {
-  topicsContainer.innerHTML = "";
-  topics.forEach((topic, index) => {
-    const btn = document.createElement("button");
-    btn.textContent = topic.title;
-    btn.className = "p-4 bg-blue-500 text-white rounded-lg shadow hover:bg-blue-600 transition";
-    btn.addEventListener("click", () => loadTopic(index));
-    topicsContainer.appendChild(btn);
-  });
-}
+      let currentTopic = term.topics[topicIndex];
 
-// Load a topic
-function loadTopic(index) {
-  currentTopicIndex = index;
-  const topic = topics[index];
-  currentContent = [...topic.content];
-  score = 0;
-  progress = 0;
-  gameOver = false;
-  fallingItems = [];
+      // Game state
+      let words = [...currentTopic.content];
+      let currentWord = null;
+      let fallingY = 0;
+      let score = 0;
+      let total = words.length;
+      let gameOver = false;
+      let speed = 2; // pixels per frame
 
-  lessonTitle.textContent = topic.title;
-  lessonInstructions.textContent = topic.instructions;
-  scoreEl.textContent = `Score: ${score}`;
-  progressEl.textContent = `${progress} / ${currentContent.length}`;
-  typingInput.value = "";
-  typingInput.disabled = false;
-  typingInput.focus();
-  feedbackEl.textContent = "";
+      function startGame() {
+        titleEl.textContent = currentTopic.title;
+        instrEl.textContent = currentTopic.instructions;
+        score = 0;
+        scoreEl.textContent = `Score: ${score}`;
+        progressEl.textContent = `0 / ${total}`;
+        btns.classList.add("hidden");
+        gameOver = false;
+        nextWord();
+        animate();
+      }
 
-  topicsContainer.parentElement.classList.add("hidden");
-  gameContainer.classList.remove("hidden");
+      function nextWord() {
+        if (words.length === 0) {
+          endGame();
+          return;
+        }
+        currentWord = words.shift();
+        fallingY = 0;
+      }
 
-  restartBtn.classList.add("hidden");
-  nextBtn.classList.add("hidden");
-  backBtn.classList.add("hidden");
+      function animate() {
+        if (gameOver) return;
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  startFallingGame();
-}
+        ctx.font = "32px monospace";
+        ctx.fillStyle = "#1f2937"; // gray-800
+        ctx.fillText(currentWord, canvas.width / 2 - ctx.measureText(currentWord).width / 2, fallingY);
 
-// Start falling keys/words
-function startFallingGame() {
-  clearInterval(spawnInterval);
-  cancelAnimationFrame(animationFrame);
-  fallingItems = [];
+        fallingY += speed;
+        if (fallingY > canvas.height - 20) {
+          // Word missed
+          nextWord();
+        }
 
-  spawnInterval = setInterval(() => {
-    if (progress >= currentContent.length) return;
-    const text = currentContent[progress];
-    const x = Math.random() * (canvas.width - 40) + 20;
-    fallingItems.push({ text, x, y: 0 });
-  }, 2000);
+        requestAnimationFrame(animate);
+      }
 
-  animateFalling();
-}
+      // Typing check
+      document.addEventListener("keydown", e => {
+        if (gameOver || !currentWord) return;
+        if (e.key === currentWord[0]) {
+          currentWord = currentWord.slice(1);
+          if (currentWord.length === 0) {
+            score++;
+            scoreEl.textContent = `Score: ${score}`;
+            progressEl.textContent = `${score} / ${total}`;
+            nextWord();
+          }
+        }
+      });
 
-// Animate falling items
-function animateFalling() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  ctx.font = "20px monospace";
-  ctx.fillStyle = "blue";
+      function endGame() {
+        gameOver = true;
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.font = "28px sans-serif";
+        ctx.fillStyle = "#059669"; // green-600
+        ctx.fillText("🎉 Well done! Topic complete.", 100, canvas.height / 2);
+        btns.classList.remove("hidden");
 
-  fallingItems.forEach(item => {
-    ctx.fillText(item.text, item.x, item.y);
-    item.y += fallSpeed;
+        // Next button control
+        if (topicIndex < term.topics.length - 1) {
+          nextBtn.classList.remove("hidden");
+        } else {
+          nextBtn.classList.add("hidden");
+        }
+      }
 
-    if (item.y > canvas.height - 20 && !gameOver) {
-      feedbackEl.textContent = `⏱ Missed: ${item.text}`;
-      feedbackEl.className = "text-red-600 font-semibold";
-      endGame();
-    }
-  });
+      // Button handlers
+      restartBtn.addEventListener("click", () => {
+        words = [...currentTopic.content];
+        startGame();
+      });
 
-  animationFrame = requestAnimationFrame(animateFalling);
-}
+      nextBtn.addEventListener("click", () => {
+        if (topicIndex < term.topics.length - 1) {
+          topicIndex++;
+          currentTopic = term.topics[topicIndex];
+          words = [...currentTopic.content];
+          total = words.length;
+          startGame();
+          window.history.replaceState(null, "", `?term=${termId}&topic=${currentTopic.id}`);
+        }
+      });
 
-// Typing input check
-typingInput.addEventListener("input", () => {
-  const value = typingInput.value.trim();
-  if (value === currentContent[progress]) {
-    score++;
-    progress++;
-    scoreEl.textContent = `Score: ${score}`;
-    progressEl.textContent = `${progress} / ${currentContent.length}`;
-    feedbackEl.textContent = "✅ Correct!";
-    feedbackEl.className = "text-green-600 font-semibold";
-    typingInput.value = "";
+      homeBtn.addEventListener("click", () => {
+        window.location.href = "index.html";
+      });
 
-    // Remove matched item from fallingItems
-    fallingItems = fallingItems.filter(item => item.text !== value);
-
-    if (progress >= currentContent.length) {
-      endGame();
-    }
-  }
-});
-
-// End game
-function endGame() {
-  gameOver = true;
-  clearInterval(spawnInterval);
-  cancelAnimationFrame(animationFrame);
-  typingInput.disabled = true;
-
-  feedbackEl.textContent = "🎉 Well done! You finished this practice.";
-  feedbackEl.className = "text-green-600 font-semibold mt-2";
-
-  restartBtn.classList.remove("hidden");
-  nextBtn.classList.remove("hidden");
-  backBtn.classList.remove("hidden");
-}
-
-// Restart current topic
-restartBtn.addEventListener("click", () => {
-  loadTopic(currentTopicIndex);
-});
-
-// Next topic
-nextBtn.addEventListener("click", () => {
-  if (currentTopicIndex < topics.length - 1) {
-    loadTopic(currentTopicIndex + 1);
-  } else {
-    alert("🎉 You've completed all keyboard practices!");
-    window.location.href = "classes.html";
-  }
-});
-
-// Back to topics/home
-backBtn.addEventListener("click", () => {
-  window.location.href = "classes.html";
+      // Start first game
+      startGame();
+    });
 });
