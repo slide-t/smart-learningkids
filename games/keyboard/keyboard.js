@@ -8,11 +8,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const restartBtn = document.getElementById("restartBtn");
   const homeBtn = document.getElementById("homeBtn");
 
-  // Parse year from query param
-  const urlParams = new URLSearchParams(window.location.search);
-  const year = urlParams.get("year") || "1";
+  let stages = [];
+  let stageIndex = 0;
+  let currentStage = null;
+  let target = "";
+  let targetPos = 0;
+  let score = 0;
 
-  // Full keyboard layouts
+  // Detect which layout row to use
   const layouts = {
     letters: [
       ["Q","W","E","R","T","Y","U","I","O","P"],
@@ -23,43 +26,13 @@ document.addEventListener("DOMContentLoaded", () => {
     symbols: [["-","+","=","'","\"","!","?","@","#","$"]]
   };
 
-  let stages = [];
-  let stageIndex = 0;
-  let currentStage = null;
-  let target = "";
-  let targetPos = 0;
-  let score = 0;
-
-  // Load keyboard.json dynamically
-  fetch("keyboard.json")
-    .then(res => res.json())
-    .then(data => {
-      const level = data.levels[year];
-      if (!level) {
-        feedbackEl.textContent = "⚠️ No data for this year.";
-        startBtn.disabled = true;
-        return;
-      }
-      // Convert JSON stages to internal format
-      stages = level.stages.map(s => ({
-        name: s.title,
-        type: s.type,
-        keys: s.items
-      }));
-      currentStage = stages[stageIndex];
-    })
-    .catch(err => {
-      feedbackEl.textContent = "⚠️ Error loading keyboard data.";
-      console.error(err);
-      startBtn.disabled = true;
-    });
-
   function getLayoutForKey(char) {
     if (/^[a-zA-Z;,\./]$/.test(char)) return layouts.letters;
     if (/^[0-9]$/.test(char)) return layouts.numbers;
     return layouts.symbols;
   }
 
+  // Render virtual keyboard dynamically
   function renderKeyboard(char) {
     const layout = getLayoutForKey(char);
     virtualKeyboard.innerHTML = "";
@@ -78,6 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // Highlight target key
   function highlightKey(char) {
     document.querySelectorAll(".key").forEach(k => {
       k.classList.remove("active");
@@ -91,33 +65,47 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  // Load keyboard.json for the selected year/topic
+  function loadKeyboardData(year) {
+    fetch("keyboard.json")
+      .then(res => res.json())
+      .then(data => {
+        if (!data.levels[year]) {
+          feedbackEl.textContent = "⚠️ This year/topic is not available.";
+          return;
+        }
+        stages = data.levels[year].stages.map(s => ({
+          name: s.title,
+          type: s.type,
+          keys: s.items
+        }));
+        stageIndex = 0;
+        currentStage = stages[stageIndex];
+        feedbackEl.textContent = `➡️ Stage: ${currentStage.name}`;
+      })
+      .catch(err => {
+        console.error(err);
+        feedbackEl.textContent = "❌ Failed to load keyboard data.";
+      });
+  }
+
   function nextTarget() {
     if (!currentStage.keys.length) return;
-
     const randomIndex = Math.floor(Math.random() * currentStage.keys.length);
     target = currentStage.keys[randomIndex];
     targetPos = 0;
-
     targetCharEl.textContent = target;
     feedbackEl.textContent = "";
-
-    // For type=key, highlight first char; for words/sentences, highlight first char
-    if (currentStage.type === "key") {
-      renderKeyboard(target);
-      highlightKey(target[0]);
-    } else {
-      renderKeyboard(target[0]);
-      highlightKey(target[0]);
-    }
+    renderKeyboard(target[0]);
+    highlightKey(target[0]);
   }
 
   function handleInput(input) {
     if (!target) return;
-
     let expected = target[targetPos];
-    if (expected === " ") expected = " "; // handle space
+    if (expected === " ") expected = "SPACE";
 
-    if (input.toUpperCase() === expected.toUpperCase() || (expected === " " && input === "SPACE")) {
+    if (input.toUpperCase() === expected.toUpperCase()) {
       targetPos++;
       if (targetPos < target.length) {
         targetCharEl.textContent = target[targetPos];
@@ -146,14 +134,12 @@ document.addEventListener("DOMContentLoaded", () => {
     nextTarget();
   }
 
-  // Button listeners
+  // Buttons
   startBtn.addEventListener("click", () => {
-    if (!currentStage) return;
     practiceArea.classList.remove("hidden");
     nextBtn.classList.remove("hidden");
     restartBtn.classList.remove("hidden");
     virtualKeyboard.classList.remove("hidden");
-    feedbackEl.textContent = `➡️ Stage: ${currentStage.name}`;
     nextTarget();
   });
 
@@ -170,9 +156,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
   homeBtn.addEventListener("click", () => window.location.href = "index.html");
 
+  // Physical keyboard input
   document.addEventListener("keydown", e => {
     if (e.key.length === 1) handleInput(e.key);
     else if (e.key === " ") handleInput("SPACE");
     else if (e.key === ";") handleInput(";");
   });
+
+  // Auto-load keyboard.json based on query param "year"
+  const params = new URLSearchParams(window.location.search);
+  const year = params.get("year") || "1";
+  loadKeyboardData(year);
 });
