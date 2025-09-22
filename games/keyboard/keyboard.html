@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -70,22 +69,7 @@
 
   <!-- Styles for Keys -->
   <style>
-
-.key.correct {
-      background: #16a34a; /* green-600 */
-      color: white;
-      transform: scale(1.15);
-      box-shadow: 0 0 12px rgba(22,163,74,0.7);
-    }
-
-    .key.wrong {
-      background: #dc2626; /* red-600 */
-      color: white;
-      transform: scale(1.15);
-      box-shadow: 0 0 12px rgba(220,38,38,0.7);
-    }
-    
-   .key {
+    .key {
       background: #e0f0ff;
       color: #1e40af;
       font-weight: bold;
@@ -102,9 +86,17 @@
       color: white;
       transform: scale(1.1);
     }
+    .key.correct {
+      background: #16a34a !important; /* green */
+      color: white !important;
+    }
+    .key.wrong {
+      background: #dc2626 !important; /* red */
+      color: white !important;
+    }
   </style>
 
-  <!-- External Script -->
+  <!-- Script -->
   <script src="keyboard.js"></script>
 </body>
 </html>
