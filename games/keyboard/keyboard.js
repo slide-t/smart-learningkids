@@ -15,6 +15,8 @@ document.addEventListener("DOMContentLoaded", () => {
   let targetPos = 0;
   let score = 0;
 
+  startBtn.disabled = true; // disable until JSON loads
+
   // Get selected year from URL query (e.g., keyboard.html?year=1)
   const urlParams = new URLSearchParams(window.location.search);
   const selectedYear = urlParams.get("year") || "1";
@@ -29,8 +31,14 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
       stages = level.stages;
+      if (!stages || !stages.length) {
+        feedbackEl.textContent = "⚠️ No stages found for this year";
+        return;
+      }
+      stageIndex = 0;
       currentStage = stages[stageIndex];
       feedbackEl.textContent = `➡️ Stage: ${currentStage.title}`;
+      startBtn.disabled = false; // enable start button now
     })
     .catch(err => {
       console.error(err);
