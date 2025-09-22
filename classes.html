@@ -5,8 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Smart Learning Kids - Classes</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .accordion-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease;
+    }
+    .accordion-header span:last-child {
+      transition: transform 0.3s ease;
+    }
+  </style>
 </head>
 <body class="bg-gray-50 text-gray-900 font-sans">
+
   <!-- Header -->
   <header class="bg-blue-600 text-white shadow-md fixed top-0 left-0 w-full z-50">
     <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
@@ -22,456 +33,82 @@
   </main>
 
 <script>
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
   const container = document.getElementById("accordion");
-
-  // Unlock dates for 2nd and 3rd terms
-  const termUnlockDates = {
-    2: new Date("2026-01-04"),
-    3: new Date("2026-04-20")
-  };
   const today = new Date();
+  const termUnlockDates = { 2: new Date("2026-01-04"), 3: new Date("2026-04-20") };
 
-  fetch("data/classes.json")
-    .then(response => response.json())
-    .then(data => {
-      const classes = Array.isArray(data) ? data : data.classes;
+  try {
+    const res = await fetch("data/classes.json");
+    const data = await res.json();
+    const classes = Array.isArray(data) ? data : data.classes;
 
-      if (!classes) {
-        console.error("❌ JSON format invalid:", data);
-        container.textContent = "⚠️ Invalid class data format.";
-        return;
-      }
+    if (!classes) throw new Error("Invalid JSON format");
 
-      classes.forEach(cls => {
-        const card = document.createElement("div");
-        card.className = "bg-white rounded-xl shadow-md overflow-hidden mb-4";
+    classes.forEach(cls => {
+      const card = document.createElement("div");
+      card.className = "bg-white rounded-xl shadow-md overflow-hidden mb-4";
 
-        // Accordion header
-        const header = document.createElement("button");
-        header.className =
-          "w-full flex justify-between items-center px-6 py-4 text-lg font-semibold bg-blue-100 hover:bg-blue-200 transition";
-        header.innerHTML = `
-          <span>${cls.name}</span>
-          <span class="accordion-icon transform transition-transform duration-300">+</span>
-        `;
-        card.appendChild(header);
+      const header = document.createElement("button");
+      header.className = "accordion-header w-full flex justify-between items-center px-6 py-4 text-lg font-semibold bg-blue-100 hover:bg-blue-200 transition";
+      header.innerHTML = `<span class="text-gray-900">${cls.name}</span><span class="text-gray-900">+</span>`;
+      card.appendChild(header);
 
-        // Accordion body
-        const body = document.createElement("div");
-        body.className =
-          "accordion-body max-h-0 overflow-hidden transition-all duration-500 ease-in-out bg-gray-50";
-
-        // Render terms
-        body.innerHTML = (cls.terms || [])
-          .map(term => {
-            const unlocked =
-              term.number === 1 || today >= termUnlockDates[term.number];
-
-            return `
-              <div class="mb-4">
-                <h3 class="text-lg font-semibold text-blue-700 px-4 py-2">${term.title}</h3>
-                ${(term.categories || [])
-                  .map(cat => `
-                  <div class="ml-4 mb-2">
-                    <h4 class="text-md font-semibold text-purple-600 px-3 py-1">${cat.name}</h4>
-                    <ul class="space-y-2 pl-6">
-                      ${(cat.topics || [])
-                        .map(topic => {
-                          const icon = topic.link.includes("mouse") ? "🖱️" :
-                                       topic.link.includes("keyboard") ? "⌨️" : "📖";
-
-                          if (unlocked) {
-                            return `
-                              <li>
-                                <a href="${topic.link}"
-                                   class="block px-4 py-2 rounded-lg shadow text-base transition bg-white hover:shadow-md hover:bg-blue-50 flex items-center gap-2">
-                                  <span>${icon}</span> ${topic.title}
-                                </a>
-                              </li>`;
-                          } else {
-                            return `
-                              <li>
-                                <span class="block px-4 py-2 rounded-lg shadow text-base bg-gray-200 text-gray-500 cursor-not-allowed flex items-center gap-2">
-                                  <span>${icon}</span> ${topic.title} (Locked)
-                                </span>
-                              </li>`;
-                          }
-                        }).join("")}
-                    </ul>
-                  </div>
-                `).join("")}
+      const body = document.createElement("div");
+      body.className = "accordion-body bg-gray-50";
+      
+      body.innerHTML = (cls.terms || []).map(term => {
+        const termUnlocked = term.number === 1 || today >= termUnlockDates[term.number];
+        return `
+          <div class="mb-4">
+            <h3 class="text-lg font-semibold text-blue-700 px-4 py-2">${term.title}</h3>
+            ${(term.categories || []).map(cat => `
+              <div class="ml-4 mb-2">
+                <h4 class="text-md font-semibold text-purple-600 px-3 py-1">${cat.name}</h4>
+                <ul class="space-y-2 pl-6">
+                  ${(cat.topics || []).map(topic => {
+                    if (termUnlocked) {
+                      return `<li>
+                        <span class="block px-4 py-2 rounded-lg shadow text-gray-900 bg-white hover:shadow-md hover:bg-blue-50 transition cursor-pointer">
+                          ${topic.title}
+                        </span>
+                      </li>`;
+                    } else {
+                      return `<li>
+                        <span class="block px-4 py-2 rounded-lg shadow text-base bg-gray-200 text-gray-500 cursor-not-allowed">
+                          ${topic.title} (Locked)
+                        </span>
+                      </li>`;
+                    }
+                  }).join("")}
+                </ul>
               </div>
-            `;
-          }).join("");
+            `).join("")}
+          </div>`;
+      }).join("");
 
-        card.appendChild(body);
+      card.appendChild(body);
 
-        // Accordion toggle
-        header.addEventListener("click", () => {
-          const isOpen = body.style.maxHeight && body.style.maxHeight !== "0px";
+      header.addEventListener("click", () => {
+        const isOpen = body.style.maxHeight && body.style.maxHeight !== "0px";
+        container.querySelectorAll(".accordion-body").forEach(el => el.style.maxHeight = null);
+        container.querySelectorAll(".accordion-header span:last-child").forEach(icon => icon.style.transform = "rotate(0deg)");
 
-          // Close all other accordions
-          container.querySelectorAll(".accordion-body").forEach(el => el.style.maxHeight = null);
-          container.querySelectorAll(".accordion-icon").forEach(icon => icon.style.transform = "rotate(0deg)");
-
-          if (!isOpen) {
-            body.style.maxHeight = body.scrollHeight + "px";
-            header.querySelector(".accordion-icon").style.transform = "rotate(45deg)";
-          }
-        });
-
-        // Auto-close accordion on link click
-        body.querySelectorAll("a").forEach(link => {
-          link.addEventListener("click", () => {
-            body.style.maxHeight = null;
-            header.querySelector(".accordion-icon").style.transform = "rotate(0deg)";
-          });
-        });
-
-        container.appendChild(card);
-      });
-    })
-    .catch(err => {
-      console.error("❌ Error loading JSON:", err);
-      container.textContent = "⚠️ Failed to load class data.";
-    });
-});
-</script>
-
-  <!--
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const container = document.getElementById("accordion");
-
-  // Unlock dates for 2nd and 3rd terms
-  const termUnlockDates = {
-    2: new Date("2026-01-04"),
-    3: new Date("2026-04-20")
-  };
-  const today = new Date();
-
-  fetch("data/classes.json")
-    .then(response => response.json())
-    .then(data => {
-      const classes = Array.isArray(data) ? data : data.classes;
-
-      if (!classes) {
-        console.error("❌ JSON format invalid:", data);
-        container.textContent = "⚠️ Invalid class data format.";
-        return;
-      }
-
-      classes.forEach(cls => {
-        const card = document.createElement("div");
-        card.className = "bg-white rounded-xl shadow-md overflow-hidden mb-4";
-
-        // Accordion header
-        const header = document.createElement("button");
-        header.className =
-          "w-full flex justify-between items-center px-6 py-4 text-lg font-semibold bg-blue-100 hover:bg-blue-200 transition";
-        header.innerHTML = `
-          <span>${cls.name}</span>
-          <span class="accordion-icon transform transition-transform duration-300">+</span>
-        `;
-        card.appendChild(header);
-
-        // Accordion body
-        const body = document.createElement("div");
-        body.className =
-          "accordion-body max-h-0 overflow-hidden transition-all duration-500 ease-in-out bg-gray-50";
-
-        // Render terms
-        body.innerHTML = (cls.terms || [])
-          .map(term => {
-            const unlocked =
-              term.number === 1 || today >= termUnlockDates[term.number];
-
-            return `
-              <div class="mb-4">
-                <h3 class="text-lg font-semibold text-blue-700 px-4 py-2">${term.title}</h3>
-                ${(term.categories || [])
-                  .map(cat => `
-                  <div class="ml-4 mb-2">
-                    <h4 class="text-md font-semibold text-purple-600 px-3 py-1">${cat.name}</h4>
-                    <ul class="space-y-2 pl-6">
-                      ${(cat.topics || [])
-                        .map(topic => {
-                          const icon = topic.link.includes("mouse") ? "🖱️" :
-                                       topic.link.includes("keyboard") ? "⌨️" : "📖";
-
-                          if (unlocked) {
-                            return `
-                              <li>
-                                <a href="${topic.link}"
-                                   class="block px-4 py-2 rounded-lg shadow text-base transition bg-white hover:shadow-md hover:bg-blue-50 flex items-center gap-2">
-                                  <span>${icon}</span> ${topic.title}
-                                </a>
-                              </li>`;
-                          } else {
-                            return `
-                              <li>
-                                <span class="block px-4 py-2 rounded-lg shadow text-base bg-gray-200 text-gray-500 cursor-not-allowed flex items-center gap-2">
-                                  <span>${icon}</span> ${topic.title} (Locked)
-                                </span>
-                              </li>`;
-                          }
-                        }).join("")}
-                    </ul>
-                  </div>
-                `).join("")}
-              </div>
-            `;
-          }).join("");
-
-        card.appendChild(body);
-
-        // Accordion toggle
-        header.addEventListener("click", () => {
-          const isOpen = body.style.maxHeight && body.style.maxHeight !== "0px";
-
-          // Close all other accordions
-          container.querySelectorAll(".accordion-body").forEach(el => el.style.maxHeight = null);
-          container.querySelectorAll(".accordion-icon").forEach(icon => icon.style.transform = "rotate(0deg)");
-
-          if (!isOpen) {
-            body.style.maxHeight = body.scrollHeight + "px";
-            header.querySelector(".accordion-icon").style.transform = "rotate(45deg)";
-          }
-        });
-
-        container.appendChild(card);
-      });
-    })
-    .catch(err => {
-      console.error("❌ Error loading JSON:", err);
-      container.textContent = "⚠️ Failed to load class data.";
-    });
-});
-</script>
-
-
-
-
-  <!--
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const container = document.getElementById("accordion");
-
-  // Unlock dates for terms
-  const termUnlockDates = {
-    2: new Date("2026-01-04"),
-    3: new Date("2026-04-20")
-  };
-  const today = new Date();
-
-  fetch("data/classes.json")
-    .then(response => response.json())
-    .then(data => {
-      const classes = Array.isArray(data) ? data : data.years || data.classes || [data];
-
-      classes.forEach(cls => {
-        const card = document.createElement("div");
-        card.className = "bg-white rounded-xl shadow-md overflow-hidden mb-4";
-
-        // Header
-        const header = document.createElement("button");
-        header.className =
-          "w-full flex justify-between items-center px-6 py-4 text-lg font-semibold bg-blue-100 hover:bg-blue-200 transition";
-        header.innerHTML = `
-          <span>${cls.name}</span>
-          <span class="accordion-icon transform transition-transform duration-300">+</span>
-        `;
-        card.appendChild(header);
-
-        // Body
-        const body = document.createElement("div");
-        body.className = "accordion-body max-h-0 overflow-hidden transition-all duration-500 ease-in-out bg-gray-50";
-
-        // Render terms dynamically
-        body.innerHTML = (cls.terms || [])
-          .map(term => {
-            const unlocked = term.number === 1 || today >= termUnlockDates[term.number];
-
-            return `
-              <div class="mb-4">
-                <h3 class="text-lg font-semibold text-blue-700 px-4 py-2">${term.title}</h3>
-                ${(term.categories || [])
-                  .map(cat => `
-                    <div class="ml-4">
-                      <h4 class="text-md font-semibold text-gray-700 px-3 py-1">${cat.name}</h4>
-                      <ul class="space-y-2 pl-6">
-                        ${(cat.topics || [])
-                          .map(topic => {
-                            let icon = "📖";
-                            if (topic.link?.includes("games/")) icon = "🎮";
-                            else if (topic.link?.includes("projects/")) icon = "📝";
-
-                            if (unlocked) {
-                              return `
-                                <li>
-                                  <a href="${topic.link}"
-                                     class="block px-4 py-2 rounded-lg shadow text-base transition bg-white hover:shadow-md hover:bg-blue-50 flex items-center gap-2">
-                                    <span>${icon}</span> ${topic.title}
-                                  </a>
-                                </li>`;
-                            } else {
-                              return `
-                                <li>
-                                  <span class="block px-4 py-2 rounded-lg shadow text-base bg-gray-200 text-gray-500 cursor-not-allowed flex items-center gap-2">
-                                    <span>${icon}</span> ${topic.title} (Locked)
-                                  </span>
-                                </li>`;
-                            }
-                          })
-                          .join("")}
-                      </ul>
-                    </div>
-                  `).join("")}
-              </div>
-            `;
-          })
-          .join("");
-
-        card.appendChild(body);
-
-        // Accordion toggle
-        header.addEventListener("click", () => {
-          const isOpen = body.style.maxHeight && body.style.maxHeight !== "0px";
-
-          // Close all
-          container.querySelectorAll(".accordion-body").forEach(el => el.style.maxHeight = null);
-          container.querySelectorAll(".accordion-icon").forEach(icon => icon.style.transform = "rotate(0deg)");
-
-          // Open clicked
-          if (!isOpen) {
-            body.style.maxHeight = body.scrollHeight + "px";
-            header.querySelector(".accordion-icon").style.transform = "rotate(45deg)";
-          }
-        });
-
-        container.appendChild(card);
-      });
-    })
-    .catch(err => {
-      console.error("❌ Error loading JSON:", err);
-      container.textContent = "⚠️ Failed to load class data.";
-    });
-});
-</script>
-
-
-  <!--
-  <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const container = document.getElementById("accordion");
-
-    async function loadClasses() {
-      try {
-        const response = await fetch("data/classes.json");
-        if (!response.ok) throw new Error("Failed to load JSON");
-        const data = await response.json();
-
-        // Normalize to array
-        let classes = [];
-        if (Array.isArray(data)) {
-          classes = data;
-        } else if (data.classes && Array.isArray(data.classes)) {
-          classes = data.classes;
-        } else if (data.years && Array.isArray(data.years)) {
-          classes = data.years;
-        } else if (typeof data === "object") {
-          classes = [data];
+        if (!isOpen) {
+          body.style.maxHeight = body.scrollHeight + "px";
+          header.querySelector("span:last-child").style.transform = "rotate(45deg)";
         }
-
-        renderClasses(classes);
-      } catch (error) {
-        console.error("❌ Error loading classes.json:", error);
-        container.innerHTML = `<p class="text-red-500">Failed to load classes. Check console.</p>`;
-      }
-    }
-
-    function renderClasses(classes) {
-      container.innerHTML = "";
-
-      classes.forEach(cls => {
-        const card = document.createElement("div");
-        card.className = "bg-white rounded-xl shadow-md overflow-hidden";
-
-        // Header
-        const header = document.createElement("button");
-        header.className =
-          "w-full flex justify-between items-center px-6 py-4 text-lg font-semibold bg-blue-100 hover:bg-blue-200 transition";
-        header.innerHTML = `
-          <span>${cls.name}</span>
-          <span class="accordion-icon transform transition-transform duration-300">+</span>
-        `;
-        card.appendChild(header);
-
-        // Body
-        const body = document.createElement("div");
-        body.className =
-          "accordion-body max-h-0 overflow-hidden transition-all duration-500 ease-in-out bg-gray-50";
-
-        // Render terms
-        body.innerHTML = (cls.terms || [])
-          .map(term => `
-            <div class="mb-4">
-              <h3 class="text-lg font-semibold text-blue-700 px-4 py-2">${term.title}</h3>
-              ${(term.categories || [])
-                .map(cat => `
-                  <div class="ml-4">
-                    <h4 class="text-md font-semibold text-gray-700 px-3 py-1">${cat.name}</h4>
-                    <ul class="space-y-3 pl-6">
-                      ${(cat.topics || [])
-                        .map(topic => {
-                          let icon = "📖";
-                          if (topic.link?.includes("games/")) icon = "🎮";
-                          else if (topic.link?.includes("projects/")) icon = "📝";
-                          return `
-                            <li>
-                              <a href="${topic.link}"
-                                 class="block px-4 py-2 rounded-lg shadow text-base transition bg-white hover:shadow-md hover:bg-blue-50 flex items-center gap-2">
-                                <span>${icon}</span> ${topic.title}
-                              </a>
-                            </li>`;
-                        })
-                        .join("")}
-                    </ul>
-                  </div>
-                `)
-                .join("")}
-            </div>
-          `)
-          .join("");
-
-        card.appendChild(body);
-
-        // Accordion toggle
-        header.addEventListener("click", () => {
-          const isOpen = body.style.maxHeight && body.style.maxHeight !== "0px";
-
-          // Close all
-          container.querySelectorAll(".accordion-body").forEach(el => {
-            el.style.maxHeight = null;
-          });
-          container.querySelectorAll(".accordion-icon").forEach(icon => {
-            icon.style.transform = "rotate(0deg)";
-          });
-
-          // Open clicked
-          if (!isOpen) {
-            body.style.maxHeight = body.scrollHeight + "px";
-            header.querySelector(".accordion-icon").style.transform = "rotate(45deg)";
-          }
-        });
-
-        container.appendChild(card);
       });
-    }
 
-    loadClasses();
-  });
-  </script>-->
+      container.appendChild(card);
+    });
+
+  } catch (err) {
+    console.error("Error loading JSON:", err);
+    container.innerHTML = '<p class="text-red-500">⚠️ Failed to load class data. Check console.</p>';
+  }
+});
+</script>
+
 </body>
 </html>
