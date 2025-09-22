@@ -24,19 +24,7 @@ let timer = 420; // 7 mins
 let timerInterval = null;
 
 // 🎹 Virtual keyboard layout
-const keys = [
-  "A","B","C","D","E","F","G","H","I","J",
-  "K","L","M","N","O","P","Q","R","S","T",
-  "U","V","W","X","Y","Z",
-  "SPACE","ENTER"
-];
-
-// 🚫 Prevent on-screen keyboard on mobile
-document.addEventListener("touchstart", function (e) {
-  if (e.target.tagName === "INPUT" || e.target.tagName === "TEXTAREA") {
-    e.preventDefault();
-  }
-}, { passive: false });
+const keys = "ABCDEFGHIJKLMNOPQRSTUVWXYZ ".split("");
 
 // Load data
 async function loadData() {
@@ -44,14 +32,13 @@ async function loadData() {
   data = await res.json();
 }
 
-// Start game
+// Start Game
 function startGame() {
   if (!data.length) {
     feedbackEl.textContent = "⚠️ Data not loaded!";
     return;
   }
 
-  // Hide start screen & show game
   startScreen.style.display = "none";
   gameContainer.classList.remove("hidden");
 
@@ -59,6 +46,7 @@ function startGame() {
   timer = 420;
   correct = 0;
   wrong = 0;
+
   updateScore();
   updateTimer();
   startTimer();
@@ -73,7 +61,7 @@ function startTimer() {
     if (timer <= 0) {
       clearInterval(timerInterval);
       feedbackEl.textContent = "⏰ Time’s up!";
-      restartBtn.classList.remove("hidden"); // show restart when game ends
+      restartBtn.classList.remove("hidden");
     }
     updateTimer();
   }, 1000);
@@ -85,55 +73,55 @@ function updateTimer() {
   timerEl.textContent = `${min}:${sec}`;
 }
 
-// Pick new word
+// New word
 function newWord() {
-  const randomStage = data[Math.floor(Math.random() * data.length)];
-  currentWord = randomStage.words[Math.floor(Math.random() * randomStage.words.length)];
+  const stage = data[Math.floor(Math.random() * data.length)];
+  currentWord = stage.words[Math.floor(Math.random() * stage.words.length)];
   currentIndex = 0;
+
   fallingItemEl.textContent = currentWord;
-  fallingItemEl.classList.remove("shake");
-  fallingItemEl.classList.add("drop-enter");
-  setTimeout(() => fallingItemEl.classList.remove("drop-enter"), 700);
+  fallingItemEl.classList.add("animate-fade-in");
+  setTimeout(() => fallingItemEl.classList.remove("animate-fade-in"), 700);
 }
 
 // Handle input
 function handleInput(input) {
   if (!currentWord) return;
 
-  if (input === "SPACE") input = " ";
-  if (input === "ENTER") {
-    wrong++;
-    feedbackEl.textContent = `⏭ Skipped: ${currentWord}`;
-    wrongSound.play();
-    newWord();
-    updateScore();
-    return;
-  }
+  if (input === " ") input = "SPACE";
 
   const expected = currentWord[currentIndex]?.toUpperCase();
 
-  if (input.toUpperCase() === expected) {
+  if (input === expected) {
     currentIndex++;
-    fallingItemEl.classList.add("correct-flash");
-    setTimeout(() => fallingItemEl.classList.remove("correct-flash"), 300);
+    highlightKey(input, "correct");
 
     if (currentIndex >= currentWord.length) {
       correct++;
-      feedbackEl.textContent = `✅ Correct: ${currentWord}`;
+      feedbackEl.textContent = `✅ ${currentWord}`;
       correctSound.play();
       newWord();
     }
   } else {
     wrong++;
-    feedbackEl.textContent = `❌ Wrong! Expected "${expected}"`;
+    feedbackEl.textContent = `❌ Expected "${expected}"`;
     wrongSound.play();
-    fallingItemEl.classList.add("shake");
-    setTimeout(() => fallingItemEl.classList.remove("shake"), 500);
+    highlightKey(input, "wrong");
   }
+
   updateScore();
 }
 
-// Update score
+// Highlight keys
+function highlightKey(key, status) {
+  const btn = [...virtualKeyboard.children].find(b => b.dataset.key === key);
+  if (btn) {
+    btn.classList.add(status === "correct" ? "bg-green-300" : "bg-red-300");
+    setTimeout(() => btn.classList.remove("bg-green-300", "bg-red-300"), 400);
+  }
+}
+
+// Update Score
 function updateScore() {
   correctEl.textContent = correct;
   wrongEl.textContent = wrong;
@@ -141,20 +129,17 @@ function updateScore() {
   accuracyEl.textContent = total ? Math.round((correct / total) * 100) + "%" : "0%";
 }
 
-// Virtual keyboard
+// Virtual Keyboard
 function setupVirtualKeyboard() {
   if (window.innerWidth < 768) {
     virtualKeyboard.classList.remove("hidden");
     virtualKeyboard.innerHTML = "";
-    keys.forEach(key => {
+    keys.forEach(k => {
       const btn = document.createElement("button");
-      btn.textContent = key === "SPACE" ? "⎵" : key;
-      btn.className = "px-2 py-2 bg-indigo-100 rounded shadow text-sm key-btn";
-      btn.addEventListener("click", () => {
-        btn.classList.add("active");
-        setTimeout(() => btn.classList.remove("active"), 200);
-        handleInput(key);
-      });
+      btn.textContent = k === " " ? "⎵" : k;
+      btn.dataset.key = k === " " ? "SPACE" : k;
+      btn.className = "p-2 bg-gray-200 rounded shadow text-sm";
+      btn.addEventListener("click", () => handleInput(btn.dataset.key));
       virtualKeyboard.appendChild(btn);
     });
   }
@@ -162,23 +147,18 @@ function setupVirtualKeyboard() {
 
 // Keyboard input (desktop)
 document.addEventListener("keydown", (e) => {
-  if (e.key.length === 1) {
-    handleInput(e.key.toUpperCase());
-  } else if (e.key === " ") {
-    handleInput("SPACE");
-  } else if (e.key === "Enter") {
-    handleInput("ENTER");
-  }
+  if (e.key.length === 1) handleInput(e.key.toUpperCase());
+  else if (e.key === " ") handleInput("SPACE");
 });
 
-// ✅ Start button
+// ✅ Start
 startBtn.addEventListener("click", startGame);
 
-// ✅ Restart button → back to start screen
+// ✅ Restart
 restartBtn.addEventListener("click", () => {
   clearInterval(timerInterval);
   gameContainer.classList.add("hidden");
-  startScreen.style.display = "flex"; // show start again
+  startScreen.style.display = "flex";
   feedbackEl.textContent = "";
 });
 
