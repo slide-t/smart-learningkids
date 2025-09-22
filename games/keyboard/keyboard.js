@@ -153,7 +153,7 @@ document.addEventListener("DOMContentLoaded", () => {
       content: [
         "Final Project: Developing a community app for waste recycling. The app allows households to schedule pickups and track recycling activities."
       ]
-    }
+    },
   
     
     
