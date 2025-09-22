@@ -87,7 +87,46 @@
       transform: scale(1.1);
     }
   </style>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  // Get buttons
+  const startBtn = document.getElementById("startBtn");
+  const restartBtn = document.getElementById("restartBtn");
+  const nextBtn = document.getElementById("nextBtn");
+  const homeBtn = document.getElementById("homeBtn");
 
+  const practiceArea = document.getElementById("practiceArea");
+  const virtualKeyboard = document.getElementById("virtualKeyboard");
+
+  // Start button logic
+  if (startBtn) {
+    startBtn.addEventListener("click", () => {
+      startBtn.classList.add("hidden"); // hide start
+      practiceArea.classList.remove("hidden"); // show practice
+      virtualKeyboard.classList.remove("hidden"); // show keyboard
+      initGame(); // start game (define this elsewhere)
+    });
+  }
+
+  // Button handlers
+  if (restartBtn) {
+    restartBtn.addEventListener("click", () => location.reload());
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener("click", () => {
+      // TODO: define what "Next" should do
+      console.log("Next clicked");
+    });
+  }
+
+  if (homeBtn) {
+    homeBtn.addEventListener("click", () => {
+      window.location.href = "index.html";
+    });
+  }
+});
+</script>
   <!-- Script -->
   <script src="keyboard.js"></script>
 </body>
