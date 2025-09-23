@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const restartBtn = document.getElementById("restartBtn");
   const nextBtn = document.getElementById("nextBtn");
   const homeBtn = document.getElementById("homeBtn");
+  const virtualKeyboard = document.getElementById("virtualKeyboard"); // 🔑 optional virtual keyboard
 
   // Get topic from query string (e.g. keyboard.html?topic=home-row)
   const urlParams = new URLSearchParams(window.location.search);
@@ -181,7 +182,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
 
-    inputEl.addEventListener("input", () => {
+    function checkInput() {
       if (inputEl.value === game.content[index]) {
         feedbackEl.textContent = "✅ Correct!";
         feedbackEl.className = "text-green-600 mt-2 text-sm";
@@ -191,7 +192,34 @@ document.addEventListener("DOMContentLoaded", () => {
         feedbackEl.textContent = "⏳ Keep typing...";
         feedbackEl.className = "text-blue-600 mt-2 text-sm";
       }
+    }
+
+    inputEl.addEventListener("input", checkInput);
+
+    // Virtual keyboard clicks
+    if (virtualKeyboard) {
+      virtualKeyboard.addEventListener("click", (e) => {
+        if (e.target.classList.contains("key")) {
+          const key = e.target.textContent;
+          inputEl.value += key;
+          highlightKey(e.target);
+          checkInput();
+        }
+      });
+    }
+
+    // Real keyboard key highlight
+    document.addEventListener("keydown", (e) => {
+      const keyEl = document.querySelector(`.key[data-key="${e.key.toLowerCase()}"]`);
+      if (keyEl) {
+        highlightKey(keyEl);
+      }
     });
+
+    function highlightKey(el) {
+      el.classList.add("bg-yellow-300");
+      setTimeout(() => el.classList.remove("bg-yellow-300"), 300);
+    }
 
     loadPrompt();
   }
