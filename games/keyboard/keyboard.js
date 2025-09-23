@@ -1,266 +1,164 @@
-let topics = [];
-let currentTopicIndex = 0;
-let currentCharIndex = 0;
-let currentKeys = [];
-let score = 0;
-
-async function loadTopics() {
-  try {
-    const res = await fetch("classes.json");
-    const data = await res.json();
-    topics = [];
-
-    Object.keys(data).forEach(level => {
-      data[level].forEach(cls => {
-        cls.terms.forEach(term => {
-          term.topics.forEach(topic => {
-            topics.push(topic);
-          });
-        });
-      });
-    });
-
-    if (topics.length > 0) {
-      loadTopic(currentTopicIndex);
-    }
-  } catch (err) {
-    console.error("Error loading topics:", err);
-  }
-}
-
-async function loadTopic(index) {
-  if (index < 0 || index >= topics.length) {
-    document.getElementById("gameBoard").textContent =
-      "🎉 Great job! You finished all topics.";
-    clearHighlights();
-    return;
-  }
-
-  const topic = topics[index];
-  try {
-    const res = await fetch(topic.link);
-    const data = await res.json();
-
-    currentKeys = data.keys || [];
-    currentCharIndex = 0;
-    score = 0;
-
-    document.getElementById("topicTitle").textContent = topic.name;
-    document.getElementById("gameBoard").textContent = "";
-    showNextKey();
-  } catch (err) {
-    console.error("Error loading keyboard.json:", err);
-  }
-}
-
-function showNextKey() {
-  clearHighlights();
-
-  if (currentCharIndex >= currentKeys.length) {
-    currentTopicIndex++;
-    loadTopic(currentTopicIndex);
-    return;
-  }
-
-  const nextChar = currentKeys[currentCharIndex].toLowerCase();
-  document.getElementById("gameBoard").textContent =
-    `Type: ${nextChar.toUpperCase()}`;
-
-  const keyEl = document.querySelector(
-    `.key[data-key="${nextChar.toUpperCase()}"]`
-  );
-  if (keyEl) keyEl.classList.add("highlight");
-}
-
-function clearHighlights() {
-  document.querySelectorAll(".key").forEach(k =>
-    k.classList.remove("highlight")
-  );
-}
-
-function handleInput(char) {
-  const expected = currentKeys[currentCharIndex].toLowerCase();
-
-  if (char.toLowerCase() === expected) {
-    score++;
-    currentCharIndex++;
-    showNextKey(); // 🔹 immediately load & highlight next key
-  }
-}
-
-document.addEventListener("keydown", e => {
-  if (/^[a-z0-9]$/i.test(e.key)) {
-    handleInput(e.key);
-  }
-});
-
-document.querySelectorAll(".key").forEach(key => {
-  key.addEventListener("click", () => {
-    handleInput(key.dataset.key);
-  });
-});
-
-window.addEventListener("load", loadTopics);
-
-
-
-
-
-
-
-
-
-
-/*
-// keyboard.js
 document.addEventListener("DOMContentLoaded", () => {
   const startBtn = document.getElementById("startBtn");
+  const nextBtn = document.getElementById("nextBtn");
   const restartBtn = document.getElementById("restartBtn");
   const homeBtn = document.getElementById("homeBtn");
   const practiceArea = document.getElementById("practiceArea");
-  const virtualKeyboard = document.getElementById("virtualKeyboard");
   const targetChar = document.getElementById("targetChar");
-  const feedback = document.getElementById("feedback");
+  const feedbackEl = document.getElementById("feedback");
+  const virtualKeyboard = document.getElementById("virtualKeyboard");
 
-  let classesData = [];
-  let topics = [];
-  let currentTopicIndex = 0;
-  let currentChars = [];
-  let currentCharIndex = 0;
-
-  // Load classes.json on page load
-  async function loadClasses() {
-    try {
-      const res = await fetch("classes.json");
-      classesData = await res.json();
-
-      // Flatten topics across terms
-      topics = classesData.flatMap(cls =>
-        cls.terms.flatMap(term =>
-          term.topics.map(t => t.link)
-        )
-      );
-    } catch (err) {
-      console.error("Error loading classes.json:", err);
+  // --- GAME DATA ---
+  const stages = [
+    {
+      name: "Home Row Keys",
+      description: "Practice typing the home row keys including semicolon.",
+      items: ["a","s","d","f","j","k","l",";"]
+    },
+    {
+      name: "Two-Letter Words",
+      description: "Type these two-letter words.",
+      items: ["at","on","in","up","to","it"]
+    },
+    {
+      name: "Three-Letter Words",
+      description: "Type these three-letter words.",
+      items: ["cat","dog","sun","pen","car"]
+    },
+    {
+      name: "Simple Words",
+      description: "Type simple words including special characters.",
+      items: ["book","chair","table","plant","water","hi!","go?"]
+    },
+    {
+      name: "Numbers & Symbols",
+      description: "Practice typing numbers and symbols.",
+      items: ["1","2","3","4","5","6","7","8","9","0","@", "#", "$", "%", "&", "*"]
     }
-  }
+  ];
 
-  // Load one topic's keyboard.json
-  async function loadTopic(topicFile) {
-    try {
-      const res = await fetch(topicFile);
-      const topicData = await res.json();
+  let currentStageIndex = 0;
+  let currentItemIndex = 0;
+  let currentItem = "";
 
-      if (topicData && topicData.content) {
-        currentChars = topicData.content.join(" ").split("");
-        currentCharIndex = 0;
-        showChar();
-      }
-    } catch (err) {
-      console.error("Error loading topic:", err);
-    }
-  }
+  const keys = [
+    "1","2","3","4","5","6","7","8","9","0",
+    "Q","W","E","R","T","Y","U","I","O","P",
+    "A","S","D","F","G","H","J","K","L",";",
+    "Z","X","C","V","B","N","M",",",".","?","SPACE","ENTER"
+  ];
 
-  function showChar() {
-    if (currentCharIndex < currentChars.length) {
-      const char = currentChars[currentCharIndex];
-      targetChar.textContent = char;
-      feedback.textContent = "";
+  let keyButtons = {};
 
-      // highlight the target key on virtual keyboard
-      clearHighlights();
-      const keyEl = document.querySelector(`.key[data-key="${char.toUpperCase()}"]`);
-      if (keyEl) keyEl.classList.add("highlight");
-    } else {
-      // completed one topic → load next
-      currentTopicIndex++;
-      if (currentTopicIndex < topics.length) {
-        loadTopic(topics[currentTopicIndex]);
-      } else {
-        // finished all topics
-        targetChar.textContent = "";
-        feedback.textContent = "🎉 Great job! You finished all topics.";
-        feedback.className = "text-green-600 font-semibold";
-        clearHighlights();
-        currentTopicIndex = 0; // reset if you want to loop
-      }
-    }
-  }
-
-  function showNextChar() {
-    currentCharIndex++;
-    showChar();
-  }
-
-  function checkInput(key) {
-    const expected = currentChars[currentCharIndex];
-    if (!expected) return;
-
-    if (key.toLowerCase() === expected.toLowerCase()) {
-      feedback.textContent = "✅ Correct!";
-      feedback.className = "text-green-600 font-semibold";
-      setTimeout(showNextChar, 400);
-    } else {
-      feedback.textContent = `⏳ Try again... (${expected})`;
-      feedback.className = "text-blue-600 font-semibold";
-    }
-  }
-
-  function clearHighlights() {
-    document.querySelectorAll(".key").forEach(el => el.classList.remove("highlight", "active"));
-  }
-
-  function pressKeyVisual(key) {
-    const keyEl = document.querySelector(`.key[data-key="${key.toUpperCase()}"]`);
-    if (keyEl) {
-      keyEl.classList.add("active");
-      setTimeout(() => keyEl.classList.remove("active"), 200);
-    }
-  }
-
-  // Virtual keyboard click
-  if (virtualKeyboard) {
-    virtualKeyboard.addEventListener("click", (e) => {
-      if (e.target.classList.contains("key")) {
-        const key = e.target.dataset.key || e.target.textContent.trim();
-        pressKeyVisual(key);
-        checkInput(key);
-      }
+  function setupVirtualKeyboard() {
+    virtualKeyboard.innerHTML = "";
+    virtualKeyboard.classList.remove("hidden");
+    keys.forEach(key => {
+      const btn = document.createElement("div");
+      btn.textContent = key === "SPACE" ? "⎵" : key;
+      btn.className = "key";
+      btn.dataset.key = key;
+      btn.addEventListener("click", () => {
+        if (!btn.classList.contains("disabled")) {
+          btn.classList.add("active");
+          setTimeout(() => btn.classList.remove("active"), 200);
+          handleInput(key);
+        }
+      });
+      virtualKeyboard.appendChild(btn);
+      keyButtons[key.toUpperCase()] = btn;
     });
   }
 
-  // Real keyboard input
-  document.addEventListener("keydown", (e) => {
-    const key = e.key.toUpperCase();
-    pressKeyVisual(key);
-    checkInput(key);
+  // Enable only current needed keys
+  function highlightCurrentKey() {
+    Object.values(keyButtons).forEach(btn => btn.classList.add("disabled"));
+    if (!currentItem) return;
+
+    const chars = currentItem.split("");
+    const nextChar = chars[0].toUpperCase(); // only first char for now
+    const btn = keyButtons[nextChar === " " ? "SPACE" : nextChar];
+    if (btn) btn.classList.remove("disabled");
+  }
+
+  function loadItem() {
+    const stage = stages[currentStageIndex];
+    if (!stage) return;
+
+    if (currentItemIndex < stage.items.length) {
+      currentItem = stage.items[currentItemIndex];
+      targetChar.textContent = currentItem.toUpperCase();
+      feedbackEl.textContent = "";
+      highlightCurrentKey();
+    } else {
+      feedbackEl.textContent = `🎉 Stage Complete: ${stage.name}`;
+      nextBtn.classList.remove("hidden");
+      targetChar.textContent = "";
+      Object.values(keyButtons).forEach(btn => btn.classList.add("disabled"));
+    }
+  }
+
+  function handleInput(input) {
+    if (!currentItem) return;
+    
+    if (input === "SPACE") input = " ";
+    if (input === "ENTER") input = "";
+
+    const expectedChar = currentItem[0];
+    if (input.toLowerCase() === expectedChar.toLowerCase()) {
+      feedbackEl.textContent = "✅ Correct!";
+      // Remove first character from currentItem
+      currentItem = currentItem.slice(1);
+      if (currentItem.length === 0) {
+        currentItemIndex++;
+        setTimeout(loadItem, 400);
+      } else {
+        targetChar.textContent = currentItem.toUpperCase();
+        highlightCurrentKey();
+      }
+    } else {
+      feedbackEl.textContent = `❌ Try again!`;
+    }
+  }
+
+  startBtn.addEventListener("click", () => {
+    practiceArea.classList.remove("hidden");
+    startBtn.classList.add("hidden");
+    currentStageIndex = 0;
+    currentItemIndex = 0;
+    nextBtn.classList.add("hidden");
+    setupVirtualKeyboard();
+    loadItem();
   });
 
-  // Buttons
-  if (startBtn) {
-    startBtn.addEventListener("click", async () => {
-      await loadClasses();
-      if (topics.length > 0) {
-        practiceArea.classList.remove("hidden");
-        virtualKeyboard.classList.remove("hidden");
-        startBtn.classList.add("hidden");
-        restartBtn.classList.remove("hidden");
-        currentTopicIndex = 0;
-        await loadTopic(topics[currentTopicIndex]);
-      }
-    });
-  }
+  nextBtn.addEventListener("click", () => {
+    currentStageIndex++;
+    currentItemIndex = 0;
+    nextBtn.classList.add("hidden");
+    loadItem();
+  });
 
-  if (restartBtn) {
-    restartBtn.addEventListener("click", () => {
-      currentCharIndex = 0;
-      showChar();
-    });
-  }
+  restartBtn.addEventListener("click", () => {
+    currentStageIndex = 0;
+    currentItemIndex = 0;
+    practiceArea.classList.add("hidden");
+    startBtn.classList.remove("hidden");
+    nextBtn.classList.add("hidden");
+    feedbackEl.textContent = "";
+    targetChar.textContent = "";
+  });
 
-  if (homeBtn) {
-    homeBtn.addEventListener("click", () => {
-      window.location.href = "index.html";
-    });
-  }
+  homeBtn.addEventListener("click", () => {
+    window.location.href = "index.html";
+  });
+
+  document.addEventListener("keydown", (e) => {
+    let keyPressed = e.key;
+    if (keyPressed === " ") keyPressed = "SPACE";
+    else if (keyPressed === "Enter") keyPressed = "ENTER";
+    const btn = keyButtons[keyPressed.toUpperCase()];
+    if (btn && !btn.classList.contains("disabled")) {
+      handleInput(keyPressed);
+    }
+  });
 });
