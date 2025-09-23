@@ -1,3 +1,117 @@
+let topics = [];
+let currentTopicIndex = 0;
+let currentCharIndex = 0;
+let currentKeys = [];
+let score = 0;
+
+async function loadTopics() {
+  try {
+    const res = await fetch("classes.json");
+    const data = await res.json();
+    topics = [];
+
+    Object.keys(data).forEach(level => {
+      data[level].forEach(cls => {
+        cls.terms.forEach(term => {
+          term.topics.forEach(topic => {
+            topics.push(topic);
+          });
+        });
+      });
+    });
+
+    if (topics.length > 0) {
+      loadTopic(currentTopicIndex);
+    }
+  } catch (err) {
+    console.error("Error loading topics:", err);
+  }
+}
+
+async function loadTopic(index) {
+  if (index < 0 || index >= topics.length) {
+    document.getElementById("gameBoard").textContent =
+      "🎉 Great job! You finished all topics.";
+    clearHighlights();
+    return;
+  }
+
+  const topic = topics[index];
+  try {
+    const res = await fetch(topic.link);
+    const data = await res.json();
+
+    currentKeys = data.keys || [];
+    currentCharIndex = 0;
+    score = 0;
+
+    document.getElementById("topicTitle").textContent = topic.name;
+    document.getElementById("gameBoard").textContent = "";
+    showNextKey();
+  } catch (err) {
+    console.error("Error loading keyboard.json:", err);
+  }
+}
+
+function showNextKey() {
+  clearHighlights();
+
+  if (currentCharIndex >= currentKeys.length) {
+    currentTopicIndex++;
+    loadTopic(currentTopicIndex);
+    return;
+  }
+
+  const nextChar = currentKeys[currentCharIndex].toLowerCase();
+  document.getElementById("gameBoard").textContent =
+    `Type: ${nextChar.toUpperCase()}`;
+
+  const keyEl = document.querySelector(
+    `.key[data-key="${nextChar.toUpperCase()}"]`
+  );
+  if (keyEl) keyEl.classList.add("highlight");
+}
+
+function clearHighlights() {
+  document.querySelectorAll(".key").forEach(k =>
+    k.classList.remove("highlight")
+  );
+}
+
+function handleInput(char) {
+  const expected = currentKeys[currentCharIndex].toLowerCase();
+
+  if (char.toLowerCase() === expected) {
+    score++;
+    currentCharIndex++;
+    showNextKey(); // 🔹 immediately load & highlight next key
+  }
+}
+
+document.addEventListener("keydown", e => {
+  if (/^[a-z0-9]$/i.test(e.key)) {
+    handleInput(e.key);
+  }
+});
+
+document.querySelectorAll(".key").forEach(key => {
+  key.addEventListener("click", () => {
+    handleInput(key.dataset.key);
+  });
+});
+
+window.addEventListener("load", loadTopics);
+
+
+
+
+
+
+
+
+
+
+/*
 // keyboard.js
 document.addEventListener("DOMContentLoaded", () => {
   const startBtn = document.getElementById("startBtn");
