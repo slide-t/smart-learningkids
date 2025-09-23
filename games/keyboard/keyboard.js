@@ -2,7 +2,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   const startBtn = document.getElementById("startBtn");
   const restartBtn = document.getElementById("restartBtn");
-  const nextBtn = document.getElementById("nextBtn");
   const homeBtn = document.getElementById("homeBtn");
   const practiceArea = document.getElementById("practiceArea");
   const virtualKeyboard = document.getElementById("virtualKeyboard");
@@ -13,13 +12,14 @@ document.addEventListener("DOMContentLoaded", () => {
   let topics = [];
   let currentTopicIndex = 0;
   let currentChars = [];
-  let currentIndex = 0;
+  let currentCharIndex = 0;
 
   // Load classes.json on page load
   async function loadClasses() {
     try {
       const res = await fetch("classes.json");
       classesData = await res.json();
+
       // Flatten topics across terms
       topics = classesData.flatMap(cls =>
         cls.terms.flatMap(term =>
@@ -36,9 +36,11 @@ document.addEventListener("DOMContentLoaded", () => {
     try {
       const res = await fetch(topicFile);
       const topicData = await res.json();
+
       if (topicData && topicData.content) {
-        currentChars = topicData.content.join("").split(""); // flatten to characters
-        currentIndex = 0;
+        // join arrays → flatten → split into characters
+        currentChars = topicData.content.join(" ").split("");
+        currentCharIndex = 0;
         showChar();
       }
     } catch (err) {
@@ -47,26 +49,55 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function showChar() {
-    if (currentIndex < currentChars.length) {
-      targetChar.textContent = currentChars[currentIndex];
+    if (currentCharIndex < currentChars.length) {
+      const char = currentChars[currentCharIndex];
+      targetChar.textContent = char;
       feedback.textContent = "";
+
+      // highlight the target key on virtual keyboard
+      clearHighlights();
+      const keyEl = document.querySelector(`.key[data-key="${char.toUpperCase()}"]`);
+      if (keyEl) keyEl.classList.add("highlight");
     } else {
-      feedback.textContent = "🎉 Well done! Completed.";
-      feedback.className = "text-green-600 font-semibold";
-      nextBtn.classList.remove("hidden"); // show Next
+      // completed one topic → load next
+      currentTopicIndex++;
+      if (currentTopicIndex < topics.length) {
+        loadTopic(topics[currentTopicIndex]);
+      } else {
+        // finished all topics
+        targetChar.textContent = "";
+        feedback.textContent = "🎉 Great job! You finished all topics.";
+        feedback.className = "text-green-600 font-semibold";
+        clearHighlights();
+        currentTopicIndex = 0; // reset if you want to loop
+      }
     }
   }
 
+  function showNextChar() {
+    currentCharIndex++;
+    showChar();
+  }
+
   function checkInput(key) {
-    if (key.toLowerCase() === currentChars[currentIndex]?.toLowerCase()) {
+    const expected = currentChars[currentCharIndex];
+
+    if (!expected) return;
+
+    if (key.toLowerCase() === expected.toLowerCase()) {
       feedback.textContent = "✅ Correct!";
       feedback.className = "text-green-600 font-semibold";
-      currentIndex++;
-      setTimeout(showChar, 500);
+
+      // advance automatically
+      setTimeout(showNextChar, 400);
     } else {
-      feedback.textContent = "⏳ Try again...";
+      feedback.textContent = `⏳ Try again... (${expected})`;
       feedback.className = "text-blue-600 font-semibold";
     }
+  }
+
+  function clearHighlights() {
+    document.querySelectorAll(".key").forEach(el => el.classList.remove("highlight"));
   }
 
   // Virtual keyboard click
@@ -74,7 +105,6 @@ document.addEventListener("DOMContentLoaded", () => {
     virtualKeyboard.addEventListener("click", (e) => {
       if (e.target.classList.contains("key")) {
         const key = e.target.dataset.key;
-        highlightKey(e.target);
         checkInput(key);
       }
     });
@@ -85,15 +115,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const key = e.key.toUpperCase();
     const keyEl = document.querySelector(`.key[data-key="${key}"]`);
     if (keyEl) {
-      highlightKey(keyEl);
       checkInput(key);
     }
   });
-
-  function highlightKey(el) {
-    el.classList.add("active");
-    setTimeout(() => el.classList.remove("active"), 200);
-  }
 
   // Buttons
   if (startBtn) {
@@ -104,27 +128,15 @@ document.addEventListener("DOMContentLoaded", () => {
         virtualKeyboard.classList.remove("hidden");
         startBtn.classList.add("hidden");
         restartBtn.classList.remove("hidden");
-        nextBtn.classList.add("hidden");
         currentTopicIndex = 0;
         await loadTopic(topics[currentTopicIndex]);
       }
     });
   }
 
-  if (nextBtn) {
-    nextBtn.addEventListener("click", async () => {
-      currentTopicIndex++;
-      if (currentTopicIndex >= topics.length) {
-        currentTopicIndex = 0; // loop back
-      }
-      nextBtn.classList.add("hidden");
-      await loadTopic(topics[currentTopicIndex]);
-    });
-  }
-
   if (restartBtn) {
     restartBtn.addEventListener("click", () => {
-      currentIndex = 0;
+      currentCharIndex = 0;
       showChar();
     });
   }
