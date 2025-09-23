@@ -38,7 +38,6 @@ document.addEventListener("DOMContentLoaded", () => {
       const topicData = await res.json();
 
       if (topicData && topicData.content) {
-        // join arrays → flatten → split into characters
         currentChars = topicData.content.join(" ").split("");
         currentCharIndex = 0;
         showChar();
@@ -81,14 +80,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function checkInput(key) {
     const expected = currentChars[currentCharIndex];
-
     if (!expected) return;
 
     if (key.toLowerCase() === expected.toLowerCase()) {
       feedback.textContent = "✅ Correct!";
       feedback.className = "text-green-600 font-semibold";
-
-      // advance automatically
       setTimeout(showNextChar, 400);
     } else {
       feedback.textContent = `⏳ Try again... (${expected})`;
@@ -97,14 +93,23 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function clearHighlights() {
-    document.querySelectorAll(".key").forEach(el => el.classList.remove("highlight"));
+    document.querySelectorAll(".key").forEach(el => el.classList.remove("highlight", "active"));
+  }
+
+  function pressKeyVisual(key) {
+    const keyEl = document.querySelector(`.key[data-key="${key.toUpperCase()}"]`);
+    if (keyEl) {
+      keyEl.classList.add("active");
+      setTimeout(() => keyEl.classList.remove("active"), 200);
+    }
   }
 
   // Virtual keyboard click
   if (virtualKeyboard) {
     virtualKeyboard.addEventListener("click", (e) => {
       if (e.target.classList.contains("key")) {
-        const key = e.target.dataset.key;
+        const key = e.target.dataset.key || e.target.textContent.trim();
+        pressKeyVisual(key);
         checkInput(key);
       }
     });
@@ -113,10 +118,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // Real keyboard input
   document.addEventListener("keydown", (e) => {
     const key = e.key.toUpperCase();
-    const keyEl = document.querySelector(`.key[data-key="${key}"]`);
-    if (keyEl) {
-      checkInput(key);
-    }
+    pressKeyVisual(key);
+    checkInput(key);
   });
 
   // Buttons
