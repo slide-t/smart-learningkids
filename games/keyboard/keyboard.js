@@ -1,3 +1,134 @@
+
+let currentTopicIndex = 0;
+let topics = [];
+let currentChars = [];
+let currentCharIndex = 0;
+
+// Load classes.json first
+async function loadTopics() {
+  try {
+    const response = await fetch("classes.json");
+    const data = await response.json();
+
+    // Flatten all topics into one array
+    topics = [];
+    data.forEach(cls => {
+      cls.terms.forEach(term => {
+        term.topics.forEach(topic => {
+          topics.push(topic); // each topic has { name, link }
+        });
+      });
+    });
+
+    if (topics.length > 0) {
+      loadTopic(currentTopicIndex);
+    }
+  } catch (err) {
+    console.error("Error loading classes.json:", err);
+  }
+}
+
+// Load a specific topic (and fetch its keyboard.json)
+async function loadTopic(index) {
+  if (index < 0 || index >= topics.length) return;
+
+  const topic = topics[index];
+  currentCharIndex = 0;
+
+  // Update title
+  document.getElementById("topicTitle").innerText = `Topic: ${topic.name}`;
+
+  try {
+    const response = await fetch(topic.link); // fetch keyboard.json
+    const kbData = await response.json();
+    currentChars = kbData.characters || []; // expects { "characters": [...] }
+
+    renderNextChar();
+  } catch (err) {
+    console.error("Error loading keyboard.json:", err);
+    document.getElementById("currentChar").innerText = "⚠ Failed to load topic data";
+  }
+}
+
+// Render the next character
+function renderNextChar() {
+  if (currentCharIndex < currentChars.length) {
+    document.getElementById("currentChar").innerText = currentChars[currentCharIndex];
+  } else {
+    document.getElementById("currentChar").innerText = "🎉 Topic Complete!";
+
+    // Auto advance to next topic after short delay
+    setTimeout(() => {
+      if (currentTopicIndex < topics.length - 1) {
+        currentTopicIndex++;
+        loadTopic(currentTopicIndex);
+      } else {
+        document.getElementById("currentChar").innerText = "🏆 All Topics Complete!";
+      }
+    }, 1500); // wait 1.5s before moving on
+  }
+}
+
+// Handle input (physical + virtual)
+function handleInput(char) {
+  if (currentCharIndex < currentChars.length && char === currentChars[currentCharIndex]) {
+    currentCharIndex++;
+    renderNextChar();
+  }
+}
+
+// Virtual keyboard
+function setupVirtualKeyboard() {
+  document.querySelectorAll(".key").forEach(key => {
+    key.addEventListener("click", () => {
+      handleInput(key.innerText);
+    });
+  });
+}
+
+// Physical keyboard
+function setupPhysicalKeyboard() {
+  document.addEventListener("keydown", e => {
+    handleInput(e.key);
+  });
+}
+
+// Navigation
+function setupNavigation() {
+  document.getElementById("nextBtn").addEventListener("click", () => {
+    if (currentTopicIndex < topics.length - 1) {
+      currentTopicIndex++;
+      loadTopic(currentTopicIndex);
+    }
+  });
+
+  document.getElementById("prevBtn").addEventListener("click", () => {
+    if (currentTopicIndex > 0) {
+      currentTopicIndex--;
+      loadTopic(currentTopicIndex);
+    }
+  });
+}
+
+// Init
+function initGame() {
+  setupVirtualKeyboard();
+  setupPhysicalKeyboard();
+  setupNavigation();
+  loadTopics();
+}
+
+document.addEventListener("DOMContentLoaded", initGame);
+
+
+
+
+
+
+
+
+
+/*
 // keyboard.js
 document.addEventListener("DOMContentLoaded", () => {
   const startBtn = document.getElementById("startBtn");
